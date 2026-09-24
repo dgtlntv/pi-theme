@@ -841,6 +841,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 6.2137,
       "passes": true
     },
@@ -852,6 +853,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.0814,
       "passes": true
     },
@@ -863,6 +865,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.1045,
       "passes": true
     },
@@ -874,6 +877,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.1696,
       "passes": true
     },
@@ -885,6 +889,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.174,
       "passes": true
     },
@@ -896,6 +901,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.1713,
       "passes": true
     },
@@ -907,6 +913,7 @@
       "reason": "Tertiary text on the terminal canvas",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 3.75,
       "ratio": 3.7063,
       "passes": true
     },
@@ -918,6 +925,7 @@
       "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 3.75,
       "ratio": 3.0309,
       "passes": true
     },
@@ -929,6 +937,7 @@
       "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 3.75,
       "ratio": 3.0447,
       "passes": true
     },
@@ -940,6 +949,7 @@
       "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 3.75,
       "ratio": 3.0835,
       "passes": true
     },
@@ -951,6 +961,7 @@
       "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 3.75,
       "ratio": 3.0861,
       "passes": true
     },
@@ -962,6 +973,7 @@
       "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 3.75,
       "ratio": 3.0846,
       "passes": true
     },
@@ -973,6 +985,7 @@
       "reason": "Footer cwd and usage/model lines; same level as dim",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 3.5,
       "ratio": 3.0505,
       "passes": true
     },
@@ -2337,6 +2350,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 6.2137,
       "passes": true
     },
@@ -2348,6 +2362,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.0814,
       "passes": true
     },
@@ -2359,6 +2374,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.1045,
       "passes": true
     },
@@ -2370,6 +2386,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.1696,
       "passes": true
     },
@@ -2381,6 +2398,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.174,
       "passes": true
     },
@@ -2392,6 +2410,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.1713,
       "passes": true
     },
@@ -2403,6 +2422,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 6.2137,
       "passes": true
     },
@@ -2414,6 +2434,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.0814,
       "passes": true
     },
@@ -2425,6 +2446,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.1045,
       "passes": true
     },
@@ -2436,6 +2458,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.1696,
       "passes": true
     },
@@ -2447,6 +2470,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.174,
       "passes": true
     },
@@ -2458,6 +2482,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
+      "lightContrast": 5.5,
       "ratio": 5.1713,
       "passes": true
     },

@@ -32,6 +32,13 @@ export interface ContrastRule {
   note?: string;
   /** Targets where this rule applies; defaults to all targets. */
   targets?: Target[];
+  /** Minimum used in light mode instead of `contrast`. Light mode needs different ratios for the same perceived weight. */
+  lightContrast?: number;
+  /**
+   * WCAG contract only: APCA light-mode Lc for the derived APCA contract. Without it,
+   * APCA light minimums are measured from the WCAG light theme.
+   */
+  apcaLightContrast?: number;
   /**
    * APCA only: false skips the spec's low clip, for faint surfaces whose Lc is below
    * the clip (~10) and would otherwise always measure 0.
@@ -80,6 +87,8 @@ export interface Pair {
   via?: string;
   algorithm: Algorithm;
   apcaLowClip: boolean;
+  /** Light-mode minimum; generateTheme() resolves it into `contrast` for light themes. */
+  lightContrast?: number;
 }
 
 export interface CheckedPair extends Pair {

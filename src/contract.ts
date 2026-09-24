@@ -1,7 +1,7 @@
 import { ALGORITHMS, TARGETS, type Algorithm, type ContrastContract, type ContrastRule, type Pair, type Target, type TokenDefinition } from "./types.ts";
 
 const TOKEN_FIELDS = new Set(["type", "origin", "optionalFallback", "proposed"]);
-const RULE_FIELDS = new Set(["kind", "token", "backgrounds", "contrast", "reason", "note", "targets", "apcaLowClip"]);
+const RULE_FIELDS = new Set(["kind", "token", "backgrounds", "contrast", "reason", "note", "targets", "apcaLowClip", "lightContrast", "apcaLightContrast"]);
 
 function assertKnownFields(value: object, allowed: Set<string>, label: string): void {
   for (const field of Object.keys(value)) {
@@ -69,6 +69,12 @@ function validateRule(rule: ContrastRule, index: number, tokens: Record<string, 
   if (rule.contrast !== null && !validContrast(rule.contrast, contractAlgorithm)) {
     throw new Error(`Invalid contrast in rule ${index}`);
   }
+  if (rule.lightContrast !== undefined && !validContrast(rule.lightContrast, contractAlgorithm)) {
+    throw new Error(`Invalid lightContrast in rule ${index}`);
+  }
+  if (rule.apcaLightContrast !== undefined && (contractAlgorithm !== "WCAG2" || !validContrast(rule.apcaLightContrast, "APCA"))) {
+    throw new Error(`apcaLightContrast is only valid in WCAG contracts, as an APCA Lc (rule ${index})`);
+  }
   if (rule.contrast === null && !rule.reason) {
     throw new Error(`Explicit no-requirement rule ${index} needs a reason`);
   }
@@ -107,6 +113,7 @@ export function expandRelationships(contract: ContrastContract): Pair[] {
     reason: rule.reason ?? rule.note ?? null,
     algorithm: contract.algorithm,
     apcaLowClip: rule.apcaLowClip ?? true,
+    ...(rule.lightContrast !== undefined && rule.contrast !== null && { lightContrast: rule.lightContrast }),
   })));
 }
 
@@ -139,6 +146,12 @@ export function pairsForTarget(contract: ContrastContract, target: Target): Pair
     }
   }
   return pairs;
+}
+
+/** Resolve per-mode minimums: light themes use `lightContrast` where a rule sets it. */
+export function pairsForMode(pairs: Pair[], mode: "dark" | "light"): Pair[] {
+  return mode === "dark" ? pairs : pairs.map((pair) =>
+    pair.lightContrast === undefined ? pair : { ...pair, contrast: pair.lightContrast });
 }
 
 export function isVirtualToken(contract: ContrastContract, name: string): boolean {

@@ -498,6 +498,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 70.3337,
       "passes": true
     },
@@ -509,6 +510,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 70.3337,
       "passes": true
     },
@@ -520,6 +522,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 70.4129,
       "passes": true
     },
@@ -531,6 +534,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 70.7699,
       "passes": true
     },
@@ -542,6 +546,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 70.7021,
       "passes": true
     },
@@ -553,6 +558,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 70.3988,
       "passes": true
     },
@@ -564,6 +570,7 @@
       "reason": "Primary reading text; also assistant replies in extended",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 87,
       "ratio": 73.9909,
       "passes": true
     },
@@ -575,6 +582,7 @@
       "reason": "Selected rows are slightly darker; 9 here would push text above the canvas level",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 75,
       "ratio": 70.3337,
       "passes": true
     },
@@ -586,6 +594,7 @@
       "reason": "Assistant replies render in the terminal default in current Pi; same level as text",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 87,
       "ratio": 73.9909,
       "passes": true
     },
@@ -597,6 +606,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.0261,
       "passes": true
     },
@@ -608,6 +618,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.3689,
       "passes": true
     },
@@ -619,6 +630,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.8051,
       "passes": true
     },
@@ -630,6 +642,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.7372,
       "passes": true
     },
@@ -641,6 +654,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4339,
       "passes": true
     },
@@ -652,6 +666,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 47.7645,
       "passes": true
     },
@@ -663,6 +678,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.1073,
       "passes": true
     },
@@ -674,6 +690,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5435,
       "passes": true
     },
@@ -685,6 +702,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4756,
       "passes": true
     },
@@ -696,6 +714,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.1723,
       "passes": true
     },
@@ -707,6 +726,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 48.5149,
       "passes": true
     },
@@ -718,6 +738,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 44.8577,
       "passes": true
     },
@@ -729,6 +750,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 45.2939,
       "passes": true
     },
@@ -740,6 +762,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 45.2261,
       "passes": true
     },
@@ -751,6 +774,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 44.9227,
       "passes": true
     },
@@ -762,6 +786,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 48.2021,
       "passes": true
     },
@@ -773,6 +798,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.5449,
       "passes": true
     },
@@ -784,6 +810,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.9811,
       "passes": true
     },
@@ -795,6 +822,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.9133,
       "passes": true
     },
@@ -806,6 +834,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.61,
       "passes": true
     },
@@ -817,6 +846,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 53.4881,
       "passes": true
     },
@@ -828,6 +858,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 49.8309,
       "passes": true
     },
@@ -839,6 +870,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 49.9102,
       "passes": true
     },
@@ -850,6 +882,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 50.2672,
       "passes": true
     },
@@ -861,6 +894,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 50.1993,
       "passes": true
     },
@@ -872,6 +906,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 49.896,
       "passes": true
     },
@@ -883,6 +918,7 @@
       "reason": "Tertiary text on the terminal canvas",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 25.011,
       "passes": true
     },
@@ -949,6 +985,7 @@
       "reason": "Table grid lines structure cells",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 49,
       "via": "mdTableBorder",
       "ratio": 73.9909,
       "passes": true
@@ -961,6 +998,7 @@
       "reason": "Table grid lines structure cells",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 49,
       "via": "mdTableBorder",
       "ratio": 70.3337,
       "passes": true
@@ -973,6 +1011,7 @@
       "reason": "Table grid lines structure cells",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 49,
       "via": "mdTableBorder",
       "ratio": 70.4129,
       "passes": true
@@ -985,6 +1024,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 68,
       "ratio": 39.3834,
       "passes": true
     },
@@ -996,6 +1036,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 82,
       "ratio": 90.783,
       "passes": true
     },
@@ -1007,6 +1048,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.0388,
       "passes": true
     },
@@ -1018,6 +1060,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.3958,
       "passes": true
     },
@@ -1029,6 +1072,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.3279,
       "passes": true
     },
@@ -1040,6 +1084,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.0246,
       "passes": true
     },
@@ -1051,6 +1096,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4481,
       "passes": true
     },
@@ -1062,6 +1108,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.3689,
       "passes": true
     },
@@ -1073,6 +1120,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.8051,
       "passes": true
     },
@@ -1084,6 +1132,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.7372,
       "passes": true
     },
@@ -1095,6 +1144,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4339,
       "passes": true
     },
@@ -1106,6 +1156,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 81,
       "ratio": 89.284,
       "passes": true
     },
@@ -1117,6 +1168,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 81,
       "ratio": 89.2161,
       "passes": true
     },
@@ -1128,6 +1180,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 81,
       "ratio": 88.9128,
       "passes": true
     },
@@ -1139,6 +1192,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.3958,
       "passes": true
     },
@@ -1150,6 +1204,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.3279,
       "passes": true
     },
@@ -1161,6 +1216,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.0246,
       "passes": true
     },
@@ -1172,6 +1228,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.2021,
       "passes": true
     },
@@ -1183,6 +1240,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6241,
       "passes": true
     },
@@ -1194,6 +1252,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5449,
       "passes": true
     },
@@ -1205,6 +1264,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 48.057,
       "passes": true
     },
@@ -1216,6 +1276,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.479,
       "passes": true
     },
@@ -1227,6 +1288,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.3998,
       "passes": true
     },
@@ -1238,6 +1300,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.1864,
       "passes": true
     },
@@ -1249,6 +1312,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5292,
       "passes": true
     },
@@ -1260,6 +1324,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6084,
       "passes": true
     },
@@ -1271,6 +1336,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.0261,
       "passes": true
     },
@@ -1282,6 +1348,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4481,
       "passes": true
     },
@@ -1293,6 +1360,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.3689,
       "passes": true
     },
@@ -1304,6 +1372,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 47.7645,
       "passes": true
     },
@@ -1315,6 +1384,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.1865,
       "passes": true
     },
@@ -1326,6 +1396,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.1073,
       "passes": true
     },
@@ -1337,6 +1408,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5435,
       "passes": true
     },
@@ -1348,6 +1420,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4756,
       "passes": true
     },
@@ -1359,6 +1432,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.1723,
       "passes": true
     },
@@ -1370,6 +1444,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.1864,
       "passes": true
     },
@@ -1381,6 +1456,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5292,
       "passes": true
     },
@@ -1392,6 +1468,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6084,
       "passes": true
     },
@@ -1403,6 +1480,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.1864,
       "passes": true
     },
@@ -1414,6 +1492,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5292,
       "passes": true
     },
@@ -1425,6 +1504,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6084,
       "passes": true
     },
@@ -1436,6 +1516,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.0261,
       "passes": true
     },
@@ -1447,6 +1528,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.3689,
       "passes": true
     },
@@ -1458,6 +1540,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4481,
       "passes": true
     },
@@ -1469,6 +1552,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 47.7645,
       "passes": true
     },
@@ -1480,6 +1564,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5435,
       "passes": true
     },
@@ -1491,6 +1576,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4756,
       "passes": true
     },
@@ -1502,6 +1588,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.1723,
       "passes": true
     },
@@ -1513,6 +1600,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 46.9597,
       "passes": true
     },
@@ -1524,6 +1612,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 43.7388,
       "passes": true
     },
@@ -1535,6 +1624,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 43.6709,
       "passes": true
     },
@@ -1546,6 +1636,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 43.3676,
       "passes": true
     },
@@ -1557,6 +1648,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 47.6167,
       "passes": true
     },
@@ -1568,6 +1660,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.3958,
       "passes": true
     },
@@ -1579,6 +1672,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.3279,
       "passes": true
     },
@@ -1590,6 +1684,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.0246,
       "passes": true
     },
@@ -1601,6 +1696,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.1864,
       "passes": true
     },
@@ -1612,6 +1708,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5292,
       "passes": true
     },
@@ -1623,6 +1720,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6084,
       "passes": true
     },
@@ -1634,6 +1732,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.9654,
       "passes": true
     },
@@ -1645,6 +1744,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.8975,
       "passes": true
     },
@@ -1656,6 +1756,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5942,
       "passes": true
     },
@@ -1667,6 +1768,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 48.057,
       "passes": true
     },
@@ -1678,6 +1780,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.479,
       "passes": true
     },
@@ -1689,6 +1792,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.3998,
       "passes": true
     },
@@ -1700,6 +1804,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.836,
       "passes": true
     },
@@ -1711,6 +1816,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.7682,
       "passes": true
     },
@@ -1722,6 +1828,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.4648,
       "passes": true
     },
@@ -1733,6 +1840,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.2021,
       "passes": true
     },
@@ -1744,6 +1852,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6241,
       "passes": true
     },
@@ -1755,6 +1864,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5449,
       "passes": true
     },
@@ -1766,6 +1876,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.9811,
       "passes": true
     },
@@ -1777,6 +1888,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.9133,
       "passes": true
     },
@@ -1788,6 +1900,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.61,
       "passes": true
     },
@@ -1799,6 +1912,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.1883,
       "passes": true
     },
@@ -1810,6 +1924,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6103,
       "passes": true
     },
@@ -1821,6 +1936,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5311,
       "passes": true
     },
@@ -1832,6 +1948,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.9673,
       "passes": true
     },
@@ -1843,6 +1960,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.8994,
       "passes": true
     },
@@ -1854,6 +1972,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5961,
       "passes": true
     },
@@ -1865,6 +1984,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.3257,
       "passes": true
     },
@@ -1876,6 +1996,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.7478,
       "passes": true
     },
@@ -1887,6 +2008,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6686,
       "passes": true
     },
@@ -1898,6 +2020,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 45.1048,
       "passes": true
     },
@@ -1909,6 +2032,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 45.0369,
       "passes": true
     },
@@ -1920,6 +2044,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.7336,
       "passes": true
     },
@@ -1931,6 +2056,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 47.7645,
       "passes": true
     },
@@ -1942,6 +2068,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.1865,
       "passes": true
     },
@@ -1953,6 +2080,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.1073,
       "passes": true
     },
@@ -1964,6 +2092,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5435,
       "passes": true
     },
@@ -1975,6 +2104,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4756,
       "passes": true
     },
@@ -1986,6 +2116,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.1723,
       "passes": true
     },
@@ -1997,6 +2128,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.0261,
       "passes": true
     },
@@ -2008,6 +2140,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4481,
       "passes": true
     },
@@ -2019,6 +2152,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.3689,
       "passes": true
     },
@@ -2030,6 +2164,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.8051,
       "passes": true
     },
@@ -2041,6 +2176,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.7372,
       "passes": true
     },
@@ -2052,6 +2188,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.4339,
       "passes": true
     },
@@ -2063,6 +2200,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.1864,
       "passes": true
     },
@@ -2074,6 +2212,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6084,
       "passes": true
     },
@@ -2085,6 +2224,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5292,
       "passes": true
     },
@@ -2096,6 +2236,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.9654,
       "passes": true
     },
@@ -2107,6 +2248,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.8975,
       "passes": true
     },
@@ -2118,6 +2260,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5942,
       "passes": true
     },
@@ -2129,6 +2272,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 48.1864,
       "passes": true
     },
@@ -2140,6 +2284,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.6084,
       "passes": true
     },
@@ -2151,6 +2296,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5292,
       "passes": true
     },
@@ -2162,6 +2308,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.9654,
       "passes": true
     },
@@ -2173,6 +2320,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.8975,
       "passes": true
     },
@@ -2184,6 +2332,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 61,
       "ratio": 44.5942,
       "passes": true
     },
@@ -2195,6 +2344,7 @@
       "reason": "Session-tree compaction label in current Pi; moves to customMessageLabel in extended",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 48.1883,
       "passes": true
     },
@@ -2206,6 +2356,7 @@
       "reason": "Session-tree compaction label in current Pi; moves to customMessageLabel in extended",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 44.5311,
       "passes": true
     },
@@ -2217,6 +2368,7 @@
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 45.5426,
       "passes": true
     },
@@ -2228,6 +2380,7 @@
       "reason": "Bash command header; editor border has a separate non-text rule",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 68,
       "ratio": 39.8731,
       "passes": true
     },
@@ -2239,6 +2392,7 @@
       "reason": "Theme selector and other dialog frames must remain visible against the terminal background",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 68,
       "ratio": 39.2005,
       "passes": true
     },
@@ -2250,6 +2404,7 @@
       "reason": "Same prominence as border, with a different color",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 68,
       "ratio": 48.1883,
       "passes": true
     },
@@ -2261,6 +2416,7 @@
       "reason": "Editor boundary when necessary to locate the input area",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 54,
       "ratio": 25.011,
       "passes": true
     },
@@ -2272,6 +2428,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 53.4881,
       "passes": true
     },
@@ -2283,6 +2440,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 49.8309,
       "passes": true
     },
@@ -2294,6 +2452,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 49.9102,
       "passes": true
     },
@@ -2305,6 +2464,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 50.2672,
       "passes": true
     },
@@ -2316,6 +2476,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 50.1993,
       "passes": true
     },
@@ -2327,6 +2488,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 49.896,
       "passes": true
     },
@@ -2338,6 +2500,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 53.4881,
       "passes": true
     },
@@ -2349,6 +2512,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 49.8309,
       "passes": true
     },
@@ -2360,6 +2524,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 49.9102,
       "passes": true
     },
@@ -2371,6 +2536,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 50.2672,
       "passes": true
     },
@@ -2382,6 +2548,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 50.1993,
       "passes": true
     },
@@ -2393,6 +2560,7 @@
       "reason": "Same level as muted, like Pi's default theme",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 67,
       "ratio": 49.896,
       "passes": true
     },
@@ -2404,6 +2572,7 @@
       "reason": "Faint track, matching Pi's default theme (~1.74)",
       "algorithm": "APCA",
       "apcaLowClip": false,
+      "lightContrast": 32.2,
       "ratio": 12.2206,
       "passes": true
     },
@@ -2415,6 +2584,7 @@
       "reason": "Scrollbar position relative to track",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 41,
       "ratio": 34.8881,
       "passes": true
     },
@@ -2426,6 +2596,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 54,
       "ratio": 25.011,
       "passes": true
     },
@@ -2437,6 +2608,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 57,
       "ratio": 27.0443,
       "passes": true
     },
@@ -2448,6 +2620,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 60,
       "ratio": 30.4633,
       "passes": true
     },
@@ -2459,6 +2632,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 62,
       "ratio": 32.2562,
       "passes": true
     },
@@ -2470,6 +2644,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 66,
       "ratio": 37.4453,
       "passes": true
     },
@@ -2481,6 +2656,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 69,
       "ratio": 42.1969,
       "passes": true
     },
@@ -2492,6 +2668,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 68,
       "ratio": 44.137,
       "passes": true
     },
@@ -2503,6 +2680,7 @@
       "reason": "Editor boundary",
       "algorithm": "APCA",
       "apcaLowClip": true,
+      "lightContrast": 68,
       "ratio": 39.8731,
       "passes": true
     },
@@ -2536,6 +2714,7 @@
       "reason": "Provisional very subtle distinction for the unlabeled user-message bubble",
       "algorithm": "APCA",
       "apcaLowClip": false,
+      "lightContrast": 16,
       "ratio": 4.9283,
       "passes": true
     },
@@ -2547,6 +2726,7 @@
       "reason": "Provisional very subtle tool state fill",
       "algorithm": "APCA",
       "apcaLowClip": false,
+      "lightContrast": 16,
       "ratio": 4.4649,
       "passes": true
     },
@@ -2558,6 +2738,7 @@
       "reason": "Provisional very subtle tool state fill, including success",
       "algorithm": "APCA",
       "apcaLowClip": false,
+      "lightContrast": 16,
       "ratio": 4.537,
       "passes": true
     },
@@ -2569,6 +2750,7 @@
       "reason": "Provisional very subtle tool state fill",
       "algorithm": "APCA",
       "apcaLowClip": false,
+      "lightContrast": 16,
       "ratio": 4.8592,
       "passes": true
     },
@@ -2580,6 +2762,7 @@
       "reason": "Subtle selection fill, like other panels; cursor/bold also mark selection",
       "algorithm": "APCA",
       "apcaLowClip": false,
+      "lightContrast": 16,
       "ratio": 4.9283,
       "passes": true
     },
@@ -2591,6 +2774,7 @@
       "reason": "Close to Pi's default theme (~1.26)",
       "algorithm": "APCA",
       "apcaLowClip": false,
+      "lightContrast": 15.1,
       "ratio": 5.5611,
       "passes": true
     },
@@ -2668,6 +2852,7 @@
       "reason": "Subtle panel, like other message panels",
       "algorithm": "APCA",
       "apcaLowClip": false,
+      "lightContrast": 16,
       "ratio": 4.8442,
       "passes": true
     },

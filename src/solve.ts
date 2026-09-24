@@ -1,4 +1,4 @@
-import { pairsForTarget, validateContract } from "./contract.ts";
+import { pairsForMode, pairsForTarget, validateContract } from "./contract.ts";
 import { validateRecipe } from "./recipe.ts";
 import { buildResult } from "./report.ts";
 import { MAX_RELAXATION, relaxPairs } from "./relax.ts";
@@ -27,7 +27,7 @@ export function generateTheme(
 
   validateContract(contract);
   const roles = validateRecipe(recipe, contract);
-  const pairs = pairsForTarget(contract, target);
+  const pairs = pairsForMode(pairsForTarget(contract, target), mode);
   const solve = (t: number): ColorSelection | undefined => {
     try {
       return selectColors(recipe, contract, roles, mode, target, relaxPairs(pairs, t), overrides);

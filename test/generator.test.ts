@@ -66,7 +66,9 @@ test("dark and light themes derive lightness from contrast, satisfying every req
     assert.equal(report.summary.noRequirement, 16);
     assert.ok(report.checks.every((pair) => pair.passes !== false));
     // Pi's footer renders the cwd and usage/model lines with `dim` on the terminal canvas.
-    for (const [token, minimum] of [["dim", 3], ["muted", 5]] as const) {
+    // Light mode pushes secondary text further (lightContrast).
+    const levels = mode === "dark" ? [["dim", 3], ["muted", 5]] as const : [["dim", 3.75], ["muted", 5.5]] as const;
+    for (const [token, minimum] of levels) {
       const canvasPair = report.checks.find((pair) => pair.token === token && pair.background === "background" && pair.kind === "text");
       assert.equal(canvasPair?.contrast, minimum);
       assert.ok(canvasPair && canvasPair.ratio >= minimum);
@@ -132,7 +134,7 @@ test("extended target adds optional tokens and lifts the dim panel exception", (
     assert.ok(report.checks.every((pair) => pair.passes !== false));
     for (const surface of ["selectedBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"]) {
       const dim = report.checks.find((pair) => pair.token === "dim" && pair.background === surface && pair.kind === "text");
-      assert.equal(dim?.contrast, 3);
+      assert.equal(dim?.contrast, mode === "dark" ? 3 : 3.75);
     }
     // The footer stays more subdued than panel-readable dim text.
     const fromCanvas = (hex: string) => Math.abs(luminance(hex) - luminance(recipe.terminalBackground[mode]));
