@@ -40,7 +40,7 @@
     {"tokens":["warning","mdHeading"],"family":"yellow"},
     {"tokens":["syntaxFunction"],"family":"yellow"},
     {"tokens":["syntaxString"],"family":"orange"},
-    {"tokens":["footerText","mdTableBorder"],"family":"neutral"},
+    {"tokens":["mdTableBorder"],"family":"neutral"},
     {"tokens":["toolArgument"],"family":"blue"},
     {"tokens":["thinkingOff"],"family":"neutral"},
     {"tokens":["thinkingMinimal"],"family":"thinkingSlate"},

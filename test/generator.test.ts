@@ -37,20 +37,19 @@ test("recipe defines a terminal background anchor and a family for every other t
   assert.equal(roles.userMessageBg.family, "blue");
   // Custom-message labels share their panel's hue family.
   assert.equal(roles.customMessageLabel.family, roles.customMessageBg.family);
-  assert.equal(validateContract(contract).required, 197);
+  assert.equal(validateContract(contract).required, 196);
   // Primary reading text: Pi's `text` and the proposed assistant reply body.
   // Primary reading text on the canvas; in current Pi assistant replies use the terminal default.
   assert.deepEqual(contract.relationships.filter((rule) => rule.contrast === 11).map((rule) => rule.token),
     ["text", "terminalForeground"]);
   assert.equal(contract.relationships.find((rule) => rule.token === "border" && rule.kind === "nonText")?.contrast, 4.5);
   const muted = contract.relationships.find((rule) => rule.token === "muted" && rule.kind === "text");
-  const canvasDim = contract.relationships.find((rule) => rule.token === "dim" && rule.kind === "text" && !rule.targets);
-  const panelDim = contract.relationships.find((rule) => rule.token === "dim" && rule.kind === "text" && rule.contrast === null);
+  const dim = contract.relationships.filter((rule) => rule.token === "dim" && rule.kind === "text");
   assert.equal(muted?.contrast, 5);
-  assert.deepEqual(canvasDim?.backgrounds, ["background"]);
-  assert.equal(canvasDim?.contrast, 3);
-  assert.deepEqual(panelDim?.targets, ["current"]);
-  assert.deepEqual(panelDim?.backgrounds, ["selectedBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"]);
+  // One tertiary level everywhere, including the footer; no panel exception.
+  assert.equal(dim.length, 1);
+  assert.deepEqual(dim[0].backgrounds, ["background", "selectedBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"]);
+  assert.equal(dim[0].contrast, 3);
 
   const legacy = structuredClone(recipe);
   Object.assign(legacy.roles[0], { steps: { dark: 800, light: 200 } });
@@ -64,8 +63,8 @@ test("dark and light themes derive lightness from contrast, satisfying every req
     assert.equal(theme.colors.background, undefined);
     assert.equal(report.terminal.background.hex, recipe.terminalBackground[mode]);
     assert.equal(report.terminal.foreground.source, "contrast-derived");
-    assert.equal(report.summary.required, 185);
-    assert.equal(report.summary.noRequirement, 16);
+    assert.equal(report.summary.required, 190);
+    assert.equal(report.summary.noRequirement, 11);
     assert.ok(report.checks.every((pair) => pair.passes !== false));
     // Pi's footer renders the cwd and usage/model lines with `dim` on the terminal canvas.
     // Light mode pushes secondary text further (lightContrast).
@@ -77,7 +76,7 @@ test("dark and light themes derive lightness from contrast, satisfying every req
     }
     for (const surface of ["selectedBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"]) {
       const panelPair = report.checks.find((pair) => pair.token === "dim" && pair.background === surface && pair.kind === "text");
-      assert.equal(panelPair?.contrast, null);
+      assert.equal(panelPair?.contrast, mode === "dark" ? 3 : 3.75);
     }
     const border = report.checks.find((pair) => pair.token === "border" && pair.background === "background");
     assert.equal(border?.contrast, 4.5);
@@ -105,14 +104,14 @@ test("null means no requirement, and the contract validator rejects omitted rela
   const pair = expandRelationships(contract).find((item) =>
     item.token === "searchMatchBg" && item.background === "toolPendingBg");
   assert.equal(pair?.contrast, null);
-  assert.equal(validateContract(contract).noRequirement, 16);
+  assert.equal(validateContract(contract).noRequirement, 11);
 
   const incomplete = structuredClone(contract);
   incomplete.relationships = incomplete.relationships.filter((rule) => rule.token !== "selectedBg");
   assert.throws(() => validateContract(incomplete), /Token selectedBg has no relationships/);
 });
 
-const PROPOSED = ["footerText", "toolArgument", "mdTableBorder"];
+const PROPOSED = ["toolArgument", "mdTableBorder"];
 
 test("current target omits proposed tokens and checks their rules on the fallback Pi renders", () => {
   const pairs = pairsForTarget(contract, "current");
@@ -128,26 +127,23 @@ test("current target omits proposed tokens and checks their rules on the fallbac
   }
 });
 
-test("extended target adds optional tokens and lifts the dim panel exception", () => {
+test("extended target adds the optional tokens", () => {
   for (const mode of ["dark", "light"] as const) {
     const { theme, report } = generateTheme(recipe, contract, mode, {}, "extended");
     assert.equal(theme.name, `generated-pi-extended-${mode}`);
-    assert.equal(Object.keys(theme.colors).length, 59);
+    assert.equal(Object.keys(theme.colors).length, 58);
     assert.ok(report.checks.every((pair) => pair.passes !== false));
     for (const surface of ["selectedBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"]) {
       const dim = report.checks.find((pair) => pair.token === "dim" && pair.background === surface && pair.kind === "text");
       assert.equal(dim?.contrast, mode === "dark" ? 3 : 3.75);
     }
-    // The footer stays more subdued than panel-readable dim text.
-    const fromCanvas = (hex: string) => Math.abs(luminance(hex) - luminance(recipe.terminalBackground[mode]));
-    assert.ok(fromCanvas(theme.colors.footerText) < fromCanvas(theme.colors.dim));
     assert.notEqual(theme.colors.toolArgument, theme.colors.accent);
 
     // Minimums define a hierarchy, so each level must be distinct and ordered.
     const bg = recipe.terminalBackground[mode];
     const ratio = (token: string) => contrast(theme.colors[token], bg);
     const ordered = (tokens: string[]) => tokens.every((token, i) => i === 0 || ratio(tokens[i - 1]) > ratio(token));
-    assert.ok(ordered(["text", "muted", "dim", "footerText"]), "text > muted > dim > footerText");
+    assert.ok(ordered(["text", "muted", "dim"]), "text > muted > dim");
     assert.ok(ordered(["thinkingMax", "thinkingXhigh", "thinkingHigh", "thinkingMedium", "thinkingLow", "thinkingMinimal", "thinkingOff"]));
     assert.ok(ratio("border") > ratio("borderMuted") && Math.abs(ratio("borderAccent") - ratio("border")) < 0.2);
     assert.ok(ratio("scrollbarTrack") < 2 && ratio("scrollbarTrack") >= 1.7);
@@ -156,12 +152,12 @@ test("extended target adds optional tokens and lifts the dim panel exception", (
   // Only the current-target Pi inventory is compared with a Pi checkout.
   const piColors = Object.fromEntries(Object.keys(generateTheme(recipe, contract, "dark").theme.colors).map((key) => [key, 0]));
   assert.doesNotThrow(() => validatePiInventory(contract, piColors));
-  assert.throws(() => validatePiInventory(contract, { ...piColors, footerText: 0 }), /already exist in Pi/);
+  assert.throws(() => validatePiInventory(contract, { ...piColors, toolArgument: 0 }), /already exist in Pi/);
 });
 
 test("proposed tokens and targets are validated", () => {
   const missingFallback = structuredClone(contract);
-  missingFallback.tokens.footerText.proposed = { fallback: "nope" };
+  missingFallback.tokens.toolArgument.proposed = { fallback: "nope" };
   assert.throws(() => validateContract(missingFallback), /needs an existing foreground fallback/);
 
   const badTarget = structuredClone(contract);
@@ -169,7 +165,7 @@ test("proposed tokens and targets are validated", () => {
   assert.throws(() => validateContract(badTarget), /Invalid targets/);
 
   const duplicate = structuredClone(contract);
-  duplicate.relationships.push({ ...duplicate.relationships.find((rule) => rule.token === "footerText")! });
+  duplicate.relationships.push({ ...duplicate.relationships.find((rule) => rule.token === "toolArgument")! });
   assert.throws(() => validateContract(duplicate), /Duplicate relationship/);
 });
 

@@ -4,7 +4,7 @@ Scope: the first-party interactive terminal UI in `../pi` at commit `d201760ff`;
 
 ## Method and levels
 
-WCAG contrast for rendered sRGB: `(Llighter + .05)/(Ldarker + .05)`, with relative luminance `0.2126R + 0.7152G + 0.0722B` after sRGB linearization. The contract defines a **single required ratio (`contrast`) per pair**, interpreted as *at least* that value, or `null` for no requirement. Readable text generally requires ≥4.5; only the `text` role requires ≥7. **Temporary exception:** `dim` requires ≥4.5 only on the terminal canvas, with explicitly unconstrained relationships on selected/custom/tool surfaces to keep the footer visually subdued. `muted` continues to require 4.5 on all its surfaces. Message/tool backgrounds provisionally use 1.2:1 against the canvas. Essential non-text indicators may still require 3; decorative differences have `null`. Meaningful tiny glyphs, code punctuation, and diff `+`/`-` are text.
+WCAG contrast for rendered sRGB: `(Llighter + .05)/(Ldarker + .05)`, with relative luminance `0.2126R + 0.7152G + 0.0722B` after sRGB linearization. The contract defines a **single required ratio (`contrast`) per pair**, interpreted as *at least* that value, or `null` for no requirement. Readable text generally requires ≥4.5; only the `text` role requires ≥7. `dim` is deliberately tertiary at 3:1 everywhere. `muted` continues to require 4.5 on all its surfaces. Message/tool backgrounds provisionally use 1.2:1 against the canvas. Essential non-text indicators may still require 3; decorative differences have `null`. Meaningful tiny glyphs, code punctuation, and diff `+`/`-` are text.
 
 `D` = terminal's **actual** default background (the JSON's virtual semantic token `background`); `F` = terminal's actual default foreground (the JSON's virtual `terminalForeground`); `U=userMessageBg`, `C=customMessageBg`, `P=toolPendingBg`, `G=toolSuccessBg`, `R=toolErrorBg`, `S=selectedBg`, `Q=searchMatchBg`; `T={P,G,R}`. The TUI does not supply D or F. The theme value `""` requests a terminal default, and ANSI 0–15 indices depend on the terminal; these pairs cannot be certified from JSON alone. Validate real colors after quantization, ANSI inverse, and terminal overrides. Text inside a colored box must be checked on that box even when its foreground color is set elsewhere.
 
@@ -20,7 +20,7 @@ In this table, **each surface listed is a distinct pair with the named token**. 
 | `accent` | Active choices/cursors, paths, links, tree roles, mermaid | D, S, T | ≥4.5 everywhere; may still look pale when shared with tool panels |
 | `success`, `error`, `warning` | Status/error/warning copy and labels, including selected tree/session rows and tool results | D, S, T | ≥4.5 throughout |
 | `muted` | Readable descriptions, timestamps, tool hints/output, list descriptions | D, S, C, T | ≥5 (readable secondary text, one level above `dim`) |
-| `dim` | **Footer** cwd and usage/model lines (`footer.ts:227-232`), plus readable hints/metadata, settings descriptions, tree labels and connectors | D, S, C, T when used | ≥3 on D (and on S/C/T in extended); intentionally below the 4.5 readable-text level. Current Pi: no panel requirement |
+| `dim` | **Footer** cwd and usage/model lines (`footer.ts:227-232`), plus hints/metadata, settings descriptions, tree labels and connectors | D, S, C, T when used | ≥3 on D/S/C/T; intentionally below the 4.5 readable-text level |
 | `thinkingText` | Assistant thinking/collapsed text | D | Text ≥4.5 |
 | `userMessageText` | Default user Markdown body | U | ≥10: very prominent, near white in dark mode and near black in light mode |
 | `customMessageText`, `customMessageLabel` | Custom/skill/summary bodies and identifying labels; skill text also appears in a tool renderer | C, T when used | ≥4.5 |
@@ -46,8 +46,8 @@ Minimums alone let the solver place many tokens at the same color, because it pi
 |---|---|---|
 | Primary text | `text` (and assistant replies) | 11 (9 on selected rows) |
 | Secondary text | `muted`, `mdHr`, `mdQuoteBorder` | 5 (≈6.1 in practice: also 5 on panels) |
-| Tertiary text | `dim` | 3 (≈3.7 in practice). Deliberately below readable contrast: key-hint descriptions, tree connectors, settings descriptions |
-| Quietest text | `footerText`, `thinkingText` | `footerText` 3 (canvas only, same level as `dim`); `thinkingText` 4.5 |
+| Tertiary text | `dim` | 3 (≈3.7 in practice: also 3 on panels). Deliberately below readable contrast: footer, key-hint descriptions, tree connectors, settings descriptions |
+| Thinking text | `thinkingText` | 4.5 |
 | Borders | `border` = `borderAccent` > `borderMuted` | 4.5 / 3 |
 | Thinking borders | off → max | 3 → 5 |
 | Faint marks and surfaces | `scrollbarTrack`; panels and selection | 1.7; 1.2 |
@@ -58,21 +58,20 @@ These are proposals for a Pi branch, not current Pi slots. Each is optional; its
 
 | Token | Fallback | Where | Requirement |
 |---|---|---|---|
-| `footerText` | `dim` | Footer cwd and usage/model lines (`footer.ts:224-232`) | ≥4.5 on D, kept at the minimum so the footer stays subdued |
 | `toolArgument` | `accent` | Tool paths, grep/find patterns, compact read labels (`render-utils.ts:84`, `grep.ts:30`, `find.ts:26`, `read.ts:106`) | ≥4.5 on T |
 | `mdTableBorder` | unstyled (terminal default) | Markdown table grid (`markdown.ts` `renderTable`), via a new optional `MarkdownTheme` hook | ≥3 on D/U/C |
 
-With `footerText` split out, `dim` requires ≥4.5 on S/C/T in the extended target. Remappings in the extended target: session-tree compaction label `borderAccent` → `customMessageLabel`; key hints key `dim` → `muted` and description `muted` → `dim`; read-tool expand hint `dim` → `muted`; direct `!` shell output `muted` → `toolOutput` on D; fullscreen-search placeholder and count raw faint → `muted`. List and row text that Pi left unstyled (terminal default) → `text`: select-list and settings labels, model and scoped-model ids, session names, tree entry content, user-message selector, config selector (via a new optional `itemText` in pi-tui's `SelectListTheme`). `borderAccent` is then a border only: &ge;3 on D, like `border` and `borderMuted`.
+Remappings in the extended target: session-tree compaction label `borderAccent` → `customMessageLabel`; key hints key `dim` → `muted` and description `muted` → `dim`; read-tool expand hint `dim` → `muted`; direct `!` shell output `muted` → `toolOutput` on D; fullscreen-search placeholder and count raw faint → `muted`. List and row text that Pi left unstyled (terminal default) → `text`: select-list and settings labels, model and scoped-model ids, session names, tree entry content, user-message selector, config selector (via a new optional `itemText` in pi-tui's `SelectListTheme`). `borderAccent` is then a border only: &ge;3 on D, like `border` and `borderMuted`.
 
 ## Background-to-background requirements — provisional decisions
 
 | Background | TUI use | Recommendation |
 |---|---|---|
 | `userMessageBg` | User chat bubble with no explicit `user:` speaker label; distinct cool-blue family from pending-tool blue | **Provisional U vs D ≥1.2:1**, to avoid an overly strong panel; readable text on U still ≥4.5. This is weaker than WCAG's 3:1 non-text criterion if the bubble is essential for identifying the speaker |
-| `selectedBg` | Selected session/tree rows; fullscreen jump indicator | Subtle fill ≥1.2 vs D, like other panels; cursor/bold also mark selection. Foreground on S ≥4.5 except the current-Pi `dim` exception |
+| `selectedBg` | Selected session/tree rows; fullscreen jump indicator | Subtle fill ≥1.2 vs D, like other panels; cursor/bold also mark selection. Foreground on S ≥4.5 |
 | `searchMatchBg` | Fullscreen matches | ≥1.25 vs D, close to Pi's default (~1.26); no requirement against other surfaces. Other matches are underlined; the current match is reversed and bold. `searchMatchText` on Q ≥4.5 |
 | `customMessageBg` | Custom/skill/summary bubbles with explicit type labels | Subtle panel ≥1.2 vs D, like other message panels; labels carry identity; text on C ≥4.5 |
-| `toolPendingBg`, `toolSuccessBg`, `toolErrorBg` | Tool execution/preview states | **Provisional P/G/R vs D ≥1.2:1**, including success; no pairwise tool-state requirement. Readable foregrounds on P/G/R still ≥4.5 except the explicit `dim` exception. Color-only status remains an accessibility concern |
+| `toolPendingBg`, `toolSuccessBg`, `toolErrorBg` | Tool execution/preview states | **Provisional P/G/R vs D ≥1.2:1**, including success; no pairwise tool-state requirement. Readable foregrounds on P/G/R still ≥4.5. Color-only status remains an accessibility concern |
 
 These **1.2:1 design ratios** are a provisional aesthetic choice, not a claim of WCAG 1.4.11 conformance for essential graphical distinctions. `FooterComponent.render` applies `theme.fg("dim", ...)` to the cwd and stats/model line (`footer.ts:224-232`); context percentage may instead use `warning`/`error` above 70%/90% (`footer.ts:156-163`). The **explicitly unconstrained** `dim` relationships on selected/custom/tool backgrounds let the footer reach ~4.56:1 on D (`#99928b`), below the main `text` at ~7.10:1. The cost is that the same `dim` on a success-tool panel reaches only ~3.80:1: its readable hints may fail WCAG text contrast. Tool-status color alone may also fail WCAG 1.4.1. `customMessageBg` remains decorative; its label carries identity.
 

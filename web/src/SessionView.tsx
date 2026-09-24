@@ -31,7 +31,7 @@ function Transcript({ state }: { state: SessionState }) {
   return (
     <>
       <Header />
-      <UserMessage>Can you explain how theme loading works, and add an optional footerText token?</UserMessage>
+      <UserMessage>Can you explain how theme loading works, and add an optional toolArgument token?</UserMessage>
       <ThinkingBlock collapsed={hideThinking} />
       <AssistantText>
         <Line><Searchable state={state} offset={0} text="Pi loads the theme at startup. Let me read the theme loader first." /></Line>

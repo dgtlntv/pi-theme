@@ -416,13 +416,6 @@
       "saturation": 0.75256,
       "source": "contrast-derived"
     },
-    "footerText": {
-      "family": "neutral",
-      "step": 455,
-      "hex": "#7c838b",
-      "saturation": 0.07888,
-      "source": "contrast-derived"
-    },
     "toolArgument": {
       "family": "blue",
       "step": 585,
@@ -456,7 +449,6 @@
       "105": "#e0e1e2",
       "230": "#bbbfc3",
       "410": "#888f97",
-      "455": "#7c838b",
       "465": "#798189",
       "525": "#6a7279",
       "530": "#697078",
@@ -909,7 +901,7 @@
       "token": "dim",
       "background": "background",
       "contrast": 3.75,
-      "reason": "Tertiary text on the terminal canvas",
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
@@ -921,7 +913,7 @@
       "token": "dim",
       "background": "selectedBg",
       "contrast": 3.75,
-      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
@@ -933,7 +925,7 @@
       "token": "dim",
       "background": "customMessageBg",
       "contrast": 3.75,
-      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
@@ -945,7 +937,7 @@
       "token": "dim",
       "background": "toolPendingBg",
       "contrast": 3.75,
-      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
@@ -957,7 +949,7 @@
       "token": "dim",
       "background": "toolSuccessBg",
       "contrast": 3.75,
-      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
@@ -969,23 +961,11 @@
       "token": "dim",
       "background": "toolErrorBg",
       "contrast": 3.75,
-      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
       "ratio": 3.8638,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "footerText",
-      "background": "background",
-      "contrast": 3.5,
-      "reason": "Footer cwd and usage/model lines; same level as dim",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "lightContrast": 3.5,
-      "ratio": 3.5549,
       "passes": true
     },
     {
@@ -2795,7 +2775,7 @@
     }
   ],
   "summary": {
-    "required": 194,
+    "required": 193,
     "noRequirement": 11
   }
 }

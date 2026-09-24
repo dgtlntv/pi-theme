@@ -7,7 +7,7 @@ export type ThinkingLevel = (typeof THINKING_LEVELS)[number];
 export const thinkingToken = (level: ThinkingLevel) => `thinking${level[0].toUpperCase()}${level.slice(1)}`;
 
 /** Proposed-token spots: extended uses the new token, current uses today's fallback. */
-const FOOTER: TokenRef = { current: "dim", extended: "footerText" };
+const FOOTER: TokenRef = "dim";
 const TOOL_ARG: TokenRef = { current: "accent", extended: "toolArgument" };
 const ASSISTANT: TokenRef = { current: "terminalForeground", extended: "text" };
 const TABLE_BORDER: TokenRef = { current: "terminalForeground", extended: "mdTableBorder" };
@@ -324,7 +324,7 @@ export function EditTool({ state = "success" }: { state?: ToolState }) {
         <>
           <Line><C t="toolDiffContext"> 610 // Resolve fallbacks before loading</C></Line>
           <Line><C t="toolDiffRemoved">-611   return colors.<C t="toolDiffRemoved" inverse>dim</C>;</C></Line>
-          <Line><C t="toolDiffAdded">+611   return colors.<C t="toolDiffAdded" inverse>footerText ?? colors.dim</C>;</C></Line>
+          <Line><C t="toolDiffAdded">+611   return colors.<C t="toolDiffAdded" inverse>toolArgument ?? colors.accent</C>;</C></Line>
           <Line><C t="toolDiffAdded">+612   // new optional token</C></Line>
           <Line><C t="toolDiffContext"> 613 {"}"}</C></Line>
         </>
@@ -483,7 +483,7 @@ export const TREE_ROWS: TreeRow[] = [
   { prefix: "│  ", kind: "model", text: "claude-opus-4-8", active: true },
   { prefix: "│  ", kind: "thinking", text: "high", active: true },
   { prefix: "│  ", kind: "compaction", text: "184", active: true },
-  { prefix: "│  ", kind: "user", text: "Add optional footerText token", active: true, label: "proposal" },
+  { prefix: "│  ", kind: "user", text: "Add optional toolArgument token", active: true, label: "proposal" },
   { prefix: "│  ", kind: "bash", text: "npm run check", active: true },
   { prefix: "│  ", kind: "assistant", text: "Done. npm run check passes.", active: true },
   { prefix: "└⊟ ", kind: "user", text: "What about APCA instead?" },
@@ -538,7 +538,7 @@ export function SessionTree({ selected }: { selected: number }) {
 
 export const SESSIONS = [
   { name: "theme review", age: "2m", count: 142, current: true },
-  { name: "Add footerText token", age: "1h", count: 58, named: true },
+  { name: "Add toolArgument token", age: "1h", count: 58, named: true },
   { name: "APCA derivation", age: "3h", count: 33 },
   { name: "Fix table borders", age: "1d", count: 12 },
   { name: "Ghostty background detection", age: "2d", count: 7 },

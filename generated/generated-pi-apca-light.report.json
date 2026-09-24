@@ -138,9 +138,9 @@
     },
     "dim": {
       "family": "neutral",
-      "step": 470,
-      "hex": "#788088",
-      "saturation": 0.0795,
+      "step": 560,
+      "hex": "#626970",
+      "saturation": 0.07803,
       "source": "contrast-derived"
     },
     "text": {
@@ -436,9 +436,9 @@
       "130": "#d9dadc",
       "230": "#bbbfc3",
       "405": "#899098",
-      "470": "#788088",
       "520": "#6c737b",
       "555": "#636a71",
+      "560": "#626970",
       "585": "#5c6269",
       "610": "#565c62",
       "615": "#555b61",
@@ -920,68 +920,73 @@
       "kind": "text",
       "token": "dim",
       "background": "background",
-      "contrast": 62,
-      "reason": "Tertiary text on the terminal canvas",
+      "contrast": 56,
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 62,
-      "ratio": 62.1364,
+      "lightContrast": 56,
+      "ratio": 72.5823,
       "passes": true
     },
     {
       "kind": "text",
       "token": "dim",
       "background": "selectedBg",
-      "contrast": null,
-      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "contrast": 56,
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "ratio": 46.0302,
-      "passes": null
+      "lightContrast": 56,
+      "ratio": 56.476,
+      "passes": true
     },
     {
       "kind": "text",
       "token": "dim",
       "background": "customMessageBg",
-      "contrast": null,
-      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "contrast": 56,
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "ratio": 46.3221,
-      "passes": null
+      "lightContrast": 56,
+      "ratio": 56.7679,
+      "passes": true
     },
     {
       "kind": "text",
       "token": "dim",
       "background": "toolPendingBg",
-      "contrast": null,
-      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "contrast": 56,
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "ratio": 45.6887,
-      "passes": null
+      "lightContrast": 56,
+      "ratio": 56.1345,
+      "passes": true
     },
     {
       "kind": "text",
       "token": "dim",
       "background": "toolSuccessBg",
-      "contrast": null,
-      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "contrast": 56,
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "ratio": 46.4638,
-      "passes": null
+      "lightContrast": 56,
+      "ratio": 56.9097,
+      "passes": true
     },
     {
       "kind": "text",
       "token": "dim",
       "background": "toolErrorBg",
-      "contrast": null,
-      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "contrast": 56,
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "ratio": 45.861,
-      "passes": null
+      "lightContrast": 56,
+      "ratio": 56.3069,
+      "passes": true
     },
     {
       "kind": "nonText",
@@ -2698,7 +2703,7 @@
       "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "ratio": 62.1364,
+      "ratio": 72.5823,
       "passes": null
     },
     {
@@ -2709,7 +2714,7 @@
       "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "ratio": 46.0302,
+      "ratio": 56.476,
       "passes": null
     },
     {
@@ -2897,7 +2902,7 @@
     }
   ],
   "summary": {
-    "required": 185,
-    "noRequirement": 16
+    "required": 190,
+    "noRequirement": 11
   }
 }
