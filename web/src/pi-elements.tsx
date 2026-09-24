@@ -45,11 +45,11 @@ const COMPACT_HINTS = (
   </>
 );
 
-/** Startup header. Current Pi: "pi" in accent; the proposal: logo with name and version. */
+/** Startup header. Current Pi: "pi" in accent; the proposal: logo with the version. */
 export function Header({ expanded }: { expanded?: boolean }) {
   const proposal = useTarget() === "extended";
   const version = proposal
-    ? <><C t="text" bold>pi</C><C t="dim"> v0.87.1</C></>
+    ? <C t="dim">v0.87.1</C>
     : <><C t="accent" bold>pi</C><C t="dim"> v0.87.1</C></>;
   return (
     <>

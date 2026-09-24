@@ -35,7 +35,7 @@ export function CatalogView() {
         <Line><PiLogoRow row={1} /></Line>
       </Section>
 
-      <Section title="Startup header and loaded resources" note="The proposal shows the logo with the name and version.">
+      <Section title="Startup header and loaded resources" note="The proposal shows the logo with the version.">
         <Header />
         <Line />
         <Header expanded />
