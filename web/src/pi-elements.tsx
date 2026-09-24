@@ -59,7 +59,11 @@ export function Header({ expanded }: { expanded?: boolean }) {
           <Line><PiLogoRow row={1} />{expanded ? null : <> {COMPACT_HINTS}</>}</Line>
         </>
       ) : (
-        <Line>{version}</Line>
+        <>
+          <Line>{version}</Line>
+          {/* The logo takes a second row; pad here so later content lines up in the wiper. */}
+          {expanded && <Line />}
+        </>
       )}
       {expanded ? (
         <>
