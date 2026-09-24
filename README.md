@@ -13,7 +13,10 @@ npm run generate                # current + extended themes, dark + light, with 
 ```sh
 npm run web          # dev server with hot reload
 npm run web:build    # single self-contained file: web/dist/index.html
+npm run web:artifact # multi-file build (web/dist-artifact/) for the Radius artifact
 ```
+
+Published (organization only): https://radius.earendil.com/artifact/01m39x8k02f4t9mzehw18y4zt6 (republish from `npm run web:artifact` as a new version of that artifact).
 
 A small Vite + React app (`web/`) that runs the real generator in the browser, so it always matches `npm run generate`. It has two views: a scrollable **catalog** of every reviewable Pi element (messages, Markdown, syntax, all tools in each state, direct shell commands, editor thinking borders, footer states, selectors, settings, session tree, fullscreen search, scrollbar), both inside a terminal-style viewport that scrolls in whole rows and draws Pi's fullscreen scrollbar (`│` track, `┃` thumb, `█` while scrolling) instead of the browser's; and an interactive **session** (shift+tab thinking levels, ctrl+o expand, ctrl+t thinking text, `/settings` `/tree` `/resume` `/model` via slash commands, ctrl+l model, ctrl+f search, escape to close; enter does not send). Controls: terminal background picker (dark or light theme chosen automatically by which of white or black text has more APCA contrast), reset to the dark and light defaults, WCAG/APCA, **Pi current** (Pi's built-in `dark.json`/`light.json` with today's token usage, copied into `web/src/pi-themes/` by `npm run web:pi-themes`) vs **Proposed** (our generated theme with the new tokens and remappings), an optional wiper to compare the two, and an advanced panel for family hue and saturation. The browser-safe generator core imports no Node APIs; file-writing CLIs live in `src/generate.ts` and `src/derive-apca-cli.ts`.
 
