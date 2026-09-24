@@ -2,7 +2,7 @@ import { pairsForMode, pairsForTarget, validateContract } from "./contract.ts";
 import { validateRecipe } from "./recipe.ts";
 import { buildResult } from "./report.ts";
 import { MAX_RELAXATION, relaxPairs } from "./relax.ts";
-import { selectColors, type ColorSelection, type TerminalOverrides } from "./selection.ts";
+import { selectColors, type ColorSelection, type SearchStrategy, type TerminalOverrides } from "./selection.ts";
 import { TARGETS, type ContrastContract, type GenerationResult, type Mode, type Target, type ThemeRecipe } from "./types.ts";
 
 export { validateRecipe } from "./recipe.ts";
@@ -21,6 +21,7 @@ export function generateTheme(
   mode: Mode,
   overrides: TerminalOverrides = {},
   target: Target = "current",
+  search: SearchStrategy = "bisect",
 ): GenerationResult {
   if (mode !== "dark" && mode !== "light") throw new Error(`Unknown mode ${mode}`);
   if (!TARGETS.includes(target)) throw new Error(`Unknown target ${target}`);
@@ -30,7 +31,7 @@ export function generateTheme(
   const pairs = pairsForMode(pairsForTarget(contract, target), mode);
   const solve = (t: number): ColorSelection | undefined => {
     try {
-      return selectColors(recipe, contract, roles, mode, target, relaxPairs(pairs, t), overrides);
+      return selectColors(recipe, contract, roles, mode, target, relaxPairs(pairs, t), overrides, search);
     } catch (error) {
       if (error instanceof Error && error.message.startsWith("No feasible")) return undefined;
       throw error;

@@ -12,6 +12,13 @@ const TOLERANCE = 1e-9;
 
 type RequiredPair = Pair & { contrast: number };
 
+/**
+ * `bisect` (default) binary-searches each token's steps; `linear` checks every step.
+ * Both return the same colors when feasibility grows monotonically away from the
+ * canvas, which the tests verify across many backgrounds.
+ */
+export type SearchStrategy = "bisect" | "linear";
+
 export interface TerminalOverrides {
   background?: string;
   terminalForeground?: string;
@@ -25,6 +32,7 @@ export interface ColorSelection {
 interface SelectionContext {
   roles: Record<string, RecipeRole>;
   mode: Mode;
+  search: SearchStrategy;
   pairs: Pair[];
   candidates: Record<string, PaletteColor[]>;
   result: ColorSelection;
@@ -70,40 +78,74 @@ function candidateScore(
   return requirements.length ? excess / requirements.length : 0;
 }
 
+interface Scored { color: PaletteColor; score: number; distance: number }
+
 function chooseColor(token: string, context: SelectionContext): void {
-  const { roles, mode, pairs, candidates, result } = context;
+  const { roles, mode, pairs, candidates, result, search } = context;
   const requirements = applicablePairs(token, pairs, result.colors);
   const canvas = result.colors.background;
   const canvasLuminance = luminance(canvas);
-  let best: { color: PaletteColor; score: number; distance: number } | undefined;
+  const isSurface = BACKGROUND_ORDER.includes(token);
+  const canvasRequirement = requirements.find((pair) =>
+    pair.token === token && pair.background === "background");
+  const canvasAlgorithm = canvasRequirement?.algorithm ?? "WCAG2";
 
-  for (const candidate of candidates[token]) {
-    const brightness = luminance(candidate.hex) - canvasLuminance;
-    if (mode === "dark" ? brightness < -TOLERANCE : brightness > TOLERANCE) continue;
-    const excessScore = candidateScore(token, candidate, requirements, result.colors);
-    if (excessScore === null) continue;
+  // Candidates on the allowed side of the canvas (lighter in dark mode, darker in
+  // light mode), ordered from the canvas outward.
+  const ordered = candidates[token]
+    .map((color) => ({ color, brightness: luminance(color.hex) - canvasLuminance }))
+    .filter(({ brightness }) => (mode === "dark" ? brightness >= -TOLERANCE : brightness <= TOLERANCE))
+    .map(({ color, brightness }) => ({ color, distance: Math.abs(brightness) }))
+    .sort((a, b) => a.distance - b.distance || a.color.step - b.color.step);
 
-    const isSurface = BACKGROUND_ORDER.includes(token);
-    const canvasRequirement = requirements.find((pair) =>
-      pair.token === token && pair.background === "background");
+  const evaluate = ({ color, distance }: { color: PaletteColor; distance: number }): Scored | undefined => {
+    // A null canvas relationship means no visibility guarantee. Still choose
+    // a distinct hex, rather than returning the terminal color verbatim.
+    if (isSurface && !canvasRequirement && color.hex === canvas) return undefined;
+    const excessScore = candidateScore(token, color, requirements, result.colors);
+    if (excessScore === null) return undefined;
     // Surface placement is controlled by its relationship to the canvas.
     // Other constraints (such as measured terminal text) restrict viable steps,
     // but must not drag an unconstrained surface away from the canvas.
-    const canvasAlgorithm = canvasRequirement?.algorithm ?? "WCAG2";
-    const canvasRatio = contrast(candidate.hex, canvas, canvasAlgorithm, canvasRequirement?.apcaLowClip);
     const score = isSurface
-      ? excessOver(canvasRatio, canvasRequirement?.contrast ?? 1, canvasAlgorithm)
+      ? excessOver(contrast(color.hex, canvas, canvasAlgorithm, canvasRequirement?.apcaLowClip), canvasRequirement?.contrast ?? 1, canvasAlgorithm)
       : excessScore;
+    return { color, score, distance };
+  };
 
-    // A null canvas relationship means no visibility guarantee. Still choose
-    // a distinct hex, rather than returning the terminal color verbatim.
-    if (isSurface && !canvasRequirement && candidate.hex === canvas) continue;
-    const distance = Math.abs(brightness);
-    if (!best || score < best.score - TOLERANCE ||
-        (Math.abs(score - best.score) <= TOLERANCE && distance < best.distance - TOLERANCE) ||
-        (Math.abs(score - best.score) <= TOLERANCE && Math.abs(distance - best.distance) <= TOLERANCE
-          && candidate.step < best.color.step)) {
-      best = { color: candidate, score, distance };
+  let best: Scored | undefined;
+  if (search === "bisect") {
+    // Contrast against a color at or behind the canvas (relative to the search
+    // direction) only grows as a candidate moves away from the canvas, so those
+    // requirements are monotonic: bisect for the first candidate meeting them.
+    // Requirements against colors farther out (e.g. a pinned white foreground that a
+    // panel must contrast with) can fail again far away, so scan forward from there
+    // for the first candidate meeting everything. That scan is usually one step.
+    const side = mode === "dark" ? 1 : -1;
+    const otherOffset = (pair: RequiredPair) =>
+      side * (luminance(result.colors[pair.token === token ? pair.background : pair.token]) - canvasLuminance);
+    const monotonic = requirements.filter((pair) => otherOffset(pair) <= TOLERANCE);
+    const meetsMonotonic = ({ color }: { color: PaletteColor }) =>
+      !(isSurface && !canvasRequirement && color.hex === canvas)
+      && candidateScore(token, color, monotonic, result.colors) !== null;
+    let low = 0;
+    let high = ordered.length;
+    while (low < high) {
+      const middle = (low + high) >> 1;
+      if (meetsMonotonic(ordered[middle])) high = middle;
+      else low = middle + 1;
+    }
+    for (let index = low; index < ordered.length && !best; index++) best = evaluate(ordered[index]);
+  } else {
+    for (const candidate of ordered) {
+      const scored = evaluate(candidate);
+      if (!scored) continue;
+      if (!best || scored.score < best.score - TOLERANCE ||
+          (Math.abs(scored.score - best.score) <= TOLERANCE && scored.distance < best.distance - TOLERANCE) ||
+          (Math.abs(scored.score - best.score) <= TOLERANCE && Math.abs(scored.distance - best.distance) <= TOLERANCE
+            && scored.color.step < best.color.step)) {
+        best = scored;
+      }
     }
   }
 
@@ -131,6 +173,7 @@ export function selectColors(
   target: Target,
   pairs: Pair[],
   overrides: TerminalOverrides,
+  search: SearchStrategy = "bisect",
 ): ColorSelection {
   const result: ColorSelection = { colors: {}, selected: {} };
   const anchor = normalizeHex(overrides.background ?? recipe.terminalBackground[mode]);
@@ -144,7 +187,7 @@ export function selectColors(
     result.selected.terminalForeground = { family: null, step: null, hex: foreground, source: "terminal-override" };
   }
 
-  const context: SelectionContext = { roles, mode, pairs, candidates: buildCandidates(recipe, roles), result };
+  const context: SelectionContext = { roles, mode, search, pairs, candidates: buildCandidates(recipe, roles), result };
   for (const token of BACKGROUND_ORDER) chooseColor(token, context);
 
   if (overrides.terminalForeground === undefined) chooseColor("terminalForeground", context);
