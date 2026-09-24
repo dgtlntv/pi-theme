@@ -19,463 +19,395 @@
     },
     "userMessageBg": {
       "family": "blue",
-      "step": 755,
-      "hex": "#223d4a",
-      "saturation": 0.40793,
+      "step": 756.3,
+      "hex": "#223c49",
+      "saturation": 0.40588,
       "source": "contrast-derived"
     },
     "toolPendingBg": {
       "family": "neutral",
-      "step": 755,
+      "step": 756.3,
       "hex": "#36393c",
-      "saturation": 0.05186,
+      "saturation": 0.05164,
       "source": "contrast-derived"
     },
     "toolSuccessBg": {
       "family": "green",
-      "step": 760,
+      "step": 760.7,
       "hex": "#233e2f",
-      "saturation": 0.44116,
+      "saturation": 0.43992,
       "source": "contrast-derived"
     },
     "toolErrorBg": {
       "family": "red",
-      "step": 745,
+      "step": 746.2,
       "hex": "#5d282a",
-      "saturation": 0.55836,
+      "saturation": 0.55555,
       "source": "contrast-derived"
     },
     "selectedBg": {
       "family": "blue",
-      "step": 755,
-      "hex": "#223d4a",
-      "saturation": 0.40793,
+      "step": 756.3,
+      "hex": "#223c49",
+      "saturation": 0.40588,
       "source": "contrast-derived"
     },
     "customMessageBg": {
       "family": "purple",
-      "step": 745,
-      "hex": "#443158",
-      "saturation": 0.43538,
+      "step": 748.5,
+      "hex": "#423156",
+      "saturation": 0.42949,
       "source": "contrast-derived"
     },
     "searchMatchBg": {
       "family": "blue",
-      "step": 745,
+      "step": 744.9,
       "hex": "#233f4d",
-      "saturation": 0.4242,
+      "saturation": 0.42438,
       "source": "contrast-derived"
     },
     "accent": {
       "family": "violet",
-      "step": 325,
-      "hex": "#a89ad7",
-      "saturation": 0.49948,
+      "step": 328.4,
+      "hex": "#a899d7",
+      "saturation": 0.50288,
       "source": "contrast-derived"
     },
     "border": {
       "family": "blue",
-      "step": 400,
-      "hex": "#4c9bc1",
-      "saturation": 0.62843,
+      "step": 394.9,
+      "hex": "#4e9dc2",
+      "saturation": 0.62326,
       "source": "contrast-derived"
     },
     "borderAccent": {
       "family": "cyan",
-      "step": 345,
-      "hex": "#56b1ab",
-      "saturation": 0.61057,
+      "step": 349.9,
+      "hex": "#54b0aa",
+      "saturation": 0.61789,
       "source": "contrast-derived"
     },
     "borderMuted": {
       "family": "neutral",
-      "step": 510,
+      "step": 510.9,
       "hex": "#6e757d",
-      "saturation": 0.07994,
+      "saturation": 0.07993,
       "source": "contrast-derived"
     },
     "success": {
       "family": "green",
-      "step": 345,
-      "hex": "#61b387",
-      "saturation": 0.62653,
+      "step": 351.2,
+      "hex": "#5eb285",
+      "saturation": 0.63614,
       "source": "contrast-derived"
     },
     "error": {
       "family": "red",
-      "step": 315,
-      "hex": "#ea8787",
-      "saturation": 0.69286,
+      "step": 318.4,
+      "hex": "#ea8586",
+      "saturation": 0.70018,
       "source": "contrast-derived"
     },
     "warning": {
       "family": "yellow",
-      "step": 330,
-      "hex": "#ce9a22",
-      "saturation": 0.88064,
+      "step": 333.3,
+      "hex": "#cd9920",
+      "saturation": 0.8847,
       "source": "contrast-derived"
     },
     "muted": {
       "family": "neutral",
-      "step": 300,
-      "hex": "#a7acb2",
-      "saturation": 0.061,
+      "step": 305.1,
+      "hex": "#a5abb1",
+      "saturation": 0.06182,
       "source": "contrast-derived"
     },
     "dim": {
       "family": "neutral",
-      "step": 450,
-      "hex": "#7d858d",
-      "saturation": 0.07863,
+      "step": 458.2,
+      "hex": "#7b838b",
+      "saturation": 0.07904,
       "source": "contrast-derived"
     },
     "text": {
       "family": "neutral",
-      "step": 90,
+      "step": 92.8,
       "hex": "#e4e5e6",
-      "saturation": 0.02869,
+      "saturation": 0.02903,
       "source": "contrast-derived"
     },
     "thinkingText": {
       "family": "neutral",
-      "step": 395,
-      "hex": "#8c939b",
-      "saturation": 0.07414,
+      "step": 395.4,
+      "hex": "#8c939a",
+      "saturation": 0.07418,
       "source": "contrast-derived"
     },
     "scrollbarTrack": {
       "family": "neutral",
-      "step": 660,
+      "step": 660.4,
       "hex": "#4b5055",
-      "saturation": 0.06715,
+      "saturation": 0.06709,
       "source": "contrast-derived"
     },
     "searchMatchText": {
       "family": "neutral",
-      "step": 320,
-      "hex": "#a1a7ad",
-      "saturation": 0.06416,
+      "step": 324.1,
+      "hex": "#a0a6ac",
+      "saturation": 0.06478,
       "source": "contrast-derived"
     },
     "userMessageText": {
       "family": "neutral",
-      "step": 50,
-      "hex": "#f0f1f1",
-      "saturation": 0.02434,
+      "step": 59.1,
+      "hex": "#eeeeef",
+      "saturation": 0.02527,
       "source": "contrast-derived"
     },
     "customMessageText": {
       "family": "neutral",
-      "step": 335,
-      "hex": "#9da3a9",
-      "saturation": 0.06642,
+      "step": 338.8,
+      "hex": "#9ca2a8",
+      "saturation": 0.06698,
       "source": "contrast-derived"
     },
     "customMessageLabel": {
       "family": "purple",
-      "step": 320,
-      "hex": "#b596d9",
-      "saturation": 0.54156,
+      "step": 324,
+      "hex": "#b494d9",
+      "saturation": 0.54762,
       "source": "contrast-derived"
     },
     "toolTitle": {
       "family": "neutral",
-      "step": 55,
-      "hex": "#efeff0",
-      "saturation": 0.02484,
+      "step": 59.8,
+      "hex": "#edeeef",
+      "saturation": 0.02534,
       "source": "contrast-derived"
     },
     "toolOutput": {
       "family": "neutral",
-      "step": 335,
-      "hex": "#9da3a9",
-      "saturation": 0.06642,
+      "step": 338.8,
+      "hex": "#9ca2a8",
+      "saturation": 0.06698,
       "source": "contrast-derived"
     },
     "mdHeading": {
       "family": "yellow",
-      "step": 330,
-      "hex": "#ce9a22",
-      "saturation": 0.88064,
+      "step": 333.3,
+      "hex": "#cd9920",
+      "saturation": 0.8847,
       "source": "contrast-derived"
     },
     "mdLink": {
       "family": "blue",
-      "step": 340,
-      "hex": "#64abce",
-      "saturation": 0.55578,
+      "step": 344.3,
+      "hex": "#62aacd",
+      "saturation": 0.56177,
       "source": "contrast-derived"
     },
     "mdLinkUrl": {
       "family": "neutral",
-      "step": 330,
-      "hex": "#9ea4ab",
-      "saturation": 0.06568,
+      "step": 337.5,
+      "hex": "#9ca2a9",
+      "saturation": 0.06678,
       "source": "contrast-derived"
     },
     "mdCode": {
       "family": "violet",
-      "step": 325,
-      "hex": "#a89ad7",
-      "saturation": 0.49948,
+      "step": 328.4,
+      "hex": "#a899d7",
+      "saturation": 0.50288,
       "source": "contrast-derived"
     },
     "mdCodeBlock": {
       "family": "green",
-      "step": 345,
-      "hex": "#61b387",
-      "saturation": 0.62653,
+      "step": 351.2,
+      "hex": "#5eb285",
+      "saturation": 0.63614,
       "source": "contrast-derived"
     },
     "mdCodeBlockBorder": {
       "family": "neutral",
-      "step": 330,
-      "hex": "#9ea4ab",
-      "saturation": 0.06568,
+      "step": 337.5,
+      "hex": "#9ca2a9",
+      "saturation": 0.06678,
       "source": "contrast-derived"
     },
     "mdQuote": {
       "family": "neutral",
-      "step": 330,
-      "hex": "#9ea4ab",
-      "saturation": 0.06568,
+      "step": 337.5,
+      "hex": "#9ca2a9",
+      "saturation": 0.06678,
       "source": "contrast-derived"
     },
     "mdQuoteBorder": {
       "family": "neutral",
-      "step": 300,
-      "hex": "#a7acb2",
-      "saturation": 0.061,
+      "step": 305.1,
+      "hex": "#a5abb1",
+      "saturation": 0.06182,
       "source": "contrast-derived"
     },
     "mdHr": {
       "family": "neutral",
-      "step": 300,
-      "hex": "#a7acb2",
-      "saturation": 0.061,
+      "step": 305.1,
+      "hex": "#a5abb1",
+      "saturation": 0.06182,
       "source": "contrast-derived"
     },
     "mdListBullet": {
       "family": "violet",
-      "step": 325,
-      "hex": "#a89ad7",
-      "saturation": 0.49948,
+      "step": 328.4,
+      "hex": "#a899d7",
+      "saturation": 0.50288,
       "source": "contrast-derived"
     },
     "toolDiffAdded": {
       "family": "green",
-      "step": 350,
-      "hex": "#5fb286",
-      "saturation": 0.63426,
+      "step": 352.3,
+      "hex": "#5eb285",
+      "saturation": 0.63782,
       "source": "contrast-derived"
     },
     "toolDiffRemoved": {
       "family": "red",
-      "step": 320,
+      "step": 319.5,
       "hex": "#ea8485",
-      "saturation": 0.70346,
+      "saturation": 0.70251,
       "source": "contrast-derived"
     },
     "toolDiffContext": {
       "family": "neutral",
-      "step": 335,
-      "hex": "#9da3a9",
-      "saturation": 0.06642,
+      "step": 338.8,
+      "hex": "#9ca2a8",
+      "saturation": 0.06698,
       "source": "contrast-derived"
     },
     "syntaxComment": {
       "family": "neutral",
-      "step": 330,
-      "hex": "#9ea4ab",
-      "saturation": 0.06568,
+      "step": 337.5,
+      "hex": "#9ca2a9",
+      "saturation": 0.06678,
       "source": "contrast-derived"
     },
     "syntaxKeyword": {
       "family": "blue",
-      "step": 340,
-      "hex": "#64abce",
-      "saturation": 0.55578,
+      "step": 344.3,
+      "hex": "#62aacd",
+      "saturation": 0.56177,
       "source": "contrast-derived"
     },
     "syntaxFunction": {
       "family": "yellow",
-      "step": 330,
-      "hex": "#ce9a22",
-      "saturation": 0.88064,
+      "step": 333.3,
+      "hex": "#cd9920",
+      "saturation": 0.8847,
       "source": "contrast-derived"
     },
     "syntaxVariable": {
       "family": "cyan",
-      "step": 345,
-      "hex": "#56b1ab",
-      "saturation": 0.61057,
+      "step": 349.9,
+      "hex": "#54b0aa",
+      "saturation": 0.61789,
       "source": "contrast-derived"
     },
     "syntaxString": {
       "family": "orange",
-      "step": 320,
-      "hex": "#df905f",
-      "saturation": 0.65723,
+      "step": 326.7,
+      "hex": "#df8e5b",
+      "saturation": 0.66967,
       "source": "contrast-derived"
     },
     "syntaxNumber": {
       "family": "green",
-      "step": 345,
-      "hex": "#61b387",
-      "saturation": 0.62653,
+      "step": 351.2,
+      "hex": "#5eb285",
+      "saturation": 0.63614,
       "source": "contrast-derived"
     },
     "syntaxType": {
       "family": "violet",
-      "step": 325,
-      "hex": "#a89ad7",
-      "saturation": 0.49948,
+      "step": 328.4,
+      "hex": "#a899d7",
+      "saturation": 0.50288,
       "source": "contrast-derived"
     },
     "syntaxOperator": {
       "family": "neutral",
-      "step": 330,
-      "hex": "#9ea4ab",
-      "saturation": 0.06568,
+      "step": 337.5,
+      "hex": "#9ca2a9",
+      "saturation": 0.06678,
       "source": "contrast-derived"
     },
     "syntaxPunctuation": {
       "family": "neutral",
-      "step": 330,
-      "hex": "#9ea4ab",
-      "saturation": 0.06568,
+      "step": 337.5,
+      "hex": "#9ca2a9",
+      "saturation": 0.06678,
       "source": "contrast-derived"
     },
     "thinkingOff": {
       "family": "neutral",
-      "step": 510,
+      "step": 510.9,
       "hex": "#6e757d",
-      "saturation": 0.07994,
+      "saturation": 0.07993,
       "source": "contrast-derived"
     },
     "thinkingMinimal": {
       "family": "thinkingSlate",
-      "step": 490,
-      "hex": "#667e8b",
+      "step": 490.1,
+      "hex": "#667e8a",
       "saturation": 0.19989,
       "source": "contrast-derived"
     },
     "thinkingLow": {
       "family": "thinkingBlue",
-      "step": 470,
-      "hex": "#5286a1",
-      "saturation": 0.44793,
+      "step": 473,
+      "hex": "#5186a0",
+      "saturation": 0.44832,
       "source": "contrast-derived"
     },
     "thinkingMedium": {
       "family": "thinkingPeriwinkle",
-      "step": 445,
-      "hex": "#5e84cb",
-      "saturation": 0.5917,
+      "step": 446.5,
+      "hex": "#5e84ca",
+      "saturation": 0.59214,
       "source": "contrast-derived"
     },
     "thinkingHigh": {
       "family": "thinkingViolet",
-      "step": 395,
+      "step": 394.5,
       "hex": "#9a7ce5",
-      "saturation": 0.71583,
+      "saturation": 0.71551,
       "source": "contrast-derived"
     },
     "thinkingXhigh": {
       "family": "thinkingMagenta",
-      "step": 350,
+      "step": 350.8,
       "hex": "#dc6cd4",
-      "saturation": 0.78332,
+      "saturation": 0.78393,
       "source": "contrast-derived"
     },
     "thinkingMax": {
       "family": "thinkingRed",
-      "step": 335,
-      "hex": "#fe6b72",
-      "saturation": 0.98868,
+      "step": 336.2,
+      "hex": "#fe6a71",
+      "saturation": 0.98883,
       "source": "contrast-derived"
     },
     "bashMode": {
       "family": "green",
-      "step": 410,
+      "step": 408.5,
       "hex": "#4aa375",
-      "saturation": 0.71211,
+      "saturation": 0.71058,
       "source": "contrast-derived"
     },
     "scrollbarThumb": {
       "family": "neutral",
-      "step": 350,
-      "hex": "#989fa6",
-      "saturation": 0.06857,
+      "step": 353.7,
+      "hex": "#979ea5",
+      "saturation": 0.06907,
       "source": "contrast-derived"
-    }
-  },
-  "palette": {
-    "blue": {
-      "340": "#64abce",
-      "400": "#4c9bc1",
-      "745": "#233f4d",
-      "755": "#223d4a"
-    },
-    "neutral": {
-      "50": "#f0f1f1",
-      "55": "#efeff0",
-      "90": "#e4e5e6",
-      "300": "#a7acb2",
-      "320": "#a1a7ad",
-      "330": "#9ea4ab",
-      "335": "#9da3a9",
-      "350": "#989fa6",
-      "395": "#8c939b",
-      "450": "#7d858d",
-      "510": "#6e757d",
-      "660": "#4b5055",
-      "755": "#36393c"
-    },
-    "green": {
-      "345": "#61b387",
-      "350": "#5fb286",
-      "410": "#4aa375",
-      "760": "#233e2f"
-    },
-    "red": {
-      "315": "#ea8787",
-      "320": "#ea8485",
-      "745": "#5d282a"
-    },
-    "purple": {
-      "320": "#b596d9",
-      "745": "#443158"
-    },
-    "violet": {
-      "325": "#a89ad7"
-    },
-    "cyan": {
-      "345": "#56b1ab"
-    },
-    "yellow": {
-      "330": "#ce9a22"
-    },
-    "orange": {
-      "320": "#df905f"
-    },
-    "thinkingSlate": {
-      "490": "#667e8b"
-    },
-    "thinkingBlue": {
-      "470": "#5286a1"
-    },
-    "thinkingPeriwinkle": {
-      "445": "#5e84cb"
-    },
-    "thinkingViolet": {
-      "395": "#9a7ce5"
-    },
-    "thinkingMagenta": {
-      "350": "#dc6cd4"
-    },
-    "thinkingRed": {
-      "335": "#fe6b72"
     }
   },
   "checks": [
@@ -498,7 +430,7 @@
       "reason": "Selected rows are slightly darker; the canvas level here would push text above it",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 9.0762,
+      "ratio": 9.1957,
       "passes": true
     },
     {
@@ -509,7 +441,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.512,
+      "ratio": 5.4682,
       "passes": true
     },
     {
@@ -520,7 +452,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5075,
+      "ratio": 4.5305,
       "passes": true
     },
     {
@@ -531,7 +463,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5749,
+      "ratio": 4.5385,
       "passes": true
     },
     {
@@ -542,7 +474,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5897,
+      "ratio": 4.5532,
       "passes": true
     },
     {
@@ -553,7 +485,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5873,
+      "ratio": 4.5509,
       "passes": true
     },
     {
@@ -564,12 +496,67 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.537,
+      "ratio": 5.4548,
       "passes": true
     },
     {
       "kind": "text",
       "token": "success",
+      "background": "selectedBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5194,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5274,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.542,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5397,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.4652,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
       "background": "selectedBg",
       "contrast": 4.5,
       "reason": null,
@@ -580,68 +567,13 @@
     },
     {
       "kind": "text",
-      "token": "success",
-      "background": "toolPendingBg",
-      "contrast": 4.5,
-      "reason": null,
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 4.5956,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "success",
-      "background": "toolSuccessBg",
-      "contrast": 4.5,
-      "reason": null,
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 4.6105,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "success",
-      "background": "toolErrorBg",
-      "contrast": 4.5,
-      "reason": null,
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 4.6081,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "error",
-      "background": "background",
-      "contrast": 4.5,
-      "reason": null,
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 5.5426,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "error",
-      "background": "selectedBg",
-      "contrast": 4.5,
-      "reason": null,
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 4.5326,
-      "passes": true
-    },
-    {
-      "kind": "text",
       "token": "error",
       "background": "toolPendingBg",
       "contrast": 4.5,
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6003,
+      "ratio": 4.536,
       "passes": true
     },
     {
@@ -652,7 +584,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6152,
+      "ratio": 4.5507,
       "passes": true
     },
     {
@@ -663,7 +595,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6128,
+      "ratio": 4.5484,
       "passes": true
     },
     {
@@ -674,7 +606,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.513,
+      "ratio": 5.4487,
       "passes": true
     },
     {
@@ -685,7 +617,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5084,
+      "ratio": 4.5144,
       "passes": true
     },
     {
@@ -696,7 +628,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5757,
+      "ratio": 4.5223,
       "passes": true
     },
     {
@@ -707,7 +639,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5905,
+      "ratio": 4.5369,
       "passes": true
     },
     {
@@ -718,7 +650,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5882,
+      "ratio": 4.5346,
       "passes": true
     },
     {
@@ -730,7 +662,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 6.1243,
+      "ratio": 6.0396,
       "passes": true
     },
     {
@@ -742,7 +674,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0082,
+      "ratio": 5.004,
       "passes": true
     },
     {
@@ -754,7 +686,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0311,
+      "ratio": 5.0183,
       "passes": true
     },
     {
@@ -766,7 +698,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0831,
+      "ratio": 5.0128,
       "passes": true
     },
     {
@@ -778,7 +710,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0995,
+      "ratio": 5.029,
       "passes": true
     },
     {
@@ -790,7 +722,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0969,
+      "ratio": 5.0264,
       "passes": true
     },
     {
@@ -802,7 +734,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.7409,
+      "ratio": 3.6408,
       "passes": true
     },
     {
@@ -814,7 +746,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.0591,
+      "ratio": 3.0165,
       "passes": true
     },
     {
@@ -826,7 +758,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.0731,
+      "ratio": 3.0252,
       "passes": true
     },
     {
@@ -838,7 +770,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.1049,
+      "ratio": 3.0218,
       "passes": true
     },
     {
@@ -850,7 +782,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.1149,
+      "ratio": 3.0316,
       "passes": true
     },
     {
@@ -862,7 +794,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.1133,
+      "ratio": 3.03,
       "passes": true
     },
     {
@@ -886,7 +818,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "via": "mdTableBorder",
-      "ratio": 9.0762,
+      "ratio": 9.1957,
       "passes": true
     },
     {
@@ -898,7 +830,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "via": "mdTableBorder",
-      "ratio": 9.1176,
+      "ratio": 9.2221,
       "passes": true
     },
     {
@@ -909,7 +841,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5077,
+      "ratio": 4.5032,
       "passes": true
     },
     {
@@ -920,7 +852,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.1165,
+      "ratio": 10.0034,
       "passes": true
     },
     {
@@ -931,7 +863,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5154,
+      "ratio": 4.5127,
       "passes": true
     },
     {
@@ -942,7 +874,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5621,
+      "ratio": 4.5078,
       "passes": true
     },
     {
@@ -953,7 +885,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5769,
+      "ratio": 4.5223,
       "passes": true
     },
     {
@@ -964,7 +896,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5745,
+      "ratio": 4.52,
       "passes": true
     },
     {
@@ -975,7 +907,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5614,
+      "ratio": 4.5302,
       "passes": true
     },
     {
@@ -986,7 +918,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5407,
+      "ratio": 4.5172,
       "passes": true
     },
     {
@@ -997,7 +929,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6086,
+      "ratio": 4.5252,
       "passes": true
     },
     {
@@ -1008,7 +940,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6234,
+      "ratio": 4.5398,
       "passes": true
     },
     {
@@ -1019,7 +951,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6211,
+      "ratio": 4.5375,
       "passes": true
     },
     {
@@ -1030,7 +962,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.1115,
+      "ratio": 10.002,
       "passes": true
     },
     {
@@ -1041,7 +973,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.1441,
+      "ratio": 10.0343,
       "passes": true
     },
     {
@@ -1052,7 +984,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.139,
+      "ratio": 10.0292,
       "passes": true
     },
     {
@@ -1063,7 +995,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5621,
+      "ratio": 4.5078,
       "passes": true
     },
     {
@@ -1074,7 +1006,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5769,
+      "ratio": 4.5223,
       "passes": true
     },
     {
@@ -1085,7 +1017,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5745,
+      "ratio": 4.52,
       "passes": true
     },
     {
@@ -1096,7 +1028,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.513,
+      "ratio": 5.4487,
       "passes": true
     },
     {
@@ -1107,7 +1039,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5289,
+      "ratio": 4.5273,
       "passes": true
     },
     {
@@ -1118,7 +1050,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5084,
+      "ratio": 4.5144,
       "passes": true
     },
     {
@@ -1129,7 +1061,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5051,
+      "ratio": 5.4334,
       "passes": true
     },
     {
@@ -1140,7 +1072,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5224,
+      "ratio": 4.5146,
       "passes": true
     },
     {
@@ -1151,7 +1083,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5018,
+      "ratio": 4.5017,
       "passes": true
     },
     {
@@ -1162,7 +1094,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5677,
+      "ratio": 5.4361,
       "passes": true
     },
     {
@@ -1173,7 +1105,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5531,
+      "ratio": 4.504,
       "passes": true
     },
     {
@@ -1184,7 +1116,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5738,
+      "ratio": 4.5169,
       "passes": true
     },
     {
@@ -1195,7 +1127,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.512,
+      "ratio": 5.4682,
       "passes": true
     },
     {
@@ -1206,7 +1138,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5281,
+      "ratio": 4.5435,
       "passes": true
     },
     {
@@ -1217,7 +1149,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5075,
+      "ratio": 4.5305,
       "passes": true
     },
     {
@@ -1228,7 +1160,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.537,
+      "ratio": 5.4548,
       "passes": true
     },
     {
@@ -1239,7 +1171,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5486,
+      "ratio": 4.5324,
       "passes": true
     },
     {
@@ -1250,7 +1182,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.528,
+      "ratio": 4.5194,
       "passes": true
     },
     {
@@ -1261,7 +1193,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5956,
+      "ratio": 4.5274,
       "passes": true
     },
     {
@@ -1272,7 +1204,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6105,
+      "ratio": 4.542,
       "passes": true
     },
     {
@@ -1283,7 +1215,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6081,
+      "ratio": 4.5397,
       "passes": true
     },
     {
@@ -1294,7 +1226,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5677,
+      "ratio": 5.4361,
       "passes": true
     },
     {
@@ -1305,7 +1237,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5531,
+      "ratio": 4.504,
       "passes": true
     },
     {
@@ -1316,7 +1248,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5738,
+      "ratio": 4.5169,
       "passes": true
     },
     {
@@ -1327,7 +1259,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5677,
+      "ratio": 5.4361,
       "passes": true
     },
     {
@@ -1338,7 +1270,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5531,
+      "ratio": 4.504,
       "passes": true
     },
     {
@@ -1349,7 +1281,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5738,
+      "ratio": 4.5169,
       "passes": true
     },
     {
@@ -1360,7 +1292,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.512,
+      "ratio": 5.4682,
       "passes": true
     },
     {
@@ -1371,7 +1303,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5075,
+      "ratio": 4.5305,
       "passes": true
     },
     {
@@ -1382,7 +1314,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5281,
+      "ratio": 4.5435,
       "passes": true
     },
     {
@@ -1393,7 +1325,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4656,
+      "ratio": 5.4548,
       "passes": true
     },
     {
@@ -1404,7 +1336,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5363,
+      "ratio": 4.5274,
       "passes": true
     },
     {
@@ -1415,7 +1347,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.551,
+      "ratio": 4.542,
       "passes": true
     },
     {
@@ -1426,7 +1358,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5487,
+      "ratio": 4.5397,
       "passes": true
     },
     {
@@ -1481,7 +1413,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4966,
+      "ratio": 5.4311,
       "passes": true
     },
     {
@@ -1492,7 +1424,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5621,
+      "ratio": 4.5078,
       "passes": true
     },
     {
@@ -1503,7 +1435,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5769,
+      "ratio": 4.5223,
       "passes": true
     },
     {
@@ -1514,7 +1446,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5745,
+      "ratio": 4.52,
       "passes": true
     },
     {
@@ -1525,7 +1457,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5677,
+      "ratio": 5.4361,
       "passes": true
     },
     {
@@ -1536,7 +1468,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5531,
+      "ratio": 4.504,
       "passes": true
     },
     {
@@ -1547,7 +1479,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5738,
+      "ratio": 4.5169,
       "passes": true
     },
     {
@@ -1558,7 +1490,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6211,
+      "ratio": 4.5119,
       "passes": true
     },
     {
@@ -1569,7 +1501,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.636,
+      "ratio": 4.5265,
       "passes": true
     },
     {
@@ -1580,7 +1512,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6337,
+      "ratio": 4.5242,
       "passes": true
     },
     {
@@ -1591,7 +1523,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5051,
+      "ratio": 5.4334,
       "passes": true
     },
     {
@@ -1602,7 +1534,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5224,
+      "ratio": 4.5146,
       "passes": true
     },
     {
@@ -1613,7 +1545,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5018,
+      "ratio": 4.5017,
       "passes": true
     },
     {
@@ -1624,7 +1556,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5691,
+      "ratio": 4.5097,
       "passes": true
     },
     {
@@ -1635,7 +1567,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5839,
+      "ratio": 4.5242,
       "passes": true
     },
     {
@@ -1646,7 +1578,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5816,
+      "ratio": 4.5219,
       "passes": true
     },
     {
@@ -1657,7 +1589,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.513,
+      "ratio": 5.4487,
       "passes": true
     },
     {
@@ -1668,7 +1600,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5289,
+      "ratio": 4.5273,
       "passes": true
     },
     {
@@ -1679,7 +1611,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5084,
+      "ratio": 4.5144,
       "passes": true
     },
     {
@@ -1690,7 +1622,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5757,
+      "ratio": 4.5223,
       "passes": true
     },
     {
@@ -1701,7 +1633,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5905,
+      "ratio": 4.5369,
       "passes": true
     },
     {
@@ -1712,7 +1644,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5882,
+      "ratio": 4.5346,
       "passes": true
     },
     {
@@ -1723,7 +1655,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5146,
+      "ratio": 5.4446,
       "passes": true
     },
     {
@@ -1734,7 +1666,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5302,
+      "ratio": 4.5239,
       "passes": true
     },
     {
@@ -1745,7 +1677,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5096,
+      "ratio": 4.511,
       "passes": true
     },
     {
@@ -1756,7 +1688,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5771,
+      "ratio": 4.5189,
       "passes": true
     },
     {
@@ -1767,7 +1699,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5918,
+      "ratio": 4.5335,
       "passes": true
     },
     {
@@ -1778,7 +1710,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5895,
+      "ratio": 4.5312,
       "passes": true
     },
     {
@@ -1789,7 +1721,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5281,
+      "ratio": 5.4386,
       "passes": true
     },
     {
@@ -1800,7 +1732,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5413,
+      "ratio": 4.5189,
       "passes": true
     },
     {
@@ -1811,7 +1743,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5206,
+      "ratio": 4.506,
       "passes": true
     },
     {
@@ -1822,7 +1754,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5882,
+      "ratio": 4.5139,
       "passes": true
     },
     {
@@ -1833,7 +1765,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.603,
+      "ratio": 4.5285,
       "passes": true
     },
     {
@@ -1844,7 +1776,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6007,
+      "ratio": 4.5262,
       "passes": true
     },
     {
@@ -1855,7 +1787,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.537,
+      "ratio": 5.4548,
       "passes": true
     },
     {
@@ -1866,7 +1798,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5486,
+      "ratio": 4.5324,
       "passes": true
     },
     {
@@ -1877,7 +1809,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.528,
+      "ratio": 4.5194,
       "passes": true
     },
     {
@@ -1888,7 +1820,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5956,
+      "ratio": 4.5274,
       "passes": true
     },
     {
@@ -1899,7 +1831,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6105,
+      "ratio": 4.542,
       "passes": true
     },
     {
@@ -1910,7 +1842,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6081,
+      "ratio": 4.5397,
       "passes": true
     },
     {
@@ -1921,7 +1853,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.512,
+      "ratio": 5.4682,
       "passes": true
     },
     {
@@ -1932,7 +1864,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5281,
+      "ratio": 4.5435,
       "passes": true
     },
     {
@@ -1943,7 +1875,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5075,
+      "ratio": 4.5305,
       "passes": true
     },
     {
@@ -1954,7 +1886,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5749,
+      "ratio": 4.5385,
       "passes": true
     },
     {
@@ -1965,7 +1897,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5897,
+      "ratio": 4.5532,
       "passes": true
     },
     {
@@ -1976,7 +1908,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5873,
+      "ratio": 4.5509,
       "passes": true
     },
     {
@@ -1987,7 +1919,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5677,
+      "ratio": 5.4361,
       "passes": true
     },
     {
@@ -1998,7 +1930,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5738,
+      "ratio": 4.5169,
       "passes": true
     },
     {
@@ -2009,7 +1941,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5531,
+      "ratio": 4.504,
       "passes": true
     },
     {
@@ -2020,7 +1952,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6211,
+      "ratio": 4.5119,
       "passes": true
     },
     {
@@ -2031,7 +1963,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.636,
+      "ratio": 4.5265,
       "passes": true
     },
     {
@@ -2042,7 +1974,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6337,
+      "ratio": 4.5242,
       "passes": true
     },
     {
@@ -2053,7 +1985,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5677,
+      "ratio": 5.4361,
       "passes": true
     },
     {
@@ -2064,7 +1996,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5738,
+      "ratio": 4.5169,
       "passes": true
     },
     {
@@ -2075,7 +2007,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5531,
+      "ratio": 4.504,
       "passes": true
     },
     {
@@ -2086,7 +2018,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6211,
+      "ratio": 4.5119,
       "passes": true
     },
     {
@@ -2097,7 +2029,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.636,
+      "ratio": 4.5265,
       "passes": true
     },
     {
@@ -2108,7 +2040,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6337,
+      "ratio": 4.5242,
       "passes": true
     },
     {
@@ -2119,7 +2051,7 @@
       "reason": "Session-tree compaction label in current Pi; moves to customMessageLabel in extended",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5146,
+      "ratio": 5.4446,
       "passes": true
     },
     {
@@ -2130,7 +2062,7 @@
       "reason": "Session-tree compaction label in current Pi; moves to customMessageLabel in extended",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5096,
+      "ratio": 4.511,
       "passes": true
     },
     {
@@ -2141,7 +2073,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5757,
+      "ratio": 4.5221,
       "passes": true
     },
     {
@@ -2163,7 +2095,7 @@
       "reason": "Theme selector and other dialog frames must remain visible against the terminal background",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5102,
+      "ratio": 4.6168,
       "passes": true
     },
     {
@@ -2174,7 +2106,7 @@
       "reason": "Same prominence as border, with a different color",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5146,
+      "ratio": 5.4446,
       "passes": true
     },
     {
@@ -2197,7 +2129,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 6.1243,
+      "ratio": 6.0396,
       "passes": true
     },
     {
@@ -2209,7 +2141,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0082,
+      "ratio": 5.004,
       "passes": true
     },
     {
@@ -2221,7 +2153,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0311,
+      "ratio": 5.0183,
       "passes": true
     },
     {
@@ -2233,7 +2165,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0831,
+      "ratio": 5.0128,
       "passes": true
     },
     {
@@ -2245,7 +2177,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0995,
+      "ratio": 5.029,
       "passes": true
     },
     {
@@ -2257,7 +2189,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0969,
+      "ratio": 5.0264,
       "passes": true
     },
     {
@@ -2269,7 +2201,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 6.1243,
+      "ratio": 6.0396,
       "passes": true
     },
     {
@@ -2281,7 +2213,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0082,
+      "ratio": 5.004,
       "passes": true
     },
     {
@@ -2293,7 +2225,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0311,
+      "ratio": 5.0183,
       "passes": true
     },
     {
@@ -2305,7 +2237,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0831,
+      "ratio": 5.0128,
       "passes": true
     },
     {
@@ -2317,7 +2249,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0995,
+      "ratio": 5.029,
       "passes": true
     },
     {
@@ -2329,7 +2261,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0969,
+      "ratio": 5.0264,
       "passes": true
     },
     {
@@ -2351,7 +2283,7 @@
       "reason": "Scrollbar position relative to track",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.0433,
+      "ratio": 3.0064,
       "passes": true
     },
     {
@@ -2373,7 +2305,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.2812,
+      "ratio": 3.2773,
       "passes": true
     },
     {
@@ -2384,7 +2316,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.522,
+      "ratio": 3.5114,
       "passes": true
     },
     {
@@ -2395,7 +2327,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.7589,
+      "ratio": 3.7526,
       "passes": true
     },
     {
@@ -2428,7 +2360,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.0403,
+      "ratio": 5.0097,
       "passes": true
     },
     {
@@ -2450,7 +2382,7 @@
       "reason": "Provisional very subtle distinction for the unlabeled user-message bubble",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.2228,
+      "ratio": 1.207,
       "passes": true
     },
     {
@@ -2494,7 +2426,7 @@
       "reason": "Subtle selection fill, like other panels; cursor/bold also mark selection",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.2228,
+      "ratio": 1.207,
       "passes": true
     },
     {
@@ -2516,7 +2448,7 @@
       "reason": "Subtle panel, like other message panels",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.2173,
+      "ratio": 1.2035,
       "passes": true
     }
   ],

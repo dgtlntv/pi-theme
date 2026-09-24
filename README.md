@@ -65,13 +65,13 @@ Regeneration updates the symlink targets. Because Pi watches its **themes direct
 
 ## Inputs and algorithm
 
-- **Recipe:** `terminalBackground.dark` and `.light` are the fixed hex anchors. Dark is `#282c34`, Ghostty's installed default (`ghostty +show-config --default`); the light value `#f7f6f6` is only a hypothetical light-terminal anchor, **not** a Ghostty default. Every other role is assigned a color family (constant OKHSL hue and min/max saturation) **without a preferred lightness**. There are no fixed colors: prominent tokens get prominence from higher minimums. `stepInterval` controls search precision, not design preference. Step 0 is white, 1000 black. As in `../design-tokens`, saturation follows a normalized Gaussian centered at step 500; lightness is `1 - step/1000`.
+- **Recipe:** `terminalBackground.dark` and `.light` are the fixed hex anchors. Dark is `#282c34`, Ghostty's installed default (`ghostty +show-config --default`); the light value `#f7f6f6` is only a hypothetical light-terminal anchor, **not** a Ghostty default. Every other role is assigned a color family (constant OKHSL hue and min/max saturation) **without a preferred lightness**. There are no fixed colors: prominent tokens get prominence from higher minimums. As in `../design-tokens`, saturation follows a normalized Gaussian over lightness (peaking at mid lightness, `step` 500 where `step = 1000 × (1 − lightness)`).
 - **Contrast contract:** each relationship has one `contrast` value meaning **at least** that WCAG 2.1 ratio. `contrast: null` would explicitly mean no requirement; the current contract has none. The same token can have separate ratios on different surfaces—for example, higher against the terminal background and 4.5 on a tool surface.
-- **Selection:** starting from the fixed terminal background, choose surfaces, then foregrounds, then the scrollbar thumb (which depends on the track). Search available steps on the lighter side for dark mode or darker side for light mode. Accept only final **hex** colors that satisfy all currently known required pairs. Of the valid steps, choose the one with the smallest average excess contrast over its applicable ratios. For a token with only `null` requirements, choose the closest *different hex* to the terminal background; it is **not guaranteed to look visibly different**. A final independent pass audits every pair for that target (current: 185 required, 16 explicitly unconstrained; extended: 194 and 11) and refuses to emit a theme on any failure.
+- **Selection:** starting from the fixed terminal background, compute surfaces, then foregrounds, then the scrollbar thumb (which depends on the track). For each token, the inverse contrast formulas (WCAG from `wcag-contrast-palette`, APCA from `perceptual-contrast-palette`, extended to the unclipped formula) give the luminance each requirement needs; the strictest wins. That luminance converts exactly to OKHSL lightness for grays; saturated colors, whose luminance differs from a gray of the same lightness, are corrected with a few secant steps, keeping the closest color that meets every minimum. Colors land within about 0.5% of their minimum. A final independent pass audits every pair and refuses to emit a theme on any failure. About 2 ms per theme.
 
-Contrast determines palette steps, not manually specified step numbers. Different surfaces may cause a pair to exceed its requested ratio: a shared color cannot always achieve every threshold exactly. The report contains the selected steps, final hex colors, actual ratios, pass results, and a compact palette containing only used steps.
+Contrast determines lightness, not manually specified step numbers. Different surfaces may cause a pair to exceed its requested ratio: a shared color cannot always achieve every threshold exactly. The report contains each token's lightness step, final hex colors, actual ratios, and pass results.
 
-This is a **greedy** solver: an early valid background choice can obstruct a later foreground even if a different background choice would work. Such cases fail explicitly; it does not prove global infeasibility.
+Tokens are solved in order (surfaces first), so an early surface choice can obstruct a later foreground; such cases relax the contract (see below) rather than search for a different surface.
 
 ## Terminal background
 
@@ -85,10 +85,10 @@ This is a **greedy** solver: an early valid background choice can obstruct a lat
 
 ## Code map
 
-- `src/color.ts`: OKHSL bell curve, Color.js colors and WCAG contrast.
+- `src/color.ts`: OKHSL bell curve, WCAG and APCA contrast, and their inverse formulas.
 - `src/contract.ts`: validate rules and proposed tokens, expand rules into checkable pairs per target.
 - `src/recipe.ts`: validate anchor, families, role assignments, and fixed foreground overrides.
-- `src/selection.ts`: derive steps from ratios, backgrounds before foregrounds.
+- `src/selection.ts`: compute each token's lightness from its requirements, surfaces before foregrounds.
 - `src/report.ts`: independently audit final hex colors and build outputs.
 - `src/solve.ts`: orchestration; `src/generate.ts`: CLI and file I/O.
 - `src/apca-derivation.ts` (CLI: `src/derive-apca-cli.ts`): derive the APCA contract from the WCAG contract and dark theme.

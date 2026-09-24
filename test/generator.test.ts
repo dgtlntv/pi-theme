@@ -253,22 +253,3 @@ test("APCA contrast is directional and reported as absolute Lc", () => {
   assert.notEqual(contrast("#282c34", "#ffffff", "APCA"), text);
   assert.equal(contrast("#223d4a", "#282c34", "APCA"), 0, "APCA clips near-background pairs to 0");
 });
-
-test("binary search returns the same colors as a full linear scan", () => {
-  // Feasibility grows monotonically away from the canvas; a mismatch here would mean
-  // a rule broke that assumption, and bisect would silently pick worse colors.
-  const apca = JSON.parse(readFileSync(resolve("contrast-requirements.apca.json"), "utf8")) as ContrastContract;
-  const backgrounds = [undefined, "#000000", "#1e1e2e", "#3c3c3c", "#555555", "#f7f6f6", "#ffffff", "#002b36", "#fdf6e3"];
-  for (const source of [contract, apca]) {
-    for (const background of backgrounds) {
-      const modes = background ? [(contrast("#ffffff", background, "APCA") >= contrast("#000000", background, "APCA") ? "dark" : "light") as "dark" | "light"] : (["dark", "light"] as const);
-      for (const mode of modes) {
-        const overrides = background ? { background } : {};
-        const linear = generateTheme(recipe, source, mode, overrides, "extended", "linear");
-        const bisect = generateTheme(recipe, source, mode, overrides, "extended", "bisect");
-        assert.deepEqual(bisect.theme.colors, linear.theme.colors, `${source.algorithm} ${mode} ${background ?? "default"}`);
-        assert.deepEqual(bisect.report.relaxation, linear.report.relaxation);
-      }
-    }
-  }
-});

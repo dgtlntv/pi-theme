@@ -17,11 +17,6 @@ function validateFamily(name: string, family: ColorFamily): void {
 
 /** Expand recipe groups into exactly one color family per non-anchor token. */
 export function validateRecipe(recipe: ThemeRecipe, contract: ContrastContract): Record<string, RecipeRole> {
-  const interval = recipe.stepInterval;
-  if (!Number.isInteger(interval) || interval < 1 || 1000 % interval !== 0) {
-    throw new Error("stepInterval must be a positive divisor of 1000");
-  }
-
   for (const mode of ["dark", "light"] as const) {
     normalizeHex(recipe.terminalBackground?.[mode]);
   }

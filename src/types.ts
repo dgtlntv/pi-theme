@@ -70,7 +70,6 @@ export interface RecipeRole {
 export interface ThemeRecipe {
   name: string;
   description: string;
-  stepInterval: number;
   terminalBackground: Record<Mode, string>;
   families: Record<string, ColorFamily>;
   roles: RecipeRole[];
@@ -111,7 +110,6 @@ export interface ContrastReport {
   algorithm: Algorithm;
   terminal: { background: Selection };
   selected: Record<string, Selection>;
-  palette: Record<string, Record<string, string>>;
   checks: CheckedPair[];
   summary: { required: number; noRequirement: number };
   /**

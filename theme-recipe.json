@@ -1,7 +1,6 @@
 {
   "name": "generated-pi",
-  "description": "Color-family OKHSL hues/saturation and terminal background anchors. Lightness of every other role is derived from contrast relationships.",
-  "stepInterval": 5,
+  "description": "Color-family OKHSL hues/saturation and terminal background anchors. Lightness of every other role is computed from its contrast requirements.",
   "terminalBackground": {"dark":"#282c34","light":"#f7f6f6"},
   "families": {
     "neutral": {"hue":250,"saturation":{"min":0.02,"max":0.08}},

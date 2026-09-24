@@ -1,4 +1,4 @@
-import { colorAt, contrast } from "./color.ts";
+import { contrast } from "./color.ts";
 import { emittedTokens } from "./contract.ts";
 import type { ColorSelection } from "./selection.ts";
 import type { Algorithm, CheckedPair, ContrastContract, GenerationResult, Mode, Pair, Target, ThemeRecipe } from "./types.ts";
@@ -24,26 +24,6 @@ function assertContrastRequirementsPass(checks: CheckedPair[]): void {
     `${check.token}${check.via ? ` (for ${check.via})` : ""}/${check.background} ${check.ratio} < ${check.contrast}`,
   );
   throw new Error(`Solver produced ${failures.length} failing minimum pair(s): ${details.join("; ")}`);
-}
-
-/** Only the steps actually selected for semantic roles appear in the palette report. */
-function usedPalette(recipe: ThemeRecipe, selection: ColorSelection): Record<string, Record<string, string>> {
-  const usedSteps: Record<string, Set<number>> = {};
-
-  for (const choice of Object.values(selection.selected)) {
-    if (choice.family && choice.step !== null) {
-      (usedSteps[choice.family] ??= new Set()).add(choice.step);
-    }
-  }
-
-  const palette: Record<string, Record<string, string>> = {};
-  for (const [family, steps] of Object.entries(usedSteps)) {
-    palette[family] = {};
-    for (const step of [...steps].sort((a, b) => a - b)) {
-      palette[family][step] = colorAt(recipe.families[family], step).hex;
-    }
-  }
-  return palette;
 }
 
 function piThemeColors(contract: ContrastContract, target: Target, colors: Record<string, string>): Record<string, string> {
@@ -88,7 +68,6 @@ export function buildResult(
         background: selection.selected.background,
       },
       selected: selection.selected,
-      palette: usedPalette(recipe, selection),
       checks,
       summary: {
         required: checks.filter((check) => check.contrast !== null).length,
