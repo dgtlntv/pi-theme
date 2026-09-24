@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import {
-  AssistantText, BashTool, PiLogoRow, CompactionMessage, CompactReadTool, CustomMessage, Dialog, DirectBash, EditTool, Editor, ErrorLine,
+  AssistantText, BashTool, CompactionMessage, CompactReadTool, CustomMessage, Dialog, DirectBash, EditTool, Editor, ErrorLine,
   FindTool, Footer, GenericTool, GrepTool, Header, JumpToLatest, LoadedResources, LsTool, Md, Mermaid, ModelSelector, ReadTool,
   SearchBox, SearchMatch, SelectList, SessionSelector, SessionTree, SettingsList, SkillReadTool, StatusLine,
   THINKING_LEVELS, ThinkingBlock, UserMessage, WarningLine, WorkingIndicator, WriteTool, thinkingToken,
@@ -30,11 +30,6 @@ export function CatalogView() {
   return (
     <TermScroll>
     <div className="catalog">
-      <Section title="Pi logo" note="Fixed brand colors, not theme tokens. 4x4 pixel grid in 4x2 cells.">
-        <Line><PiLogoRow row={0} /></Line>
-        <Line><PiLogoRow row={1} /></Line>
-      </Section>
-
       <Section title="Startup header and loaded resources" note="The proposal shows the logo with the version.">
         <Header />
         <Line />
