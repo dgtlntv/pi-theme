@@ -1,0 +1,2776 @@
+{
+  "mode": "light",
+  "target": "extended",
+  "algorithm": "APCA",
+  "terminal": {
+    "background": {
+      "family": null,
+      "step": null,
+      "hex": "#f7f6f6",
+      "source": "recipe-assumption"
+    },
+    "foreground": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    }
+  },
+  "selected": {
+    "background": {
+      "family": null,
+      "step": null,
+      "hex": "#f7f6f6",
+      "source": "recipe-assumption"
+    },
+    "userMessageBg": {
+      "family": "blue",
+      "step": 60,
+      "hex": "#eaeff1",
+      "saturation": 0.15176,
+      "source": "contrast-derived"
+    },
+    "toolPendingBg": {
+      "family": "neutral",
+      "step": 60,
+      "hex": "#eeeeed",
+      "saturation": 0.02535,
+      "source": "contrast-derived"
+    },
+    "toolSuccessBg": {
+      "family": "green",
+      "step": 60,
+      "hex": "#eaefec",
+      "saturation": 0.1589,
+      "source": "contrast-derived"
+    },
+    "toolErrorBg": {
+      "family": "red",
+      "step": 60,
+      "hex": "#f2ecec",
+      "saturation": 0.17318,
+      "source": "contrast-derived"
+    },
+    "selectedBg": {
+      "family": "blue",
+      "step": 60,
+      "hex": "#eaeff1",
+      "saturation": 0.15176,
+      "source": "contrast-derived"
+    },
+    "customMessageBg": {
+      "family": "purple",
+      "step": 60,
+      "hex": "#efedf1",
+      "saturation": 0.15355,
+      "source": "contrast-derived"
+    },
+    "searchMatchBg": {
+      "family": "blue",
+      "step": 65,
+      "hex": "#e8edf0",
+      "saturation": 0.15684,
+      "source": "contrast-derived"
+    },
+    "terminalForeground": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "accent": {
+      "family": "violet",
+      "step": 355,
+      "hex": "#a488ee",
+      "saturation": 0.75152,
+      "source": "contrast-derived"
+    },
+    "border": {
+      "family": "blue",
+      "step": 305,
+      "hex": "#75b3d3",
+      "saturation": 0.50406,
+      "source": "contrast-derived"
+    },
+    "borderAccent": {
+      "family": "cyan",
+      "step": 310,
+      "hex": "#66bab4",
+      "saturation": 0.55434,
+      "source": "contrast-derived"
+    },
+    "borderMuted": {
+      "family": "neutral",
+      "step": 200,
+      "hex": "#c9c6c3",
+      "saturation": 0.04439,
+      "source": "contrast-derived"
+    },
+    "success": {
+      "family": "green",
+      "step": 385,
+      "hex": "#52a97c",
+      "saturation": 0.68337,
+      "source": "contrast-derived"
+    },
+    "error": {
+      "family": "red",
+      "step": 355,
+      "hex": "#ec7175",
+      "saturation": 0.77318,
+      "source": "contrast-derived"
+    },
+    "warning": {
+      "family": "yellow",
+      "step": 365,
+      "hex": "#c39016",
+      "saturation": 0.92155,
+      "source": "contrast-derived"
+    },
+    "muted": {
+      "family": "neutral",
+      "step": 410,
+      "hex": "#948d85",
+      "saturation": 0.07565,
+      "source": "contrast-derived"
+    },
+    "dim": {
+      "family": "neutral",
+      "step": 255,
+      "hex": "#bbb7b2",
+      "saturation": 0.05354,
+      "source": "contrast-derived"
+    },
+    "text": {
+      "family": "neutral",
+      "step": 580,
+      "hex": "#68625b",
+      "saturation": 0.07654,
+      "source": "contrast-derived"
+    },
+    "thinkingText": {
+      "family": "neutral",
+      "step": 295,
+      "hex": "#b1aca6",
+      "saturation": 0.06019,
+      "source": "contrast-derived"
+    },
+    "scrollbarTrack": {
+      "family": "neutral",
+      "step": 105,
+      "hex": "#e2e1e0",
+      "saturation": 0.03053,
+      "source": "contrast-derived"
+    },
+    "searchMatchText": {
+      "family": "neutral",
+      "step": 385,
+      "hex": "#9b938c",
+      "saturation": 0.07303,
+      "source": "contrast-derived"
+    },
+    "userMessageText": {
+      "family": "neutral",
+      "step": 800,
+      "hex": "#302e2b",
+      "saturation": 0.04439,
+      "source": "contrast-derived"
+    },
+    "customMessageText": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "customMessageLabel": {
+      "family": "violet",
+      "step": 355,
+      "hex": "#a488ee",
+      "saturation": 0.75152,
+      "source": "contrast-derived"
+    },
+    "toolTitle": {
+      "family": "neutral",
+      "step": 780,
+      "hex": "#353230",
+      "saturation": 0.04767,
+      "source": "contrast-derived"
+    },
+    "toolOutput": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "mdHeading": {
+      "family": "yellow",
+      "step": 365,
+      "hex": "#c39016",
+      "saturation": 0.92155,
+      "source": "contrast-derived"
+    },
+    "mdLink": {
+      "family": "blue",
+      "step": 375,
+      "hex": "#55a2c7",
+      "saturation": 0.60118,
+      "source": "contrast-derived"
+    },
+    "mdLinkUrl": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "mdCode": {
+      "family": "violet",
+      "step": 355,
+      "hex": "#a488ee",
+      "saturation": 0.75152,
+      "source": "contrast-derived"
+    },
+    "mdCodeBlock": {
+      "family": "green",
+      "step": 385,
+      "hex": "#52a97c",
+      "saturation": 0.68337,
+      "source": "contrast-derived"
+    },
+    "mdCodeBlockBorder": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "mdQuote": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "mdQuoteBorder": {
+      "family": "neutral",
+      "step": 410,
+      "hex": "#948d85",
+      "saturation": 0.07565,
+      "source": "contrast-derived"
+    },
+    "mdHr": {
+      "family": "neutral",
+      "step": 410,
+      "hex": "#948d85",
+      "saturation": 0.07565,
+      "source": "contrast-derived"
+    },
+    "mdListBullet": {
+      "family": "violet",
+      "step": 355,
+      "hex": "#a488ee",
+      "saturation": 0.75152,
+      "source": "contrast-derived"
+    },
+    "toolDiffAdded": {
+      "family": "green",
+      "step": 385,
+      "hex": "#52a97c",
+      "saturation": 0.68337,
+      "source": "contrast-derived"
+    },
+    "toolDiffRemoved": {
+      "family": "red",
+      "step": 345,
+      "hex": "#eb7779",
+      "saturation": 0.75417,
+      "source": "contrast-derived"
+    },
+    "toolDiffContext": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "syntaxComment": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "syntaxKeyword": {
+      "family": "blue",
+      "step": 380,
+      "hex": "#53a0c6",
+      "saturation": 0.60701,
+      "source": "contrast-derived"
+    },
+    "syntaxFunction": {
+      "family": "yellow",
+      "step": 365,
+      "hex": "#c39016",
+      "saturation": 0.92155,
+      "source": "contrast-derived"
+    },
+    "syntaxVariable": {
+      "family": "cyan",
+      "step": 385,
+      "hex": "#47a7a1",
+      "saturation": 0.66569,
+      "source": "contrast-derived"
+    },
+    "syntaxString": {
+      "family": "orange",
+      "step": 360,
+      "hex": "#da8248",
+      "saturation": 0.72748,
+      "source": "contrast-derived"
+    },
+    "syntaxNumber": {
+      "family": "green",
+      "step": 385,
+      "hex": "#52a97c",
+      "saturation": 0.68337,
+      "source": "contrast-derived"
+    },
+    "syntaxType": {
+      "family": "violet",
+      "step": 355,
+      "hex": "#a488ee",
+      "saturation": 0.75152,
+      "source": "contrast-derived"
+    },
+    "syntaxOperator": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "syntaxPunctuation": {
+      "family": "neutral",
+      "step": 370,
+      "hex": "#9e9790",
+      "saturation": 0.07122,
+      "source": "contrast-derived"
+    },
+    "thinkingOff": {
+      "family": "neutral",
+      "step": 200,
+      "hex": "#c9c6c3",
+      "saturation": 0.04439,
+      "source": "contrast-derived"
+    },
+    "thinkingMinimal": {
+      "family": "thinkingSlate",
+      "step": 215,
+      "hex": "#b8c5cc",
+      "saturation": 0.13368,
+      "source": "contrast-derived"
+    },
+    "thinkingLow": {
+      "family": "thinkingBlue",
+      "step": 240,
+      "hex": "#9fc2d4",
+      "saturation": 0.32923,
+      "source": "contrast-derived"
+    },
+    "thinkingMedium": {
+      "family": "thinkingPeriwinkle",
+      "step": 245,
+      "hex": "#a6bbe1",
+      "saturation": 0.45928,
+      "source": "contrast-derived"
+    },
+    "thinkingHigh": {
+      "family": "thinkingViolet",
+      "step": 275,
+      "hex": "#b6a6e8",
+      "saturation": 0.6152,
+      "source": "contrast-derived"
+    },
+    "thinkingXhigh": {
+      "family": "thinkingMagenta",
+      "step": 295,
+      "hex": "#df89d8",
+      "saturation": 0.73443,
+      "source": "contrast-derived"
+    },
+    "thinkingMax": {
+      "family": "thinkingRed",
+      "step": 310,
+      "hex": "#fe797d",
+      "saturation": 0.9855,
+      "source": "contrast-derived"
+    },
+    "bashMode": {
+      "family": "green",
+      "step": 310,
+      "hex": "#70bc92",
+      "saturation": 0.56853,
+      "source": "contrast-derived"
+    },
+    "footerText": {
+      "family": "neutral",
+      "step": 200,
+      "hex": "#c9c6c3",
+      "saturation": 0.04439,
+      "source": "contrast-derived"
+    },
+    "toolArgument": {
+      "family": "blue",
+      "step": 380,
+      "hex": "#53a0c6",
+      "saturation": 0.60701,
+      "source": "contrast-derived"
+    },
+    "mdTableBorder": {
+      "family": "neutral",
+      "step": 255,
+      "hex": "#bbb7b2",
+      "saturation": 0.05354,
+      "source": "contrast-derived"
+    },
+    "scrollbarThumb": {
+      "family": "neutral",
+      "step": 350,
+      "hex": "#a39d96",
+      "saturation": 0.06857,
+      "source": "contrast-derived"
+    }
+  },
+  "palette": {
+    "blue": {
+      "60": "#eaeff1",
+      "65": "#e8edf0",
+      "305": "#75b3d3",
+      "375": "#55a2c7",
+      "380": "#53a0c6"
+    },
+    "neutral": {
+      "60": "#eeeeed",
+      "105": "#e2e1e0",
+      "200": "#c9c6c3",
+      "255": "#bbb7b2",
+      "295": "#b1aca6",
+      "350": "#a39d96",
+      "370": "#9e9790",
+      "385": "#9b938c",
+      "410": "#948d85",
+      "580": "#68625b",
+      "780": "#353230",
+      "800": "#302e2b"
+    },
+    "green": {
+      "60": "#eaefec",
+      "310": "#70bc92",
+      "385": "#52a97c"
+    },
+    "red": {
+      "60": "#f2ecec",
+      "345": "#eb7779",
+      "355": "#ec7175"
+    },
+    "purple": {
+      "60": "#efedf1"
+    },
+    "violet": {
+      "355": "#a488ee"
+    },
+    "cyan": {
+      "310": "#66bab4",
+      "385": "#47a7a1"
+    },
+    "yellow": {
+      "365": "#c39016"
+    },
+    "orange": {
+      "360": "#da8248"
+    },
+    "thinkingSlate": {
+      "215": "#b8c5cc"
+    },
+    "thinkingBlue": {
+      "240": "#9fc2d4"
+    },
+    "thinkingPeriwinkle": {
+      "245": "#a6bbe1"
+    },
+    "thinkingViolet": {
+      "275": "#b6a6e8"
+    },
+    "thinkingMagenta": {
+      "295": "#df89d8"
+    },
+    "thinkingRed": {
+      "310": "#fe797d"
+    }
+  },
+  "checks": [
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "selectedBg",
+      "contrast": 44,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0663,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0663,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8454,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.9683,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8538,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5964,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "background",
+      "contrast": 48,
+      "reason": "Unstyled text on the canvas",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8581,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "text",
+      "background": "background",
+      "contrast": 73,
+      "reason": "Primary reading text; also assistant replies in extended",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 74.8731,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "text",
+      "background": "selectedBg",
+      "contrast": 70,
+      "reason": "Selected rows are slightly darker; 9 here would push text above the canvas level",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 70.0813,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.416,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "selectedBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.6242,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5263,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4118,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1544,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.4014,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "selectedBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.6096,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5117,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3972,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1398,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8515,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "selectedBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0598,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.9618,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8473,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5899,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.3848,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "selectedBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.593,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4951,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3806,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1232,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "background",
+      "contrast": 49,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 54.8826,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "selectedBg",
+      "contrast": 49,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 50.0908,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "customMessageBg",
+      "contrast": 49,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8699,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "toolPendingBg",
+      "contrast": 49,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.9929,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "toolSuccessBg",
+      "contrast": 49,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8784,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "toolErrorBg",
+      "contrast": 49,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.621,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "background",
+      "contrast": 25,
+      "reason": "Tertiary text on the terminal canvas",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 33.3677,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "selectedBg",
+      "contrast": 28,
+      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 28.5759,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "customMessageBg",
+      "contrast": 28,
+      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 28.3551,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "toolPendingBg",
+      "contrast": 28,
+      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 28.478,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "toolSuccessBg",
+      "contrast": 28,
+      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 28.3635,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "toolErrorBg",
+      "contrast": 28,
+      "reason": "With footerText split out, dim applies the same tertiary level on panels as on the canvas",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 28.1061,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "footerText",
+      "background": "background",
+      "contrast": 25,
+      "reason": "Footer cwd and usage/model lines; same level as dim",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 25.1639,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolArgument",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": "Tool paths, grep/find patterns, compact read labels",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.1585,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolArgument",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": "Tool paths, grep/find patterns, compact read labels",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.044,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolArgument",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": "Tool paths, grep/find patterns, compact read labels",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.7866,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdTableBorder",
+      "background": "background",
+      "contrast": 28,
+      "reason": "Table grid lines structure cells",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 33.3677,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdTableBorder",
+      "background": "userMessageBg",
+      "contrast": 28,
+      "reason": "Table grid lines structure cells",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 28.5759,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdTableBorder",
+      "background": "customMessageBg",
+      "contrast": 28,
+      "reason": "Table grid lines structure cells",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 28.3551,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "thinkingText",
+      "background": "background",
+      "contrast": 39,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 39.1808,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "userMessageText",
+      "background": "userMessageBg",
+      "contrast": 90,
+      "reason": "Very prominent: near white in dark mode, near black in light mode",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 90.0016,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageText",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8454,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageText",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.9683,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageText",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8538,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageText",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5964,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4033,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "selectedBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.6242,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5263,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4118,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1544,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolTitle",
+      "background": "toolPendingBg",
+      "contrast": 88,
+      "reason": "Very prominent: near white in dark mode, near black in light mode",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 88.6804,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolTitle",
+      "background": "toolSuccessBg",
+      "contrast": 88,
+      "reason": "Very prominent: near white in dark mode, near black in light mode",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 88.5659,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolTitle",
+      "background": "toolErrorBg",
+      "contrast": 88,
+      "reason": "Very prominent: near white in dark mode, near black in light mode",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 88.3085,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolOutput",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.9683,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolOutput",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8538,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolOutput",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5964,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdHeading",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.3848,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdHeading",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3722,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdHeading",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.593,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLink",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.1214,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLink",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1087,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLink",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3296,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLinkUrl",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8581,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLinkUrl",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0663,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLinkUrl",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8454,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCode",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.416,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCode",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4033,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCode",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.6242,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.4014,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3888,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.6096,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5117,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3972,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1398,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdQuote",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8581,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdQuote",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0663,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdQuote",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8454,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlockBorder",
+      "background": "background",
+      "contrast": 44,
+      "reason": "Visible fence delimiters/optional language label are readable glyphs",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8581,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlockBorder",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": "Visible fence delimiters/optional language label are readable glyphs",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0663,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlockBorder",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": "Visible fence delimiters/optional language label are readable glyphs",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8454,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdListBullet",
+      "background": "background",
+      "contrast": 44,
+      "reason": "Conservative text treatment also covers ordered list numbers",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.416,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdListBullet",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": "Conservative text treatment also covers ordered list numbers",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.6242,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdListBullet",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": "Conservative text treatment also covers ordered list numbers",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4033,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffAdded",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.4014,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffAdded",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5117,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffAdded",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3972,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffAdded",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1398,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffRemoved",
+      "background": "background",
+      "contrast": 43,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 48.4737,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffRemoved",
+      "background": "toolPendingBg",
+      "contrast": 43,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 43.584,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffRemoved",
+      "background": "toolSuccessBg",
+      "contrast": 43,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 43.4695,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffRemoved",
+      "background": "toolErrorBg",
+      "contrast": 43,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 43.2121,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffContext",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8581,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffContext",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.9683,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffContext",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8538,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffContext",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5964,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8581,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0663,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8454,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.9683,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8538,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5964,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 50.0482,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0355,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.2564,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.1585,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.044,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.7866,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.3848,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3722,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.593,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4951,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3806,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1232,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.4501,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4374,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.6583,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5604,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4459,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1885,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.6003,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5876,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8085,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.7105,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.596,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3386,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.4014,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3888,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.6096,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5117,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.3972,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1398,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.416,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4033,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.6242,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5263,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.4118,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.1544,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8581,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8454,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0663,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.9683,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8538,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5964,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "background",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8581,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "customMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8454,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "userMessageBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.0663,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "toolPendingBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.9683,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "toolSuccessBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.8538,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "toolErrorBg",
+      "contrast": 44,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.5964,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "background",
+      "contrast": 48,
+      "reason": "Session-tree compaction label, remapped from borderAccent",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.416,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolOutput",
+      "background": "background",
+      "contrast": 47,
+      "reason": "Direct ! shell output, remapped from muted",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8581,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "searchMatchText",
+      "background": "searchMatchBg",
+      "contrast": 45,
+      "reason": null,
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 45.8363,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "bashMode",
+      "background": "background",
+      "contrast": 39,
+      "reason": "Bash command header; editor border has a separate non-text rule",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 39.1524,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "border",
+      "background": "background",
+      "contrast": 39,
+      "reason": "Theme selector and other dialog frames must remain visible against the terminal background",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 39.9402,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "borderAccent",
+      "background": "background",
+      "contrast": 39,
+      "reason": "Same prominence as border, with a different color",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 39.376,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "borderMuted",
+      "background": "background",
+      "contrast": 25,
+      "reason": "Editor boundary when necessary to locate the input area",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 25.1639,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "background",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 54.8826,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "userMessageBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 50.0908,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "customMessageBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8699,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "toolPendingBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.9929,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "toolSuccessBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8784,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "toolErrorBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.621,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "background",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 54.8826,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "userMessageBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 50.0908,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "customMessageBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8699,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "toolPendingBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.9929,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "toolSuccessBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.8784,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "toolErrorBg",
+      "contrast": 49,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 49.621,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "scrollbarTrack",
+      "background": "background",
+      "contrast": 12.2,
+      "reason": "Faint track, matching Pi's default theme (~1.74)",
+      "algorithm": "APCA",
+      "apcaLowClip": false,
+      "ratio": 12.6092,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "scrollbarThumb",
+      "background": "scrollbarTrack",
+      "contrast": 34,
+      "reason": "Scrollbar position relative to track",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 34.5968,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingOff",
+      "background": "background",
+      "contrast": 25,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 25.1639,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingMinimal",
+      "background": "background",
+      "contrast": 27,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 27.1461,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingLow",
+      "background": "background",
+      "contrast": 30,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 30.508,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingMedium",
+      "background": "background",
+      "contrast": 32,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 32.0041,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingHigh",
+      "background": "background",
+      "contrast": 37,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 37.7175,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingXhigh",
+      "background": "background",
+      "contrast": 42,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 42.0093,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingMax",
+      "background": "background",
+      "contrast": 44,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 44.0818,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "bashMode",
+      "background": "background",
+      "contrast": 39,
+      "reason": "Editor boundary",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 39.1524,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "dim",
+      "background": "background",
+      "contrast": null,
+      "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 33.3677,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "dim",
+      "background": "selectedBg",
+      "contrast": null,
+      "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 28.5759,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "userMessageBg",
+      "background": "background",
+      "contrast": 4.9,
+      "reason": "Provisional very subtle distinction for the unlabeled user-message bubble",
+      "algorithm": "APCA",
+      "apcaLowClip": false,
+      "ratio": 4.9628,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "toolPendingBg",
+      "background": "background",
+      "contrast": 4.4,
+      "reason": "Provisional very subtle tool state fill",
+      "algorithm": "APCA",
+      "apcaLowClip": false,
+      "ratio": 5.0623,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "toolSuccessBg",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": "Provisional very subtle tool state fill, including success",
+      "algorithm": "APCA",
+      "apcaLowClip": false,
+      "ratio": 5.1787,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "toolErrorBg",
+      "background": "background",
+      "contrast": 4.8,
+      "reason": "Provisional very subtle tool state fill",
+      "algorithm": "APCA",
+      "apcaLowClip": false,
+      "ratio": 5.4402,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "selectedBg",
+      "background": "background",
+      "contrast": 4.9,
+      "reason": "Subtle selection fill, like other panels; cursor/bold also mark selection",
+      "algorithm": "APCA",
+      "apcaLowClip": false,
+      "ratio": 4.9628,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "background",
+      "contrast": 5.5,
+      "reason": "Close to Pi's default theme (~1.26)",
+      "algorithm": "APCA",
+      "apcaLowClip": false,
+      "ratio": 6.1098,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "userMessageBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 0,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "customMessageBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 0,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "toolPendingBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 0,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "toolSuccessBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 0,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "toolErrorBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 0,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "selectedBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 0,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "customMessageBg",
+      "background": "background",
+      "contrast": 4.8,
+      "reason": "Subtle panel, like other message panels",
+      "algorithm": "APCA",
+      "apcaLowClip": false,
+      "ratio": 5.1872,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "toolPendingBg",
+      "background": "toolSuccessBg",
+      "contrast": null,
+      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 0,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "toolPendingBg",
+      "background": "toolErrorBg",
+      "contrast": null,
+      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 0,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "toolSuccessBg",
+      "background": "toolErrorBg",
+      "contrast": null,
+      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
+      "algorithm": "APCA",
+      "apcaLowClip": true,
+      "ratio": 0,
+      "passes": null
+    }
+  ],
+  "summary": {
+    "required": 194,
+    "noRequirement": 11
+  }
+}

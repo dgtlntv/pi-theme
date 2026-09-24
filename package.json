@@ -1,0 +1,31 @@
+{
+  "name": "pi-theme-generator",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "derive-apca": "node src/derive-apca-cli.ts",
+    "generate": "node src/derive-apca-cli.ts && node src/generate.ts",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p web",
+    "test": "npm run typecheck && node --test test/*.test.ts && node validate-contrast-requirements.ts",
+    "web": "vite --config web/vite.config.ts",
+    "web:build": "vite build --config web/vite.config.ts",
+    "web:pi-themes": "cp ../pi/packages/coding-agent/src/modes/interactive/theme/dark.json ../pi/packages/coding-agent/src/modes/interactive/theme/light.json web/src/pi-themes/"
+  },
+  "dependencies": {
+    "colorjs.io": "^0.7.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "typescript": "^7.0.2",
+    "vite": "8.3.0",
+    "vite-plugin-singlefile": "2.3.3"
+  }
+}

@@ -1,0 +1,2713 @@
+{
+  "mode": "dark",
+  "target": "current",
+  "algorithm": "WCAG2",
+  "terminal": {
+    "background": {
+      "family": null,
+      "step": null,
+      "hex": "#282c34",
+      "source": "recipe-assumption"
+    },
+    "foreground": {
+      "family": "neutral",
+      "step": 165,
+      "hex": "#d2d0cd",
+      "saturation": 0.03888,
+      "source": "contrast-derived"
+    }
+  },
+  "selected": {
+    "background": {
+      "family": null,
+      "step": null,
+      "hex": "#282c34",
+      "source": "recipe-assumption"
+    },
+    "userMessageBg": {
+      "family": "blue",
+      "step": 755,
+      "hex": "#223d4a",
+      "saturation": 0.40793,
+      "source": "contrast-derived"
+    },
+    "toolPendingBg": {
+      "family": "neutral",
+      "step": 755,
+      "hex": "#3b3835",
+      "saturation": 0.05186,
+      "source": "contrast-derived"
+    },
+    "toolSuccessBg": {
+      "family": "green",
+      "step": 760,
+      "hex": "#233e2f",
+      "saturation": 0.44116,
+      "source": "contrast-derived"
+    },
+    "toolErrorBg": {
+      "family": "red",
+      "step": 745,
+      "hex": "#5d282a",
+      "saturation": 0.55836,
+      "source": "contrast-derived"
+    },
+    "selectedBg": {
+      "family": "blue",
+      "step": 755,
+      "hex": "#223d4a",
+      "saturation": 0.40793,
+      "source": "contrast-derived"
+    },
+    "customMessageBg": {
+      "family": "purple",
+      "step": 745,
+      "hex": "#443158",
+      "saturation": 0.43538,
+      "source": "contrast-derived"
+    },
+    "searchMatchBg": {
+      "family": "blue",
+      "step": 745,
+      "hex": "#233f4d",
+      "saturation": 0.4242,
+      "source": "contrast-derived"
+    },
+    "terminalForeground": {
+      "family": "neutral",
+      "step": 165,
+      "hex": "#d2d0cd",
+      "saturation": 0.03888,
+      "source": "contrast-derived"
+    },
+    "accent": {
+      "family": "violet",
+      "step": 320,
+      "hex": "#ac95ec",
+      "saturation": 0.70476,
+      "source": "contrast-derived"
+    },
+    "border": {
+      "family": "blue",
+      "step": 400,
+      "hex": "#4c9bc1",
+      "saturation": 0.62843,
+      "source": "contrast-derived"
+    },
+    "borderAccent": {
+      "family": "cyan",
+      "step": 345,
+      "hex": "#56b1ab",
+      "saturation": 0.61057,
+      "source": "contrast-derived"
+    },
+    "borderMuted": {
+      "family": "neutral",
+      "step": 505,
+      "hex": "#7c746d",
+      "saturation": 0.07999,
+      "source": "contrast-derived"
+    },
+    "success": {
+      "family": "green",
+      "step": 345,
+      "hex": "#61b387",
+      "saturation": 0.62653,
+      "source": "contrast-derived"
+    },
+    "error": {
+      "family": "red",
+      "step": 315,
+      "hex": "#ea8787",
+      "saturation": 0.69286,
+      "source": "contrast-derived"
+    },
+    "warning": {
+      "family": "yellow",
+      "step": 330,
+      "hex": "#ce9a22",
+      "saturation": 0.88064,
+      "source": "contrast-derived"
+    },
+    "muted": {
+      "family": "neutral",
+      "step": 295,
+      "hex": "#b1aca6",
+      "saturation": 0.06019,
+      "source": "contrast-derived"
+    },
+    "dim": {
+      "family": "neutral",
+      "step": 505,
+      "hex": "#7c746d",
+      "saturation": 0.07999,
+      "source": "contrast-derived"
+    },
+    "text": {
+      "family": "neutral",
+      "step": 165,
+      "hex": "#d2d0cd",
+      "saturation": 0.03888,
+      "source": "contrast-derived"
+    },
+    "thinkingText": {
+      "family": "neutral",
+      "step": 390,
+      "hex": "#99928b",
+      "saturation": 0.0736,
+      "source": "contrast-derived"
+    },
+    "scrollbarTrack": {
+      "family": "neutral",
+      "step": 660,
+      "hex": "#534e49",
+      "saturation": 0.06715,
+      "source": "contrast-derived"
+    },
+    "searchMatchText": {
+      "family": "neutral",
+      "step": 320,
+      "hex": "#aba59f",
+      "saturation": 0.06416,
+      "source": "contrast-derived"
+    },
+    "userMessageText": {
+      "family": "neutral",
+      "step": 50,
+      "hex": "#f1f1f0",
+      "saturation": 0.02434,
+      "source": "contrast-derived"
+    },
+    "customMessageText": {
+      "family": "neutral",
+      "step": 330,
+      "hex": "#a8a29c",
+      "saturation": 0.06568,
+      "source": "contrast-derived"
+    },
+    "customMessageLabel": {
+      "family": "violet",
+      "step": 320,
+      "hex": "#ac95ec",
+      "saturation": 0.70476,
+      "source": "contrast-derived"
+    },
+    "toolTitle": {
+      "family": "neutral",
+      "step": 60,
+      "hex": "#eeeeed",
+      "saturation": 0.02535,
+      "source": "contrast-derived"
+    },
+    "toolOutput": {
+      "family": "neutral",
+      "step": 335,
+      "hex": "#a7a19a",
+      "saturation": 0.06642,
+      "source": "contrast-derived"
+    },
+    "mdHeading": {
+      "family": "yellow",
+      "step": 330,
+      "hex": "#ce9a22",
+      "saturation": 0.88064,
+      "source": "contrast-derived"
+    },
+    "mdLink": {
+      "family": "blue",
+      "step": 340,
+      "hex": "#64abce",
+      "saturation": 0.55578,
+      "source": "contrast-derived"
+    },
+    "mdLinkUrl": {
+      "family": "neutral",
+      "step": 330,
+      "hex": "#a8a29c",
+      "saturation": 0.06568,
+      "source": "contrast-derived"
+    },
+    "mdCode": {
+      "family": "violet",
+      "step": 320,
+      "hex": "#ac95ec",
+      "saturation": 0.70476,
+      "source": "contrast-derived"
+    },
+    "mdCodeBlock": {
+      "family": "green",
+      "step": 345,
+      "hex": "#61b387",
+      "saturation": 0.62653,
+      "source": "contrast-derived"
+    },
+    "mdCodeBlockBorder": {
+      "family": "neutral",
+      "step": 330,
+      "hex": "#a8a29c",
+      "saturation": 0.06568,
+      "source": "contrast-derived"
+    },
+    "mdQuote": {
+      "family": "neutral",
+      "step": 330,
+      "hex": "#a8a29c",
+      "saturation": 0.06568,
+      "source": "contrast-derived"
+    },
+    "mdQuoteBorder": {
+      "family": "neutral",
+      "step": 295,
+      "hex": "#b1aca6",
+      "saturation": 0.06019,
+      "source": "contrast-derived"
+    },
+    "mdHr": {
+      "family": "neutral",
+      "step": 295,
+      "hex": "#b1aca6",
+      "saturation": 0.06019,
+      "source": "contrast-derived"
+    },
+    "mdListBullet": {
+      "family": "violet",
+      "step": 320,
+      "hex": "#ac95ec",
+      "saturation": 0.70476,
+      "source": "contrast-derived"
+    },
+    "toolDiffAdded": {
+      "family": "green",
+      "step": 350,
+      "hex": "#5fb286",
+      "saturation": 0.63426,
+      "source": "contrast-derived"
+    },
+    "toolDiffRemoved": {
+      "family": "red",
+      "step": 320,
+      "hex": "#ea8485",
+      "saturation": 0.70346,
+      "source": "contrast-derived"
+    },
+    "toolDiffContext": {
+      "family": "neutral",
+      "step": 335,
+      "hex": "#a7a19a",
+      "saturation": 0.06642,
+      "source": "contrast-derived"
+    },
+    "syntaxComment": {
+      "family": "neutral",
+      "step": 330,
+      "hex": "#a8a29c",
+      "saturation": 0.06568,
+      "source": "contrast-derived"
+    },
+    "syntaxKeyword": {
+      "family": "blue",
+      "step": 340,
+      "hex": "#64abce",
+      "saturation": 0.55578,
+      "source": "contrast-derived"
+    },
+    "syntaxFunction": {
+      "family": "yellow",
+      "step": 330,
+      "hex": "#ce9a22",
+      "saturation": 0.88064,
+      "source": "contrast-derived"
+    },
+    "syntaxVariable": {
+      "family": "cyan",
+      "step": 345,
+      "hex": "#56b1ab",
+      "saturation": 0.61057,
+      "source": "contrast-derived"
+    },
+    "syntaxString": {
+      "family": "orange",
+      "step": 320,
+      "hex": "#df905f",
+      "saturation": 0.65723,
+      "source": "contrast-derived"
+    },
+    "syntaxNumber": {
+      "family": "green",
+      "step": 345,
+      "hex": "#61b387",
+      "saturation": 0.62653,
+      "source": "contrast-derived"
+    },
+    "syntaxType": {
+      "family": "violet",
+      "step": 320,
+      "hex": "#ac95ec",
+      "saturation": 0.70476,
+      "source": "contrast-derived"
+    },
+    "syntaxOperator": {
+      "family": "neutral",
+      "step": 330,
+      "hex": "#a8a29c",
+      "saturation": 0.06568,
+      "source": "contrast-derived"
+    },
+    "syntaxPunctuation": {
+      "family": "neutral",
+      "step": 330,
+      "hex": "#a8a29c",
+      "saturation": 0.06568,
+      "source": "contrast-derived"
+    },
+    "thinkingOff": {
+      "family": "neutral",
+      "step": 505,
+      "hex": "#7c746d",
+      "saturation": 0.07999,
+      "source": "contrast-derived"
+    },
+    "thinkingMinimal": {
+      "family": "thinkingSlate",
+      "step": 490,
+      "hex": "#667e8b",
+      "saturation": 0.19989,
+      "source": "contrast-derived"
+    },
+    "thinkingLow": {
+      "family": "thinkingBlue",
+      "step": 470,
+      "hex": "#5286a1",
+      "saturation": 0.44793,
+      "source": "contrast-derived"
+    },
+    "thinkingMedium": {
+      "family": "thinkingPeriwinkle",
+      "step": 445,
+      "hex": "#5e84cb",
+      "saturation": 0.5917,
+      "source": "contrast-derived"
+    },
+    "thinkingHigh": {
+      "family": "thinkingViolet",
+      "step": 395,
+      "hex": "#9a7ce5",
+      "saturation": 0.71583,
+      "source": "contrast-derived"
+    },
+    "thinkingXhigh": {
+      "family": "thinkingMagenta",
+      "step": 350,
+      "hex": "#dc6cd4",
+      "saturation": 0.78332,
+      "source": "contrast-derived"
+    },
+    "thinkingMax": {
+      "family": "thinkingRed",
+      "step": 335,
+      "hex": "#fe6b72",
+      "saturation": 0.98868,
+      "source": "contrast-derived"
+    },
+    "bashMode": {
+      "family": "green",
+      "step": 410,
+      "hex": "#4aa375",
+      "saturation": 0.71211,
+      "source": "contrast-derived"
+    },
+    "scrollbarThumb": {
+      "family": "neutral",
+      "step": 350,
+      "hex": "#a39d96",
+      "saturation": 0.06857,
+      "source": "contrast-derived"
+    }
+  },
+  "palette": {
+    "blue": {
+      "340": "#64abce",
+      "400": "#4c9bc1",
+      "745": "#233f4d",
+      "755": "#223d4a"
+    },
+    "neutral": {
+      "50": "#f1f1f0",
+      "60": "#eeeeed",
+      "165": "#d2d0cd",
+      "295": "#b1aca6",
+      "320": "#aba59f",
+      "330": "#a8a29c",
+      "335": "#a7a19a",
+      "350": "#a39d96",
+      "390": "#99928b",
+      "505": "#7c746d",
+      "660": "#534e49",
+      "755": "#3b3835"
+    },
+    "green": {
+      "345": "#61b387",
+      "350": "#5fb286",
+      "410": "#4aa375",
+      "760": "#233e2f"
+    },
+    "red": {
+      "315": "#ea8787",
+      "320": "#ea8485",
+      "745": "#5d282a"
+    },
+    "purple": {
+      "745": "#443158"
+    },
+    "violet": {
+      "320": "#ac95ec"
+    },
+    "cyan": {
+      "345": "#56b1ab"
+    },
+    "yellow": {
+      "330": "#ce9a22"
+    },
+    "orange": {
+      "320": "#df905f"
+    },
+    "thinkingSlate": {
+      "490": "#667e8b"
+    },
+    "thinkingBlue": {
+      "470": "#5286a1"
+    },
+    "thinkingPeriwinkle": {
+      "445": "#5e84cb"
+    },
+    "thinkingViolet": {
+      "395": "#9a7ce5"
+    },
+    "thinkingMagenta": {
+      "350": "#dc6cd4"
+    },
+    "thinkingRed": {
+      "335": "#fe6b72"
+    }
+  },
+  "checks": [
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "selectedBg",
+      "contrast": 4.5,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 7.4381,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 7.4381,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 7.472,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 7.5673,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 7.5737,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 7.5698,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "text",
+      "background": "background",
+      "contrast": 9,
+      "reason": "Primary reading text; also assistant replies in extended",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 9.0957,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "text",
+      "background": "selectedBg",
+      "contrast": 7,
+      "reason": "Selected rows are slightly darker; 9 here would push text above the canvas level",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 7.4381,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "terminalForeground",
+      "background": "background",
+      "contrast": 9,
+      "reason": "Assistant replies render in the terminal default in current Pi; same level as text",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 9.0957,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5093,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "selectedBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5053,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5836,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5874,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "accent",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5851,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.537,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "selectedBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.528,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6066,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6105,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "success",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6081,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5426,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "selectedBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5326,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6113,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6152,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "error",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6128,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.513,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "selectedBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5084,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5867,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5905,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "warning",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5882,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "background",
+      "contrast": 5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 6.2137,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "selectedBg",
+      "contrast": 5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.0814,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "customMessageBg",
+      "contrast": 5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.1045,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "toolPendingBg",
+      "contrast": 5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.1696,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "toolSuccessBg",
+      "contrast": 5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.174,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "muted",
+      "background": "toolErrorBg",
+      "contrast": 5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.1713,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "background",
+      "contrast": 3,
+      "reason": "Tertiary text on the terminal canvas",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 3.0505,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "selectedBg",
+      "contrast": null,
+      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 2.4946,
+      "passes": null
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "customMessageBg",
+      "contrast": null,
+      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 2.506,
+      "passes": null
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "toolPendingBg",
+      "contrast": null,
+      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 2.5379,
+      "passes": null
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "toolSuccessBg",
+      "contrast": null,
+      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 2.5401,
+      "passes": null
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "toolErrorBg",
+      "contrast": null,
+      "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 2.5388,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "terminalForeground",
+      "background": "background",
+      "contrast": 3,
+      "reason": "Table grid lines structure cells",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "via": "mdTableBorder",
+      "ratio": 9.0957,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "terminalForeground",
+      "background": "userMessageBg",
+      "contrast": 3,
+      "reason": "Table grid lines structure cells",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "via": "mdTableBorder",
+      "ratio": 7.4381,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "terminalForeground",
+      "background": "customMessageBg",
+      "contrast": 3,
+      "reason": "Table grid lines structure cells",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "via": "mdTableBorder",
+      "ratio": 7.472,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "thinkingText",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.559,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "userMessageText",
+      "background": "userMessageBg",
+      "contrast": 10,
+      "reason": "Very prominent: near white in dark mode, near black in light mode",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 10.1291,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageText",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5526,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageText",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6106,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageText",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6145,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageText",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6122,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5258,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "selectedBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5053,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5836,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5874,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "customMessageLabel",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5851,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolTitle",
+      "background": "toolPendingBg",
+      "contrast": 10,
+      "reason": "Very prominent: near white in dark mode, near black in light mode",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 10.032,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolTitle",
+      "background": "toolSuccessBg",
+      "contrast": 10,
+      "reason": "Very prominent: near white in dark mode, near black in light mode",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 10.0404,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolTitle",
+      "background": "toolErrorBg",
+      "contrast": 10,
+      "reason": "Very prominent: near white in dark mode, near black in light mode",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 10.0353,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolOutput",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5521,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolOutput",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5559,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolOutput",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5536,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdHeading",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.513,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdHeading",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5289,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdHeading",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5084,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLink",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5051,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLink",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5224,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLink",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5018,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLinkUrl",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5418,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLinkUrl",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5319,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdLinkUrl",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5526,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCode",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5093,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCode",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5258,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCode",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5053,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.537,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5486,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.528,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6066,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6105,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlock",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6081,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdQuote",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5418,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdQuote",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5319,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdQuote",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5526,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlockBorder",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": "Visible fence delimiters/optional language label are readable glyphs",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5418,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlockBorder",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": "Visible fence delimiters/optional language label are readable glyphs",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5319,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdCodeBlockBorder",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": "Visible fence delimiters/optional language label are readable glyphs",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5526,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdListBullet",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": "Conservative text treatment also covers ordered list numbers",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5093,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdListBullet",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": "Conservative text treatment also covers ordered list numbers",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5053,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "mdListBullet",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": "Conservative text treatment also covers ordered list numbers",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5258,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffAdded",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.4656,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffAdded",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5472,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffAdded",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.551,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffAdded",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5487,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffRemoved",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.4251,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffRemoved",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5136,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffRemoved",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5173,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffRemoved",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.515,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffContext",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.4715,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffContext",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5521,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffContext",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5559,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "toolDiffContext",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5536,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5418,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5319,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5526,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6106,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6145,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxComment",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6122,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5051,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5224,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5018,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.58,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5839,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxKeyword",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5816,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.513,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5289,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5084,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5867,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5905,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxFunction",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5882,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5146,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5302,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5096,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.588,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5918,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxVariable",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5895,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5281,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5413,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5206,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5992,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.603,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxString",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6007,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.537,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5486,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.528,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6066,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6105,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxNumber",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6081,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5093,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5258,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5053,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5836,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5874,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxType",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5851,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5418,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5526,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5319,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6106,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6145,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxOperator",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6122,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5418,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "customMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5526,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "userMessageBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5319,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "toolPendingBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6106,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "toolSuccessBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6145,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "syntaxPunctuation",
+      "background": "toolErrorBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.6122,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "borderAccent",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": "Session-tree compaction label in current Pi; moves to customMessageLabel in extended",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5146,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "borderAccent",
+      "background": "selectedBg",
+      "contrast": 4.5,
+      "reason": "Session-tree compaction label in current Pi; moves to customMessageLabel in extended",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5096,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "searchMatchText",
+      "background": "searchMatchBg",
+      "contrast": 4.5,
+      "reason": null,
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5588,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "bashMode",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": "Bash command header; editor border has a separate non-text rule",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5242,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "border",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": "Theme selector and other dialog frames must remain visible against the terminal background",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5102,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "borderAccent",
+      "background": "background",
+      "contrast": 4.5,
+      "reason": "Same prominence as border, with a different color",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.5146,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "borderMuted",
+      "background": "background",
+      "contrast": 3,
+      "reason": "Editor boundary when necessary to locate the input area",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 3.0505,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "background",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 6.2137,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "userMessageBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.0814,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "customMessageBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.1045,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "toolPendingBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.1696,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "toolSuccessBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.174,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdQuoteBorder",
+      "background": "toolErrorBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.1713,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "background",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 6.2137,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "userMessageBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.0814,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "customMessageBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.1045,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "toolPendingBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.1696,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "toolSuccessBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.174,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "mdHr",
+      "background": "toolErrorBg",
+      "contrast": 5,
+      "reason": "Same level as muted, like Pi's default theme",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.1713,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "scrollbarTrack",
+      "background": "background",
+      "contrast": 1.7,
+      "reason": "Faint track, matching Pi's default theme (~1.74)",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.7024,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "scrollbarThumb",
+      "background": "scrollbarTrack",
+      "contrast": 3,
+      "reason": "Scrollbar position relative to track",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 3.0623,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingOff",
+      "background": "background",
+      "contrast": 3,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 3.0505,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingMinimal",
+      "background": "background",
+      "contrast": 3.25,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 3.2812,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingLow",
+      "background": "background",
+      "contrast": 3.5,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 3.522,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingMedium",
+      "background": "background",
+      "contrast": 3.75,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 3.7589,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingHigh",
+      "background": "background",
+      "contrast": 4.25,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.2588,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingXhigh",
+      "background": "background",
+      "contrast": 4.75,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.7592,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "thinkingMax",
+      "background": "background",
+      "contrast": 5,
+      "reason": "Editor boundary; prominence increases with thinking level",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 5.0403,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "bashMode",
+      "background": "background",
+      "contrast": 3,
+      "reason": "Editor boundary",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 4.5242,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "dim",
+      "background": "background",
+      "contrast": null,
+      "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 3.0505,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "dim",
+      "background": "selectedBg",
+      "contrast": null,
+      "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 2.4946,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "userMessageBg",
+      "background": "background",
+      "contrast": 1.2,
+      "reason": "Provisional very subtle distinction for the unlabeled user-message bubble",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.2228,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "toolPendingBg",
+      "background": "background",
+      "contrast": 1.2,
+      "reason": "Provisional very subtle tool state fill",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.202,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "toolSuccessBg",
+      "background": "background",
+      "contrast": 1.2,
+      "reason": "Provisional very subtle tool state fill, including success",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.201,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "toolErrorBg",
+      "background": "background",
+      "contrast": 1.2,
+      "reason": "Provisional very subtle tool state fill",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.2016,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "selectedBg",
+      "background": "background",
+      "contrast": 1.2,
+      "reason": "Subtle selection fill, like other panels; cursor/bold also mark selection",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.2228,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "background",
+      "contrast": 1.25,
+      "reason": "Close to Pi's default theme (~1.26)",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.2597,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "userMessageBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.0301,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "customMessageBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.0348,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "toolPendingBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.048,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "toolSuccessBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.0489,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "toolErrorBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.0484,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "searchMatchBg",
+      "background": "selectedBg",
+      "contrast": null,
+      "reason": "Other matches are underlined; the current match is reversed and bold",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.0301,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "customMessageBg",
+      "background": "background",
+      "contrast": 1.2,
+      "reason": "Subtle panel, like other message panels",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.2173,
+      "passes": true
+    },
+    {
+      "kind": "nonText",
+      "token": "toolPendingBg",
+      "background": "toolSuccessBg",
+      "contrast": null,
+      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.0008,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "toolPendingBg",
+      "background": "toolErrorBg",
+      "contrast": null,
+      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.0003,
+      "passes": null
+    },
+    {
+      "kind": "nonText",
+      "token": "toolSuccessBg",
+      "background": "toolErrorBg",
+      "contrast": null,
+      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "ratio": 1.0005,
+      "passes": null
+    }
+  ],
+  "summary": {
+    "required": 185,
+    "noRequirement": 16
+  }
+}
