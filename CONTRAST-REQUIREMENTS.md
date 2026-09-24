@@ -16,7 +16,7 @@ In this table, **each surface listed is a distinct pair with the named token**. 
 
 | Foreground tokens (all 49) | Actual uses | Surfaces | Requirement |
 |---|---|---|---|
-| `text` | Primary UI copy, setup/settings, mermaid, fullscreen jump label; assistant replies in extended | D, S | ≥9 on D, ≥7 on S |
+| `text` | Primary UI copy, setup/settings, mermaid, fullscreen jump label; assistant replies in extended | D, S | ≥11 on D, ≥9 on S |
 | `accent` | Active choices/cursors, paths, links, tree roles, mermaid | D, S, T | ≥4.5 everywhere; may still look pale when shared with tool panels |
 | `success`, `error`, `warning` | Status/error/warning copy and labels, including selected tree/session rows and tool results | D, S, T | ≥4.5 throughout |
 | `muted` | Readable descriptions, timestamps, tool hints/output, list descriptions | D, S, C, T | ≥5 (readable secondary text, one level above `dim`) |
@@ -44,7 +44,7 @@ Minimums alone let the solver place many tokens at the same color, because it pi
 
 | Level | Tokens | Minimum on D |
 |---|---|---|
-| Primary text | `text` (and assistant replies) | 9 |
+| Primary text | `text` (and assistant replies) | 11 (9 on selected rows) |
 | Secondary text | `muted`, `mdHr`, `mdQuoteBorder` | 5 (≈6.1 in practice: also 5 on panels) |
 | Tertiary text | `dim` | 3 (≈3.7 in practice). Deliberately below readable contrast: key-hint descriptions, tree connectors, settings descriptions |
 | Quietest text | `footerText`, `thinkingText` | `footerText` 3 (canvas only, same level as `dim`); `thinkingText` 4.5 |

@@ -78,9 +78,9 @@
   "relationships": [
     {"kind":"text","token":"terminalForeground","backgrounds":["selectedBg","userMessageBg","customMessageBg","toolPendingBg","toolSuccessBg","toolErrorBg"],"note":"Only unstyled text that actually inherits the terminal foreground on a given surface","contrast":4.5},
     {"kind":"text","token":"terminalForeground","backgrounds":["background"],"targets":["extended"],"note":"Unstyled text on the canvas","contrast":4.5},
-    {"kind":"text","token":"text","backgrounds":["background"],"contrast":9,"note":"Primary reading text; also assistant replies in extended"},
-    {"kind":"text","token":"text","backgrounds":["selectedBg"],"note":"Selected rows are slightly darker; 9 here would push text above the canvas level","contrast":7},
-    {"kind":"text","token":"terminalForeground","backgrounds":["background"],"targets":["current"],"note":"Assistant replies render in the terminal default in current Pi; same level as text","contrast":9},
+    {"kind":"text","token":"text","backgrounds":["background"],"contrast":11,"note":"Primary reading text; also assistant replies in extended"},
+    {"kind":"text","token":"text","backgrounds":["selectedBg"],"note":"Selected rows are slightly darker; the canvas level here would push text above it","contrast":9},
+    {"kind":"text","token":"terminalForeground","backgrounds":["background"],"targets":["current"],"note":"Assistant replies render in the terminal default in current Pi; same level as text","contrast":11},
     {"kind":"text","token":"accent","backgrounds":["background","selectedBg","toolPendingBg","toolSuccessBg","toolErrorBg"],"contrast":4.5},
     {"kind":"text","token":"success","backgrounds":["background","selectedBg","toolPendingBg","toolSuccessBg","toolErrorBg"],"contrast":4.5},
     {"kind":"text","token":"error","backgrounds":["background","selectedBg","toolPendingBg","toolSuccessBg","toolErrorBg"],"contrast":4.5},

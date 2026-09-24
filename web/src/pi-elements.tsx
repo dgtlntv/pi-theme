@@ -1,6 +1,6 @@
 // Pi TUI elements, mirroring ../pi components and their token usage.
 import type { ReactNode } from "react";
-import { C, Gap, KeyHint, Line, Panel, Rule, type TokenRef } from "./term.tsx";
+import { C, Gap, KeyHint, Line, Panel, Rule, type TokenRef, useTarget } from "./term.tsx";
 
 export const THINKING_LEVELS = ["off", "minimal", "low", "medium", "high", "xhigh", "max"] as const;
 export type ThinkingLevel = (typeof THINKING_LEVELS)[number];
@@ -16,21 +16,59 @@ const LIST_TEXT: TokenRef = { current: "terminalForeground", extended: "text" };
 
 // ---------------------------------------------------------------- header, status
 
+/**
+ * The Pi logo: a 4x4 pixel grid in fixed brand colors (not theme tokens).
+ * Pi draws it with half blocks in a 4x2 cell area (components/pi-logo.ts); here each
+ * pixel is a 1ch x half-row box, which renders the same without glyph seams.
+ */
+const LOGO_COLORS = { R: "#f09082", B: "#4d9abf", Y: "#f1be58" } as const;
+const LOGO_GRID = ["RRR.", "B.R.", "BB.Y", "B..Y"];
+
+export function PiLogoRow({ row }: { row: 0 | 1 }) {
+  return (
+    <span className="pi-logo" title="Pi logo (fixed brand colors)">
+      {[0, 1, 2, 3].map((col) => (
+        <span key={col} className="pi-logo-cell">
+          {[LOGO_GRID[row * 2][col], LOGO_GRID[row * 2 + 1][col]].map((pixel, half) => (
+            <span key={half} style={{ background: pixel === "." ? undefined : LOGO_COLORS[pixel as keyof typeof LOGO_COLORS] }} />
+          ))}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+const COMPACT_HINTS = (
+  <>
+    <KeyHint k="escape" d="interrupt" /><C t="muted"> · </C><KeyHint k="ctrl+c/ctrl+d" d="clear/exit" /><C t="muted"> · </C>
+    <KeyHint k="/" d="commands" /><C t="muted"> · </C><KeyHint k="!" d="bash" /><C t="muted"> · </C><KeyHint k="ctrl+o" d="more" />
+  </>
+);
+
+/** Startup header. Current Pi: "pi" in accent; the proposal: logo with name and version. */
 export function Header({ expanded }: { expanded?: boolean }) {
+  const proposal = useTarget() === "extended";
+  const version = proposal
+    ? <><C t="text" bold>pi</C><C t="dim"> v0.87.1</C></>
+    : <><C t="accent" bold>pi</C><C t="dim"> v0.87.1</C></>;
   return (
     <>
-      <Line><C t="accent" bold>pi</C><C t="dim"> v0.87.1</C></Line>
+      {proposal ? (
+        <>
+          <Line><PiLogoRow row={0} /> {version}</Line>
+          <Line><PiLogoRow row={1} />{expanded ? null : <> {COMPACT_HINTS}</>}</Line>
+        </>
+      ) : (
+        <Line>{version}</Line>
+      )}
       {expanded ? (
         <>
           {[["escape", "to interrupt"], ["ctrl+c", "to clear"], ["ctrl+c twice", "to exit"], ["ctrl+d", "to exit (empty)"], ["shift+tab", "to cycle thinking level"], ["ctrl+l", "to select model"], ["ctrl+o", "to expand tools"], ["/", "for commands"], ["!", "to run bash"]].map(([k, d]) => (
             <Line key={k}><KeyHint k={k} d={d} /></Line>
           ))}
         </>
-      ) : (
-        <Line>
-          <KeyHint k="escape" d="interrupt" /><C t="muted"> · </C><KeyHint k="ctrl+c/ctrl+d" d="clear/exit" /><C t="muted"> · </C>
-          <KeyHint k="/" d="commands" /><C t="muted"> · </C><KeyHint k="!" d="bash" /><C t="muted"> · </C><KeyHint k="ctrl+o" d="more" />
-        </Line>
+      ) : proposal ? null : (
+        <Line>{COMPACT_HINTS}</Line>
       )}
       <Line><C t="dim">Press ctrl+o to show full startup help and loaded resources.</C></Line>
       <Line />

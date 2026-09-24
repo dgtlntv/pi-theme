@@ -30,15 +30,17 @@ test("recipe defines a terminal background anchor and a family for every other t
   assert.equal(roles.background, undefined);
   assert.deepEqual(Object.keys(roles).sort(), Object.keys(contract.tokens).filter((token) => token !== "background").sort());
   assert.ok(recipe.roles.every((role) => !("steps" in role)));
-  for (const token of ["accent", "mdCode", "mdListBullet", "syntaxType", "customMessageLabel"]) {
+  for (const token of ["accent", "mdCode", "mdListBullet", "syntaxType"]) {
     assert.equal(roles[token].family, "violet");
   }
   assert.equal(roles.thinkingMedium.family, "thinkingPeriwinkle");
   assert.equal(roles.userMessageBg.family, "blue");
+  // Custom-message labels share their panel's hue family.
+  assert.equal(roles.customMessageLabel.family, roles.customMessageBg.family);
   assert.equal(validateContract(contract).required, 197);
   // Primary reading text: Pi's `text` and the proposed assistant reply body.
   // Primary reading text on the canvas; in current Pi assistant replies use the terminal default.
-  assert.deepEqual(contract.relationships.filter((rule) => rule.contrast === 9).map((rule) => rule.token),
+  assert.deepEqual(contract.relationships.filter((rule) => rule.contrast === 11).map((rule) => rule.token),
     ["text", "terminalForeground"]);
   assert.equal(contract.relationships.find((rule) => rule.token === "border" && rule.kind === "nonText")?.contrast, 4.5);
   const muted = contract.relationships.find((rule) => rule.token === "muted" && rule.kind === "text");
@@ -187,7 +189,7 @@ test("increasing a text ratio makes its derived foreground brighter in dark mode
   const stronger = structuredClone(contract);
   const textRule = stronger.relationships.find((rule) => rule.token === "text");
   assert.ok(textRule);
-  textRule.contrast = 10;
+  textRule.contrast = 13;
 
   const original = generateTheme(recipe, contract, "dark").report.selected.text;
   const changed = generateTheme(recipe, stronger, "dark").report.selected.text;

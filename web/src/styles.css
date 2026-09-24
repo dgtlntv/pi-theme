@@ -67,3 +67,8 @@ body { margin: 0; font-family: system-ui, sans-serif; background: #ddd; }
 .wiper-handle::before { content: ""; position: absolute; top: 0; bottom: 0; left: 6px; width: 2px; background: #ff3b8d; }
 .wiper-labels { position: sticky; top: 4px; display: flex; justify-content: center; gap: 16px; width: 14px; margin: 0 auto; }
 .wiper-labels span { font: 11px system-ui; background: #ff3b8d; color: #fff; padding: 1px 4px; white-space: nowrap; }
+
+/* Pi logo: each cell is 1ch wide, one row tall, split into two square-ish pixels. */
+.pi-logo { display: inline-flex; vertical-align: top; height: var(--lh); }
+.pi-logo-cell { display: inline-flex; flex-direction: column; width: 1ch; height: var(--lh); }
+.pi-logo-cell > span { flex: 1; }

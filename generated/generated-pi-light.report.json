@@ -11,9 +11,9 @@
     },
     "foreground": {
       "family": "neutral",
-      "step": 710,
-      "hex": "#46433f",
-      "saturation": 0.05937,
+      "step": 765,
+      "hex": "#34373a",
+      "saturation": 0.05017,
       "source": "contrast-derived"
     }
   },
@@ -34,7 +34,7 @@
     "toolPendingBg": {
       "family": "neutral",
       "step": 105,
-      "hex": "#e2e1e0",
+      "hex": "#e0e1e2",
       "saturation": 0.03053,
       "source": "contrast-derived"
     },
@@ -75,16 +75,16 @@
     },
     "terminalForeground": {
       "family": "neutral",
-      "step": 710,
-      "hex": "#46433f",
-      "saturation": 0.05937,
+      "step": 765,
+      "hex": "#34373a",
+      "saturation": 0.05017,
       "source": "contrast-derived"
     },
     "accent": {
       "family": "violet",
-      "step": 550,
-      "hex": "#7840d7",
-      "saturation": 0.8374,
+      "step": 565,
+      "hex": "#6d54aa",
+      "saturation": 0.58463,
       "source": "contrast-derived"
     },
     "border": {
@@ -104,7 +104,7 @@
     "borderMuted": {
       "family": "neutral",
       "step": 410,
-      "hex": "#948d85",
+      "hex": "#888f97",
       "saturation": 0.07565,
       "source": "contrast-derived"
     },
@@ -132,78 +132,78 @@
     "muted": {
       "family": "neutral",
       "step": 630,
-      "hex": "#5b5650",
+      "hex": "#52575d",
       "saturation": 0.07122,
       "source": "contrast-derived"
     },
     "dim": {
       "family": "neutral",
       "step": 475,
-      "hex": "#847c74",
+      "hex": "#777e86",
       "saturation": 0.07965,
       "source": "contrast-derived"
     },
     "text": {
       "family": "neutral",
-      "step": 710,
-      "hex": "#46433f",
-      "saturation": 0.05937,
+      "step": 765,
+      "hex": "#34373a",
+      "saturation": 0.05017,
       "source": "contrast-derived"
     },
     "thinkingText": {
       "family": "neutral",
       "step": 525,
-      "hex": "#776f68",
+      "hex": "#6a7279",
       "saturation": 0.07965,
       "source": "contrast-derived"
     },
     "scrollbarTrack": {
       "family": "neutral",
       "step": 230,
-      "hex": "#c2beba",
+      "hex": "#bbbfc3",
       "saturation": 0.04934,
       "source": "contrast-derived"
     },
     "searchMatchText": {
       "family": "neutral",
       "step": 585,
-      "hex": "#67605a",
+      "hex": "#5c6269",
       "saturation": 0.0761,
       "source": "contrast-derived"
     },
     "userMessageText": {
       "family": "neutral",
       "step": 790,
-      "hex": "#32302e",
+      "hex": "#2e3133",
       "saturation": 0.04602,
       "source": "contrast-derived"
     },
     "customMessageText": {
       "family": "neutral",
-      "step": 575,
-      "hex": "#69635c",
-      "saturation": 0.07695,
+      "step": 580,
+      "hex": "#5d646b",
+      "saturation": 0.07654,
       "source": "contrast-derived"
     },
     "customMessageLabel": {
-      "family": "violet",
-      "step": 550,
-      "hex": "#7840d7",
-      "saturation": 0.8374,
+      "family": "purple",
+      "step": 555,
+      "hex": "#8049b4",
+      "saturation": 0.68341,
       "source": "contrast-derived"
     },
     "toolTitle": {
       "family": "neutral",
       "step": 790,
-      "hex": "#32302e",
+      "hex": "#2e3133",
       "saturation": 0.04602,
       "source": "contrast-derived"
     },
     "toolOutput": {
       "family": "neutral",
-      "step": 575,
-      "hex": "#69635c",
-      "saturation": 0.07695,
+      "step": 580,
+      "hex": "#5d646b",
+      "saturation": 0.07654,
       "source": "contrast-derived"
     },
     "mdHeading": {
@@ -222,16 +222,16 @@
     },
     "mdLinkUrl": {
       "family": "neutral",
-      "step": 575,
-      "hex": "#69635c",
-      "saturation": 0.07695,
+      "step": 580,
+      "hex": "#5d646b",
+      "saturation": 0.07654,
       "source": "contrast-derived"
     },
     "mdCode": {
       "family": "violet",
-      "step": 550,
-      "hex": "#7840d7",
-      "saturation": 0.8374,
+      "step": 565,
+      "hex": "#6d54aa",
+      "saturation": 0.58463,
       "source": "contrast-derived"
     },
     "mdCodeBlock": {
@@ -243,37 +243,37 @@
     },
     "mdCodeBlockBorder": {
       "family": "neutral",
-      "step": 575,
-      "hex": "#69635c",
-      "saturation": 0.07695,
+      "step": 580,
+      "hex": "#5d646b",
+      "saturation": 0.07654,
       "source": "contrast-derived"
     },
     "mdQuote": {
       "family": "neutral",
-      "step": 575,
-      "hex": "#69635c",
-      "saturation": 0.07695,
+      "step": 580,
+      "hex": "#5d646b",
+      "saturation": 0.07654,
       "source": "contrast-derived"
     },
     "mdQuoteBorder": {
       "family": "neutral",
       "step": 630,
-      "hex": "#5b5650",
+      "hex": "#52575d",
       "saturation": 0.07122,
       "source": "contrast-derived"
     },
     "mdHr": {
       "family": "neutral",
       "step": 630,
-      "hex": "#5b5650",
+      "hex": "#52575d",
       "saturation": 0.07122,
       "source": "contrast-derived"
     },
     "mdListBullet": {
       "family": "violet",
-      "step": 550,
-      "hex": "#7840d7",
-      "saturation": 0.8374,
+      "step": 565,
+      "hex": "#6d54aa",
+      "saturation": 0.58463,
       "source": "contrast-derived"
     },
     "toolDiffAdded": {
@@ -292,16 +292,16 @@
     },
     "toolDiffContext": {
       "family": "neutral",
-      "step": 575,
-      "hex": "#69635c",
-      "saturation": 0.07695,
+      "step": 580,
+      "hex": "#5d646b",
+      "saturation": 0.07654,
       "source": "contrast-derived"
     },
     "syntaxComment": {
       "family": "neutral",
-      "step": 575,
-      "hex": "#69635c",
-      "saturation": 0.07695,
+      "step": 580,
+      "hex": "#5d646b",
+      "saturation": 0.07654,
       "source": "contrast-derived"
     },
     "syntaxKeyword": {
@@ -341,29 +341,29 @@
     },
     "syntaxType": {
       "family": "violet",
-      "step": 550,
-      "hex": "#7840d7",
-      "saturation": 0.8374,
+      "step": 565,
+      "hex": "#6d54aa",
+      "saturation": 0.58463,
       "source": "contrast-derived"
     },
     "syntaxOperator": {
       "family": "neutral",
-      "step": 575,
-      "hex": "#69635c",
-      "saturation": 0.07695,
+      "step": 580,
+      "hex": "#5d646b",
+      "saturation": 0.07654,
       "source": "contrast-derived"
     },
     "syntaxPunctuation": {
       "family": "neutral",
-      "step": 575,
-      "hex": "#69635c",
-      "saturation": 0.07695,
+      "step": 580,
+      "hex": "#5d646b",
+      "saturation": 0.07654,
       "source": "contrast-derived"
     },
     "thinkingOff": {
       "family": "neutral",
       "step": 410,
-      "hex": "#948d85",
+      "hex": "#888f97",
       "saturation": 0.07565,
       "source": "contrast-derived"
     },
@@ -419,7 +419,7 @@
     "scrollbarThumb": {
       "family": "neutral",
       "step": 560,
-      "hex": "#6d6760",
+      "hex": "#626970",
       "saturation": 0.07803,
       "source": "contrast-derived"
     }
@@ -432,17 +432,17 @@
       "585": "#2b6986"
     },
     "neutral": {
-      "105": "#e2e1e0",
-      "230": "#c2beba",
-      "410": "#948d85",
-      "475": "#847c74",
-      "525": "#776f68",
-      "560": "#6d6760",
-      "575": "#69635c",
-      "585": "#67605a",
-      "630": "#5b5650",
-      "710": "#46433f",
-      "790": "#32302e"
+      "105": "#e0e1e2",
+      "230": "#bbbfc3",
+      "410": "#888f97",
+      "475": "#777e86",
+      "525": "#6a7279",
+      "560": "#626970",
+      "580": "#5d646b",
+      "585": "#5c6269",
+      "630": "#52575d",
+      "765": "#34373a",
+      "790": "#2e3133"
     },
     "green": {
       "105": "#d8e5dd",
@@ -454,10 +454,11 @@
       "550": "#bf243a"
     },
     "purple": {
-      "105": "#e3dfe9"
+      "105": "#e3dfe9",
+      "555": "#8049b4"
     },
     "violet": {
-      "550": "#7840d7"
+      "565": "#6d54aa"
     },
     "cyan": {
       "585": "#276e6b"
@@ -496,7 +497,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 7.5476,
+      "ratio": 9.1895,
       "passes": true
     },
     {
@@ -507,7 +508,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 7.5476,
+      "ratio": 9.1895,
       "passes": true
     },
     {
@@ -518,7 +519,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 7.4929,
+      "ratio": 9.123,
       "passes": true
     },
     {
@@ -529,7 +530,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 7.5315,
+      "ratio": 9.1457,
       "passes": true
     },
     {
@@ -540,7 +541,7 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 7.5743,
+      "ratio": 9.222,
       "passes": true
     },
     {
@@ -551,40 +552,40 @@
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 7.5816,
+      "ratio": 9.231,
       "passes": true
     },
     {
       "kind": "text",
       "token": "text",
       "background": "background",
-      "contrast": 9,
+      "contrast": 11,
       "reason": "Primary reading text; also assistant replies in extended",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 9.1182,
+      "ratio": 11.1018,
       "passes": true
     },
     {
       "kind": "text",
       "token": "text",
       "background": "selectedBg",
-      "contrast": 7,
-      "reason": "Selected rows are slightly darker; 9 here would push text above the canvas level",
+      "contrast": 9,
+      "reason": "Selected rows are slightly darker; the canvas level here would push text above it",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 7.5476,
+      "ratio": 9.1895,
       "passes": true
     },
     {
       "kind": "text",
       "token": "terminalForeground",
       "background": "background",
-      "contrast": 9,
+      "contrast": 11,
       "reason": "Assistant replies render in the terminal default in current Pi; same level as text",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 9.1182,
+      "ratio": 11.1018,
       "passes": true
     },
     {
@@ -595,7 +596,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5413,
+      "ratio": 5.5641,
       "passes": true
     },
     {
@@ -606,7 +607,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5868,
+      "ratio": 4.6057,
       "passes": true
     },
     {
@@ -617,7 +618,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.577,
+      "ratio": 4.5837,
       "passes": true
     },
     {
@@ -628,7 +629,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.603,
+      "ratio": 4.622,
       "passes": true
     },
     {
@@ -639,7 +640,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6075,
+      "ratio": 4.6265,
       "passes": true
     },
     {
@@ -672,7 +673,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5279,
+      "ratio": 4.516,
       "passes": true
     },
     {
@@ -727,7 +728,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5564,
+      "ratio": 4.5444,
       "passes": true
     },
     {
@@ -782,7 +783,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5936,
+      "ratio": 4.5814,
       "passes": true
     },
     {
@@ -816,7 +817,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 6.7321,
+      "ratio": 6.7595,
       "passes": true
     },
     {
@@ -828,7 +829,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5725,
+      "ratio": 5.5951,
       "passes": true
     },
     {
@@ -840,7 +841,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5322,
+      "ratio": 5.5546,
       "passes": true
     },
     {
@@ -852,7 +853,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5606,
+      "ratio": 5.5685,
       "passes": true
     },
     {
@@ -864,7 +865,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5922,
+      "ratio": 5.6149,
       "passes": true
     },
     {
@@ -876,7 +877,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5977,
+      "ratio": 5.6204,
       "passes": true
     },
     {
@@ -888,7 +889,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.805,
+      "ratio": 3.8076,
       "passes": true
     },
     {
@@ -899,7 +900,7 @@
       "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.1496,
+      "ratio": 3.1517,
       "passes": null
     },
     {
@@ -910,7 +911,7 @@
       "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.1268,
+      "ratio": 3.1289,
       "passes": null
     },
     {
@@ -921,7 +922,7 @@
       "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.1429,
+      "ratio": 3.1367,
       "passes": null
     },
     {
@@ -932,7 +933,7 @@
       "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.1607,
+      "ratio": 3.1629,
       "passes": null
     },
     {
@@ -943,7 +944,7 @@
       "reason": "Current-Pi exception: dim also renders the footer, so it has no panel requirement to keep the footer subdued; readability on these surfaces is not guaranteed",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.1638,
+      "ratio": 3.1659,
       "passes": null
     },
     {
@@ -955,7 +956,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "via": "mdTableBorder",
-      "ratio": 9.1182,
+      "ratio": 11.1018,
       "passes": true
     },
     {
@@ -967,7 +968,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "via": "mdTableBorder",
-      "ratio": 7.5476,
+      "ratio": 9.1895,
       "passes": true
     },
     {
@@ -979,7 +980,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "via": "mdTableBorder",
-      "ratio": 7.4929,
+      "ratio": 9.123,
       "passes": true
     },
     {
@@ -990,7 +991,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.572,
+      "ratio": 4.5318,
       "passes": true
     },
     {
@@ -1001,7 +1002,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.0851,
+      "ratio": 10.0509,
       "passes": true
     },
     {
@@ -1012,7 +1013,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5193,
+      "ratio": 4.5701,
       "passes": true
     },
     {
@@ -1023,7 +1024,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5425,
+      "ratio": 4.5814,
       "passes": true
     },
     {
@@ -1034,7 +1035,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5683,
+      "ratio": 4.6197,
       "passes": true
     },
     {
@@ -1045,7 +1046,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5727,
+      "ratio": 4.6242,
       "passes": true
     },
     {
@@ -1056,7 +1057,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5536,
+      "ratio": 4.532,
       "passes": true
     },
     {
@@ -1067,7 +1068,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5868,
+      "ratio": 4.5651,
       "passes": true
     },
     {
@@ -1078,7 +1079,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.577,
+      "ratio": 4.5433,
       "passes": true
     },
     {
@@ -1089,7 +1090,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.603,
+      "ratio": 4.5812,
       "passes": true
     },
     {
@@ -1100,7 +1101,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6075,
+      "ratio": 4.5857,
       "passes": true
     },
     {
@@ -1111,7 +1112,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.0636,
+      "ratio": 10.003,
       "passes": true
     },
     {
@@ -1122,7 +1123,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.1208,
+      "ratio": 10.0864,
       "passes": true
     },
     {
@@ -1133,7 +1134,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.1306,
+      "ratio": 10.0963,
       "passes": true
     },
     {
@@ -1144,7 +1145,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5425,
+      "ratio": 4.5814,
       "passes": true
     },
     {
@@ -1155,7 +1156,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5683,
+      "ratio": 4.6197,
       "passes": true
     },
     {
@@ -1166,7 +1167,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5727,
+      "ratio": 4.6242,
       "passes": true
     },
     {
@@ -1243,7 +1244,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4995,
+      "ratio": 5.5613,
       "passes": true
     },
     {
@@ -1254,7 +1255,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5522,
+      "ratio": 4.6034,
       "passes": true
     },
     {
@@ -1265,7 +1266,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5193,
+      "ratio": 4.5701,
       "passes": true
     },
     {
@@ -1276,7 +1277,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5413,
+      "ratio": 5.5641,
       "passes": true
     },
     {
@@ -1287,7 +1288,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5536,
+      "ratio": 4.5724,
       "passes": true
     },
     {
@@ -1298,7 +1299,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5868,
+      "ratio": 4.6057,
       "passes": true
     },
     {
@@ -1342,7 +1343,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5279,
+      "ratio": 4.516,
       "passes": true
     },
     {
@@ -1375,7 +1376,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4995,
+      "ratio": 5.5613,
       "passes": true
     },
     {
@@ -1386,7 +1387,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5522,
+      "ratio": 4.6034,
       "passes": true
     },
     {
@@ -1397,7 +1398,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5193,
+      "ratio": 4.5701,
       "passes": true
     },
     {
@@ -1408,7 +1409,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4995,
+      "ratio": 5.5613,
       "passes": true
     },
     {
@@ -1419,7 +1420,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5522,
+      "ratio": 4.6034,
       "passes": true
     },
     {
@@ -1430,7 +1431,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5193,
+      "ratio": 4.5701,
       "passes": true
     },
     {
@@ -1441,7 +1442,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5413,
+      "ratio": 5.5641,
       "passes": true
     },
     {
@@ -1452,7 +1453,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5868,
+      "ratio": 4.6057,
       "passes": true
     },
     {
@@ -1463,7 +1464,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5536,
+      "ratio": 4.5724,
       "passes": true
     },
     {
@@ -1485,7 +1486,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5279,
+      "ratio": 4.516,
       "passes": true
     },
     {
@@ -1529,7 +1530,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5564,
+      "ratio": 4.5444,
       "passes": true
     },
     {
@@ -1562,7 +1563,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4995,
+      "ratio": 5.5613,
       "passes": true
     },
     {
@@ -1573,7 +1574,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5425,
+      "ratio": 4.5814,
       "passes": true
     },
     {
@@ -1584,7 +1585,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5683,
+      "ratio": 4.6197,
       "passes": true
     },
     {
@@ -1595,7 +1596,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5727,
+      "ratio": 4.6242,
       "passes": true
     },
     {
@@ -1606,7 +1607,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4995,
+      "ratio": 5.5613,
       "passes": true
     },
     {
@@ -1617,7 +1618,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5522,
+      "ratio": 4.6034,
       "passes": true
     },
     {
@@ -1628,7 +1629,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5193,
+      "ratio": 4.5701,
       "passes": true
     },
     {
@@ -1639,7 +1640,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5425,
+      "ratio": 4.5814,
       "passes": true
     },
     {
@@ -1650,7 +1651,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5683,
+      "ratio": 4.6197,
       "passes": true
     },
     {
@@ -1661,7 +1662,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5727,
+      "ratio": 4.6242,
       "passes": true
     },
     {
@@ -1705,7 +1706,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6374,
+      "ratio": 4.6252,
       "passes": true
     },
     {
@@ -1771,7 +1772,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5936,
+      "ratio": 4.5814,
       "passes": true
     },
     {
@@ -1837,7 +1838,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5568,
+      "ratio": 4.5448,
       "passes": true
     },
     {
@@ -1903,7 +1904,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5622,
+      "ratio": 4.5501,
       "passes": true
     },
     {
@@ -1969,7 +1970,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5279,
+      "ratio": 4.516,
       "passes": true
     },
     {
@@ -2002,7 +2003,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5413,
+      "ratio": 5.5641,
       "passes": true
     },
     {
@@ -2013,7 +2014,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5536,
+      "ratio": 4.5724,
       "passes": true
     },
     {
@@ -2024,7 +2025,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5868,
+      "ratio": 4.6057,
       "passes": true
     },
     {
@@ -2035,7 +2036,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.577,
+      "ratio": 4.5837,
       "passes": true
     },
     {
@@ -2046,7 +2047,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.603,
+      "ratio": 4.622,
       "passes": true
     },
     {
@@ -2057,7 +2058,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6075,
+      "ratio": 4.6265,
       "passes": true
     },
     {
@@ -2068,7 +2069,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4995,
+      "ratio": 5.5613,
       "passes": true
     },
     {
@@ -2079,7 +2080,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5193,
+      "ratio": 4.5701,
       "passes": true
     },
     {
@@ -2090,7 +2091,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5522,
+      "ratio": 4.6034,
       "passes": true
     },
     {
@@ -2101,7 +2102,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5425,
+      "ratio": 4.5814,
       "passes": true
     },
     {
@@ -2112,7 +2113,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5683,
+      "ratio": 4.6197,
       "passes": true
     },
     {
@@ -2123,7 +2124,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5727,
+      "ratio": 4.6242,
       "passes": true
     },
     {
@@ -2134,7 +2135,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4995,
+      "ratio": 5.5613,
       "passes": true
     },
     {
@@ -2145,7 +2146,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5193,
+      "ratio": 4.5701,
       "passes": true
     },
     {
@@ -2156,7 +2157,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5522,
+      "ratio": 4.6034,
       "passes": true
     },
     {
@@ -2167,7 +2168,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5425,
+      "ratio": 4.5814,
       "passes": true
     },
     {
@@ -2178,7 +2179,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5683,
+      "ratio": 4.6197,
       "passes": true
     },
     {
@@ -2189,7 +2190,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5727,
+      "ratio": 4.6242,
       "passes": true
     },
     {
@@ -2222,7 +2223,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5439,
+      "ratio": 4.5324,
       "passes": true
     },
     {
@@ -2266,7 +2267,7 @@
       "reason": "Editor boundary when necessary to locate the input area",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.0381,
+      "ratio": 3.0311,
       "passes": true
     },
     {
@@ -2278,7 +2279,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 6.7321,
+      "ratio": 6.7595,
       "passes": true
     },
     {
@@ -2290,7 +2291,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5725,
+      "ratio": 5.5951,
       "passes": true
     },
     {
@@ -2302,7 +2303,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5322,
+      "ratio": 5.5546,
       "passes": true
     },
     {
@@ -2314,7 +2315,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5606,
+      "ratio": 5.5685,
       "passes": true
     },
     {
@@ -2326,7 +2327,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5922,
+      "ratio": 5.6149,
       "passes": true
     },
     {
@@ -2338,7 +2339,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5977,
+      "ratio": 5.6204,
       "passes": true
     },
     {
@@ -2350,7 +2351,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 6.7321,
+      "ratio": 6.7595,
       "passes": true
     },
     {
@@ -2362,7 +2363,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5725,
+      "ratio": 5.5951,
       "passes": true
     },
     {
@@ -2374,7 +2375,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5322,
+      "ratio": 5.5546,
       "passes": true
     },
     {
@@ -2386,7 +2387,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5606,
+      "ratio": 5.5685,
       "passes": true
     },
     {
@@ -2398,7 +2399,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5922,
+      "ratio": 5.6149,
       "passes": true
     },
     {
@@ -2410,7 +2411,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.5977,
+      "ratio": 5.6204,
       "passes": true
     },
     {
@@ -2421,7 +2422,7 @@
       "reason": "Faint track, matching Pi's default theme (~1.74)",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.7125,
+      "ratio": 1.7147,
       "passes": true
     },
     {
@@ -2432,7 +2433,7 @@
       "reason": "Scrollbar position relative to track",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.0241,
+      "ratio": 3.0084,
       "passes": true
     },
     {
@@ -2443,7 +2444,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.0381,
+      "ratio": 3.0311,
       "passes": true
     },
     {
@@ -2531,7 +2532,7 @@
       "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.805,
+      "ratio": 3.8076,
       "passes": null
     },
     {
@@ -2542,7 +2543,7 @@
       "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.1496,
+      "ratio": 3.1517,
       "passes": null
     },
     {
@@ -2564,7 +2565,7 @@
       "reason": "Provisional very subtle tool state fill",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.2107,
+      "ratio": 1.2139,
       "passes": true
     },
     {
@@ -2641,7 +2642,7 @@
       "reason": "Other matches are underlined; the current match is reversed and bold",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.0416,
+      "ratio": 1.0389,
       "passes": null
     },
     {
@@ -2696,7 +2697,7 @@
       "reason": "No pairwise 3:1 constraint between tool states; see limitations",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.0057,
+      "ratio": 1.0083,
       "passes": null
     },
     {
@@ -2707,7 +2708,7 @@
       "reason": "No pairwise 3:1 constraint between tool states; see limitations",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.0067,
+      "ratio": 1.0093,
       "passes": null
     },
     {

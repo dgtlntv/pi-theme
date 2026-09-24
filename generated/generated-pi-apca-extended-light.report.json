@@ -11,9 +11,9 @@
     },
     "foreground": {
       "family": "neutral",
-      "step": 605,
-      "hex": "#625c56",
-      "saturation": 0.07414,
+      "step": 615,
+      "hex": "#555b61",
+      "saturation": 0.07303,
       "source": "contrast-derived"
     }
   },
@@ -34,7 +34,7 @@
     "toolPendingBg": {
       "family": "neutral",
       "step": 130,
-      "hex": "#dbdad8",
+      "hex": "#d9dadc",
       "saturation": 0.03382,
       "source": "contrast-derived"
     },
@@ -75,16 +75,16 @@
     },
     "terminalForeground": {
       "family": "neutral",
-      "step": 605,
-      "hex": "#625c56",
-      "saturation": 0.07414,
+      "step": 615,
+      "hex": "#555b61",
+      "saturation": 0.07303,
       "source": "contrast-derived"
     },
     "accent": {
       "family": "violet",
-      "step": 585,
-      "hex": "#6f3ac6",
-      "saturation": 0.81428,
+      "step": 605,
+      "hex": "#634c99",
+      "saturation": 0.56095,
       "source": "contrast-derived"
     },
     "border": {
@@ -104,7 +104,7 @@
     "borderMuted": {
       "family": "neutral",
       "step": 405,
-      "hex": "#968e87",
+      "hex": "#899098",
       "saturation": 0.07517,
       "source": "contrast-derived"
     },
@@ -117,9 +117,9 @@
     },
     "error": {
       "family": "red",
-      "step": 585,
-      "hex": "#ae2637",
-      "saturation": 0.86674,
+      "step": 590,
+      "hex": "#ab2636",
+      "saturation": 0.8605,
       "source": "contrast-derived"
     },
     "warning": {
@@ -131,78 +131,78 @@
     },
     "muted": {
       "family": "neutral",
-      "step": 665,
-      "hex": "#524d48",
-      "saturation": 0.06642,
+      "step": 670,
+      "hex": "#494d52",
+      "saturation": 0.06568,
       "source": "contrast-derived"
     },
     "dim": {
       "family": "neutral",
       "step": 560,
-      "hex": "#6d6760",
+      "hex": "#626970",
       "saturation": 0.07803,
       "source": "contrast-derived"
     },
     "text": {
       "family": "neutral",
-      "step": 750,
-      "hex": "#3c3936",
-      "saturation": 0.0527,
+      "step": 825,
+      "hex": "#27282a",
+      "saturation": 0.04042,
       "source": "contrast-derived"
     },
     "thinkingText": {
       "family": "neutral",
       "step": 520,
-      "hex": "#787169",
+      "hex": "#6c737b",
       "saturation": 0.07978,
       "source": "contrast-derived"
     },
     "scrollbarTrack": {
       "family": "neutral",
       "step": 230,
-      "hex": "#c2beba",
+      "hex": "#bbbfc3",
       "saturation": 0.04934,
       "source": "contrast-derived"
     },
     "searchMatchText": {
       "family": "neutral",
-      "step": 580,
-      "hex": "#68625b",
-      "saturation": 0.07654,
+      "step": 585,
+      "hex": "#5c6269",
+      "saturation": 0.0761,
       "source": "contrast-derived"
     },
     "userMessageText": {
       "family": "neutral",
-      "step": 865,
-      "hex": "#201f1d",
-      "saturation": 0.03451,
+      "step": 845,
+      "hex": "#222425",
+      "saturation": 0.03739,
       "source": "contrast-derived"
     },
     "customMessageText": {
       "family": "neutral",
-      "step": 605,
-      "hex": "#625c56",
-      "saturation": 0.07414,
+      "step": 615,
+      "hex": "#555b61",
+      "saturation": 0.07303,
       "source": "contrast-derived"
     },
     "customMessageLabel": {
-      "family": "violet",
-      "step": 585,
-      "hex": "#6f3ac6",
-      "saturation": 0.81428,
+      "family": "purple",
+      "step": 590,
+      "hex": "#7544a4",
+      "saturation": 0.65646,
       "source": "contrast-derived"
     },
     "toolTitle": {
       "family": "neutral",
       "step": 850,
-      "hex": "#242221",
+      "hex": "#212324",
       "saturation": 0.03665,
       "source": "contrast-derived"
     },
     "toolOutput": {
       "family": "neutral",
       "step": 615,
-      "hex": "#5f5953",
+      "hex": "#555b61",
       "saturation": 0.07303,
       "source": "contrast-derived"
     },
@@ -222,16 +222,16 @@
     },
     "mdLinkUrl": {
       "family": "neutral",
-      "step": 605,
-      "hex": "#625c56",
-      "saturation": 0.07414,
+      "step": 610,
+      "hex": "#565c62",
+      "saturation": 0.0736,
       "source": "contrast-derived"
     },
     "mdCode": {
       "family": "violet",
-      "step": 585,
-      "hex": "#6f3ac6",
-      "saturation": 0.81428,
+      "step": 595,
+      "hex": "#654e9d",
+      "saturation": 0.56778,
       "source": "contrast-derived"
     },
     "mdCodeBlock": {
@@ -243,37 +243,37 @@
     },
     "mdCodeBlockBorder": {
       "family": "neutral",
-      "step": 605,
-      "hex": "#625c56",
-      "saturation": 0.07414,
+      "step": 610,
+      "hex": "#565c62",
+      "saturation": 0.0736,
       "source": "contrast-derived"
     },
     "mdQuote": {
       "family": "neutral",
-      "step": 605,
-      "hex": "#625c56",
-      "saturation": 0.07414,
+      "step": 610,
+      "hex": "#565c62",
+      "saturation": 0.0736,
       "source": "contrast-derived"
     },
     "mdQuoteBorder": {
       "family": "neutral",
-      "step": 665,
-      "hex": "#524d48",
-      "saturation": 0.06642,
+      "step": 670,
+      "hex": "#494d52",
+      "saturation": 0.06568,
       "source": "contrast-derived"
     },
     "mdHr": {
       "family": "neutral",
-      "step": 665,
-      "hex": "#524d48",
-      "saturation": 0.06642,
+      "step": 670,
+      "hex": "#494d52",
+      "saturation": 0.06568,
       "source": "contrast-derived"
     },
     "mdListBullet": {
       "family": "violet",
-      "step": 585,
-      "hex": "#6f3ac6",
-      "saturation": 0.81428,
+      "step": 595,
+      "hex": "#654e9d",
+      "saturation": 0.56778,
       "source": "contrast-derived"
     },
     "toolDiffAdded": {
@@ -285,23 +285,23 @@
     },
     "toolDiffRemoved": {
       "family": "red",
-      "step": 585,
-      "hex": "#ae2637",
-      "saturation": 0.86674,
+      "step": 590,
+      "hex": "#ab2636",
+      "saturation": 0.8605,
       "source": "contrast-derived"
     },
     "toolDiffContext": {
       "family": "neutral",
       "step": 615,
-      "hex": "#5f5953",
+      "hex": "#555b61",
       "saturation": 0.07303,
       "source": "contrast-derived"
     },
     "syntaxComment": {
       "family": "neutral",
-      "step": 605,
-      "hex": "#625c56",
-      "saturation": 0.07414,
+      "step": 615,
+      "hex": "#555b61",
+      "saturation": 0.07303,
       "source": "contrast-derived"
     },
     "syntaxKeyword": {
@@ -320,9 +320,9 @@
     },
     "syntaxVariable": {
       "family": "cyan",
-      "step": 615,
-      "hex": "#266662",
-      "saturation": 0.66569,
+      "step": 620,
+      "hex": "#266561",
+      "saturation": 0.65946,
       "source": "contrast-derived"
     },
     "syntaxString": {
@@ -341,29 +341,29 @@
     },
     "syntaxType": {
       "family": "violet",
-      "step": 585,
-      "hex": "#6f3ac6",
-      "saturation": 0.81428,
+      "step": 595,
+      "hex": "#654e9d",
+      "saturation": 0.56778,
       "source": "contrast-derived"
     },
     "syntaxOperator": {
       "family": "neutral",
-      "step": 605,
-      "hex": "#625c56",
-      "saturation": 0.07414,
+      "step": 615,
+      "hex": "#555b61",
+      "saturation": 0.07303,
       "source": "contrast-derived"
     },
     "syntaxPunctuation": {
       "family": "neutral",
-      "step": 605,
-      "hex": "#625c56",
-      "saturation": 0.07414,
+      "step": 615,
+      "hex": "#555b61",
+      "saturation": 0.07303,
       "source": "contrast-derived"
     },
     "thinkingOff": {
       "family": "neutral",
       "step": 405,
-      "hex": "#968e87",
+      "hex": "#899098",
       "saturation": 0.07517,
       "source": "contrast-derived"
     },
@@ -418,30 +418,30 @@
     },
     "footerText": {
       "family": "neutral",
-      "step": 450,
-      "hex": "#8a827b",
-      "saturation": 0.07863,
+      "step": 455,
+      "hex": "#7c838b",
+      "saturation": 0.07888,
       "source": "contrast-derived"
     },
     "toolArgument": {
       "family": "blue",
-      "step": 615,
-      "hex": "#2a617b",
-      "saturation": 0.61266,
+      "step": 625,
+      "hex": "#295f78",
+      "saturation": 0.60118,
       "source": "contrast-derived"
     },
     "mdTableBorder": {
       "family": "neutral",
       "step": 495,
-      "hex": "#7e776f",
+      "hex": "#727981",
       "saturation": 0.07999,
       "source": "contrast-derived"
     },
     "scrollbarThumb": {
       "family": "neutral",
-      "step": 560,
-      "hex": "#6d6760",
-      "saturation": 0.07803,
+      "step": 555,
+      "hex": "#636a71",
+      "saturation": 0.07834,
       "source": "contrast-derived"
     }
   },
@@ -450,25 +450,25 @@
       "120": "#d2dfe6",
       "130": "#cedde5",
       "530": "#307899",
-      "615": "#2a617b",
       "620": "#2a607a",
       "625": "#295f78"
     },
     "neutral": {
-      "130": "#dbdad8",
-      "230": "#c2beba",
-      "405": "#968e87",
-      "450": "#8a827b",
-      "495": "#7e776f",
-      "520": "#787169",
-      "560": "#6d6760",
-      "580": "#68625b",
-      "605": "#625c56",
-      "615": "#5f5953",
-      "665": "#524d48",
-      "750": "#3c3936",
-      "850": "#242221",
-      "865": "#201f1d"
+      "130": "#d9dadc",
+      "230": "#bbbfc3",
+      "405": "#899098",
+      "455": "#7c838b",
+      "495": "#727981",
+      "520": "#6c737b",
+      "555": "#636a71",
+      "560": "#626970",
+      "585": "#5c6269",
+      "610": "#565c62",
+      "615": "#555b61",
+      "670": "#494d52",
+      "825": "#27282a",
+      "845": "#222425",
+      "850": "#212324"
     },
     "green": {
       "130": "#cde0d4",
@@ -477,17 +477,19 @@
     },
     "red": {
       "125": "#e9d6d6",
-      "585": "#ae2637"
+      "590": "#ab2636"
     },
     "purple": {
-      "125": "#ded9e6"
+      "125": "#ded9e6",
+      "590": "#7544a4"
     },
     "violet": {
-      "585": "#6f3ac6"
+      "595": "#654e9d",
+      "605": "#634c99"
     },
     "cyan": {
       "535": "#2a7d78",
-      "615": "#266662"
+      "620": "#266561"
     },
     "yellow": {
       "605": "#775706",
@@ -520,72 +522,72 @@
       "kind": "text",
       "token": "terminalForeground",
       "background": "selectedBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.2975,
+      "lightContrast": 62,
+      "ratio": 62.4235,
       "passes": true
     },
     {
       "kind": "text",
       "token": "terminalForeground",
       "background": "userMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.2975,
+      "lightContrast": 62,
+      "ratio": 62.4235,
       "passes": true
     },
     {
       "kind": "text",
       "token": "terminalForeground",
       "background": "customMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.5893,
+      "lightContrast": 62,
+      "ratio": 62.7154,
       "passes": true
     },
     {
       "kind": "text",
       "token": "terminalForeground",
       "background": "toolPendingBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.0337,
+      "lightContrast": 62,
+      "ratio": 62.082,
       "passes": true
     },
     {
       "kind": "text",
       "token": "terminalForeground",
       "background": "toolSuccessBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.7311,
+      "lightContrast": 62,
+      "ratio": 62.8571,
       "passes": true
     },
     {
       "kind": "text",
       "token": "terminalForeground",
       "background": "toolErrorBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.1283,
+      "lightContrast": 62,
+      "ratio": 62.2543,
       "passes": true
     },
     {
@@ -597,91 +599,91 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 74,
-      "ratio": 77.4037,
+      "ratio": 78.5297,
       "passes": true
     },
     {
       "kind": "text",
       "token": "text",
       "background": "background",
-      "contrast": 87,
+      "contrast": 92,
       "reason": "Primary reading text; also assistant replies in extended",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 87,
-      "ratio": 91.2107,
+      "lightContrast": 92,
+      "ratio": 96.3612,
       "passes": true
     },
     {
       "kind": "text",
       "token": "text",
       "background": "selectedBg",
-      "contrast": 75,
-      "reason": "Selected rows are slightly darker; 9 here would push text above the canvas level",
+      "contrast": 80,
+      "reason": "Selected rows are slightly darker; the canvas level here would push text above it",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 75,
-      "ratio": 75.1044,
+      "lightContrast": 80,
+      "ratio": 80.2549,
       "passes": true
     },
     {
       "kind": "text",
       "token": "accent",
       "background": "background",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 77.3992,
+      "lightContrast": 62,
+      "ratio": 78.597,
       "passes": true
     },
     {
       "kind": "text",
       "token": "accent",
       "background": "selectedBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.293,
+      "lightContrast": 62,
+      "ratio": 62.4908,
       "passes": true
     },
     {
       "kind": "text",
       "token": "accent",
       "background": "toolPendingBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.0292,
+      "lightContrast": 62,
+      "ratio": 62.1493,
       "passes": true
     },
     {
       "kind": "text",
       "token": "accent",
       "background": "toolSuccessBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.7266,
+      "lightContrast": 62,
+      "ratio": 62.9244,
       "passes": true
     },
     {
       "kind": "text",
       "token": "accent",
       "background": "toolErrorBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.1238,
+      "lightContrast": 62,
+      "ratio": 62.3216,
       "passes": true
     },
     {
@@ -717,7 +719,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.4873,
+      "ratio": 61.4095,
       "passes": true
     },
     {
@@ -753,7 +755,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 76.3928,
+      "ratio": 77.0355,
       "passes": true
     },
     {
@@ -765,7 +767,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 60.2866,
+      "ratio": 60.9293,
       "passes": true
     },
     {
@@ -777,7 +779,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 60.0228,
+      "ratio": 60.5877,
       "passes": true
     },
     {
@@ -789,7 +791,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 60.7202,
+      "ratio": 61.3629,
       "passes": true
     },
     {
@@ -801,7 +803,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 60.1174,
+      "ratio": 60.7601,
       "passes": true
     },
     {
@@ -837,7 +839,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 62.3003,
+      "ratio": 62.2225,
       "passes": true
     },
     {
@@ -873,7 +875,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 83.5961,
+      "ratio": 84.0714,
       "passes": true
     },
     {
@@ -885,7 +887,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.4899,
+      "ratio": 67.9652,
       "passes": true
     },
     {
@@ -897,7 +899,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.7818,
+      "ratio": 68.2571,
       "passes": true
     },
     {
@@ -909,7 +911,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.2262,
+      "ratio": 67.6237,
       "passes": true
     },
     {
@@ -921,7 +923,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.9235,
+      "ratio": 68.3988,
       "passes": true
     },
     {
@@ -933,7 +935,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.3208,
+      "ratio": 67.7961,
       "passes": true
     },
     {
@@ -945,7 +947,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 72.6972,
+      "ratio": 72.5823,
       "passes": true
     },
     {
@@ -957,7 +959,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 56,
-      "ratio": 56.591,
+      "ratio": 56.476,
       "passes": true
     },
     {
@@ -969,7 +971,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 56,
-      "ratio": 56.8829,
+      "ratio": 56.7679,
       "passes": true
     },
     {
@@ -981,7 +983,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 56,
-      "ratio": 56.3273,
+      "ratio": 56.1345,
       "passes": true
     },
     {
@@ -993,7 +995,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 56,
-      "ratio": 57.0246,
+      "ratio": 56.9097,
       "passes": true
     },
     {
@@ -1005,7 +1007,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 56,
-      "ratio": 56.4219,
+      "ratio": 56.3069,
       "passes": true
     },
     {
@@ -1017,43 +1019,43 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 60.0841,
+      "ratio": 60.6174,
       "passes": true
     },
     {
       "kind": "text",
       "token": "toolArgument",
       "background": "toolPendingBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Tool paths, grep/find patterns, compact read labels",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.5918,
+      "lightContrast": 62,
+      "ratio": 62.3283,
       "passes": true
     },
     {
       "kind": "text",
       "token": "toolArgument",
       "background": "toolSuccessBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Tool paths, grep/find patterns, compact read labels",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 62.2891,
+      "lightContrast": 62,
+      "ratio": 63.1034,
       "passes": true
     },
     {
       "kind": "text",
       "token": "toolArgument",
       "background": "toolErrorBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Tool paths, grep/find patterns, compact read labels",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.6863,
+      "lightContrast": 62,
+      "ratio": 62.5006,
       "passes": true
     },
     {
@@ -1065,7 +1067,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 49,
-      "ratio": 65.4031,
+      "ratio": 65.3209,
       "passes": true
     },
     {
@@ -1077,7 +1079,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 49,
-      "ratio": 49.2968,
+      "ratio": 49.2147,
       "passes": true
     },
     {
@@ -1089,7 +1091,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 49,
-      "ratio": 49.5887,
+      "ratio": 49.5065,
       "passes": true
     },
     {
@@ -1101,67 +1103,67 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 68,
-      "ratio": 68.1557,
+      "ratio": 68.0751,
       "passes": true
     },
     {
       "kind": "text",
       "token": "userMessageText",
       "background": "userMessageBg",
-      "contrast": 82,
+      "contrast": 81,
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 82,
-      "ratio": 82.0767,
+      "lightContrast": 81,
+      "ratio": 81.1899,
       "passes": true
     },
     {
       "kind": "text",
       "token": "customMessageText",
       "background": "customMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.5893,
+      "lightContrast": 62,
+      "ratio": 62.7154,
       "passes": true
     },
     {
       "kind": "text",
       "token": "customMessageText",
       "background": "toolPendingBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.0337,
+      "lightContrast": 62,
+      "ratio": 62.082,
       "passes": true
     },
     {
       "kind": "text",
       "token": "customMessageText",
       "background": "toolSuccessBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.7311,
+      "lightContrast": 62,
+      "ratio": 62.8571,
       "passes": true
     },
     {
       "kind": "text",
       "token": "customMessageText",
       "background": "toolErrorBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.1283,
+      "lightContrast": 62,
+      "ratio": 62.2543,
       "passes": true
     },
     {
@@ -1173,7 +1175,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.5848,
+      "ratio": 61.7514,
       "passes": true
     },
     {
@@ -1185,7 +1187,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.293,
+      "ratio": 61.4595,
       "passes": true
     },
     {
@@ -1197,7 +1199,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.0292,
+      "ratio": 61.118,
       "passes": true
     },
     {
@@ -1209,7 +1211,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.7266,
+      "ratio": 61.8931,
       "passes": true
     },
     {
@@ -1221,7 +1223,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.1238,
+      "ratio": 61.2904,
       "passes": true
     },
     {
@@ -1233,7 +1235,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 81,
-      "ratio": 81.1885,
+      "ratio": 81.052,
       "passes": true
     },
     {
@@ -1245,7 +1247,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 81,
-      "ratio": 81.8858,
+      "ratio": 81.8271,
       "passes": true
     },
     {
@@ -1257,7 +1259,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 81,
-      "ratio": 81.2831,
+      "ratio": 81.2244,
       "passes": true
     },
     {
@@ -1269,7 +1271,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 62.2905,
+      "ratio": 62.082,
       "passes": true
     },
     {
@@ -1281,7 +1283,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 62.9879,
+      "ratio": 62.8571,
       "passes": true
     },
     {
@@ -1293,7 +1295,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 62.3851,
+      "ratio": 62.2543,
       "passes": true
     },
     {
@@ -1372,36 +1374,36 @@
       "kind": "text",
       "token": "mdLinkUrl",
       "background": "background",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 77.4037,
+      "lightContrast": 62,
+      "ratio": 78.1119,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdLinkUrl",
       "background": "userMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.2975,
+      "lightContrast": 62,
+      "ratio": 62.0057,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdLinkUrl",
       "background": "customMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.5893,
+      "lightContrast": 62,
+      "ratio": 62.2976,
       "passes": true
     },
     {
@@ -1413,7 +1415,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 77.3992,
+      "ratio": 77.6672,
       "passes": true
     },
     {
@@ -1425,7 +1427,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.5848,
+      "ratio": 61.8529,
       "passes": true
     },
     {
@@ -1437,7 +1439,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.293,
+      "ratio": 61.561,
       "passes": true
     },
     {
@@ -1485,7 +1487,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.4873,
+      "ratio": 61.4095,
       "passes": true
     },
     {
@@ -1516,72 +1518,72 @@
       "kind": "text",
       "token": "mdQuote",
       "background": "background",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 77.4037,
+      "lightContrast": 62,
+      "ratio": 78.1119,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdQuote",
       "background": "userMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.2975,
+      "lightContrast": 62,
+      "ratio": 62.0057,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdQuote",
       "background": "customMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.5893,
+      "lightContrast": 62,
+      "ratio": 62.2976,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdCodeBlockBorder",
       "background": "background",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 77.4037,
+      "lightContrast": 62,
+      "ratio": 78.1119,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdCodeBlockBorder",
       "background": "userMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.2975,
+      "lightContrast": 62,
+      "ratio": 62.0057,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdCodeBlockBorder",
       "background": "customMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.5893,
+      "lightContrast": 62,
+      "ratio": 62.2976,
       "passes": true
     },
     {
@@ -1593,7 +1595,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 77.3992,
+      "ratio": 77.6672,
       "passes": true
     },
     {
@@ -1605,7 +1607,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.293,
+      "ratio": 61.561,
       "passes": true
     },
     {
@@ -1617,7 +1619,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.5848,
+      "ratio": 61.8529,
       "passes": true
     },
     {
@@ -1641,7 +1643,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.4873,
+      "ratio": 61.4095,
       "passes": true
     },
     {
@@ -1677,7 +1679,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 76.3928,
+      "ratio": 77.0355,
       "passes": true
     },
     {
@@ -1689,7 +1691,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 60.0228,
+      "ratio": 60.5877,
       "passes": true
     },
     {
@@ -1701,7 +1703,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 60.7202,
+      "ratio": 61.3629,
       "passes": true
     },
     {
@@ -1713,7 +1715,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 60.1174,
+      "ratio": 60.7601,
       "passes": true
     },
     {
@@ -1725,7 +1727,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 78.6605,
+      "ratio": 78.5297,
       "passes": true
     },
     {
@@ -1737,7 +1739,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 62.2905,
+      "ratio": 62.082,
       "passes": true
     },
     {
@@ -1749,7 +1751,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 62.9879,
+      "ratio": 62.8571,
       "passes": true
     },
     {
@@ -1761,79 +1763,79 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 62.3851,
+      "ratio": 62.2543,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxComment",
       "background": "background",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 77.4037,
+      "lightContrast": 62,
+      "ratio": 78.5297,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxComment",
       "background": "userMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.2975,
+      "lightContrast": 62,
+      "ratio": 62.4235,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxComment",
       "background": "customMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.5893,
+      "lightContrast": 62,
+      "ratio": 62.7154,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxComment",
       "background": "toolPendingBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.0337,
+      "lightContrast": 62,
+      "ratio": 62.082,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxComment",
       "background": "toolSuccessBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.7311,
+      "lightContrast": 62,
+      "ratio": 62.8571,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxComment",
       "background": "toolErrorBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.1283,
+      "lightContrast": 62,
+      "ratio": 62.2543,
       "passes": true
     },
     {
@@ -1881,7 +1883,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 62,
-      "ratio": 62.4061,
+      "ratio": 62.3283,
       "passes": true
     },
     {
@@ -1953,7 +1955,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.0998,
+      "ratio": 61.022,
       "passes": true
     },
     {
@@ -1989,7 +1991,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 77.3791,
+      "ratio": 77.7546,
       "passes": true
     },
     {
@@ -2001,7 +2003,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.5647,
+      "ratio": 61.9403,
       "passes": true
     },
     {
@@ -2013,7 +2015,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.2729,
+      "ratio": 61.6484,
       "passes": true
     },
     {
@@ -2025,7 +2027,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.0091,
+      "ratio": 61.3069,
       "passes": true
     },
     {
@@ -2037,7 +2039,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.7065,
+      "ratio": 62.082,
       "passes": true
     },
     {
@@ -2049,7 +2051,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.1037,
+      "ratio": 61.4793,
       "passes": true
     },
     {
@@ -2097,7 +2099,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.3189,
+      "ratio": 61.2412,
       "passes": true
     },
     {
@@ -2169,7 +2171,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.4873,
+      "ratio": 61.4095,
       "passes": true
     },
     {
@@ -2205,7 +2207,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 77.3992,
+      "ratio": 77.6672,
       "passes": true
     },
     {
@@ -2217,7 +2219,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.5848,
+      "ratio": 61.8529,
       "passes": true
     },
     {
@@ -2229,7 +2231,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.293,
+      "ratio": 61.561,
       "passes": true
     },
     {
@@ -2241,7 +2243,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.0292,
+      "ratio": 61.2195,
       "passes": true
     },
     {
@@ -2253,7 +2255,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.7266,
+      "ratio": 61.9946,
       "passes": true
     },
     {
@@ -2265,163 +2267,163 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 61,
-      "ratio": 61.1238,
+      "ratio": 61.3918,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxOperator",
       "background": "background",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 77.4037,
+      "lightContrast": 62,
+      "ratio": 78.5297,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxOperator",
       "background": "customMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.5893,
+      "lightContrast": 62,
+      "ratio": 62.7154,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxOperator",
       "background": "userMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.2975,
+      "lightContrast": 62,
+      "ratio": 62.4235,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxOperator",
       "background": "toolPendingBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.0337,
+      "lightContrast": 62,
+      "ratio": 62.082,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxOperator",
       "background": "toolSuccessBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.7311,
+      "lightContrast": 62,
+      "ratio": 62.8571,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxOperator",
       "background": "toolErrorBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.1283,
+      "lightContrast": 62,
+      "ratio": 62.2543,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxPunctuation",
       "background": "background",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 77.4037,
+      "lightContrast": 62,
+      "ratio": 78.5297,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxPunctuation",
       "background": "customMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.5893,
+      "lightContrast": 62,
+      "ratio": 62.7154,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxPunctuation",
       "background": "userMessageBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.2975,
+      "lightContrast": 62,
+      "ratio": 62.4235,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxPunctuation",
       "background": "toolPendingBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.0337,
+      "lightContrast": 62,
+      "ratio": 62.082,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxPunctuation",
       "background": "toolSuccessBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.7311,
+      "lightContrast": 62,
+      "ratio": 62.8571,
       "passes": true
     },
     {
       "kind": "text",
       "token": "syntaxPunctuation",
       "background": "toolErrorBg",
-      "contrast": 61,
+      "contrast": 62,
       "reason": null,
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.1283,
+      "lightContrast": 62,
+      "ratio": 62.2543,
       "passes": true
     },
     {
       "kind": "text",
       "token": "customMessageLabel",
       "background": "background",
-      "contrast": 73,
+      "contrast": 74,
       "reason": "Session-tree compaction label, remapped from borderAccent",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 73,
-      "ratio": 77.3992,
+      "lightContrast": 74,
+      "ratio": 77.5657,
       "passes": true
     },
     {
@@ -2433,7 +2435,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 74,
-      "ratio": 78.6605,
+      "ratio": 78.5297,
       "passes": true
     },
     {
@@ -2445,7 +2447,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 60,
-      "ratio": 60.0889,
+      "ratio": 60.7517,
       "passes": true
     },
     {
@@ -2493,7 +2495,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 54,
-      "ratio": 54.2447,
+      "ratio": 54.3015,
       "passes": true
     },
     {
@@ -2505,7 +2507,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 83.5961,
+      "ratio": 84.0714,
       "passes": true
     },
     {
@@ -2517,7 +2519,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.4899,
+      "ratio": 67.9652,
       "passes": true
     },
     {
@@ -2529,7 +2531,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.7818,
+      "ratio": 68.2571,
       "passes": true
     },
     {
@@ -2541,7 +2543,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.2262,
+      "ratio": 67.6237,
       "passes": true
     },
     {
@@ -2553,7 +2555,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.9235,
+      "ratio": 68.3988,
       "passes": true
     },
     {
@@ -2565,7 +2567,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.3208,
+      "ratio": 67.7961,
       "passes": true
     },
     {
@@ -2577,7 +2579,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 83.5961,
+      "ratio": 84.0714,
       "passes": true
     },
     {
@@ -2589,7 +2591,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.4899,
+      "ratio": 67.9652,
       "passes": true
     },
     {
@@ -2601,7 +2603,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.7818,
+      "ratio": 68.2571,
       "passes": true
     },
     {
@@ -2613,7 +2615,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.2262,
+      "ratio": 67.6237,
       "passes": true
     },
     {
@@ -2625,7 +2627,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.9235,
+      "ratio": 68.3988,
       "passes": true
     },
     {
@@ -2637,7 +2639,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 67,
-      "ratio": 67.3208,
+      "ratio": 67.7961,
       "passes": true
     },
     {
@@ -2649,19 +2651,19 @@
       "algorithm": "APCA",
       "apcaLowClip": false,
       "lightContrast": 32.2,
-      "ratio": 32.2106,
+      "ratio": 32.2787,
       "passes": true
     },
     {
       "kind": "nonText",
       "token": "scrollbarThumb",
       "background": "scrollbarTrack",
-      "contrast": 41,
+      "contrast": 40,
       "reason": "Scrollbar position relative to track",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 41,
-      "ratio": 41.0234,
+      "lightContrast": 40,
+      "ratio": 40.4008,
       "passes": true
     },
     {
@@ -2673,7 +2675,7 @@
       "algorithm": "APCA",
       "apcaLowClip": true,
       "lightContrast": 54,
-      "ratio": 54.2447,
+      "ratio": 54.3015,
       "passes": true
     },
     {
@@ -2768,7 +2770,7 @@
       "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "ratio": 72.6972,
+      "ratio": 72.5823,
       "passes": null
     },
     {
@@ -2779,7 +2781,7 @@
       "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "ratio": 56.591,
+      "ratio": 56.476,
       "passes": null
     },
     {
@@ -2803,7 +2805,7 @@
       "algorithm": "APCA",
       "apcaLowClip": false,
       "lightContrast": 16,
-      "ratio": 16.7162,
+      "ratio": 16.795,
       "passes": true
     },
     {
