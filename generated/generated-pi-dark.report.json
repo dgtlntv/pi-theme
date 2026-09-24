@@ -33,16 +33,16 @@
     },
     "toolSuccessBg": {
       "family": "green",
-      "step": 760.7,
-      "hex": "#233e2f",
-      "saturation": 0.43992,
+      "step": 756.3,
+      "hex": "#243f30",
+      "saturation": 0.44807,
       "source": "contrast-derived"
     },
     "toolErrorBg": {
       "family": "red",
-      "step": 746.2,
-      "hex": "#5d282a",
-      "saturation": 0.55555,
+      "step": 756.3,
+      "hex": "#582729",
+      "saturation": 0.53245,
       "source": "contrast-derived"
     },
     "selectedBg": {
@@ -54,9 +54,9 @@
     },
     "customMessageBg": {
       "family": "purple",
-      "step": 748.5,
-      "hex": "#423156",
-      "saturation": 0.42949,
+      "step": 756.3,
+      "hex": "#402f53",
+      "saturation": 0.41643,
       "source": "contrast-derived"
     },
     "searchMatchBg": {
@@ -68,9 +68,9 @@
     },
     "accent": {
       "family": "violet",
-      "step": 328.4,
-      "hex": "#a899d7",
-      "saturation": 0.50288,
+      "step": 334.4,
+      "hex": "#a697d7",
+      "saturation": 0.50883,
       "source": "contrast-derived"
     },
     "border": {
@@ -82,9 +82,9 @@
     },
     "borderAccent": {
       "family": "cyan",
-      "step": 349.9,
-      "hex": "#54b0aa",
-      "saturation": 0.61789,
+      "step": 337.5,
+      "hex": "#59b3ad",
+      "saturation": 0.59901,
       "source": "contrast-derived"
     },
     "borderMuted": {
@@ -96,58 +96,58 @@
     },
     "success": {
       "family": "green",
-      "step": 351.2,
-      "hex": "#5eb285",
-      "saturation": 0.63614,
+      "step": 334.4,
+      "hex": "#65b68a",
+      "saturation": 0.60957,
       "source": "contrast-derived"
     },
     "error": {
       "family": "red",
-      "step": 318.4,
-      "hex": "#ea8586",
-      "saturation": 0.70018,
+      "step": 334.4,
+      "hex": "#eb7d7e",
+      "saturation": 0.7331,
       "source": "contrast-derived"
     },
     "warning": {
       "family": "yellow",
-      "step": 333.3,
-      "hex": "#cd9920",
-      "saturation": 0.8847,
+      "step": 334.4,
+      "hex": "#cd9820",
+      "saturation": 0.88604,
       "source": "contrast-derived"
     },
     "muted": {
       "family": "neutral",
-      "step": 305.1,
-      "hex": "#a5abb1",
-      "saturation": 0.06182,
+      "step": 300.9,
+      "hex": "#a6acb2",
+      "saturation": 0.06115,
       "source": "contrast-derived"
     },
     "dim": {
       "family": "neutral",
-      "step": 458.2,
-      "hex": "#7b838b",
-      "saturation": 0.07904,
+      "step": 455.4,
+      "hex": "#7c838b",
+      "saturation": 0.0789,
       "source": "contrast-derived"
     },
     "text": {
       "family": "neutral",
-      "step": 92.8,
-      "hex": "#e4e5e6",
-      "saturation": 0.02903,
+      "step": 94.8,
+      "hex": "#e3e4e5",
+      "saturation": 0.02927,
       "source": "contrast-derived"
     },
     "thinkingText": {
       "family": "neutral",
-      "step": 395.4,
-      "hex": "#8c939a",
-      "saturation": 0.07418,
+      "step": 394.9,
+      "hex": "#8c939b",
+      "saturation": 0.07413,
       "source": "contrast-derived"
     },
     "scrollbarTrack": {
       "family": "neutral",
-      "step": 660.4,
-      "hex": "#4b5055",
-      "saturation": 0.06709,
+      "step": 662.4,
+      "hex": "#4b4f54",
+      "saturation": 0.0668,
       "source": "contrast-derived"
     },
     "searchMatchText": {
@@ -166,44 +166,44 @@
     },
     "customMessageText": {
       "family": "neutral",
-      "step": 338.8,
-      "hex": "#9ca2a8",
-      "saturation": 0.06698,
+      "step": 334.4,
+      "hex": "#9da3a9",
+      "saturation": 0.06632,
       "source": "contrast-derived"
     },
     "customMessageLabel": {
       "family": "purple",
-      "step": 324,
-      "hex": "#b494d9",
-      "saturation": 0.54762,
+      "step": 334.4,
+      "hex": "#b290d9",
+      "saturation": 0.56324,
       "source": "contrast-derived"
     },
     "toolTitle": {
       "family": "neutral",
-      "step": 59.8,
-      "hex": "#edeeef",
-      "saturation": 0.02534,
+      "step": 55.3,
+      "hex": "#efeff0",
+      "saturation": 0.02487,
       "source": "contrast-derived"
     },
     "toolOutput": {
       "family": "neutral",
-      "step": 338.8,
-      "hex": "#9ca2a8",
-      "saturation": 0.06698,
+      "step": 334.4,
+      "hex": "#9da3a9",
+      "saturation": 0.06632,
       "source": "contrast-derived"
     },
     "mdHeading": {
       "family": "yellow",
-      "step": 333.3,
-      "hex": "#cd9920",
-      "saturation": 0.8847,
+      "step": 337.5,
+      "hex": "#cc981f",
+      "saturation": 0.88985,
       "source": "contrast-derived"
     },
     "mdLink": {
       "family": "blue",
-      "step": 344.3,
-      "hex": "#62aacd",
-      "saturation": 0.56177,
+      "step": 337.5,
+      "hex": "#65abce",
+      "saturation": 0.55223,
       "source": "contrast-derived"
     },
     "mdLinkUrl": {
@@ -215,16 +215,16 @@
     },
     "mdCode": {
       "family": "violet",
-      "step": 328.4,
-      "hex": "#a899d7",
-      "saturation": 0.50288,
+      "step": 337.5,
+      "hex": "#a596d7",
+      "saturation": 0.51188,
       "source": "contrast-derived"
     },
     "mdCodeBlock": {
       "family": "green",
-      "step": 351.2,
-      "hex": "#5eb285",
-      "saturation": 0.63614,
+      "step": 334.4,
+      "hex": "#65b68a",
+      "saturation": 0.60957,
       "source": "contrast-derived"
     },
     "mdCodeBlockBorder": {
@@ -243,107 +243,107 @@
     },
     "mdQuoteBorder": {
       "family": "neutral",
-      "step": 305.1,
-      "hex": "#a5abb1",
-      "saturation": 0.06182,
+      "step": 300.9,
+      "hex": "#a6acb2",
+      "saturation": 0.06115,
       "source": "contrast-derived"
     },
     "mdHr": {
       "family": "neutral",
-      "step": 305.1,
-      "hex": "#a5abb1",
-      "saturation": 0.06182,
+      "step": 300.9,
+      "hex": "#a6acb2",
+      "saturation": 0.06115,
       "source": "contrast-derived"
     },
     "mdListBullet": {
       "family": "violet",
-      "step": 328.4,
-      "hex": "#a899d7",
-      "saturation": 0.50288,
+      "step": 337.5,
+      "hex": "#a596d7",
+      "saturation": 0.51188,
       "source": "contrast-derived"
     },
     "toolDiffAdded": {
       "family": "green",
-      "step": 352.3,
-      "hex": "#5eb285",
-      "saturation": 0.63782,
+      "step": 334.4,
+      "hex": "#65b68a",
+      "saturation": 0.60957,
       "source": "contrast-derived"
     },
     "toolDiffRemoved": {
       "family": "red",
-      "step": 319.5,
-      "hex": "#ea8485",
-      "saturation": 0.70251,
+      "step": 334.4,
+      "hex": "#eb7d7e",
+      "saturation": 0.7331,
       "source": "contrast-derived"
     },
     "toolDiffContext": {
       "family": "neutral",
-      "step": 338.8,
-      "hex": "#9ca2a8",
-      "saturation": 0.06698,
+      "step": 334.4,
+      "hex": "#9da3a9",
+      "saturation": 0.06632,
       "source": "contrast-derived"
     },
     "syntaxComment": {
       "family": "neutral",
-      "step": 337.5,
-      "hex": "#9ca2a9",
-      "saturation": 0.06678,
+      "step": 334.4,
+      "hex": "#9da3a9",
+      "saturation": 0.06632,
       "source": "contrast-derived"
     },
     "syntaxKeyword": {
       "family": "blue",
-      "step": 344.3,
-      "hex": "#62aacd",
-      "saturation": 0.56177,
+      "step": 334.4,
+      "hex": "#67accf",
+      "saturation": 0.5478,
       "source": "contrast-derived"
     },
     "syntaxFunction": {
       "family": "yellow",
-      "step": 333.3,
-      "hex": "#cd9920",
-      "saturation": 0.8847,
+      "step": 334.4,
+      "hex": "#cd9820",
+      "saturation": 0.88604,
       "source": "contrast-derived"
     },
     "syntaxVariable": {
       "family": "cyan",
-      "step": 349.9,
-      "hex": "#54b0aa",
-      "saturation": 0.61789,
+      "step": 334.4,
+      "hex": "#5bb4ae",
+      "saturation": 0.59413,
       "source": "contrast-derived"
     },
     "syntaxString": {
       "family": "orange",
-      "step": 326.7,
-      "hex": "#df8e5b",
-      "saturation": 0.66967,
+      "step": 334.4,
+      "hex": "#de8b56",
+      "saturation": 0.68361,
       "source": "contrast-derived"
     },
     "syntaxNumber": {
       "family": "green",
-      "step": 351.2,
-      "hex": "#5eb285",
-      "saturation": 0.63614,
+      "step": 334.4,
+      "hex": "#65b68a",
+      "saturation": 0.60957,
       "source": "contrast-derived"
     },
     "syntaxType": {
       "family": "violet",
-      "step": 328.4,
-      "hex": "#a899d7",
-      "saturation": 0.50288,
+      "step": 334.4,
+      "hex": "#a697d7",
+      "saturation": 0.50883,
       "source": "contrast-derived"
     },
     "syntaxOperator": {
       "family": "neutral",
-      "step": 337.5,
-      "hex": "#9ca2a9",
-      "saturation": 0.06678,
+      "step": 334.4,
+      "hex": "#9da3a9",
+      "saturation": 0.06632,
       "source": "contrast-derived"
     },
     "syntaxPunctuation": {
       "family": "neutral",
-      "step": 337.5,
-      "hex": "#9ca2a9",
-      "saturation": 0.06678,
+      "step": 334.4,
+      "hex": "#9da3a9",
+      "saturation": 0.06632,
       "source": "contrast-derived"
     },
     "thinkingOff": {
@@ -355,58 +355,58 @@
     },
     "thinkingMinimal": {
       "family": "thinkingSlate",
-      "step": 490.1,
-      "hex": "#667e8a",
-      "saturation": 0.19989,
+      "step": 488.7,
+      "hex": "#667e8b",
+      "saturation": 0.19986,
       "source": "contrast-derived"
     },
     "thinkingLow": {
       "family": "thinkingBlue",
-      "step": 473,
-      "hex": "#5186a0",
-      "saturation": 0.44832,
+      "step": 467.9,
+      "hex": "#5287a2",
+      "saturation": 0.44762,
       "source": "contrast-derived"
     },
     "thinkingMedium": {
       "family": "thinkingPeriwinkle",
-      "step": 446.5,
-      "hex": "#5e84ca",
-      "saturation": 0.59214,
+      "step": 448.2,
+      "hex": "#5d83ca",
+      "saturation": 0.59264,
       "source": "contrast-derived"
     },
     "thinkingHigh": {
       "family": "thinkingViolet",
-      "step": 394.5,
-      "hex": "#9a7ce5",
-      "saturation": 0.71551,
+      "step": 411.8,
+      "hex": "#9676e4",
+      "saturation": 0.7256,
       "source": "contrast-derived"
     },
     "thinkingXhigh": {
       "family": "thinkingMagenta",
-      "step": 350.8,
-      "hex": "#dc6cd4",
-      "saturation": 0.78393,
+      "step": 378.7,
+      "hex": "#d95dd1",
+      "saturation": 0.80502,
       "source": "contrast-derived"
     },
     "thinkingMax": {
       "family": "thinkingRed",
-      "step": 336.2,
-      "hex": "#fe6a71",
-      "saturation": 0.98883,
+      "step": 363.1,
+      "hex": "#fe5965",
+      "saturation": 0.99194,
       "source": "contrast-derived"
     },
     "bashMode": {
       "family": "green",
-      "step": 408.5,
-      "hex": "#4aa375",
-      "saturation": 0.71058,
+      "step": 394.9,
+      "hex": "#4fa779",
+      "saturation": 0.69543,
       "source": "contrast-derived"
     },
     "scrollbarThumb": {
       "family": "neutral",
-      "step": 353.7,
-      "hex": "#979ea5",
-      "saturation": 0.06907,
+      "step": 357.5,
+      "hex": "#969da4",
+      "saturation": 0.0696,
       "source": "contrast-derived"
     }
   },
@@ -419,8 +419,8 @@
       "reason": "Primary reading text; also assistant replies in extended",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 11.0989,
-      "passes": true
+      "ratio": 10.9961,
+      "passes": false
     },
     {
       "kind": "text",
@@ -430,7 +430,7 @@
       "reason": "Selected rows are slightly darker; the canvas level here would push text above it",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 9.1957,
+      "ratio": 9.1105,
       "passes": true
     },
     {
@@ -441,7 +441,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4682,
+      "ratio": 5.3526,
       "passes": true
     },
     {
@@ -452,8 +452,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5305,
-      "passes": true
+      "ratio": 4.4348,
+      "passes": false
     },
     {
       "kind": "text",
@@ -463,8 +463,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5385,
-      "passes": true
+      "ratio": 4.4426,
+      "passes": false
     },
     {
       "kind": "text",
@@ -474,8 +474,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5532,
-      "passes": true
+      "ratio": 4.3908,
+      "passes": false
     },
     {
       "kind": "text",
@@ -485,7 +485,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5509,
+      "ratio": 4.6219,
       "passes": true
     },
     {
@@ -496,7 +496,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4548,
+      "ratio": 5.7406,
       "passes": true
     },
     {
@@ -507,7 +507,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5194,
+      "ratio": 4.7562,
       "passes": true
     },
     {
@@ -518,7 +518,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5274,
+      "ratio": 4.7646,
       "passes": true
     },
     {
@@ -529,7 +529,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.542,
+      "ratio": 4.709,
       "passes": true
     },
     {
@@ -540,7 +540,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5397,
+      "ratio": 4.9569,
       "passes": true
     },
     {
@@ -551,7 +551,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4652,
+      "ratio": 5.1782,
       "passes": true
     },
     {
@@ -562,8 +562,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.528,
-      "passes": true
+      "ratio": 4.2902,
+      "passes": false
     },
     {
       "kind": "text",
@@ -573,8 +573,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.536,
-      "passes": true
+      "ratio": 4.2978,
+      "passes": false
     },
     {
       "kind": "text",
@@ -584,8 +584,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5507,
-      "passes": true
+      "ratio": 4.2477,
+      "passes": false
     },
     {
       "kind": "text",
@@ -595,8 +595,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5484,
-      "passes": true
+      "ratio": 4.4713,
+      "passes": false
     },
     {
       "kind": "text",
@@ -606,7 +606,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4487,
+      "ratio": 5.4052,
       "passes": true
     },
     {
@@ -617,8 +617,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5144,
-      "passes": true
+      "ratio": 4.4784,
+      "passes": false
     },
     {
       "kind": "text",
@@ -628,8 +628,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5223,
-      "passes": true
+      "ratio": 4.4863,
+      "passes": false
     },
     {
       "kind": "text",
@@ -639,8 +639,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5369,
-      "passes": true
+      "ratio": 4.434,
+      "passes": false
     },
     {
       "kind": "text",
@@ -650,7 +650,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5346,
+      "ratio": 4.6674,
       "passes": true
     },
     {
@@ -662,7 +662,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 6.0396,
+      "ratio": 6.1098,
       "passes": true
     },
     {
@@ -674,7 +674,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.004,
+      "ratio": 5.0622,
       "passes": true
     },
     {
@@ -686,7 +686,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0183,
+      "ratio": 5.2387,
       "passes": true
     },
     {
@@ -698,7 +698,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0128,
+      "ratio": 5.0711,
       "passes": true
     },
     {
@@ -710,7 +710,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.029,
+      "ratio": 5.012,
       "passes": true
     },
     {
@@ -722,7 +722,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0264,
+      "ratio": 5.2758,
       "passes": true
     },
     {
@@ -734,7 +734,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.6408,
+      "ratio": 3.6507,
       "passes": true
     },
     {
@@ -746,7 +746,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.0165,
+      "ratio": 3.0247,
       "passes": true
     },
     {
@@ -758,43 +758,43 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
-      "ratio": 3.0252,
+      "ratio": 3.1302,
       "passes": true
     },
     {
       "kind": "text",
       "token": "dim",
       "background": "toolPendingBg",
-      "contrast": 3,
-      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "lightContrast": 3.75,
-      "ratio": 3.0218,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "dim",
-      "background": "toolSuccessBg",
-      "contrast": 3,
-      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "lightContrast": 3.75,
-      "ratio": 3.0316,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "dim",
-      "background": "toolErrorBg",
       "contrast": 3,
       "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 3.75,
       "ratio": 3.03,
+      "passes": true
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "toolSuccessBg",
+      "contrast": 3,
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "lightContrast": 3.75,
+      "ratio": 2.9947,
+      "passes": false
+    },
+    {
+      "kind": "text",
+      "token": "dim",
+      "background": "toolErrorBg",
+      "contrast": 3,
+      "reason": "Tertiary text, including the footer cwd and usage/model lines; deliberately below readable contrast",
+      "algorithm": "WCAG2",
+      "apcaLowClip": true,
+      "lightContrast": 3.75,
+      "ratio": 3.1523,
       "passes": true
     },
     {
@@ -806,7 +806,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "via": "mdTableBorder",
-      "ratio": 11.0989,
+      "ratio": 10.9961,
       "passes": true
     },
     {
@@ -818,7 +818,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "via": "mdTableBorder",
-      "ratio": 9.1957,
+      "ratio": 9.1105,
       "passes": true
     },
     {
@@ -830,7 +830,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "via": "mdTableBorder",
-      "ratio": 9.2221,
+      "ratio": 9.4283,
       "passes": true
     },
     {
@@ -841,7 +841,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5032,
+      "ratio": 4.5077,
       "passes": true
     },
     {
@@ -863,7 +863,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5127,
+      "ratio": 4.7129,
       "passes": true
     },
     {
@@ -874,7 +874,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5078,
+      "ratio": 4.5621,
       "passes": true
     },
     {
@@ -885,7 +885,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5223,
+      "ratio": 4.5089,
       "passes": true
     },
     {
@@ -896,7 +896,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.52,
+      "ratio": 4.7463,
       "passes": true
     },
     {
@@ -907,7 +907,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5302,
+      "ratio": 4.5066,
       "passes": true
     },
     {
@@ -918,8 +918,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5172,
-      "passes": true
+      "ratio": 4.3547,
+      "passes": false
     },
     {
       "kind": "text",
@@ -929,8 +929,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5252,
-      "passes": true
+      "ratio": 4.3624,
+      "passes": false
     },
     {
       "kind": "text",
@@ -940,8 +940,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5398,
-      "passes": true
+      "ratio": 4.3115,
+      "passes": false
     },
     {
       "kind": "text",
@@ -951,7 +951,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5375,
+      "ratio": 4.5384,
       "passes": true
     },
     {
@@ -962,7 +962,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.002,
+      "ratio": 10.1115,
       "passes": true
     },
     {
@@ -973,8 +973,8 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.0343,
-      "passes": true
+      "ratio": 9.9936,
+      "passes": false
     },
     {
       "kind": "text",
@@ -984,7 +984,7 @@
       "reason": "Very prominent: near white in dark mode, near black in light mode",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 10.0292,
+      "ratio": 10.5196,
       "passes": true
     },
     {
@@ -995,7 +995,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5078,
+      "ratio": 4.5621,
       "passes": true
     },
     {
@@ -1006,7 +1006,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5223,
+      "ratio": 4.5089,
       "passes": true
     },
     {
@@ -1017,7 +1017,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.52,
+      "ratio": 4.7463,
       "passes": true
     },
     {
@@ -1028,7 +1028,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4487,
+      "ratio": 5.3856,
       "passes": true
     },
     {
@@ -1039,7 +1039,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5273,
+      "ratio": 4.6177,
       "passes": true
     },
     {
@@ -1050,8 +1050,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5144,
-      "passes": true
+      "ratio": 4.4621,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1061,7 +1061,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4334,
+      "ratio": 5.5127,
       "passes": true
     },
     {
@@ -1072,7 +1072,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5146,
+      "ratio": 4.7267,
       "passes": true
     },
     {
@@ -1083,7 +1083,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5017,
+      "ratio": 4.5674,
       "passes": true
     },
     {
@@ -1116,7 +1116,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5169,
+      "ratio": 4.6611,
       "passes": true
     },
     {
@@ -1127,7 +1127,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4682,
+      "ratio": 5.2955,
       "passes": true
     },
     {
@@ -1138,7 +1138,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5435,
+      "ratio": 4.5405,
       "passes": true
     },
     {
@@ -1149,8 +1149,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5305,
-      "passes": true
+      "ratio": 4.3875,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1160,7 +1160,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4548,
+      "ratio": 5.7406,
       "passes": true
     },
     {
@@ -1171,7 +1171,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5324,
+      "ratio": 4.9221,
       "passes": true
     },
     {
@@ -1182,7 +1182,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5194,
+      "ratio": 4.7562,
       "passes": true
     },
     {
@@ -1193,7 +1193,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5274,
+      "ratio": 4.7646,
       "passes": true
     },
     {
@@ -1204,7 +1204,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.542,
+      "ratio": 4.709,
       "passes": true
     },
     {
@@ -1215,7 +1215,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5397,
+      "ratio": 4.9569,
       "passes": true
     },
     {
@@ -1248,7 +1248,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5169,
+      "ratio": 4.6611,
       "passes": true
     },
     {
@@ -1281,7 +1281,7 @@
       "reason": "Visible fence delimiters/optional language label are readable glyphs",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5169,
+      "ratio": 4.6611,
       "passes": true
     },
     {
@@ -1292,7 +1292,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4682,
+      "ratio": 5.2955,
       "passes": true
     },
     {
@@ -1303,8 +1303,8 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5305,
-      "passes": true
+      "ratio": 4.3875,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1314,7 +1314,7 @@
       "reason": "Conservative text treatment also covers ordered list numbers",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5435,
+      "ratio": 4.5405,
       "passes": true
     },
     {
@@ -1325,7 +1325,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4548,
+      "ratio": 5.7406,
       "passes": true
     },
     {
@@ -1336,7 +1336,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5274,
+      "ratio": 4.7646,
       "passes": true
     },
     {
@@ -1347,7 +1347,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.542,
+      "ratio": 4.709,
       "passes": true
     },
     {
@@ -1358,7 +1358,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5397,
+      "ratio": 4.9569,
       "passes": true
     },
     {
@@ -1369,7 +1369,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4251,
+      "ratio": 5.1782,
       "passes": true
     },
     {
@@ -1380,8 +1380,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5028,
-      "passes": true
+      "ratio": 4.2978,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1391,8 +1391,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5173,
-      "passes": true
+      "ratio": 4.2477,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1402,8 +1402,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.515,
-      "passes": true
+      "ratio": 4.4713,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1413,7 +1413,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4311,
+      "ratio": 5.4966,
       "passes": true
     },
     {
@@ -1424,7 +1424,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5078,
+      "ratio": 4.5621,
       "passes": true
     },
     {
@@ -1435,7 +1435,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5223,
+      "ratio": 4.5089,
       "passes": true
     },
     {
@@ -1446,7 +1446,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.52,
+      "ratio": 4.7463,
       "passes": true
     },
     {
@@ -1457,7 +1457,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4361,
+      "ratio": 5.4966,
       "passes": true
     },
     {
@@ -1468,7 +1468,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.504,
+      "ratio": 4.5541,
       "passes": true
     },
     {
@@ -1479,7 +1479,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5169,
+      "ratio": 4.7129,
       "passes": true
     },
     {
@@ -1490,7 +1490,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5119,
+      "ratio": 4.5621,
       "passes": true
     },
     {
@@ -1501,7 +1501,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5265,
+      "ratio": 4.5089,
       "passes": true
     },
     {
@@ -1512,7 +1512,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5242,
+      "ratio": 4.7463,
       "passes": true
     },
     {
@@ -1523,7 +1523,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4334,
+      "ratio": 5.5854,
       "passes": true
     },
     {
@@ -1534,7 +1534,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5146,
+      "ratio": 4.789,
       "passes": true
     },
     {
@@ -1545,7 +1545,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5017,
+      "ratio": 4.6276,
       "passes": true
     },
     {
@@ -1556,7 +1556,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5097,
+      "ratio": 4.6358,
       "passes": true
     },
     {
@@ -1567,7 +1567,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5242,
+      "ratio": 4.5817,
       "passes": true
     },
     {
@@ -1578,7 +1578,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5219,
+      "ratio": 4.8229,
       "passes": true
     },
     {
@@ -1589,7 +1589,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4487,
+      "ratio": 5.4052,
       "passes": true
     },
     {
@@ -1600,7 +1600,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5273,
+      "ratio": 4.6346,
       "passes": true
     },
     {
@@ -1611,8 +1611,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5144,
-      "passes": true
+      "ratio": 4.4784,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1622,8 +1622,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5223,
-      "passes": true
+      "ratio": 4.4863,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1633,8 +1633,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5369,
-      "passes": true
+      "ratio": 4.434,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1644,7 +1644,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5346,
+      "ratio": 4.6674,
       "passes": true
     },
     {
@@ -1655,7 +1655,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4446,
+      "ratio": 5.7225,
       "passes": true
     },
     {
@@ -1666,7 +1666,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5239,
+      "ratio": 4.9066,
       "passes": true
     },
     {
@@ -1677,7 +1677,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.511,
+      "ratio": 4.7413,
       "passes": true
     },
     {
@@ -1688,7 +1688,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5189,
+      "ratio": 4.7496,
       "passes": true
     },
     {
@@ -1699,7 +1699,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5335,
+      "ratio": 4.6943,
       "passes": true
     },
     {
@@ -1710,7 +1710,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5312,
+      "ratio": 4.9414,
       "passes": true
     },
     {
@@ -1721,7 +1721,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4386,
+      "ratio": 5.2889,
       "passes": true
     },
     {
@@ -1732,7 +1732,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5189,
+      "ratio": 4.5348,
       "passes": true
     },
     {
@@ -1743,8 +1743,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.506,
-      "passes": true
+      "ratio": 4.382,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1754,8 +1754,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5139,
-      "passes": true
+      "ratio": 4.3897,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1765,8 +1765,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5285,
-      "passes": true
+      "ratio": 4.3385,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1776,7 +1776,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5262,
+      "ratio": 4.5669,
       "passes": true
     },
     {
@@ -1787,7 +1787,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4548,
+      "ratio": 5.7406,
       "passes": true
     },
     {
@@ -1798,7 +1798,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5324,
+      "ratio": 4.9221,
       "passes": true
     },
     {
@@ -1809,7 +1809,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5194,
+      "ratio": 4.7562,
       "passes": true
     },
     {
@@ -1820,7 +1820,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5274,
+      "ratio": 4.7646,
       "passes": true
     },
     {
@@ -1831,7 +1831,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.542,
+      "ratio": 4.709,
       "passes": true
     },
     {
@@ -1842,7 +1842,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5397,
+      "ratio": 4.9569,
       "passes": true
     },
     {
@@ -1853,7 +1853,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4682,
+      "ratio": 5.3526,
       "passes": true
     },
     {
@@ -1864,7 +1864,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5435,
+      "ratio": 4.5894,
       "passes": true
     },
     {
@@ -1875,8 +1875,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5305,
-      "passes": true
+      "ratio": 4.4348,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1886,8 +1886,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5385,
-      "passes": true
+      "ratio": 4.4426,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1897,8 +1897,8 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5532,
-      "passes": true
+      "ratio": 4.3908,
+      "passes": false
     },
     {
       "kind": "text",
@@ -1908,7 +1908,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5509,
+      "ratio": 4.6219,
       "passes": true
     },
     {
@@ -1919,7 +1919,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4361,
+      "ratio": 5.4966,
       "passes": true
     },
     {
@@ -1930,7 +1930,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5169,
+      "ratio": 4.7129,
       "passes": true
     },
     {
@@ -1941,7 +1941,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.504,
+      "ratio": 4.5541,
       "passes": true
     },
     {
@@ -1952,7 +1952,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5119,
+      "ratio": 4.5621,
       "passes": true
     },
     {
@@ -1963,7 +1963,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5265,
+      "ratio": 4.5089,
       "passes": true
     },
     {
@@ -1974,7 +1974,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5242,
+      "ratio": 4.7463,
       "passes": true
     },
     {
@@ -1985,7 +1985,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4361,
+      "ratio": 5.4966,
       "passes": true
     },
     {
@@ -1996,7 +1996,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5169,
+      "ratio": 4.7129,
       "passes": true
     },
     {
@@ -2007,7 +2007,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.504,
+      "ratio": 4.5541,
       "passes": true
     },
     {
@@ -2018,7 +2018,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5119,
+      "ratio": 4.5621,
       "passes": true
     },
     {
@@ -2029,7 +2029,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5265,
+      "ratio": 4.5089,
       "passes": true
     },
     {
@@ -2040,7 +2040,7 @@
       "reason": null,
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5242,
+      "ratio": 4.7463,
       "passes": true
     },
     {
@@ -2051,7 +2051,7 @@
       "reason": "Session-tree compaction label in current Pi; moves to customMessageLabel in extended",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4446,
+      "ratio": 5.6503,
       "passes": true
     },
     {
@@ -2062,7 +2062,7 @@
       "reason": "Session-tree compaction label in current Pi; moves to customMessageLabel in extended",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.511,
+      "ratio": 4.6815,
       "passes": true
     },
     {
@@ -2084,7 +2084,7 @@
       "reason": "Bash command header; editor border has a separate non-text rule",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5242,
+      "ratio": 4.757,
       "passes": true
     },
     {
@@ -2106,7 +2106,7 @@
       "reason": "Same prominence as border, with a different color",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.4446,
+      "ratio": 5.6503,
       "passes": true
     },
     {
@@ -2129,7 +2129,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 6.0396,
+      "ratio": 6.1098,
       "passes": true
     },
     {
@@ -2141,7 +2141,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.004,
+      "ratio": 5.0622,
       "passes": true
     },
     {
@@ -2153,7 +2153,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0183,
+      "ratio": 5.2387,
       "passes": true
     },
     {
@@ -2165,7 +2165,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0128,
+      "ratio": 5.0711,
       "passes": true
     },
     {
@@ -2177,7 +2177,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.029,
+      "ratio": 5.012,
       "passes": true
     },
     {
@@ -2189,7 +2189,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0264,
+      "ratio": 5.2758,
       "passes": true
     },
     {
@@ -2201,7 +2201,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 6.0396,
+      "ratio": 6.1098,
       "passes": true
     },
     {
@@ -2213,7 +2213,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.004,
+      "ratio": 5.0622,
       "passes": true
     },
     {
@@ -2225,7 +2225,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0183,
+      "ratio": 5.2387,
       "passes": true
     },
     {
@@ -2237,7 +2237,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0128,
+      "ratio": 5.0711,
       "passes": true
     },
     {
@@ -2249,7 +2249,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.029,
+      "ratio": 5.012,
       "passes": true
     },
     {
@@ -2261,7 +2261,7 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "lightContrast": 5.5,
-      "ratio": 5.0264,
+      "ratio": 5.2758,
       "passes": true
     },
     {
@@ -2272,8 +2272,8 @@
       "reason": "Faint track, matching Pi's default theme (~1.74)",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.7184,
-      "passes": true
+      "ratio": 1.697,
+      "passes": false
     },
     {
       "kind": "nonText",
@@ -2283,7 +2283,7 @@
       "reason": "Scrollbar position relative to track",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.0064,
+      "ratio": 3.0074,
       "passes": true
     },
     {
@@ -2305,7 +2305,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.2773,
+      "ratio": 3.2812,
       "passes": true
     },
     {
@@ -2316,7 +2316,7 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.5114,
+      "ratio": 3.5638,
       "passes": true
     },
     {
@@ -2327,8 +2327,8 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 3.7526,
-      "passes": true
+      "ratio": 3.7096,
+      "passes": false
     },
     {
       "kind": "nonText",
@@ -2338,8 +2338,8 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.2588,
-      "passes": true
+      "ratio": 4.0054,
+      "passes": false
     },
     {
       "kind": "nonText",
@@ -2349,8 +2349,8 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.7592,
-      "passes": true
+      "ratio": 4.2912,
+      "passes": false
     },
     {
       "kind": "nonText",
@@ -2360,8 +2360,8 @@
       "reason": "Editor boundary; prominence increases with thinking level",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.0097,
-      "passes": true
+      "ratio": 4.5542,
+      "passes": false
     },
     {
       "kind": "nonText",
@@ -2371,7 +2371,7 @@
       "reason": "Editor boundary",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5242,
+      "ratio": 4.757,
       "passes": true
     },
     {
@@ -2404,7 +2404,7 @@
       "reason": "Provisional very subtle tool state fill, including success",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.201,
+      "ratio": 1.2191,
       "passes": true
     },
     {
@@ -2415,8 +2415,8 @@
       "reason": "Provisional very subtle tool state fill",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.2016,
-      "passes": true
+      "ratio": 1.1581,
+      "passes": false
     },
     {
       "kind": "nonText",
@@ -2448,8 +2448,8 @@
       "reason": "Subtle panel, like other message panels",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 1.2035,
-      "passes": true
+      "ratio": 1.1663,
+      "passes": false
     }
   ],
   "summary": {

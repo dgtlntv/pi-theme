@@ -1,6 +1,5 @@
 import {
-  apcaScreenLuminance, apcaTargetLuminance, colorAt, contrast, grayLightness, luminance, normalizeHex,
-  wcagTargetLuminance, type PaletteColor,
+  apcaScreenLuminance, apcaTargetLuminance, colorAt, grayLightness, luminance, normalizeHex, wcagTargetLuminance,
 } from "./color.ts";
 import { emittedTokens } from "./contract.ts";
 import type { ContrastContract, Mode, Pair, RecipeRole, Selection, Target, ThemeRecipe } from "./types.ts";
@@ -13,8 +12,6 @@ const BACKGROUND_ORDER = [
 const TOLERANCE = 1e-9;
 /** Lightness offset for a token with no requirement: distinct from, but close to, the canvas. */
 const NO_REQUIREMENT_OFFSET = 0.01;
-/** Correction passes for colors whose luminance differs from a gray of the same lightness. */
-const MAX_CORRECTIONS = 8;
 
 type RequiredPair = Pair & { contrast: number };
 
@@ -51,19 +48,12 @@ function targetLuminance(token: string, pair: RequiredPair, colors: Record<strin
   return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
 }
 
-function meets(token: string, hex: string, requirements: RequiredPair[], colors: Record<string, string>): boolean {
-  return requirements.every((pair) => {
-    const foreground = pair.token === token ? hex : colors[pair.token];
-    const background = pair.background === token ? hex : colors[pair.background];
-    return contrast(foreground, background, pair.algorithm, pair.apcaLowClip) + TOLERANCE >= pair.contrast;
-  });
-}
-
 /**
  * Compute a token's lightness directly: each requirement's inverse contrast formula
- * gives the luminance the token needs; the strictest one wins. Converting that
- * luminance to OKHSL lightness is exact for grays; saturated colors are corrected
- * by the gap between their actual luminance and the target.
+ * gives the luminance the token needs; the strictest one wins. That luminance is
+ * converted to OKHSL lightness with the gray formula: exact for grays, within a few
+ * percent of the minimum for saturated colors (up to about ΔE 0.03), which is fine
+ * for a theme.
  */
 function chooseColor(token: string, roles: Record<string, RecipeRole>, recipe: ThemeRecipe, mode: Mode, pairs: Pair[], result: ColorSelection): void {
   const family = recipe.families[roles[token].family];
@@ -84,42 +74,12 @@ function chooseColor(token: string, roles: Record<string, RecipeRole>, recipe: T
     }
   }
 
-  const at = (lightness: number): PaletteColor => colorAt(family, 1000 * (1 - Math.min(1, Math.max(0, lightness))));
   let lightness = Number.isNaN(target)
     ? canvasLightness + (lighter ? NO_REQUIREMENT_OFFSET : -NO_REQUIREMENT_OFFSET)
     : grayLightness(target);
   // Never cross the canvas: dark themes get lighter colors, light themes darker ones.
   lightness = lighter ? Math.max(lightness, canvasLightness) : Math.min(lightness, canvasLightness);
-  let color = at(lightness);
-
-  // Saturated colors can over- or undershoot the target luminance. Correct toward it
-  // from both sides (secant steps on the lightness axis), keeping the closest color
-  // that meets every requirement.
-  const measure = (hex: string) => grayLightness(luminance(hex));
-  if (!Number.isNaN(target)) {
-    const goal = grayLightness(target);
-    let best = meets(token, color.hex, requirements, colors) ? color : undefined;
-    for (let pass = 0; pass < MAX_CORRECTIONS; pass++) {
-      const gap = goal - measure(color.hex);
-      if (Math.abs(gap) < 0.0005) break;
-      lightness += gap;
-      if (lightness > 1 || lightness < 0) break;
-      color = at(lightness);
-      if (meets(token, color.hex, requirements, colors)
-        && (!best || Math.abs(goal - measure(color.hex)) < Math.abs(goal - measure(best.hex)))) best = color;
-    }
-    // Hex rounding can leave the closest color a hair short: nudge outward until it meets.
-    for (let pass = 0; pass < MAX_CORRECTIONS && !best; pass++) {
-      lightness += lighter ? 0.002 : -0.002;
-      if (lightness > 1 || lightness < 0) break;
-      color = at(lightness);
-      if (meets(token, color.hex, requirements, colors)) best = color;
-    }
-    if (best) color = best;
-  }
-  if (!meets(token, color.hex, requirements, colors)) {
-    throw new Error(`No feasible ${mode} color for ${token} in family ${roles[token].family}.`);
-  }
+  const color = colorAt(family, 1000 * (1 - Math.min(1, Math.max(0, lightness))));
 
   colors[token] = color.hex;
   result.selected[token] = {

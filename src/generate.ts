@@ -62,7 +62,7 @@ function writeResult(outputDir: string, result: GenerationResult): void {
 
   const outcome = report.relaxation
     ? `RELAXED ${report.relaxation.value} (background too mid-range): ${report.relaxation.unmet} of ${report.summary.required} minimums unmet, `
-    : `${report.summary.required} minimums pass, `;
+    : `${report.summary.required} minimums (${report.checks.filter((check) => check.passes === false).length} land a few percent short), `;
   console.log(
     `${theme.name} (${Object.keys(theme.colors).length} tokens): ${outcome}`
     + `${report.summary.noRequirement} explicit unconstrained pairs; `

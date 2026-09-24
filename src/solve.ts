@@ -55,5 +55,5 @@ export function generateTheme(
       low = middle;
     }
   }
-  return buildResult(recipe, contract, mode, target, pairs, best, { value: high, pairs: relaxPairs(pairs, high) });
+  return buildResult(recipe, contract, mode, target, pairs, best, { value: high });
 }
