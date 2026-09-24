@@ -15,9 +15,6 @@ function validateTokens(tokens: Record<string, TokenDefinition>): void {
   if (tokens.background?.type !== "background" || tokens.background.origin !== "virtual-terminal") {
     throw new Error("Missing virtual terminal background");
   }
-  if (tokens.terminalForeground?.type !== "foreground" || tokens.terminalForeground.origin !== "virtual-terminal") {
-    throw new Error("Missing virtual terminal foreground");
-  }
 
   for (const [name, token] of Object.entries(tokens)) {
     if (!token || (token.type !== "background" && token.type !== "foreground")) {
@@ -136,8 +133,6 @@ export function pairsForTarget(contract: ContrastContract, target: Target): Pair
     for (const pair of expandRelationships({ ...contract, relationships: [rule] })) {
       const fallback = target === "current" ? contract.tokens[pair.token].proposed?.fallback : undefined;
       const resolved = fallback ? { ...pair, token: fallback, via: pair.token } : pair;
-      // A proposed fallback onto a virtual token (e.g. "" = terminal default) cannot be
-      // styled by the theme; keep checking it, since the terminal color still renders there.
       const key = `${resolved.kind}:${resolved.token}:${resolved.background}:${resolved.contrast}`;
       if (!seen.has(key)) {
         seen.add(key);

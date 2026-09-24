@@ -2,8 +2,7 @@ import { colorAt, contrast, luminance, normalizeHex, type PaletteColor } from ".
 import { emittedTokens } from "./contract.ts";
 import type { Algorithm, ContrastContract, Mode, Pair, RecipeRole, Selection, Target, ThemeRecipe } from "./types.ts";
 
-// Surfaces are solved before foreground text. Unstyled terminal text is solved
-// after surfaces unless its actual color was supplied via --terminal-fg.
+// Surfaces are solved before foreground text, which is checked against them.
 const BACKGROUND_ORDER = [
   "userMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg",
   "selectedBg", "customMessageBg", "searchMatchBg",
@@ -21,7 +20,6 @@ export type SearchStrategy = "bisect" | "linear";
 
 export interface TerminalOverrides {
   background?: string;
-  terminalForeground?: string;
 }
 
 export interface ColorSelection {
@@ -181,16 +179,8 @@ export function selectColors(
   result.selected.background = { family: null, step: null, hex: anchor,
     source: overrides.background === undefined ? "recipe-assumption" : "terminal-override" };
 
-  if (overrides.terminalForeground !== undefined) {
-    const foreground = normalizeHex(overrides.terminalForeground);
-    result.colors.terminalForeground = foreground;
-    result.selected.terminalForeground = { family: null, step: null, hex: foreground, source: "terminal-override" };
-  }
-
   const context: SelectionContext = { roles, mode, search, pairs, candidates: buildCandidates(recipe, roles), result };
   for (const token of BACKGROUND_ORDER) chooseColor(token, context);
-
-  if (overrides.terminalForeground === undefined) chooseColor("terminalForeground", context);
 
   // Proposed tokens absent from this target are not selected; their rules
   // were already moved onto their fallbacks by pairsForTarget().

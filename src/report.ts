@@ -86,7 +86,6 @@ export function buildResult(
       algorithm: contract.algorithm,
       terminal: {
         background: selection.selected.background,
-        foreground: selection.selected.terminalForeground,
       },
       selected: selection.selected,
       palette: usedPalette(recipe, selection),

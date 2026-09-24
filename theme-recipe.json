@@ -21,7 +21,6 @@
     "thinkingRed": {"hue":20,"saturation":{"min":0.95,"max":1}}
   },
   "roles": [
-    {"tokens":["terminalForeground"],"family":"neutral"},
     {"tokens":["selectedBg","searchMatchBg"],"family":"blue"},
     {"tokens":["userMessageBg"],"family":"blue"},
     {"tokens":["customMessageBg","customMessageLabel"],"family":"purple"},

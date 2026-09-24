@@ -7,7 +7,7 @@ import type { TerminalOverrides } from "./selection.ts";
 import { ALGORITHMS, TARGETS, type Algorithm, type ContrastContract, type GenerationResult, type Mode, type Target, type ThemeRecipe } from "./types.ts";
 
 const PROJECT_DIR = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const OPTIONS = ["--mode", "--target", "--algorithm", "--recipe", "--contract", "--apca-contract", "--out", "--terminal-bg", "--terminal-fg"] as const;
+const OPTIONS = ["--mode", "--target", "--algorithm", "--recipe", "--contract", "--apca-contract", "--out", "--terminal-bg"] as const;
 type OptionName = (typeof OPTIONS)[number];
 
 function parseOptions(args: string[]): Partial<Record<OptionName, string>> {
@@ -29,8 +29,8 @@ function selectedModes(options: Partial<Record<OptionName, string>>): Mode[] {
   if (mode !== "dark" && mode !== "light" && mode !== "both") {
     throw new Error("--mode must be dark, light or both");
   }
-  if (mode === "both" && (options["--terminal-bg"] || options["--terminal-fg"])) {
-    throw new Error("Terminal overrides require --mode dark or --mode light (one actual terminal at a time)");
+  if (mode === "both" && options["--terminal-bg"]) {
+    throw new Error("--terminal-bg requires --mode dark or --mode light (one actual terminal at a time)");
   }
   return mode === "both" ? ["dark", "light"] : [mode];
 }
@@ -66,8 +66,7 @@ function writeResult(outputDir: string, result: GenerationResult): void {
   console.log(
     `${theme.name} (${Object.keys(theme.colors).length} tokens): ${outcome}`
     + `${report.summary.noRequirement} explicit unconstrained pairs; `
-    + `background ${report.terminal.background.hex} (${report.terminal.background.source}), `
-    + `terminal fg ${report.terminal.foreground.hex} (${report.terminal.foreground.source})`,
+    + `background ${report.terminal.background.hex} (${report.terminal.background.source})`,
   );
 }
 
@@ -91,7 +90,6 @@ function main(): void {
   });
   const terminal: TerminalOverrides = {
     background: options["--terminal-bg"],
-    terminalForeground: options["--terminal-fg"],
   };
 
   // Validate *all* requested outputs before writing any theme files.

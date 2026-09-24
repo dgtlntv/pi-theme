@@ -8,13 +8,6 @@
       "step": null,
       "hex": "#282c34",
       "source": "recipe-assumption"
-    },
-    "foreground": {
-      "family": "neutral",
-      "step": 330,
-      "hex": "#9ea4ab",
-      "saturation": 0.06568,
-      "source": "contrast-derived"
     }
   },
   "selected": {
@@ -71,13 +64,6 @@
       "step": 745,
       "hex": "#233f4d",
       "saturation": 0.4242,
-      "source": "contrast-derived"
-    },
-    "terminalForeground": {
-      "family": "neutral",
-      "step": 330,
-      "hex": "#9ea4ab",
-      "saturation": 0.06568,
       "source": "contrast-derived"
     },
     "accent": {
@@ -451,7 +437,6 @@
       "90": "#e4e5e6",
       "300": "#a7acb2",
       "320": "#a1a7ad",
-      "330": "#9ea4ab",
       "335": "#9da3a9",
       "350": "#989fa6",
       "395": "#8c939b",
@@ -507,90 +492,6 @@
     }
   },
   "checks": [
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "selectedBg",
-      "contrast": 44,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "lightContrast": 62,
-      "ratio": 44.7381,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "userMessageBg",
-      "contrast": 44,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "lightContrast": 62,
-      "ratio": 44.7381,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "customMessageBg",
-      "contrast": 44,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "lightContrast": 62,
-      "ratio": 44.8173,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "toolPendingBg",
-      "contrast": 44,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "lightContrast": 62,
-      "ratio": 45.1273,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "toolSuccessBg",
-      "contrast": 44,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "lightContrast": 62,
-      "ratio": 45.1065,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "toolErrorBg",
-      "contrast": 44,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "lightContrast": 62,
-      "ratio": 44.8032,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "background",
-      "contrast": 48,
-      "reason": "Unstyled text on the canvas",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "lightContrast": 74,
-      "ratio": 48.3953,
-      "passes": true
-    },
     {
       "kind": "text",
       "token": "text",
@@ -2741,28 +2642,6 @@
     },
     {
       "kind": "nonText",
-      "token": "dim",
-      "background": "background",
-      "contrast": null,
-      "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 32.4519,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "dim",
-      "background": "selectedBg",
-      "contrast": null,
-      "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 28.7947,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
       "token": "userMessageBg",
       "background": "background",
       "contrast": 4.9,
@@ -2835,72 +2714,6 @@
     },
     {
       "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "userMessageBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 0,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "customMessageBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 0,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "toolPendingBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 0,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "toolSuccessBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 0,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "toolErrorBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 0,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "selectedBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 0,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
       "token": "customMessageBg",
       "background": "background",
       "contrast": 4.8,
@@ -2910,43 +2723,10 @@
       "lightContrast": 16,
       "ratio": 4.8442,
       "passes": true
-    },
-    {
-      "kind": "nonText",
-      "token": "toolPendingBg",
-      "background": "toolSuccessBg",
-      "contrast": null,
-      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 0,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "toolPendingBg",
-      "background": "toolErrorBg",
-      "contrast": null,
-      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 0,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "toolSuccessBg",
-      "background": "toolErrorBg",
-      "contrast": null,
-      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
-      "algorithm": "APCA",
-      "apcaLowClip": true,
-      "ratio": 0,
-      "passes": null
     }
   ],
   "summary": {
-    "required": 193,
-    "noRequirement": 11
+    "required": 186,
+    "noRequirement": 0
   }
 }

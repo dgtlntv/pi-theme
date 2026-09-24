@@ -8,13 +8,6 @@
       "step": null,
       "hex": "#f7f6f6",
       "source": "recipe-assumption"
-    },
-    "foreground": {
-      "family": "neutral",
-      "step": 765,
-      "hex": "#34373a",
-      "saturation": 0.05017,
-      "source": "contrast-derived"
     }
   },
   "selected": {
@@ -71,13 +64,6 @@
       "step": 120,
       "hex": "#d2dfe6",
       "saturation": 0.22051,
-      "source": "contrast-derived"
-    },
-    "terminalForeground": {
-      "family": "neutral",
-      "step": 765,
-      "hex": "#34373a",
-      "saturation": 0.05017,
       "source": "contrast-derived"
     },
     "accent": {
@@ -491,72 +477,6 @@
   "checks": [
     {
       "kind": "text",
-      "token": "terminalForeground",
-      "background": "selectedBg",
-      "contrast": 4.5,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 9.1895,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "userMessageBg",
-      "contrast": 4.5,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 9.1895,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "customMessageBg",
-      "contrast": 4.5,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 9.123,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "toolPendingBg",
-      "contrast": 4.5,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 9.1457,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "toolSuccessBg",
-      "contrast": 4.5,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 9.222,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "toolErrorBg",
-      "contrast": 4.5,
-      "reason": "Only unstyled text that actually inherits the terminal foreground on a given surface",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 9.231,
-      "passes": true
-    },
-    {
-      "kind": "text",
       "token": "text",
       "background": "background",
       "contrast": 11,
@@ -575,17 +495,6 @@
       "algorithm": "WCAG2",
       "apcaLowClip": true,
       "ratio": 9.1895,
-      "passes": true
-    },
-    {
-      "kind": "text",
-      "token": "terminalForeground",
-      "background": "background",
-      "contrast": 11,
-      "reason": "Assistant replies render in the terminal default in current Pi; same level as text",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 11.1018,
       "passes": true
     },
     {
@@ -954,7 +863,7 @@
     },
     {
       "kind": "nonText",
-      "token": "terminalForeground",
+      "token": "text",
       "background": "background",
       "contrast": 3,
       "reason": "Table grid lines structure cells",
@@ -966,7 +875,7 @@
     },
     {
       "kind": "nonText",
-      "token": "terminalForeground",
+      "token": "text",
       "background": "userMessageBg",
       "contrast": 3,
       "reason": "Table grid lines structure cells",
@@ -978,7 +887,7 @@
     },
     {
       "kind": "nonText",
-      "token": "terminalForeground",
+      "token": "text",
       "background": "customMessageBg",
       "contrast": 3,
       "reason": "Table grid lines structure cells",
@@ -2531,28 +2440,6 @@
     },
     {
       "kind": "nonText",
-      "token": "dim",
-      "background": "background",
-      "contrast": null,
-      "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 4.6468,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "dim",
-      "background": "selectedBg",
-      "contrast": null,
-      "reason": "Only structural tree connector characters; readable dim text has a separate text rule",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 3.8464,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
       "token": "userMessageBg",
       "background": "background",
       "contrast": 1.2,
@@ -2619,72 +2506,6 @@
     },
     {
       "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "userMessageBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 1.0438,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "customMessageBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 1.0363,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "toolPendingBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 1.0389,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "toolSuccessBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 1.0475,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "toolErrorBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 1.0485,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "searchMatchBg",
-      "background": "selectedBg",
-      "contrast": null,
-      "reason": "Other matches are underlined; the current match is reversed and bold",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 1.0438,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
       "token": "customMessageBg",
       "background": "background",
       "contrast": 1.2,
@@ -2693,43 +2514,10 @@
       "apcaLowClip": true,
       "ratio": 1.2169,
       "passes": true
-    },
-    {
-      "kind": "nonText",
-      "token": "toolPendingBg",
-      "background": "toolSuccessBg",
-      "contrast": null,
-      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 1.0083,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "toolPendingBg",
-      "background": "toolErrorBg",
-      "contrast": null,
-      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 1.0093,
-      "passes": null
-    },
-    {
-      "kind": "nonText",
-      "token": "toolSuccessBg",
-      "background": "toolErrorBg",
-      "contrast": null,
-      "reason": "No pairwise 3:1 constraint between tool states; see limitations",
-      "algorithm": "WCAG2",
-      "apcaLowClip": true,
-      "ratio": 1.001,
-      "passes": null
     }
   ],
   "summary": {
-    "required": 190,
-    "noRequirement": 11
+    "required": 183,
+    "noRequirement": 0
   }
 }

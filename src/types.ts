@@ -109,7 +109,7 @@ export interface ContrastReport {
   mode: Mode;
   target: Target;
   algorithm: Algorithm;
-  terminal: { background: Selection; foreground: Selection };
+  terminal: { background: Selection };
   selected: Record<string, Selection>;
   palette: Record<string, Record<string, string>>;
   checks: CheckedPair[];

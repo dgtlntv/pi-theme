@@ -37,11 +37,10 @@ test("recipe defines a terminal background anchor and a family for every other t
   assert.equal(roles.userMessageBg.family, "blue");
   // Custom-message labels share their panel's hue family.
   assert.equal(roles.customMessageLabel.family, roles.customMessageBg.family);
-  assert.equal(validateContract(contract).required, 196);
+  assert.equal(validateContract(contract).required, 188);
   // Primary reading text: Pi's `text` and the proposed assistant reply body.
   // Primary reading text on the canvas; in current Pi assistant replies use the terminal default.
-  assert.deepEqual(contract.relationships.filter((rule) => rule.contrast === 11).map((rule) => rule.token),
-    ["text", "terminalForeground"]);
+  assert.deepEqual(contract.relationships.filter((rule) => rule.contrast === 11).map((rule) => rule.token), ["text"]);
   assert.equal(contract.relationships.find((rule) => rule.token === "border" && rule.kind === "nonText")?.contrast, 4.5);
   const muted = contract.relationships.find((rule) => rule.token === "muted" && rule.kind === "text");
   const dim = contract.relationships.filter((rule) => rule.token === "dim" && rule.kind === "text");
@@ -62,9 +61,8 @@ test("dark and light themes derive lightness from contrast, satisfying every req
     assert.equal(Object.keys(theme.colors).length, 56);
     assert.equal(theme.colors.background, undefined);
     assert.equal(report.terminal.background.hex, recipe.terminalBackground[mode]);
-    assert.equal(report.terminal.foreground.source, "contrast-derived");
-    assert.equal(report.summary.required, 190);
-    assert.equal(report.summary.noRequirement, 11);
+    assert.equal(report.summary.required, 183);
+    assert.equal(report.summary.noRequirement, 0);
     assert.ok(report.checks.every((pair) => pair.passes !== false));
     // Pi's footer renders the cwd and usage/model lines with `dim` on the terminal canvas.
     // Light mode pushes secondary text further (lightContrast).
@@ -100,11 +98,11 @@ test("dark and light themes derive lightness from contrast, satisfying every req
   }
 });
 
-test("null means no requirement, and the contract validator rejects omitted relationships", () => {
-  const pair = expandRelationships(contract).find((item) =>
-    item.token === "searchMatchBg" && item.background === "toolPendingBg");
-  assert.equal(pair?.contrast, null);
-  assert.equal(validateContract(contract).noRequirement, 11);
+test("every token has a real minimum, and the contract validator rejects omitted relationships", () => {
+  assert.equal(validateContract(contract).noRequirement, 0);
+  const relaxed = structuredClone(contract);
+  relaxed.relationships.push({ kind: "nonText", token: "toolPendingBg", backgrounds: ["toolSuccessBg"], contrast: null, reason: "example" });
+  assert.equal(expandRelationships(relaxed).find((item) => item.token === "toolPendingBg" && item.background === "toolSuccessBg")?.contrast, null);
 
   const incomplete = structuredClone(contract);
   incomplete.relationships = incomplete.relationships.filter((rule) => rule.token !== "selectedBg");
@@ -117,7 +115,7 @@ test("current target omits proposed tokens and checks their rules on the fallbac
   const pairs = pairsForTarget(contract, "current");
   assert.ok(pairs.every((pair) => !PROPOSED.includes(pair.token)));
   const tableBorder = pairs.find((pair) => pair.via === "mdTableBorder");
-  assert.equal(tableBorder?.token, "terminalForeground");
+  assert.equal(tableBorder?.token, "text");
   assert.equal(tableBorder?.contrast, 3);
 
   for (const mode of ["dark", "light"] as const) {
@@ -192,13 +190,6 @@ test("increasing a text ratio makes its derived foreground brighter in dark mode
   assert.ok(changed.step !== null && original.step !== null && changed.step < original.step);
 });
 
-test("Ghostty's default dark terminal colors satisfy every declared contrast pair", () => {
-  assert.equal(recipe.terminalBackground.dark, "#282c34");
-  const result = generateTheme(recipe, contract, "dark", { terminalForeground: "#ffffff" });
-  assert.equal(result.report.terminal.foreground.hex, "#ffffff");
-  assert.ok(result.report.checks.every((pair) => pair.passes !== false));
-});
-
 test("changing the anchor or hue affects colors", () => {
   const changedRecipe = structuredClone(recipe);
   changedRecipe.terminalBackground.dark = "#151515";
@@ -227,10 +218,6 @@ test("mid-range backgrounds relax the contract as little as needed instead of fa
   // Stage 2: #777777 cannot even reach 4.5:1, so readability gives way too.
   const extreme = generateTheme(recipe, contract, "dark", { background: "#777777" }, "extended");
   assert.ok(extreme.report.relaxation && extreme.report.relaxation.value > 1);
-
-  // Pinned terminal text that no background change can fix still yields a best-effort theme.
-  const pinned = generateTheme(recipe, contract, "dark", { background: "#505050", terminalForeground: "#999999" });
-  assert.ok(pinned.report.relaxation);
 });
 
 test("APCA contract is derived from the WCAG dark theme and reproduces it", () => {
@@ -283,9 +270,5 @@ test("binary search returns the same colors as a full linear scan", () => {
         assert.deepEqual(bisect.report.relaxation, linear.report.relaxation);
       }
     }
-    // A pinned light foreground makes panels non-monotonic: they must stay dark enough for it.
-    const pinned = { terminalForeground: "#ffffff" };
-    assert.deepEqual(generateTheme(recipe, source, "dark", pinned, "current", "bisect").theme.colors,
-      generateTheme(recipe, source, "dark", pinned, "current", "linear").theme.colors);
   }
 });

@@ -6,15 +6,13 @@
   "semantics": {
     "contrast": "Required minimum WCAG 2.1 ratio. null explicitly means no contrast requirement (not missing data).",
     "background": "Virtual semantic token for the actual terminal background; its hex is anchored by the recipe, not a Pi theme slot.",
-    "terminalForeground": "Virtual token for unstyled terminal text. Derived in reference themes; pin measured RGB with --terminal-fg for a real terminal.",
     "backgrounds": "Each entry expands into its own pair. Text colors on different surfaces may need different ratios.",
     "kind": "text checks glyphs; nonText checks graphical marks or colored surfaces.",
-    "proposed": "Token proposed for Pi but not supported yet. The extended target emits it; the current target omits it and applies its rules to `fallback`, the color Pi renders there today. A terminalForeground fallback models Pi's \"\" (terminal default).",
+    "proposed": "Token proposed for Pi but not supported yet. The extended target emits it; the current target omits it and applies its rules to `fallback`, the color Pi renders there today.",
     "targets": "Optional. Limits a rule to the current and/or extended target, for rules that differ once proposed tokens and Pi remappings exist."
   },
   "tokens": {
     "background": {"type":"background","origin":"virtual-terminal"},
-    "terminalForeground": {"type":"foreground","origin":"virtual-terminal"},
     "accent": {"type":"foreground"},
     "border": {"type":"foreground"},
     "borderAccent": {"type":"foreground"},
@@ -65,7 +63,7 @@
     "thinkingMax": {"type":"foreground","optionalFallback":"thinkingXhigh"},
     "bashMode": {"type":"foreground"},
     "toolArgument": {"type":"foreground","proposed":{"fallback":"accent"}},
-    "mdTableBorder": {"type":"foreground","proposed":{"fallback":"terminalForeground"}},
+    "mdTableBorder": {"type":"foreground","proposed":{"fallback":"text"}},
     "selectedBg": {"type":"background"},
     "searchMatchBg": {"type":"background","optionalFallback":"selectedBg"},
     "userMessageBg": {"type":"background"},
@@ -75,11 +73,8 @@
     "toolErrorBg": {"type":"background"}
   },
   "relationships": [
-    {"kind":"text","token":"terminalForeground","backgrounds":["selectedBg","userMessageBg","customMessageBg","toolPendingBg","toolSuccessBg","toolErrorBg"],"note":"Only unstyled text that actually inherits the terminal foreground on a given surface","contrast":4.5},
-    {"kind":"text","token":"terminalForeground","backgrounds":["background"],"targets":["extended"],"note":"Unstyled text on the canvas","contrast":4.5},
     {"kind":"text","token":"text","backgrounds":["background"],"contrast":11,"note":"Primary reading text; also assistant replies in extended"},
     {"kind":"text","token":"text","backgrounds":["selectedBg"],"note":"Selected rows are slightly darker; the canvas level here would push text above it","contrast":9},
-    {"kind":"text","token":"terminalForeground","backgrounds":["background"],"targets":["current"],"note":"Assistant replies render in the terminal default in current Pi; same level as text","contrast":11},
     {"kind":"text","token":"accent","backgrounds":["background","selectedBg","toolPendingBg","toolSuccessBg","toolErrorBg"],"contrast":4.5},
     {"kind":"text","token":"success","backgrounds":["background","selectedBg","toolPendingBg","toolSuccessBg","toolErrorBg"],"contrast":4.5},
     {"kind":"text","token":"error","backgrounds":["background","selectedBg","toolPendingBg","toolSuccessBg","toolErrorBg"],"contrast":4.5},
@@ -134,17 +129,13 @@
     {"kind":"nonText","token":"thinkingXhigh","backgrounds":["background"],"reason":"Editor boundary; prominence increases with thinking level","contrast":4.75},
     {"kind":"nonText","token":"thinkingMax","backgrounds":["background"],"reason":"Editor boundary; prominence increases with thinking level","contrast":5},
     {"kind":"nonText","token":"bashMode","backgrounds":["background"],"reason":"Editor boundary","contrast":3},
-    {"kind":"nonText","token":"dim","backgrounds":["background","selectedBg"],"reason":"Only structural tree connector characters; readable dim text has a separate text rule","contrast":null},
     {"kind":"nonText","token":"userMessageBg","backgrounds":["background"],"reason":"Provisional very subtle distinction for the unlabeled user-message bubble","contrast":1.2,"apcaLightContrast":16},
     {"kind":"nonText","token":"toolPendingBg","backgrounds":["background"],"reason":"Provisional very subtle tool state fill","contrast":1.2,"apcaLightContrast":16},
     {"kind":"nonText","token":"toolSuccessBg","backgrounds":["background"],"reason":"Provisional very subtle tool state fill, including success","contrast":1.2,"apcaLightContrast":16},
     {"kind":"nonText","token":"toolErrorBg","backgrounds":["background"],"reason":"Provisional very subtle tool state fill","contrast":1.2,"apcaLightContrast":16},
     {"kind":"nonText","token":"selectedBg","backgrounds":["background"],"reason":"Subtle selection fill, like other panels; cursor/bold also mark selection","contrast":1.2,"apcaLightContrast":16},
     {"kind":"nonText","token":"searchMatchBg","backgrounds":["background"],"reason":"Close to Pi's default theme (~1.26)","contrast":1.25},
-    {"kind":"nonText","token":"searchMatchBg","backgrounds":["userMessageBg","customMessageBg","toolPendingBg","toolSuccessBg","toolErrorBg","selectedBg"],"reason":"Other matches are underlined; the current match is reversed and bold","contrast":null},
-    {"kind":"nonText","token":"customMessageBg","backgrounds":["background"],"reason":"Subtle panel, like other message panels","contrast":1.2,"apcaLightContrast":16},
-    {"kind":"nonText","token":"toolPendingBg","backgrounds":["toolSuccessBg","toolErrorBg"],"reason":"No pairwise 3:1 constraint between tool states; see limitations","contrast":null},
-    {"kind":"nonText","token":"toolSuccessBg","backgrounds":["toolErrorBg"],"reason":"No pairwise 3:1 constraint between tool states; see limitations","contrast":null}
+    {"kind":"nonText","token":"customMessageBg","backgrounds":["background"],"reason":"Subtle panel, like other message panels","contrast":1.2,"apcaLightContrast":16}
   ],
   "limitations": [
     "The background token models the actual terminal default. It is not currently a Pi theme slot. A generated Pi theme needs a known/queried terminal background or must explicitly paint it using a code change to Pi; a JSON theme alone cannot set it.",

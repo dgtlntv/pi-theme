@@ -97,7 +97,8 @@ export function runEngine(background: string, algorithm: Algorithm, recipe: Them
     const result = generateTheme(recipe, contractFor(algorithm, recipe), mode, { background }, "extended");
     const proposed: ThemeOutput = {
       label: "Proposed",
-      palette: { ...result.theme.colors, background, terminalForeground: result.report.terminal.foreground.hex },
+      // The proposal colors everything with tokens; uncolored text would use `text`.
+      palette: { ...result.theme.colors, background, terminalForeground: result.theme.colors.text },
       result,
     };
     const pi: ThemeOutput = {
