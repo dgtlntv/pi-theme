@@ -208,9 +208,9 @@
     },
     "mdHeading": {
       "family": "yellow",
-      "step": 575,
-      "hex": "#815d03",
-      "saturation": 0.97456,
+      "step": 695,
+      "hex": "#5b420c",
+      "saturation": 0.84833,
       "source": "contrast-derived"
     },
     "mdLink": {
@@ -488,7 +488,8 @@
       "585": "#276e6b"
     },
     "yellow": {
-      "575": "#815d03"
+      "575": "#815d03",
+      "695": "#5b420c"
     },
     "orange": {
       "565": "#9b4f17"
@@ -1245,33 +1246,33 @@
       "kind": "text",
       "token": "mdHeading",
       "background": "background",
-      "contrast": 4.5,
-      "reason": null,
+      "contrast": 7,
+      "reason": "Headings sit near the text level, above ordinary colored text",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 5.5613,
+      "ratio": 8.7321,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdHeading",
       "background": "customMessageBg",
-      "contrast": 4.5,
-      "reason": null,
+      "contrast": 7,
+      "reason": "Headings sit near the text level, above ordinary colored text",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.5701,
+      "ratio": 7.1756,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdHeading",
       "background": "userMessageBg",
-      "contrast": 4.5,
-      "reason": null,
+      "contrast": 7,
+      "reason": "Headings sit near the text level, above ordinary colored text",
       "algorithm": "WCAG2",
       "apcaLowClip": true,
-      "ratio": 4.6034,
+      "ratio": 7.228,
       "passes": true
     },
     {

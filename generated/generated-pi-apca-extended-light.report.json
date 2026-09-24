@@ -208,9 +208,9 @@
     },
     "mdHeading": {
       "family": "yellow",
-      "step": 605,
-      "hex": "#775706",
-      "saturation": 0.95118,
+      "step": 730,
+      "hex": "#503b0d",
+      "saturation": 0.80047,
       "source": "contrast-derived"
     },
     "mdLink": {
@@ -493,7 +493,8 @@
     },
     "yellow": {
       "605": "#775706",
-      "615": "#745406"
+      "615": "#745406",
+      "730": "#503b0d"
     },
     "orange": {
       "600": "#8d4919"
@@ -1302,36 +1303,36 @@
       "kind": "text",
       "token": "mdHeading",
       "background": "background",
-      "contrast": 61,
-      "reason": null,
+      "contrast": 73,
+      "reason": "Headings sit near the text level, above ordinary colored text",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 77.4697,
+      "lightContrast": 73,
+      "ratio": 89.3121,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdHeading",
       "background": "customMessageBg",
-      "contrast": 61,
-      "reason": null,
+      "contrast": 73,
+      "reason": "Headings sit near the text level, above ordinary colored text",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.6554,
+      "lightContrast": 73,
+      "ratio": 73.4978,
       "passes": true
     },
     {
       "kind": "text",
       "token": "mdHeading",
       "background": "userMessageBg",
-      "contrast": 61,
-      "reason": null,
+      "contrast": 73,
+      "reason": "Headings sit near the text level, above ordinary colored text",
       "algorithm": "APCA",
       "apcaLowClip": true,
-      "lightContrast": 61,
-      "ratio": 61.3635,
+      "lightContrast": 73,
+      "ratio": 73.2059,
       "passes": true
     },
     {

@@ -101,7 +101,7 @@
     {"kind":"text","token":"customMessageLabel","backgrounds":["customMessageBg","selectedBg","toolPendingBg","toolSuccessBg","toolErrorBg"],"contrast":44,"lightContrast":61},
     {"kind":"text","token":"toolTitle","backgrounds":["toolPendingBg","toolSuccessBg","toolErrorBg"],"note":"Very prominent: near white in dark mode, near black in light mode","contrast":89,"lightContrast":81},
     {"kind":"text","token":"toolOutput","backgrounds":["toolPendingBg","toolSuccessBg","toolErrorBg"],"contrast":44,"lightContrast":62},
-    {"kind":"text","token":"mdHeading","backgrounds":["background","customMessageBg","userMessageBg"],"contrast":44,"lightContrast":61},
+    {"kind":"text","token":"mdHeading","backgrounds":["background","customMessageBg","userMessageBg"],"note":"Headings sit near the text level, above ordinary colored text","contrast":66,"lightContrast":73},
     {"kind":"text","token":"mdLink","backgrounds":["background","customMessageBg","userMessageBg"],"contrast":44,"lightContrast":62},
     {"kind":"text","token":"mdLinkUrl","backgrounds":["background","userMessageBg","customMessageBg"],"contrast":44,"lightContrast":62},
     {"kind":"text","token":"mdCode","backgrounds":["background","customMessageBg","userMessageBg"],"contrast":44,"lightContrast":61},
