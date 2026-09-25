@@ -722,8 +722,8 @@ export const TREE_ROWS: TreeRow[] = [
   { prefix: "│  ", kind: "user", text: "Add optional toolArgument token", active: true, label: "proposal" },
   { prefix: "│  ", kind: "bash", text: "npm run check", active: true },
   { prefix: "│  ", kind: "assistant", text: "Done. npm run check passes.", active: true },
-  { prefix: "└⊟ ", kind: "user", text: "What about APCA instead?" },
-  { prefix: "   ", kind: "custom", text: "Branch summary: explored APCA targets" },
+  { prefix: "└⊟ ", kind: "user", text: "What about perceptual contrast instead?" },
+  { prefix: "   ", kind: "custom", text: "Branch summary: explored perceptual targets" },
   { prefix: "   ", kind: "title", text: "theme review" },
 ];
 
@@ -787,7 +787,7 @@ export function SessionTree({ selected }: { selected: number }) {
 export const SESSIONS = [
   { name: "theme review", age: "2m", count: 142, current: true },
   { name: "Add toolArgument token", age: "1h", count: 58, named: true },
-  { name: "APCA derivation", age: "3h", count: 33 },
+  { name: "Perceptual contrast minimums", age: "3h", count: 33 },
   { name: "Fix table borders", age: "1d", count: 12 },
   { name: "Ghostty background detection", age: "2d", count: 7 },
 ];

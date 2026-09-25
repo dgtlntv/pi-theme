@@ -1,8 +1,9 @@
 /**
- * Color math: OKHSL to sRGB, WCAG 2 and APCA contrast, and their inverses.
+ * Color math: OKHSL to sRGB, WCAG 2 and perceptual contrast, and their inverses.
  *
  * Formulas: OKHSL and Oklab by Björn Ottosson (constants as in Color.js), WCAG 2.1,
- * APCA 0.0.98G. Inverse contrast follows wcag-contrast-palette and
+ * and a perceptual contrast formula adapted from perceptual-contrast-palette (with an
+ * optional low clip). Inverse contrast follows wcag-contrast-palette and
  * perceptual-contrast-palette.
  *
  * @module
@@ -344,117 +345,117 @@ export function wcagTargetLuminance(ratio: number, other: number, lighter: boole
   return lighter ? ratio * (other + 0.05) - 0.05 : (other + 0.05) / ratio - 0.05;
 }
 
-// ---------------------------------------------------------------- APCA 0.0.98G
+// ---------------------------------------------------------------- perceptual contrast
 
-/** APCA 0.0.98G constants. */
-const APCA = {
+/** Perceptual contrast constants. */
+const PERCEPTUAL = {
   normBG: 0.56, normTXT: 0.57, revTXT: 0.62, revBG: 0.65,
   blkThrs: 0.022, blkClmp: 1.414, loClip: 0.1, deltaYmin: 0.0005,
   scale: 1.14, loOffset: 0.027,
 };
 
 /**
- * Compute APCA screen luminance: a simple 2.4 gamma, before the black soft clamp.
+ * Compute perceptual screen luminance: a simple 2.4 gamma, before the black soft clamp.
  *
  * @param hex - A `#rrggbb` color.
  * @returns The screen luminance, 0-1.
  */
-export function apcaScreenLuminance(hex: string): number {
+export function screenLuminance(hex: string): number {
   const [r, g, b] = channels(hex);
   return 0.2126729 * r ** 2.4 + 0.7151522 * g ** 2.4 + 0.072175 * b ** 2.4;
 }
 
 /**
- * Apply APCA's black soft clamp, which models flare on very dark colors.
+ * Apply the perceptual formula's black soft clamp, which models flare on very dark colors.
  *
  * @param y - Screen luminance.
  * @returns The clamped luminance.
  */
-const apcaClamp = (y: number): number => (y >= APCA.blkThrs ? y : y + (APCA.blkThrs - y) ** APCA.blkClmp);
+const clampBlack = (y: number): number => (y >= PERCEPTUAL.blkThrs ? y : y + (PERCEPTUAL.blkThrs - y) ** PERCEPTUAL.blkClmp);
 
 /**
- * Undo APCA's black soft clamp (from perceptual-contrast-palette).
+ * Undo the black soft clamp (from perceptual-contrast-palette).
  *
  * @param y - Clamped luminance.
  * @returns The screen luminance; NaN stays NaN.
  */
-function apcaUnclamp(y: number): number {
-  if (Number.isNaN(y) || y > APCA.blkThrs) return y;
+function unclampBlack(y: number): number {
+  if (Number.isNaN(y) || y > PERCEPTUAL.blkThrs) return y;
   return ((y + 0.0387393816571401) * 1.9468554433171) ** (0.283343396420869 / 1.414) / 1.9468554433171 - 0.312865795870758;
 }
 
 /**
- * Compute the signed APCA Lc of text on a background.
+ * Compute the signed perceptual contrast of text on a background.
  *
- * The spec reports |raw| < 0.1 as 0 and subtracts an offset above it, which makes
- * faint surfaces (panels near Lc 5) unmeasurable. Values below Lc 10 carry no
- * readability meaning; they only place faint surfaces.
+ * The low clip reports |raw| < 0.1 as 0 and subtracts an offset above it, which makes
+ * faint surfaces (panels near 5) unmeasurable. Values below 10 carry no readability
+ * meaning; they only place faint surfaces.
  *
  * @param text - The text color, `#rrggbb`.
  * @param background - The background color, `#rrggbb`.
- * @param lowClip - Whether to apply the spec's low clip; false returns the raw scaled contrast.
- * @returns The Lc: positive for dark text on light, negative for light text on dark.
+ * @param lowClip - Whether to apply the low clip; false returns the raw scaled contrast.
+ * @returns The contrast, 0-108: positive for dark text on light, negative for light text on dark.
  */
-export function apcaContrast(text: string, background: string, lowClip = true): number {
-  const t = apcaClamp(apcaScreenLuminance(text));
-  const b = apcaClamp(apcaScreenLuminance(background));
-  if (Math.abs(b - t) < APCA.deltaYmin) return 0;
+export function perceptualContrast(text: string, background: string, lowClip = true): number {
+  const t = clampBlack(screenLuminance(text));
+  const b = clampBlack(screenLuminance(background));
+  if (Math.abs(b - t) < PERCEPTUAL.deltaYmin) return 0;
   const raw = b > t
-    ? (b ** APCA.normBG - t ** APCA.normTXT) * APCA.scale
-    : (b ** APCA.revBG - t ** APCA.revTXT) * APCA.scale;
+    ? (b ** PERCEPTUAL.normBG - t ** PERCEPTUAL.normTXT) * PERCEPTUAL.scale
+    : (b ** PERCEPTUAL.revBG - t ** PERCEPTUAL.revTXT) * PERCEPTUAL.scale;
   if (!lowClip) return raw * 100;
-  if (Math.abs(raw) < APCA.loClip) return 0;
-  return (raw > 0 ? raw - APCA.loOffset : raw + APCA.loOffset) * 100;
+  if (Math.abs(raw) < PERCEPTUAL.loClip) return 0;
+  return (raw > 0 ? raw - PERCEPTUAL.loOffset : raw + PERCEPTUAL.loOffset) * 100;
 }
 
 /**
- * Find the screen luminance text needs to reach an APCA Lc on a background.
+ * Find the screen luminance text needs to reach a perceptual contrast on a background.
  *
- * @param lc - The absolute Lc to reach.
+ * @param minimum - The absolute perceptual contrast to reach.
  * @param background - The background's screen luminance.
  * @param lighter - Whether the text is lighter than the background.
- * @param lowClip - Whether the Lc is measured with the spec's low clip.
+ * @param lowClip - Whether the contrast is measured with the low clip.
  * @returns The text's screen luminance; NaN when unreachable.
  */
-export function apcaTargetLuminance(lc: number, background: number, lighter: boolean, lowClip = true): number {
-  const delta = (lc / 100 + (lowClip ? APCA.loOffset : 0)) / APCA.scale;
-  const y = apcaClamp(background);
-  return apcaUnclamp(lighter
-    ? (y ** APCA.revBG + delta) ** (1 / APCA.revTXT)
-    : (y ** APCA.normBG - delta) ** (1 / APCA.normTXT));
+export function perceptualTargetLuminance(minimum: number, background: number, lighter: boolean, lowClip = true): number {
+  const delta = (minimum / 100 + (lowClip ? PERCEPTUAL.loOffset : 0)) / PERCEPTUAL.scale;
+  const y = clampBlack(background);
+  return unclampBlack(lighter
+    ? (y ** PERCEPTUAL.revBG + delta) ** (1 / PERCEPTUAL.revTXT)
+    : (y ** PERCEPTUAL.normBG - delta) ** (1 / PERCEPTUAL.normTXT));
 }
 
 // ---------------------------------------------------------------- both
 
 /**
- * Compute the contrast of text on a background. WCAG 2 is symmetric; APCA is
- * directional and returns the absolute Lc, so both read as "at least N".
+ * Compute the contrast of text on a background. WCAG 2 is symmetric; perceptual
+ * contrast is directional and returned as an absolute value, so both read as "at least N".
  *
  * @param text - The text color, `#rrggbb`.
  * @param background - The background color, `#rrggbb`.
  * @param algorithm - The contrast algorithm.
- * @param apcaLowClip - APCA only: whether to apply the spec's low clip.
- * @returns A WCAG ratio (1-21) or an absolute APCA Lc (0-108).
+ * @param lowClip - Perceptual only: whether to apply the low clip.
+ * @returns A WCAG ratio (1-21) or an absolute perceptual contrast (0-108).
  */
-export function contrast(text: string, background: string, algorithm: Algorithm = "WCAG2", apcaLowClip = true): number {
-  return algorithm === "APCA"
-    ? Math.abs(apcaContrast(text, background, apcaLowClip))
+export function contrast(text: string, background: string, algorithm: Algorithm = "wcag", lowClip = true): number {
+  return algorithm === "perceptual"
+    ? Math.abs(perceptualContrast(text, background, lowClip))
     : wcagRatio(luminance(text), luminance(background));
 }
 
 /**
  * Find the WCAG luminance a gray needs to reach a minimum on a background.
  *
- * @param minimum - A WCAG ratio or an absolute APCA Lc.
+ * @param minimum - A WCAG ratio or an absolute perceptual contrast.
  * @param background - The background color, `#rrggbb`.
  * @param lighter - Whether the gray is lighter than the background (dark themes).
  * @param algorithm - The algorithm `minimum` is measured in.
- * @param apcaLowClip - APCA only: whether the Lc is measured with the spec's low clip.
+ * @param lowClip - Perceptual only: whether the contrast is measured with the low clip.
  * @returns The luminance; outside 0-1 or NaN when unreachable.
  */
-export function targetLuminance(minimum: number, background: string, lighter: boolean, algorithm: Algorithm, apcaLowClip = true): number {
-  if (algorithm === "WCAG2") return wcagTargetLuminance(minimum, luminance(background), lighter);
-  const screen = apcaTargetLuminance(minimum, apcaScreenLuminance(background), lighter, apcaLowClip);
-  // A gray's APCA screen luminance is its channel ** 2.4; convert that channel to WCAG luminance.
+export function targetLuminance(minimum: number, background: string, lighter: boolean, algorithm: Algorithm, lowClip = true): number {
+  if (algorithm === "wcag") return wcagTargetLuminance(minimum, luminance(background), lighter);
+  const screen = perceptualTargetLuminance(minimum, screenLuminance(background), lighter, lowClip);
+  // A gray's perceptual screen luminance is its channel ** 2.4; convert that channel to WCAG luminance.
   return screen >= 0 && screen <= 1 ? decode(screen ** (1 / 2.4)) : Number.NaN;
 }

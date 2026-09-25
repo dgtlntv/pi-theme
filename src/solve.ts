@@ -53,7 +53,7 @@ function solveColors(recipe: ThemeRecipe, families: Record<string, string>, pair
   for (const token of solveOrder(pairs)) {
     const targets = pairs
       .filter((pair) => pair.token === token)
-      .map((pair) => targetLuminance(pair.contrast, colors[pair.background], lighter, pair.algorithm, pair.apcaLowClip));
+      .map((pair) => targetLuminance(pair.contrast, colors[pair.background], lighter, pair.algorithm, pair.lowClip));
     const target = lighter ? Math.max(...targets) : Math.min(...targets);
     if (targets.some(Number.isNaN) || target < 0 || target > 1) return undefined;
     colors[token] = colorAt(recipe.families[families[token]], grayLightness(target));
@@ -66,8 +66,8 @@ const MAX_RELAXATION = 2;
 
 /** Per algorithm: the readable floor relaxation compresses toward first, and the lowest possible value. */
 const FLOOR: Record<Algorithm, { readable: number; lowest: number }> = {
-  WCAG2: { readable: 4.5, lowest: 1 },
-  APCA: { readable: 45, lowest: 0 }, // Lc 45: roughly APCA's minimum for readable non-body text
+  wcag: { readable: 4.5, lowest: 1 },
+  perceptual: { readable: 45, lowest: 0 }, // 45: roughly the minimum for readable non-body text
 };
 
 /**
@@ -88,17 +88,17 @@ function relaxPairs(pairs: Pair[], t: number): Pair[] {
 }
 
 /**
- * Name a theme. WCAG current keeps the plain name; APCA and extended get suffixes,
+ * Name a theme. WCAG current keeps the plain name; perceptual and extended get suffixes,
  * so all variants install side by side.
  *
  * @param recipe - The color recipe, whose name is the prefix.
  * @param algorithm - The contrast algorithm.
  * @param target - The target Pi.
  * @param mode - The theme mode.
- * @returns A name like `generated-pi-apca-extended-dark`.
+ * @returns A name like `generated-pi-perceptual-extended-dark`.
  */
 export function themeName(recipe: ThemeRecipe, algorithm: Algorithm, target: Target, mode: Mode): string {
-  return [recipe.name, algorithm === "APCA" && "apca", target === "extended" && "extended", mode].filter(Boolean).join("-");
+  return [recipe.name, algorithm === "perceptual" && "perceptual", target === "extended" && "extended", mode].filter(Boolean).join("-");
 }
 
 /**

@@ -141,7 +141,7 @@ function FamilyEditor({ recipe, onChange }: { recipe: ThemeRecipe; onChange: (re
 export function App() {
   const [view, setView] = useState<View>("catalog");
   const [compare, setCompare] = useState<Compare>("proposed");
-  const [algorithm, setAlgorithm] = useState<Algorithm>("WCAG2");
+  const [algorithm, setAlgorithm] = useState<Algorithm>("wcag");
   const [background, setBackground] = useState(DEFAULT_BACKGROUND.dark);
   const [backgroundText, setBackgroundText] = useState(DEFAULT_BACKGROUND.dark);
   const [recipe, setRecipe] = useState<ThemeRecipe>(BASE_RECIPE);
@@ -189,12 +189,12 @@ export function App() {
           <input type="text" size={8} value={backgroundText} onChange={(e) => applyBackground(e.target.value)} />
           <button type="button" onClick={() => applyBackground(DEFAULT_BACKGROUND.dark)}>Reset dark</button>
           <button type="button" onClick={() => applyBackground(DEFAULT_BACKGROUND.light)}>Reset light</button>
-          {"mode" in engine && engine.mode && <span className="mode">→ {engine.mode} theme (auto: higher APCA contrast)</span>}
+          {"mode" in engine && engine.mode && <span className="mode">→ {engine.mode} theme (auto: higher perceptual contrast)</span>}
         </fieldset>
         <fieldset>
           <legend>Contrast</legend>
-          <label><input type="radio" checked={algorithm === "WCAG2"} onChange={() => setAlgorithm("WCAG2")} /> WCAG 2</label>
-          <label><input type="radio" checked={algorithm === "APCA"} onChange={() => setAlgorithm("APCA")} /> APCA</label>
+          <label><input type="radio" checked={algorithm === "wcag"} onChange={() => setAlgorithm("wcag")} /> WCAG 2</label>
+          <label><input type="radio" checked={algorithm === "perceptual"} onChange={() => setAlgorithm("perceptual")} /> Perceptual</label>
         </fieldset>
         <fieldset>
           <legend>Theme</legend>

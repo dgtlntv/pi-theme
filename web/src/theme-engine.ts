@@ -4,7 +4,7 @@
  *
  * @module
  */
-import { apcaContrast } from "../../src/color.ts";
+import { perceptualContrast } from "../../src/color.ts";
 import { generateTheme } from "../../src/solve.ts";
 import type { Algorithm, ContrastContract, GenerationResult, Mode, ThemeRecipe } from "../../src/types.ts";
 import contract from "../../contrast-requirements.json";
@@ -46,15 +46,15 @@ export interface EngineOutput {
 }
 
 /**
- * Pick dark or light by APCA: dark (light text) when white text on the background
- * has more APCA contrast than black text.
+ * Pick dark or light by perceptual contrast: dark (light text) when white text on the
+ * background has more contrast than black text.
  *
  * @param background - The terminal background, `#rrggbb`.
  * @returns The theme mode.
  */
 export function modeForBackground(background: string): Mode {
-  const white = Math.abs(apcaContrast("#ffffff", background));
-  const black = Math.abs(apcaContrast("#000000", background));
+  const white = Math.abs(perceptualContrast("#ffffff", background));
+  const black = Math.abs(perceptualContrast("#000000", background));
   return white >= black ? "dark" : "light";
 }
 

@@ -7,8 +7,8 @@
 /** Theme mode: a dark theme has light colors on a dark background, and vice versa. */
 export type Mode = "dark" | "light";
 
-/** Contrast algorithm. WCAG 2 ratios run 1-21 and are symmetric; APCA Lc runs 0-108 and is text-on-background. */
-export type Algorithm = "WCAG2" | "APCA";
+/** Contrast algorithm. WCAG 2 ratios run 1-21 and are symmetric; perceptual contrast runs 0-108 and is text-on-background. */
+export type Algorithm = "wcag" | "perceptual";
 
 /**
  * Which Pi a theme is for. `current` emits only tokens Pi supports today, with a
@@ -27,8 +27,8 @@ export const TERMINAL_BACKGROUND = "background";
 export interface Minimums {
   /** WCAG 2 ratio, 1-21. */
   wcag: number;
-  /** Absolute APCA Lc, 0-108. */
-  apca: number;
+  /** Absolute perceptual contrast, 0-108. */
+  perceptual: number;
 }
 
 /**
@@ -97,8 +97,8 @@ export interface Pair {
   contrast: number;
   /** The algorithm `contrast` is measured in. */
   algorithm: Algorithm;
-  /** APCA only: whether the minimum is measured with the spec's low clip. */
-  apcaLowClip: boolean;
+  /** Perceptual only: whether the minimum is measured with the low clip. */
+  lowClip: boolean;
 }
 
 /** A Pi theme file. */

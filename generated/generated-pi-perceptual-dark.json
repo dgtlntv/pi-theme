@@ -1,5 +1,5 @@
 {
-  "name": "generated-pi-apca-extended-dark",
+  "name": "generated-pi-perceptual-dark",
   "colors": {
     "text": "#e1e2e3",
     "selectedBg": "#223c4a",
@@ -13,8 +13,6 @@
     "muted": "#a9aeb4",
     "customMessageBg": "#403053",
     "dim": "#808890",
-    "toolArgument": "#6baed0",
-    "mdTableBorder": "#757d85",
     "userMessageBg": "#223c4a",
     "thinkingText": "#979ea5",
     "userMessageText": "#efeff0",
@@ -42,7 +40,7 @@
     "syntaxType": "#a899d7",
     "syntaxOperator": "#9fa5ab",
     "syntaxPunctuation": "#9fa5ab",
-    "borderAccent": "#52afa9",
+    "borderAccent": "#5db5af",
     "searchMatchText": "#a0a6ac",
     "searchMatchBg": "#23404e",
     "bashMode": "#5db184",

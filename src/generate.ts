@@ -36,7 +36,7 @@ function fail(message: string): never {
 }
 
 /**
- * Parse the command line, generate every WCAG and APCA theme for both targets, and
+ * Parse the command line, generate every WCAG and perceptual theme for both targets, and
  * write them to `generated/`.
  */
 function main(): void {
@@ -44,7 +44,7 @@ function main(): void {
   if (values.mode !== undefined && values.mode !== "dark" && values.mode !== "light") fail("--mode must be dark or light");
   if (values["terminal-bg"] && !values.mode) fail("--terminal-bg needs --mode dark or light");
   const modes: Mode[] = values.mode ? [values.mode as Mode] : ["dark", "light"];
-  const algorithms: Algorithm[] = ["WCAG2", "APCA"];
+  const algorithms: Algorithm[] = ["wcag", "perceptual"];
   const recipe = readJson<ThemeRecipe>("theme-recipe.json");
   const contract = readJson<ContrastContract>("contrast-requirements.json");
 

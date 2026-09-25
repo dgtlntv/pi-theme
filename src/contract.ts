@@ -10,13 +10,13 @@ import { TARGETS, TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, ty
 const RULE_FIELDS = new Set(["token", "backgrounds", "dark", "light", "targets", "note"]);
 
 /**
- * APCA's low clip reports contrast below about Lc 10 as 0. Minimums below this use
+ * The perceptual low clip reports contrast below about 10 as 0. Minimums below this use
  * the unclipped formula, so faint surfaces (panels, the scrollbar track) stay measurable.
  */
-const APCA_LOW_CLIP_BELOW = 15;
+const LOW_CLIP_BELOW = 15;
 
 /**
- * Check that minimums have exactly a WCAG ratio (1-21) and an APCA Lc (0-108).
+ * Check that minimums have exactly a WCAG ratio (1-21) and a perceptual contrast (0-108).
  *
  * @param value - The minimums to check.
  * @returns Whether they are valid.
@@ -24,7 +24,7 @@ const APCA_LOW_CLIP_BELOW = 15;
 const validMinimums = (value: Minimums | undefined): boolean =>
   typeof value === "object" && value !== null && Object.keys(value).length === 2
   && typeof value.wcag === "number" && value.wcag >= 1 && value.wcag <= 21
-  && typeof value.apca === "number" && value.apca >= 0 && value.apca <= 108;
+  && typeof value.perceptual === "number" && value.perceptual >= 0 && value.perceptual <= 108;
 
 /**
  * List every themed token: each rule's token and backgrounds.
@@ -70,7 +70,7 @@ export function validateContract(contract: ContrastContract): void {
     if (!rule.dark && !rule.light) throw new Error(`Missing dark or light minimums in ${label}`);
     for (const mode of ["dark", "light"] as const) {
       if (rule[mode] !== undefined && !validMinimums(rule[mode])) {
-        throw new Error(`Invalid ${mode} minimums in ${label}: expected { wcag: 1-21, apca: 0-108 }`);
+        throw new Error(`Invalid ${mode} minimums in ${label}: expected { wcag: 1-21, perceptual: 0-108 }`);
       }
     }
     if (rule.targets !== undefined && !(Array.isArray(rule.targets) && rule.targets.length && rule.targets.every((t) => TARGETS.includes(t)))) {
@@ -105,14 +105,14 @@ export function contractPairs(contract: ContrastContract, algorithm: Algorithm, 
     .filter((rule) => !rule.targets || rule.targets.includes(target))
     .flatMap((rule) => {
       const minimums = (mode === "dark" ? rule.dark ?? rule.light : rule.light ?? rule.dark)!;
-      const minimum = algorithm === "APCA" ? minimums.apca : minimums.wcag;
+      const minimum = minimums[algorithm];
       return rule.backgrounds.map((background) => ({
         // In `current`, a proposed token does not exist: its rules land on its fallback.
         token: target === "current" ? contract.proposed[rule.token] ?? rule.token : rule.token,
         background,
         contrast: minimum,
         algorithm,
-        apcaLowClip: minimum >= APCA_LOW_CLIP_BELOW,
+        lowClip: minimum >= LOW_CLIP_BELOW,
       }));
     });
 }
