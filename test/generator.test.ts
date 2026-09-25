@@ -189,6 +189,8 @@ test("a terminal palette supplies hue and saturation through the recipe's ANSI s
   for (const [token, slot] of [["error", 1], ["success", 2], ["syntaxString", 2], ["syntaxNumber", 5], ["searchMatchBg", 3], ["thinkingMax", 1]] as const) {
     assert.ok(hueDistance(hexToOkhsl(theme.colors[token]).hue, hexToOkhsl(palette[slot]).hue) < 8, token);
   }
+  // Near-background panels keep the hue but fall off in saturation, away from the palette color's lightness.
+  assert.ok(hexToOkhsl(theme.colors.toolSuccessBg).saturation < hexToOkhsl(palette[2]).saturation);
   // Bright black (slot 8) is gray, so neutral text is gray.
   assert.match(theme.colors.text, /^#([0-9a-f]{2})\1\1$/);
   assert.throws(() => generateTheme(recipe, contract, "perceptual", "dark", "extended", undefined, palette.slice(0, 8)), /16 colors/);

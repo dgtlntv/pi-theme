@@ -5,7 +5,7 @@
  */
 import { colorAt, grayLightness, hexToOkhsl, normalizeHex, okhslToHex, saturationCurve, targetLuminance } from "./color.ts";
 import { contractPairs, emittedTokens, validateContract, validateRecipe } from "./contract.ts";
-import { TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, type PaletteSaturation, type GenerationResult, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
+import { TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, type GenerationResult, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
 
 /**
  * Order tokens so each comes after the backgrounds it is measured on: surfaces
@@ -110,9 +110,10 @@ export function themeName(recipe: ThemeRecipe, algorithm: Algorithm, target: Tar
  * @param mode - The theme mode.
  * @param target - The target Pi.
  * @param terminalBackground - The terminal background; defaults to the recipe's for `mode`.
- * @param palette - The terminal's 16 ANSI colors. When given, every token takes its hue and
- *   saturation from its slot in `recipe.ansiSlots` instead of the recipe's families.
- * @param paletteSaturation - With a palette: how its saturation carries over to other lightnesses.
+ * @param palette - The terminal's 16 ANSI colors. When given, every token takes its hue from its
+ *   slot in `recipe.ansiSlots`. Its saturation is the palette color's at the palette color's own
+ *   lightness, and falls off toward black and white along the recipe family's saturation curve,
+ *   never rising above the palette's.
  * @returns The theme, and how far minimums were relaxed if they had to be.
  * @throws If the contract or recipe is invalid, or no theme exists even fully relaxed.
  */
@@ -124,7 +125,6 @@ export function generateTheme(
   target: Target,
   terminalBackground: string = recipe.terminalBackground[mode],
   palette?: string[],
-  paletteSaturation: PaletteSaturation = "constant",
 ): GenerationResult {
   validateContract(contract);
   const families = validateRecipe(recipe, contract);
@@ -136,8 +136,7 @@ export function generateTheme(
     const family = recipe.families[families[token]];
     if (!sources) return colorAt(family, lightness);
     const source = sources[recipe.ansiSlots.tokens[token] ?? recipe.ansiSlots.families[families[token]]];
-    if (paletteSaturation === "constant") return okhslToHex(source.hue, source.saturation, lightness);
-    // Anchored: the palette's saturation at its own lightness, falling off along the family's curve.
+    // The palette's saturation at its own lightness, falling off along the family's curve.
     const anchor = saturationCurve(family, source.lightness);
     const falloff = anchor > 0 ? Math.min(1, saturationCurve(family, lightness) / anchor) : 1;
     return okhslToHex(source.hue, source.saturation * falloff, lightness);
