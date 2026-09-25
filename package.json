@@ -11,7 +11,7 @@
     "test": "npm run typecheck && node --test test/*.test.ts",
     "web": "vite --config web/vite.config.ts",
     "web:build": "vite build --config web/vite.config.ts",
-    "web:artifact": "vite build --config web/vite.artifact.config.ts",
+    "web:artifact": "vite build --config web/vite.artifact.config.ts && node web/scripts/split-replay.ts web/dist-artifact",
     "web:ghostty-themes": "node web/scripts/ghostty-themes.ts"
   },
   "dependencies": {

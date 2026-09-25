@@ -17,6 +17,28 @@ import type { Palette } from "./theme-engine.ts";
 /** The recording, served from `web/public/`. */
 const RECORDING_URL = `${import.meta.env.BASE_URL}replay.cast`;
 
+/** Where builds that split the recording list its parts (`web/scripts/split-replay.ts`). */
+const PARTS_URL = `${import.meta.env.BASE_URL}replay-parts.json`;
+
+/**
+ * Load the recording: whole, or joined from parts.
+ *
+ * @returns The asciicast text.
+ * @throws If neither the recording nor its parts load.
+ */
+async function loadRecording(): Promise<string> {
+  const text = async (url: string) => {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`${url}: ${response.status} ${response.statusText}`);
+    return response.text();
+  };
+  const whole = await fetch(RECORDING_URL);
+  if (whole.ok) return whole.text();
+  const parts = JSON.parse(await text(PARTS_URL)) as string[];
+  const texts = await Promise.all(parts.map((part) => text(`${import.meta.env.BASE_URL}${part}`)));
+  return texts.map((part) => part.trimEnd()).join("\n");
+}
+
 /** Marker number `n` of rgb(1, 2, n), by token. */
 const MARKER_TOKENS: Record<string, string> = Object.fromEntries(
   Object.entries(markers as Record<string, string>).map(([token, hex]) => [String(parseInt(hex.slice(5), 16)), token]),
@@ -88,9 +110,7 @@ export function ReplayView({ palette, ansi }: { palette: Palette; ansi: string[]
   const [speed, setSpeed] = useState(0.1);
 
   useEffect(() => {
-    fetch(RECORDING_URL)
-      .then((response) => (response.ok ? response.text() : Promise.reject(new Error(`${response.status} ${response.statusText}`))))
-      .then(setRecording, (reason: Error) => setError(`Could not load ${RECORDING_URL}: ${reason.message}`));
+    loadRecording().then(setRecording, (reason: Error) => setError(`Could not load the recording: ${reason.message}`));
   }, []);
 
   useEffect(() => {
