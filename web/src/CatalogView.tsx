@@ -1,3 +1,8 @@
+/**
+ * A scrollable catalog of every reviewable Pi element.
+ *
+ * @module
+ */
 import type { ReactNode } from "react";
 import {
   AssistantText, BashTool, CompactionMessage, CompactReadTool, CustomMessage, Dialog, DirectBash, EditTool, Editor, ErrorLine,
@@ -8,6 +13,12 @@ import {
 import { C, Line } from "./term.tsx";
 import { ScrollbarCells, TermScroll } from "./term-scroll.tsx";
 
+/**
+ * A titled catalog section.
+ *
+ * @param props - The title, an optional note, and the elements.
+ * @returns The section.
+ */
 function Section({ title, note, children }: { title: string; note?: string; children: ReactNode }) {
   return (
     <section className="catalog-section">
@@ -18,6 +29,7 @@ function Section({ title, note, children }: { title: string; note?: string; chil
   );
 }
 
+/** Example rows for the settings list. */
 const SETTINGS = [
   { label: "Auto-compact", value: "true", description: "Automatically compact context when it gets too large" },
   { label: "Steering mode", value: "one-at-a-time" },
@@ -26,6 +38,11 @@ const SETTINGS = [
   { label: "Hide thinking", value: "false" },
 ];
 
+/**
+ * The catalog.
+ *
+ * @returns The catalog, in a terminal viewport.
+ */
 export function CatalogView() {
   return (
     <TermScroll>

@@ -1,3 +1,8 @@
+/**
+ * The review app: controls, and the terminal showing the catalog or session.
+ *
+ * @module
+ */
 import { useDeferredValue, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import type { Algorithm, ColorFamily, Target, ThemeRecipe } from "../../src/types.ts";
 import { CatalogView } from "./CatalogView.tsx";
@@ -6,15 +11,24 @@ import { SessionView } from "./SessionView.tsx";
 import { TermContext } from "./term.tsx";
 import { BASE_RECIPE, DEFAULT_BACKGROUND, runEngine, type ThemeOutput, type Variant } from "./theme-engine.ts";
 
+/** Which content the terminal shows. */
 type View = "catalog" | "session";
+
+/** Which theme the terminal shows, or both with a wiper. */
 type Compare = Variant | "wipe";
 
 /** Pi's theme renders with today's token usage; the proposal with the new tokens and remappings. */
 const TOKEN_USAGE: Record<Variant, Target> = { pi: "current", proposed: "extended" };
 
+/** A complete `#rrggbb` color, for the background text field. */
 const HEX = /^#[0-9a-f]{6}$/i;
 
-/** Renders a view against one generated theme. */
+/**
+ * Render a view against one theme.
+ *
+ * @param props - The theme, the target whose token usage to render, and the view.
+ * @returns The terminal.
+ */
 function Terminal({ theme, target, children }: { theme: ThemeOutput; target: Target; children: ReactNode }) {
   const style = {
     background: theme.palette.background,
@@ -28,7 +42,12 @@ function Terminal({ theme, target, children }: { theme: ThemeOutput; target: Tar
   );
 }
 
-/** Pi's theme left of the handle, the proposal right of it. */
+/**
+ * Compare two themes: Pi's left of a draggable handle, the proposal right of it.
+ *
+ * @param props - Both themes and the view.
+ * @returns The wiper.
+ */
 function Wiper({ themes, children }: { themes: Record<Variant, ThemeOutput>; children: ReactNode }) {
   const [position, setPosition] = useState(50);
   const frame = useRef<HTMLDivElement>(null);
@@ -73,6 +92,12 @@ function Wiper({ themes, children }: { themes: Record<Variant, ThemeOutput>; chi
   );
 }
 
+/**
+ * Edit each color family's hue and saturation range.
+ *
+ * @param props - The recipe and a change handler.
+ * @returns The editor table.
+ */
 function FamilyEditor({ recipe, onChange }: { recipe: ThemeRecipe; onChange: (recipe: ThemeRecipe) => void }) {
   const used = new Map<string, string[]>();
   for (const role of recipe.roles) used.set(role.family, [...(used.get(role.family) ?? []), ...role.tokens]);
@@ -108,6 +133,11 @@ function FamilyEditor({ recipe, onChange }: { recipe: ThemeRecipe; onChange: (re
   );
 }
 
+/**
+ * The review app.
+ *
+ * @returns The app.
+ */
 export function App() {
   const [view, setView] = useState<View>("catalog");
   const [compare, setCompare] = useState<Compare>("proposed");

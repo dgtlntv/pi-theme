@@ -1,3 +1,8 @@
+/**
+ * An interactive Pi session: transcript, overlays, editor, and footer.
+ *
+ * @module
+ */
 import type { ReactNode } from "react";
 import {
   AssistantText, BashTool, CodeBlock, CompactionMessage, CustomMessage, DirectBash, EditTool, Editor, Footer, GrepTool, Header,
@@ -8,7 +13,12 @@ import { SETTING_CHOICES, suggestions, type SessionState } from "./session-state
 import { C, Line } from "./term.tsx";
 import { TermScroll } from "./term-scroll.tsx";
 
-/** Highlights search matches for "theme" in one transcript sentence. */
+/**
+ * Highlight search matches in one transcript sentence.
+ *
+ * @param props - The sentence, the session, and the index of its first match among all matches.
+ * @returns The sentence with matches highlighted.
+ */
 function Searchable({ text, state, offset }: { text: string; state: SessionState; offset: number }) {
   const query = state.overlay === "search" ? state.searchQuery.toLowerCase() : "";
   if (!query) return <>{text}</>;
@@ -26,6 +36,12 @@ function Searchable({ text, state, offset }: { text: string; state: SessionState
   return <>{parts}</>;
 }
 
+/**
+ * The session transcript.
+ *
+ * @param props - The session.
+ * @returns The transcript.
+ */
 function Transcript({ state }: { state: SessionState }) {
   const hideThinking = state.settings["Hide thinking"] === "true" || !state.thinkingVisible;
   return (
@@ -61,6 +77,12 @@ function Transcript({ state }: { state: SessionState }) {
   );
 }
 
+/**
+ * The open selector overlay, if any.
+ *
+ * @param props - The session.
+ * @returns The overlay, or null.
+ */
 function Overlay({ state }: { state: SessionState }) {
   switch (state.overlay) {
     case "settings":
@@ -72,6 +94,12 @@ function Overlay({ state }: { state: SessionState }) {
   }
 }
 
+/**
+ * The interactive session.
+ *
+ * @param props - The session.
+ * @returns The session view.
+ */
 export function SessionView({ state }: { state: SessionState }) {
   const matches = suggestions(state);
   const searchCount = state.searchQuery ? 3 : 0;

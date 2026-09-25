@@ -1,68 +1,138 @@
-// Color math: OKHSL to sRGB, WCAG 2 and APCA contrast, and their inverses.
-// Formulas: OKHSL/Oklab (Björn Ottosson, constants as in Color.js), WCAG 2.1,
-// APCA 0.0.98G; inverse contrast from wcag-contrast-palette and perceptual-contrast-palette.
+/**
+ * Color math: OKHSL to sRGB, WCAG 2 and APCA contrast, and their inverses.
+ *
+ * Formulas: OKHSL and Oklab by Björn Ottosson (constants as in Color.js), WCAG 2.1,
+ * APCA 0.0.98G. Inverse contrast follows wcag-contrast-palette and
+ * perceptual-contrast-palette.
+ *
+ * @module
+ */
 import type { Algorithm, ColorFamily } from "./types.ts";
 
+/** A three-component color vector. */
 type Vector = [number, number, number];
+
+/** A 3×3 matrix, stored as rows. */
 type Matrix = [Vector, Vector, Vector];
 
+/**
+ * Multiply a matrix by a column vector.
+ *
+ * @param m - The matrix.
+ * @param vector - The vector.
+ * @returns The product `m · vector`.
+ */
 const multiply = (m: Matrix, [x, y, z]: Vector): Vector =>
   m.map((row) => row[0] * x + row[1] * y + row[2] * z) as Vector;
 
 // ---------------------------------------------------------------- hex
 
+/** A `#rgb` or `#rrggbb` color. */
 const HEX = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
 
-/** Validate a `#rgb` or `#rrggbb` color and return it as lowercase `#rrggbb`. */
+/**
+ * Validate a hex color and normalize it.
+ *
+ * @param value - A `#rgb` or `#rrggbb` color, in any case.
+ * @returns The color as lowercase `#rrggbb`.
+ * @throws If `value` is not a hex color.
+ */
 export function normalizeHex(value: unknown): string {
   if (typeof value !== "string" || !HEX.test(value)) throw new Error(`Invalid color ${JSON.stringify(value)}: expected #rrggbb`);
   const hex = value.toLowerCase();
   return hex.length === 4 ? `#${[...hex.slice(1)].map((digit) => digit + digit).join("")}` : hex;
 }
 
-/** sRGB channels (0-1) of a `#rrggbb` color. */
+/**
+ * Split a hex color into its sRGB channels.
+ *
+ * @param hex - A `#rrggbb` color.
+ * @returns The red, green, and blue channels, each 0-1.
+ */
 function channels(hex: string): Vector {
   return [1, 3, 5].map((index) => parseInt(hex.slice(index, index + 2), 16) / 255) as Vector;
 }
 
 // ---------------------------------------------------------------- OKHSL -> sRGB
 
-// Oklab <-> LMS and LMS -> linear sRGB.
+/** Oklab to cube-root LMS. */
 const LAB_TO_LMS: Matrix = [
   [1, 0.3963377773761749, 0.2158037573099136],
   [1, -0.1055613458156586, -0.0638541728258133],
   [1, -0.0894841775298119, -1.2914855480194092],
 ];
+
+/** LMS to linear sRGB. */
 const LMS_TO_LINEAR_SRGB: Matrix = [
   [4.0767416360759583, -3.3077115392580629, 0.2309699031821043],
   [-1.2684379732850315, 2.6097573492876882, -0.341319376002657],
   [-0.0041960761386756, -0.7034186179359362, 1.7076146940746117],
 ];
-// Per sRGB channel: the (a, b) half-plane where it clips first, and the polynomial
-// approximating the maximum saturation there.
+
+/**
+ * Per sRGB channel (red, green, blue): the (a, b) half-plane where that channel
+ * clips first, and the polynomial approximating the maximum saturation there.
+ */
 const SATURATION_FIT: [[number, number], number[]][] = [
   [[-1.8817031, -0.80936501], [1.19086277, 1.76576728, 0.59662641, 0.75515197, 0.56771245]],
   [[1.8144408, -1.19445267], [0.73956515, -0.45954404, 0.08285427, 0.12541073, -0.14503204]],
   [[0.13110758, 1.81333971], [1.35733652, -0.00915799, -1.1513021, -0.50559606, 0.00692167]],
 ];
+
+/** OKHSL toe constant k1. */
 const K1 = 0.206;
+
+/** OKHSL toe constant k2. */
 const K2 = 0.03;
+
+/** OKHSL toe constant k3, derived so the toe maps 1 to 1. */
 const K3 = (1 + K1) / (1 + K2);
 
-/** Oklab lightness to OKHSL lightness. */
+/**
+ * Convert Oklab lightness to OKHSL lightness.
+ *
+ * @param x - Oklab L, 0-1.
+ * @returns OKHSL lightness, 0-1.
+ */
 const toe = (x: number): number => 0.5 * (K3 * x - K1 + Math.sqrt((K3 * x - K1) ** 2 + 4 * K2 * K3 * x));
+
+/**
+ * Convert OKHSL lightness to Oklab lightness.
+ *
+ * @param x - OKHSL lightness, 0-1.
+ * @returns Oklab L, 0-1.
+ */
 const toeInverse = (x: number): number => (x * x + K1 * x) / (K3 * (x + K2));
 
+/**
+ * Convert Oklab to linear sRGB.
+ *
+ * @param lab - Oklab L, a, b.
+ * @returns Linear red, green, blue; outside 0-1 when out of gamut.
+ */
 function oklabToLinearSrgb(lab: Vector): Vector {
   return multiply(LMS_TO_LINEAR_SRGB, multiply(LAB_TO_LMS, lab).map((value) => value ** 3) as Vector);
 }
 
-/** Derivative helpers along a chroma direction (a, b) in LMS space. */
+/**
+ * Rate of change of each cube-root LMS component along a chroma direction.
+ *
+ * @param a - Normalized hue direction, a component.
+ * @param b - Normalized hue direction, b component.
+ * @returns The L, M, and S slopes.
+ */
 function lmsSlopes(a: number, b: number): Vector {
   return [LAB_TO_LMS[0], LAB_TO_LMS[1], LAB_TO_LMS[2]].map((row) => row[1] * a + row[2] * b) as Vector;
 }
 
-/** Largest saturation (C/L) at hue (a, b) inside sRGB: polynomial fit plus one Halley step. */
+/**
+ * Find the largest saturation (C/L) inside sRGB for a hue: a polynomial fit, refined
+ * with one Halley step.
+ *
+ * @param a - Normalized hue direction, a component (`a² + b² = 1`).
+ * @param b - Normalized hue direction, b component.
+ * @returns The maximum saturation.
+ */
 function maxSaturation(a: number, b: number): number {
   const channel = SATURATION_FIT.findIndex(([[x, y]], index) => index === 2 || x * a + y * b > 1);
   const [k0, k1, k2, k3, k4] = SATURATION_FIT[channel][1];
@@ -78,14 +148,28 @@ function maxSaturation(a: number, b: number): number {
   return saturation - (f * f1) / (f1 * f1 - 0.5 * f * f2);
 }
 
-/** Lightness and chroma of the most saturated sRGB color at hue (a, b). */
+/**
+ * Find the most saturated sRGB color of a hue.
+ *
+ * @param a - Normalized hue direction, a component.
+ * @param b - Normalized hue direction, b component.
+ * @returns The cusp's Oklab lightness and chroma.
+ */
 function cusp(a: number, b: number): [number, number] {
   const saturation = maxSaturation(a, b);
   const lightness = Math.cbrt(1 / Math.max(...oklabToLinearSrgb([1, saturation * a, saturation * b])));
   return [lightness, lightness * saturation];
 }
 
-/** Chroma where the constant-lightness line at `lightness` leaves the sRGB gamut. */
+/**
+ * Find where a constant-lightness line leaves the sRGB gamut.
+ *
+ * @param a - Normalized hue direction, a component.
+ * @param b - Normalized hue direction, b component.
+ * @param lightness - Oklab L.
+ * @param cuspPoint - The hue's cusp, from {@link cusp}.
+ * @returns The maximum chroma at that lightness.
+ */
 function maxChroma(a: number, b: number, lightness: number, [cuspL, cuspC]: [number, number]): number {
   if (lightness <= cuspL) {
     return (cuspC * lightness) / cuspL; // lower half: the triangle edge is exact
@@ -108,7 +192,13 @@ function maxChroma(a: number, b: number, lightness: number, [cuspL, cuspC]: [num
   return t + Math.min(...steps);
 }
 
-/** Smooth approximation of the cusp's (S, T) for hue (a, b). */
+/**
+ * Approximate the cusp's shape smoothly, so OKHSL saturation varies without kinks.
+ *
+ * @param a - Normalized hue direction, a component.
+ * @param b - Normalized hue direction, b component.
+ * @returns The cusp's S (C/L) and T (C/(1-L)).
+ */
 function midSt(a: number, b: number): [number, number] {
   const s = 0.11516993 + 1 / (7.4477897 + 4.1590124 * b
     + a * (-2.19557347 + 1.75198401 * b + a * (-2.13704948 - 10.02301043 * b + a * (-4.24894561 + 5.38770819 * b + 4.69891013 * a))));
@@ -117,7 +207,14 @@ function midSt(a: number, b: number): [number, number] {
   return [s, t];
 }
 
-/** OKHSL (hue in degrees, saturation and lightness 0-1) to Oklab. */
+/**
+ * Convert OKHSL to Oklab.
+ *
+ * @param hue - Hue in degrees.
+ * @param saturation - Saturation, 0-1.
+ * @param lightness - Lightness, 0-1.
+ * @returns Oklab L, a, b.
+ */
 function okhslToOklab(hue: number, saturation: number, lightness: number): Vector {
   const L = toeInverse(lightness);
   if (L === 0 || L === 1 || saturation === 0) return [L, 0, 0];
@@ -147,9 +244,30 @@ function okhslToOklab(hue: number, saturation: number, lightness: number): Vecto
   return [L, chroma * a, chroma * b];
 }
 
+/**
+ * Apply the sRGB transfer function.
+ *
+ * @param value - A linear channel, 0-1.
+ * @returns The encoded channel, 0-1.
+ */
 const encode = (value: number): number => (value > 0.0031308 ? 1.055 * value ** (1 / 2.4) - 0.055 : 12.92 * value);
+
+/**
+ * Undo the sRGB transfer function.
+ *
+ * @param value - An encoded channel, 0-1.
+ * @returns The linear channel, 0-1.
+ */
 const decode = (value: number): number => (value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4);
 
+/**
+ * Convert OKHSL to a hex color, clipping out-of-gamut channels.
+ *
+ * @param hue - Hue in degrees.
+ * @param saturation - Saturation, 0-1.
+ * @param lightness - Lightness, 0-1.
+ * @returns A lowercase `#rrggbb` color.
+ */
 export function okhslToHex(hue: number, saturation: number, lightness: number): string {
   const rgb = oklabToLinearSrgb(okhslToOklab(hue, saturation, lightness));
   return `#${rgb.map((value) => Math.round(Math.min(1, Math.max(0, encode(value))) * 255).toString(16).padStart(2, "0")).join("")}`;
@@ -158,22 +276,35 @@ export function okhslToHex(hue: number, saturation: number, lightness: number): 
 // ---------------------------------------------------------------- color families
 
 /**
- * Saturation weight at a lightness, as in ../design-tokens: a Gaussian centered at
- * 0.5 (sigma 0.25), normalized to 0 at black and white and 1 in the middle.
+ * Weight a family's saturation by lightness, as in ../design-tokens: a Gaussian
+ * centered at 0.5 (sigma 0.25), normalized to 0 at black and white.
+ *
+ * @param lightness - OKHSL lightness, 0-1.
+ * @returns The weight, 0 at black and white and 1 at mid lightness.
  */
 export function bellWeight(lightness: number): number {
   const gaussian = (x: number): number => Math.exp(-((x - 0.5) ** 2) / (2 * 0.25 ** 2));
   return (gaussian(lightness) - gaussian(0)) / (1 - gaussian(0));
 }
 
+/**
+ * Pick a family's color at a lightness.
+ *
+ * @param family - The family's hue and saturation range.
+ * @param lightness - OKHSL lightness, 0-1.
+ * @returns A `#rrggbb` color.
+ */
 export function colorAt(family: ColorFamily, lightness: number): string {
   const { min, max } = family.saturation;
   return okhslToHex(family.hue, min + (max - min) * bellWeight(lightness), lightness);
 }
 
 /**
- * OKHSL lightness of a neutral gray with WCAG luminance `y` (Oklab L = cbrt(Y) for
- * neutrals). Exact for grays; saturated colors land a few percent off.
+ * Convert a luminance to the OKHSL lightness of a gray with that luminance (for
+ * grays, Oklab L = cbrt(Y)). Exact for grays; saturated colors land a few percent off.
+ *
+ * @param y - WCAG luminance; clamped to 0-1.
+ * @returns OKHSL lightness, 0-1.
  */
 export function grayLightness(y: number): number {
   return toe(Math.cbrt(Math.min(1, Math.max(0, y))));
@@ -181,17 +312,33 @@ export function grayLightness(y: number): number {
 
 // ---------------------------------------------------------------- WCAG 2
 
-/** WCAG relative luminance. */
+/**
+ * Compute WCAG relative luminance.
+ *
+ * @param hex - A `#rrggbb` color.
+ * @returns The luminance, 0-1.
+ */
 export function luminance(hex: string): number {
   const [r, g, b] = channels(hex).map(decode);
   return 0.21263900587151027 * r + 0.715168678767756 * g + 0.07219231536073371 * b;
 }
 
+/**
+ * Compute the WCAG contrast ratio of two luminances.
+ *
+ * @param a - A luminance.
+ * @param b - Another luminance.
+ * @returns The ratio, 1-21.
+ */
 const wcagRatio = (a: number, b: number): number => (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
 
 /**
- * Luminance needed to reach `ratio` against luminance `other`, on the lighter or
- * darker side. Outside 0-1 when the ratio is unreachable.
+ * Find the luminance that reaches a WCAG ratio against another luminance.
+ *
+ * @param ratio - The WCAG ratio to reach.
+ * @param other - The other color's luminance.
+ * @param lighter - Whether to solve on the lighter side of `other`.
+ * @returns The luminance; outside 0-1 when the ratio is unreachable.
  */
 export function wcagTargetLuminance(ratio: number, other: number, lighter: boolean): number {
   return lighter ? ratio * (other + 0.05) - 0.05 : (other + 0.05) / ratio - 0.05;
@@ -199,31 +346,54 @@ export function wcagTargetLuminance(ratio: number, other: number, lighter: boole
 
 // ---------------------------------------------------------------- APCA 0.0.98G
 
+/** APCA 0.0.98G constants. */
 const APCA = {
   normBG: 0.56, normTXT: 0.57, revTXT: 0.62, revBG: 0.65,
   blkThrs: 0.022, blkClmp: 1.414, loClip: 0.1, deltaYmin: 0.0005,
   scale: 1.14, loOffset: 0.027,
 };
 
-/** APCA screen luminance: simple 2.4 gamma, before the black soft clamp. */
+/**
+ * Compute APCA screen luminance: a simple 2.4 gamma, before the black soft clamp.
+ *
+ * @param hex - A `#rrggbb` color.
+ * @returns The screen luminance, 0-1.
+ */
 export function apcaScreenLuminance(hex: string): number {
   const [r, g, b] = channels(hex);
   return 0.2126729 * r ** 2.4 + 0.7151522 * g ** 2.4 + 0.072175 * b ** 2.4;
 }
 
+/**
+ * Apply APCA's black soft clamp, which models flare on very dark colors.
+ *
+ * @param y - Screen luminance.
+ * @returns The clamped luminance.
+ */
 const apcaClamp = (y: number): number => (y >= APCA.blkThrs ? y : y + (APCA.blkThrs - y) ** APCA.blkClmp);
 
-/** Inverse of the black soft clamp (perceptual-contrast-palette). */
+/**
+ * Undo APCA's black soft clamp (from perceptual-contrast-palette).
+ *
+ * @param y - Clamped luminance.
+ * @returns The screen luminance; NaN stays NaN.
+ */
 function apcaUnclamp(y: number): number {
   if (Number.isNaN(y) || y > APCA.blkThrs) return y;
   return ((y + 0.0387393816571401) * 1.9468554433171) ** (0.283343396420869 / 1.414) / 1.9468554433171 - 0.312865795870758;
 }
 
 /**
- * Signed APCA Lc of `text` on `background`. The spec reports |raw| < 0.1 as 0 and
- * subtracts an offset above it, which makes faint surfaces (panels near Lc 5)
- * unmeasurable; `lowClip: false` returns the raw scaled contrast instead. Values
- * below Lc 10 carry no readability meaning; they only place faint surfaces.
+ * Compute the signed APCA Lc of text on a background.
+ *
+ * The spec reports |raw| < 0.1 as 0 and subtracts an offset above it, which makes
+ * faint surfaces (panels near Lc 5) unmeasurable. Values below Lc 10 carry no
+ * readability meaning; they only place faint surfaces.
+ *
+ * @param text - The text color, `#rrggbb`.
+ * @param background - The background color, `#rrggbb`.
+ * @param lowClip - Whether to apply the spec's low clip; false returns the raw scaled contrast.
+ * @returns The Lc: positive for dark text on light, negative for light text on dark.
  */
 export function apcaContrast(text: string, background: string, lowClip = true): number {
   const t = apcaClamp(apcaScreenLuminance(text));
@@ -238,8 +408,13 @@ export function apcaContrast(text: string, background: string, lowClip = true): 
 }
 
 /**
- * Screen luminance text needs to reach Lc `lc` on a background of screen luminance
- * `background`, lighter or darker than it. NaN when unreachable.
+ * Find the screen luminance text needs to reach an APCA Lc on a background.
+ *
+ * @param lc - The absolute Lc to reach.
+ * @param background - The background's screen luminance.
+ * @param lighter - Whether the text is lighter than the background.
+ * @param lowClip - Whether the Lc is measured with the spec's low clip.
+ * @returns The text's screen luminance; NaN when unreachable.
  */
 export function apcaTargetLuminance(lc: number, background: number, lighter: boolean, lowClip = true): number {
   const delta = (lc / 100 + (lowClip ? APCA.loOffset : 0)) / APCA.scale;
@@ -252,8 +427,14 @@ export function apcaTargetLuminance(lc: number, background: number, lighter: boo
 // ---------------------------------------------------------------- both
 
 /**
- * Contrast of `text` on `background`. WCAG 2 is symmetric; APCA is directional and
- * returns the absolute Lc, so both read as "at least N".
+ * Compute the contrast of text on a background. WCAG 2 is symmetric; APCA is
+ * directional and returns the absolute Lc, so both read as "at least N".
+ *
+ * @param text - The text color, `#rrggbb`.
+ * @param background - The background color, `#rrggbb`.
+ * @param algorithm - The contrast algorithm.
+ * @param apcaLowClip - APCA only: whether to apply the spec's low clip.
+ * @returns A WCAG ratio (1-21) or an absolute APCA Lc (0-108).
  */
 export function contrast(text: string, background: string, algorithm: Algorithm = "WCAG2", apcaLowClip = true): number {
   return algorithm === "APCA"
@@ -262,8 +443,14 @@ export function contrast(text: string, background: string, algorithm: Algorithm 
 }
 
 /**
- * WCAG luminance a gray needs to reach `minimum` on `background`, as text lighter
- * (dark themes) or darker (light themes) than it. Outside 0-1 or NaN when unreachable.
+ * Find the WCAG luminance a gray needs to reach a minimum on a background.
+ *
+ * @param minimum - A WCAG ratio or an absolute APCA Lc.
+ * @param background - The background color, `#rrggbb`.
+ * @param lighter - Whether the gray is lighter than the background (dark themes).
+ * @param algorithm - The algorithm `minimum` is measured in.
+ * @param apcaLowClip - APCA only: whether the Lc is measured with the spec's low clip.
+ * @returns The luminance; outside 0-1 or NaN when unreachable.
  */
 export function targetLuminance(minimum: number, background: string, lighter: boolean, algorithm: Algorithm, apcaLowClip = true): number {
   if (algorithm === "WCAG2") return wcagTargetLuminance(minimum, luminance(background), lighter);

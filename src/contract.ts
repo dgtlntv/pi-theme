@@ -1,30 +1,60 @@
+/**
+ * Validate the contrast contract and color recipe, and expand rules into pairs.
+ *
+ * @module
+ */
 import { normalizeHex } from "./color.ts";
 import { TARGETS, TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, type Minimums, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
 
+/** Fields a contrast rule may have. */
 const RULE_FIELDS = new Set(["token", "backgrounds", "dark", "light", "targets", "note"]);
+
 /**
  * APCA's low clip reports contrast below about Lc 10 as 0. Minimums below this use
  * the unclipped formula, so faint surfaces (panels, the scrollbar track) stay measurable.
  */
 const APCA_LOW_CLIP_BELOW = 15;
 
+/**
+ * Check that minimums have exactly a WCAG ratio (1-21) and an APCA Lc (0-108).
+ *
+ * @param value - The minimums to check.
+ * @returns Whether they are valid.
+ */
 const validMinimums = (value: Minimums | undefined): boolean =>
   typeof value === "object" && value !== null && Object.keys(value).length === 2
   && typeof value.wcag === "number" && value.wcag >= 1 && value.wcag <= 21
   && typeof value.apca === "number" && value.apca >= 0 && value.apca <= 108;
 
-/** Every themed token: each rule's token and backgrounds, except the terminal background. */
+/**
+ * List every themed token: each rule's token and backgrounds.
+ *
+ * @param contract - The contrast contract.
+ * @returns The tokens, excluding the terminal background.
+ */
 export function contractTokens(contract: ContrastContract): string[] {
   const tokens = new Set(contract.relationships.flatMap((rule) => [rule.token, ...rule.backgrounds]));
   tokens.delete(TERMINAL_BACKGROUND);
   return [...tokens];
 }
 
-/** Tokens a target emits into Pi theme JSON. */
+/**
+ * List the tokens a target emits into Pi theme JSON.
+ *
+ * @param contract - The contrast contract.
+ * @param target - The target Pi.
+ * @returns The tokens; `current` omits proposed tokens.
+ */
 export function emittedTokens(contract: ContrastContract, target: Target): string[] {
   return contractTokens(contract).filter((token) => target === "extended" || !(token in contract.proposed));
 }
 
+/**
+ * Validate the contrast contract.
+ *
+ * @param contract - The contrast contract.
+ * @throws If a rule is malformed, a token has no rule, or a proposed token lacks a valid fallback.
+ */
 export function validateContract(contract: ContrastContract): void {
   const { proposed, relationships } = contract;
   if (!Array.isArray(relationships) || typeof proposed !== "object") throw new Error("Contract needs proposed and relationships");
@@ -60,7 +90,16 @@ export function validateContract(contract: ContrastContract): void {
   }
 }
 
-/** Expand rules into pairs as Pi renders them for one algorithm, target, and mode. */
+/**
+ * Expand rules into pairs as Pi renders them. In `current`, a proposed token's
+ * rules land on its fallback.
+ *
+ * @param contract - The contrast contract.
+ * @param algorithm - The algorithm whose minimums to use.
+ * @param target - The target Pi.
+ * @param mode - The mode whose minimums to use; a rule without them uses the other mode's.
+ * @returns One pair per rule and background.
+ */
 export function contractPairs(contract: ContrastContract, algorithm: Algorithm, target: Target, mode: Mode): Pair[] {
   return contract.relationships
     .filter((rule) => !rule.targets || rule.targets.includes(target))
@@ -78,7 +117,14 @@ export function contractPairs(contract: ContrastContract, algorithm: Algorithm, 
     });
 }
 
-/** Map every contract token to its color family, validating anchors and families. */
+/**
+ * Validate the recipe and map every contract token to its color family.
+ *
+ * @param recipe - The color recipe.
+ * @param contract - The contrast contract.
+ * @returns The family name of every token.
+ * @throws If a background or family is invalid, or a token has no family or two.
+ */
 export function validateRecipe(recipe: ThemeRecipe, contract: ContrastContract): Record<string, string> {
   normalizeHex(recipe.terminalBackground?.dark);
   normalizeHex(recipe.terminalBackground?.light);

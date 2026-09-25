@@ -1,21 +1,37 @@
-// State and keyboard handling for the interactive session. Kept outside the view so
-// both halves of the wiper render the same state.
+/**
+ * State and keyboard handling for the interactive session, kept outside the view so
+ * both halves of the wiper render the same state.
+ *
+ * @module
+ */
 import { MODELS, SESSIONS, THINKING_LEVELS, TREE_ROWS, type ThinkingLevel } from "./pi-elements.tsx";
 
+/** The open overlay, if any. */
 export type Overlay = "none" | "settings" | "tree" | "resume" | "model" | "search";
 
+/** Everything the interactive session shows. */
 export interface SessionState {
+  /** Editor text. */
   input: string;
+  /** Thinking level, which colors the editor border. */
   thinking: ThinkingLevel;
+  /** The open overlay. */
   overlay: Overlay;
+  /** Selected row in the overlay or command suggestions. */
   selected: number;
+  /** Whether tool output is expanded (ctrl+o). */
   expanded: boolean;
+  /** Whether thinking text is shown (ctrl+t). */
   thinkingVisible: boolean;
+  /** Transcript search query. */
   searchQuery: string;
+  /** Current match among all search matches. */
   searchIndex: number;
+  /** Value of each setting in {@link SETTING_CHOICES}. */
   settings: Record<string, string>;
 }
 
+/** Slash commands offered while typing `/`. */
 export const COMMANDS = [
   { label: "/settings", description: "Open settings" },
   { label: "/model", description: "Select model" },
@@ -24,6 +40,7 @@ export const COMMANDS = [
   { label: "/search", description: "Find in transcript" },
 ];
 
+/** Settings in `/settings` and the values each cycles through. */
 export const SETTING_CHOICES: Record<string, string[]> = {
   "Auto-compact": ["true", "false"],
   "Steering mode": ["one-at-a-time", "all"],
@@ -32,6 +49,7 @@ export const SETTING_CHOICES: Record<string, string[]> = {
   "Quiet startup": ["false", "true"],
 };
 
+/** The session at startup. */
 export const initialSession: SessionState = {
   input: "",
   thinking: "high",
@@ -44,10 +62,22 @@ export const initialSession: SessionState = {
   settings: Object.fromEntries(Object.entries(SETTING_CHOICES).map(([key, values]) => [key, values[0]])),
 };
 
+/**
+ * List slash commands matching the input.
+ *
+ * @param state - The session.
+ * @returns Matching commands; empty unless the input starts with `/`.
+ */
 export function suggestions(state: SessionState) {
   return state.input.startsWith("/") ? COMMANDS.filter((command) => command.label.startsWith(state.input)) : [];
 }
 
+/**
+ * Count the selectable rows in the open overlay.
+ *
+ * @param state - The session.
+ * @returns The row count, for wrapping arrow-key selection.
+ */
 const overlaySize = (state: SessionState): number => ({
   none: suggestions(state).length,
   settings: Object.keys(SETTING_CHOICES).length,
@@ -57,11 +87,24 @@ const overlaySize = (state: SessionState): number => ({
   search: 0,
 })[state.overlay];
 
+/**
+ * Open an overlay with the first row selected and the input cleared.
+ *
+ * @param state - The session.
+ * @param overlay - The overlay to open.
+ * @returns The new session.
+ */
 function open(state: SessionState, overlay: Overlay): SessionState {
   return { ...state, overlay, selected: 0, input: "" };
 }
 
-/** Pi-like key handling. Sending messages and saving changes do nothing. */
+/**
+ * Handle a key like Pi does. Sending messages and saving changes do nothing.
+ *
+ * @param state - The session.
+ * @param event - The key event.
+ * @returns The new session, or undefined if the key is not handled.
+ */
 export function handleKey(state: SessionState, event: KeyboardEvent): SessionState | undefined {
   const { key, ctrlKey, metaKey, shiftKey } = event;
   const size = overlaySize(state);

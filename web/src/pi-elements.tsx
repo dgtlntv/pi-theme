@@ -1,29 +1,58 @@
-// Pi TUI elements, mirroring ../pi components and their token usage.
+/**
+ * Pi TUI elements, mirroring ../pi components and their token usage.
+ *
+ * @module
+ */
 import type { ReactNode } from "react";
 import { C, Gap, KeyHint, Line, Panel, Rule, type TokenRef, useTarget } from "./term.tsx";
 
+/** Pi's thinking levels, in order. */
 export const THINKING_LEVELS = ["off", "minimal", "low", "medium", "high", "xhigh", "max"] as const;
+
+/** A thinking level. */
 export type ThinkingLevel = (typeof THINKING_LEVELS)[number];
+
+/**
+ * Name the editor border token of a thinking level.
+ *
+ * @param level - The thinking level.
+ * @returns The token, like `thinkingHigh`.
+ */
 export const thinkingToken = (level: ThinkingLevel) => `thinking${level[0].toUpperCase()}${level.slice(1)}`;
 
-/** Proposed-token spots: extended uses the new token, current uses today's fallback. */
+/** Footer text. */
 const FOOTER: TokenRef = "dim";
+
+/** Tool arguments: `toolArgument` in the proposal, `accent` today. */
 const TOOL_ARG: TokenRef = { current: "accent", extended: "toolArgument" };
+
+/** Assistant text: `text` in the proposal, the terminal default today. */
 const ASSISTANT: TokenRef = { current: "terminalForeground", extended: "text" };
+
+/** Markdown table borders: `mdTableBorder` in the proposal, the terminal default today. */
 const TABLE_BORDER: TokenRef = { current: "terminalForeground", extended: "mdTableBorder" };
-/** List and row text: unstyled (terminal default) in current Pi, `text` in the proposal. */
+
+/** List and row text: `text` in the proposal, the terminal default today. */
 const LIST_TEXT: TokenRef = { current: "terminalForeground", extended: "text" };
 
 // ---------------------------------------------------------------- header, status
 
-/**
- * The Pi logo: a 4x4 pixel grid in fixed brand colors (not theme tokens).
- * Pi draws it with half blocks in a 4x2 cell area (components/pi-logo.ts); here each
- * pixel is a 1ch x half-row box, which renders the same without glyph seams.
- */
+/** The Pi logo's fixed brand colors (not theme tokens). */
 const LOGO_COLORS = { R: "#f09082", B: "#4d9abf", Y: "#f1be58" } as const;
+
+/**
+ * The Pi logo as a 4×4 pixel grid, keyed by {@link LOGO_COLORS}. Pi draws it with half
+ * blocks in 4×2 cells (components/pi-logo.ts); here each pixel is a 1ch × half-row box,
+ * which renders the same without glyph seams.
+ */
 const LOGO_GRID = ["RRR.", "B.R.", "BB.Y", "B..Y"];
 
+/**
+ * One cell row of the Pi logo.
+ *
+ * @param props - The row, 0 or 1.
+ * @returns The row.
+ */
 export function PiLogoRow({ row }: { row: 0 | 1 }) {
   return (
     <span className="pi-logo" title="Pi logo (fixed brand colors)">
@@ -38,6 +67,7 @@ export function PiLogoRow({ row }: { row: 0 | 1 }) {
   );
 }
 
+/** The startup header's compact key hints. */
 const COMPACT_HINTS = (
   <>
     <KeyHint k="escape" d="interrupt" /><C t="muted"> · </C><KeyHint k="ctrl+c/ctrl+d" d="clear/exit" /><C t="muted"> · </C>
@@ -45,7 +75,12 @@ const COMPACT_HINTS = (
   </>
 );
 
-/** Startup header. Current Pi: "pi" in accent; the proposal: logo with the version. */
+/**
+ * The startup header. Current Pi: "pi" in accent; the proposal: the logo with the version.
+ *
+ * @param props - Whether to show the full key-hint list.
+ * @returns The header.
+ */
 export function Header({ expanded }: { expanded?: boolean }) {
   const proposal = useTarget() === "extended";
   const version = proposal
@@ -81,6 +116,11 @@ export function Header({ expanded }: { expanded?: boolean }) {
   );
 }
 
+/**
+ * The startup list of loaded context files and skills.
+ *
+ * @returns The list.
+ */
 export function LoadedResources() {
   return (
     <>
@@ -92,16 +132,48 @@ export function LoadedResources() {
   );
 }
 
+/**
+ * A dim status message.
+ *
+ * @param props - The message.
+ * @returns The line.
+ */
 export const StatusLine = ({ text }: { text: string }) => <Line indent={1}><C t="dim">{text}</C></Line>;
+
+/**
+ * A warning message.
+ *
+ * @param props - The message.
+ * @returns The line.
+ */
 export const WarningLine = ({ text }: { text: string }) => <Line indent={1}><C t="warning">Warning: {text}</C></Line>;
+
+/**
+ * An error message.
+ *
+ * @param props - The message.
+ * @returns The line.
+ */
 export const ErrorLine = ({ text }: { text: string }) => <Line indent={1}><C t="error">Error: {text}</C></Line>;
 
+/**
+ * The spinner shown while the agent works.
+ *
+ * @param props - The spinner frame and message.
+ * @returns The line.
+ */
 export function WorkingIndicator({ frame = "⠋", text = "Working..." }: { frame?: string; text?: string }) {
   return <Line indent={1}><C t="accent">{frame}</C> <C t="muted">{text} (escape to interrupt)</C></Line>;
 }
 
 // ---------------------------------------------------------------- messages
 
+/**
+ * A user message on its panel.
+ *
+ * @param props - The message.
+ * @returns The panel.
+ */
 export function UserMessage({ children }: { children: ReactNode }) {
   return (
     <Panel bg="userMessageBg">
@@ -110,11 +182,22 @@ export function UserMessage({ children }: { children: ReactNode }) {
   );
 }
 
-/** Assistant text: Markdown on the canvas. Extended colors default text with `text`. */
+/**
+ * Assistant text: Markdown on the canvas.
+ *
+ * @param props - The content.
+ * @returns The text.
+ */
 export function AssistantText({ children }: { children: ReactNode }) {
   return <div className="assistant"><C t={ASSISTANT}>{children}</C></div>;
 }
 
+/**
+ * An assistant thinking block.
+ *
+ * @param props - Whether it is collapsed to "Thinking...".
+ * @returns The block.
+ */
 export function ThinkingBlock({ collapsed }: { collapsed?: boolean }) {
   return collapsed ? (
     <div className="assistant"><C t="thinkingText" italic>Thinking...</C></div>
@@ -125,6 +208,12 @@ export function ThinkingBlock({ collapsed }: { collapsed?: boolean }) {
   );
 }
 
+/**
+ * An extension message on its panel.
+ *
+ * @param props - The label and message.
+ * @returns The panel.
+ */
 export function CustomMessage({ label, children }: { label: string; children: ReactNode }) {
   return (
     <Panel bg="customMessageBg">
@@ -134,6 +223,12 @@ export function CustomMessage({ label, children }: { label: string; children: Re
   );
 }
 
+/**
+ * A compaction summary on the custom-message panel.
+ *
+ * @param props - Whether the summary is expanded.
+ * @returns The panel.
+ */
 export function CompactionMessage({ expanded }: { expanded?: boolean }) {
   return (
     <Panel bg="customMessageBg">
@@ -149,6 +244,11 @@ export function CompactionMessage({ expanded }: { expanded?: boolean }) {
 
 // ---------------------------------------------------------------- markdown
 
+/**
+ * Markdown sample: heading, emphasis, links, lists, quote, rule, and code.
+ *
+ * @returns The sample.
+ */
 export function Md() {
   return (
     <AssistantText>
@@ -173,6 +273,11 @@ export function Md() {
   );
 }
 
+/**
+ * A fenced code block.
+ *
+ * @returns The block.
+ */
 export function CodeBlock() {
   return (
     <>
@@ -186,7 +291,12 @@ export function CodeBlock() {
   );
 }
 
-/** Syntax highlighting as cli-highlight maps it (theme.ts buildCliHighlightTheme). */
+/**
+ * Syntax-highlighted code, as cli-highlight maps it (theme.ts buildCliHighlightTheme).
+ *
+ * @param props - Indentation in cells.
+ * @returns The code.
+ */
 export function Code({ indent = 2 }: { indent?: number }) {
   return (
     <>
@@ -199,6 +309,11 @@ export function Code({ indent = 2 }: { indent?: number }) {
   );
 }
 
+/**
+ * A Markdown table.
+ *
+ * @returns The table.
+ */
 export function MdTable() {
   const b = (s: string) => <C t={TABLE_BORDER}>{s}</C>;
   return (
@@ -214,6 +329,11 @@ export function MdTable() {
   );
 }
 
+/**
+ * A rendered Mermaid diagram.
+ *
+ * @returns The diagram.
+ */
 export function Mermaid() {
   return (
     <AssistantText>
@@ -227,9 +347,23 @@ export function Mermaid() {
 
 // ---------------------------------------------------------------- tools
 
+/** A tool call's state, which picks its panel background. */
 export type ToolState = "pending" | "success" | "error";
+
+/**
+ * Pick a tool panel's background token.
+ *
+ * @param state - The tool state.
+ * @returns The token.
+ */
 const toolBg = (state: ToolState) => (state === "pending" ? "toolPendingBg" : state === "success" ? "toolSuccessBg" : "toolErrorBg");
 
+/**
+ * The read tool.
+ *
+ * @param props - The tool state, and whether the file content is expanded.
+ * @returns The panel.
+ */
 export function ReadTool({ state = "success", expanded }: { state?: ToolState; expanded?: boolean }) {
   return (
     <Panel bg={toolBg(state)}>
@@ -240,6 +374,11 @@ export function ReadTool({ state = "success", expanded }: { state?: ToolState; e
   );
 }
 
+/**
+ * A read tool collapsed to one line.
+ *
+ * @returns The panel.
+ */
 export function CompactReadTool() {
   return (
     <Panel bg="toolSuccessBg">
@@ -248,6 +387,11 @@ export function CompactReadTool() {
   );
 }
 
+/**
+ * A skill read, shown as a labeled line.
+ *
+ * @returns The panel.
+ */
 export function SkillReadTool() {
   return (
     <Panel bg="toolSuccessBg">
@@ -256,6 +400,12 @@ export function SkillReadTool() {
   );
 }
 
+/**
+ * The bash tool.
+ *
+ * @param props - The tool state, and whether all output is shown.
+ * @returns The panel.
+ */
 export function BashTool({ state = "success", expanded }: { state?: ToolState; expanded?: boolean }) {
   const lines = ["Checked 1458 files in 6s. No fixes applied.", "packages/coding-agent/install-lock is up to date.", "packages/tui: 82 tests passed", "packages/ai: model catalog hydrated", "done"];
   const shown = expanded ? lines : lines.slice(-3);
@@ -272,6 +422,12 @@ export function BashTool({ state = "success", expanded }: { state?: ToolState; e
   );
 }
 
+/**
+ * The grep tool.
+ *
+ * @param props - The tool state.
+ * @returns The panel.
+ */
 export function GrepTool({ state = "success" }: { state?: ToolState }) {
   return (
     <Panel bg={toolBg(state)}>
@@ -290,6 +446,11 @@ export function GrepTool({ state = "success" }: { state?: ToolState }) {
   );
 }
 
+/**
+ * The find tool.
+ *
+ * @returns The panel.
+ */
 export function FindTool() {
   return (
     <Panel bg="toolSuccessBg">
@@ -301,6 +462,11 @@ export function FindTool() {
   );
 }
 
+/**
+ * The write tool.
+ *
+ * @returns The panel.
+ */
 export function WriteTool() {
   return (
     <Panel bg="toolSuccessBg">
@@ -313,6 +479,12 @@ export function WriteTool() {
   );
 }
 
+/**
+ * The edit tool, with a diff.
+ *
+ * @param props - The tool state.
+ * @returns The panel.
+ */
 export function EditTool({ state = "success" }: { state?: ToolState }) {
   return (
     <Panel bg={toolBg(state)}>
@@ -333,6 +505,11 @@ export function EditTool({ state = "success" }: { state?: ToolState }) {
   );
 }
 
+/**
+ * The ls tool.
+ *
+ * @returns The panel.
+ */
 export function LsTool() {
   return (
     <Panel bg="toolSuccessBg">
@@ -343,6 +520,11 @@ export function LsTool() {
   );
 }
 
+/**
+ * An extension tool with the default renderer.
+ *
+ * @returns The panel.
+ */
 export function GenericTool() {
   return (
     <Panel bg="toolPendingBg">
@@ -353,7 +535,12 @@ export function GenericTool() {
   );
 }
 
-/** Direct `!` command (BashExecutionComponent): on the canvas, framed by bashMode borders. */
+/**
+ * A direct `!` command (BashExecutionComponent): on the canvas, framed by bashMode borders.
+ *
+ * @param props - Whether the command is excluded from context (`!!`), and whether it failed.
+ * @returns The command and output.
+ */
 export function DirectBash({ excluded, error }: { excluded?: boolean; error?: boolean }) {
   const color = excluded ? "dim" : "bashMode";
   return (
@@ -372,6 +559,12 @@ export function DirectBash({ excluded, error }: { excluded?: boolean; error?: bo
 
 // ---------------------------------------------------------------- editor, footer
 
+/**
+ * The input editor.
+ *
+ * @param props - The text, the border token, whether the text is a placeholder, whether to show the cursor, and bash mode.
+ * @returns The editor.
+ */
 export function Editor({ text, border, placeholder, cursor = true, bashMode }: { text: string; border: string; placeholder?: boolean; cursor?: boolean; bashMode?: boolean }) {
   const t = bashMode ? "bashMode" : border;
   return (
@@ -386,6 +579,12 @@ export function Editor({ text, border, placeholder, cursor = true, bashMode }: {
   );
 }
 
+/**
+ * The footer: working directory, usage, context, and model.
+ *
+ * @param props - Context use in percent (colored above 70 and 90), the model, and the thinking level.
+ * @returns The footer.
+ */
 export function Footer({ context = 18.4, model = "claude-opus-4-8", thinking = "high" }: { context?: number; model?: string; thinking?: string }) {
   const contextColor = context > 90 ? "error" : context > 70 ? "warning" : undefined;
   const contextText = `${context.toFixed(1)}%/272k (auto)`;
@@ -405,9 +604,20 @@ export function Footer({ context = 18.4, model = "claude-opus-4-8", thinking = "
 
 // ---------------------------------------------------------------- selectors, dialogs
 
-export interface SelectItem { label: string; description?: string }
+/** A select list row. */
+export interface SelectItem {
+  /** Row text. */
+  label: string;
+  /** Muted text after the label. */
+  description?: string;
+}
 
-/** SelectList (autocomplete, extension select): selected row in accent with → prefix. */
+/**
+ * A select list (autocomplete, extension select): the selected row in accent with a → prefix.
+ *
+ * @param props - The rows, the selected index, and the visible row count.
+ * @returns The list.
+ */
 export function SelectList({ items, selected, max = 8 }: { items: SelectItem[]; selected: number; max?: number }) {
   const start = Math.max(0, Math.min(selected - Math.floor(max / 2), items.length - max));
   const visible = items.slice(start, start + max);
@@ -429,9 +639,22 @@ export function SelectList({ items, selected, max = 8 }: { items: SelectItem[]; 
   );
 }
 
-export interface SettingItem { label: string; value: string; description?: string }
+/** A settings row. */
+export interface SettingItem {
+  /** Setting name. */
+  label: string;
+  /** Current value. */
+  value: string;
+  /** Shown below the list while the row is selected. */
+  description?: string;
+}
 
-/** SettingsList: selected label and value in accent, description and hint dim. */
+/**
+ * The settings list: the selected label and value in accent, description and hint dim.
+ *
+ * @param props - The rows and the selected index.
+ * @returns The list.
+ */
 export function SettingsList({ items, selected }: { items: SettingItem[]; selected: number }) {
   const width = Math.max(...items.map((item) => item.label.length));
   const current = items[selected];
@@ -454,6 +677,12 @@ export function SettingsList({ items, selected }: { items: SettingItem[]; select
   );
 }
 
+/**
+ * A dialog framed by borders.
+ *
+ * @param props - The title and content.
+ * @returns The dialog.
+ */
 export function Dialog({ title, children }: { title: string; children: ReactNode }) {
   return (
     <>
@@ -468,14 +697,21 @@ export function Dialog({ title, children }: { title: string; children: ReactNode
 
 // ---------------------------------------------------------------- session tree
 
+/** A session tree row. */
 export interface TreeRow {
+  /** Tree-drawing prefix, like `├─ `. */
   prefix: string;
+  /** Entry type, which picks its label and colors. */
   kind: "user" | "assistant" | "tool" | "bash" | "compaction" | "custom" | "model" | "thinking" | "label" | "title";
+  /** Entry text. */
   text: string;
+  /** Whether the entry is on the active branch. */
   active?: boolean;
+  /** A user-assigned label. */
   label?: string;
 }
 
+/** Example session tree rows. */
 export const TREE_ROWS: TreeRow[] = [
   { prefix: "", kind: "user", text: "Can you explain how theme loading works?", active: true },
   { prefix: "", kind: "assistant", text: "Pi reads the theme with loadTheme()...", active: true },
@@ -491,7 +727,12 @@ export const TREE_ROWS: TreeRow[] = [
   { prefix: "   ", kind: "title", text: "theme review" },
 ];
 
-/** Tree selector rows (tree-selector.ts). Compaction uses customMessageLabel in extended. */
+/**
+ * One session tree row (tree-selector.ts). Compaction uses customMessageLabel in the proposal.
+ *
+ * @param props - The row, and whether it is selected.
+ * @returns The row.
+ */
 export function TreeRowView({ row, selected }: { row: TreeRow; selected: boolean }) {
   const content = (() => {
     switch (row.kind) {
@@ -519,6 +760,12 @@ export function TreeRowView({ row, selected }: { row: TreeRow; selected: boolean
   return selected ? <Line><C t="terminalForeground" bg="selectedBg">{body}</C></Line> : <Line>{body}</Line>;
 }
 
+/**
+ * The session tree selector.
+ *
+ * @param props - The selected row.
+ * @returns The selector.
+ */
 export function SessionTree({ selected }: { selected: number }) {
   return (
     <>
@@ -536,6 +783,7 @@ export function SessionTree({ selected }: { selected: number }) {
 
 // ---------------------------------------------------------------- sessions, models
 
+/** Example sessions for the session selector. */
 export const SESSIONS = [
   { name: "theme review", age: "2m", count: 142, current: true },
   { name: "Add toolArgument token", age: "1h", count: 58, named: true },
@@ -544,6 +792,12 @@ export const SESSIONS = [
   { name: "Ghostty background detection", age: "2d", count: 7 },
 ];
 
+/**
+ * The session selector (`/resume`).
+ *
+ * @param props - The selected row.
+ * @returns The selector.
+ */
 export function SessionSelector({ selected }: { selected: number }) {
   return (
     <>
@@ -569,6 +823,7 @@ export function SessionSelector({ selected }: { selected: number }) {
   );
 }
 
+/** Example models for the model selector. */
 export const MODELS = [
   { id: "claude-opus-4-8", provider: "anthropic", current: true },
   { id: "claude-sonnet-4-5", provider: "anthropic" },
@@ -576,6 +831,12 @@ export const MODELS = [
   { id: "gemini-3-pro", provider: "google" },
 ];
 
+/**
+ * The model selector.
+ *
+ * @param props - The selected row.
+ * @returns The selector.
+ */
 export function ModelSelector({ selected }: { selected: number }) {
   return (
     <>
@@ -604,7 +865,12 @@ export function ModelSelector({ selected }: { selected: number }) {
 
 // ---------------------------------------------------------------- fullscreen chrome
 
-/** Fullscreen transcript search (alt-screen-search.ts). */
+/**
+ * The fullscreen transcript search box (alt-screen-search.ts).
+ *
+ * @param props - The query, the current match index, and the match count.
+ * @returns The search box.
+ */
 export function SearchBox({ query, index, count }: { query: string; index: number; count: number }) {
   const secondary: TokenRef = { current: "terminalForeground", extended: "muted" };
   const result = !query ? "" : count === 0 ? "No matches" : `${index + 1}/${count}`;
@@ -620,12 +886,23 @@ export function SearchBox({ query, index, count }: { query: string; index: numbe
   );
 }
 
+/**
+ * A search match in the transcript.
+ *
+ * @param props - The matched text, and whether it is the current match (shown inverse).
+ * @returns The match.
+ */
 export function SearchMatch({ children, current }: { children: ReactNode; current?: boolean }) {
   return current
     ? <C t="searchMatchText" bg="searchMatchBg" inverse bold>{children}</C>
     : <C t="searchMatchText" bg="searchMatchBg" underline>{children}</C>;
 }
 
+/**
+ * The "jump to latest" bar shown when scrolled up.
+ *
+ * @returns The bar.
+ */
 export function JumpToLatest() {
   return <Line><C t="text" bg="selectedBg"> ↓ Jump to latest message · End </C></Line>;
 }

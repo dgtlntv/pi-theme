@@ -1,16 +1,31 @@
-// A terminal viewport: scrolls in whole rows and draws Pi's fullscreen scrollbar
-// (layout.ts: "│" track, "┃" thumb, "█" thumb while scrolling) instead of the browser's.
+/**
+ * A terminal viewport: scrolls in whole rows and draws Pi's fullscreen scrollbar
+ * (layout.ts: "│" track, "┃" thumb, "█" thumb while scrolling) instead of the browser's.
+ *
+ * @module
+ */
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { usePalette } from "./term.tsx";
 
+/** How long the thumb stays in its scrolling style after the last scroll, in milliseconds. */
 const ACTIVE_MS = 1000;
 
-/** Scrollbar column of terminal cells, drawn with CSS so rows join without glyph gaps. */
+/**
+ * A scrollbar column of terminal cells, drawn with CSS so rows join without glyph gaps.
+ *
+ * @param props - Height in rows, thumb position and height in rows, whether scrolling is active, and a pointer handler for dragging.
+ * @returns The scrollbar.
+ */
 export function ScrollbarCells({ rows, thumbTop, thumbHeight, active, onPointer }: {
+  /** Height in rows. */
   rows: number;
+  /** First thumb row. */
   thumbTop: number;
+  /** Thumb height in rows. */
   thumbHeight: number;
+  /** Whether scrolling is active, which draws the thumb as full blocks. */
   active?: boolean;
+  /** Pointer handler for dragging. */
   onPointer?: (event: React.PointerEvent<HTMLDivElement>) => void;
 }) {
   const palette = usePalette();
@@ -26,12 +41,30 @@ export function ScrollbarCells({ rows, thumbTop, thumbHeight, active, onPointer 
   );
 }
 
-interface Metrics { top: number; view: number; content: number; row: number }
+/** Scroll position and sizes in pixels, and the row height. */
+interface Metrics {
+  /** Scroll offset. */
+  top: number;
+  /** Viewport height. */
+  view: number;
+  /** Content height. */
+  content: number;
+  /** Row height. */
+  row: number;
+}
 
+/**
+ * A scrollable terminal viewport with Pi's scrollbar.
+ *
+ * @param props - Content; `startAtEnd` to start at and follow the end, like Pi's follow-end; and a `jumpToLatest` element shown when scrolled up.
+ * @returns The viewport.
+ */
 export function TermScroll({ children, startAtEnd, jumpToLatest }: {
+  /** Viewport content. */
   children: ReactNode;
   /** Start at, and keep following, the end while the user is there (Pi's follow-end). */
   startAtEnd?: boolean;
+  /** Shown over the bottom when scrolled up from the end. */
   jumpToLatest?: ReactNode;
 }) {
   const scroller = useRef<HTMLDivElement>(null);

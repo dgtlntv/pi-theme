@@ -1,6 +1,11 @@
+/**
+ * Vite config for the Radius artifact: a multi-file build, so every file stays under
+ * the upload size limit.
+ *
+ * @module
+ */
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-// Multi-file build for Radius artifacts: every file stays under the upload size limit.
 export default defineConfig({
   root: import.meta.dirname,
   base: "./",

@@ -1,3 +1,8 @@
+/**
+ * Generator tests: color math, contrast, targets, relaxation, and validation.
+ *
+ * @module
+ */
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
@@ -6,15 +11,39 @@ import { contractPairs, emittedTokens, validateContract } from "../src/contract.
 import { generateTheme } from "../src/solve.ts";
 import type { Algorithm, ContrastContract, Mode, Target, ThemeRecipe } from "../src/types.ts";
 
+/**
+ * Read a JSON file relative to this test.
+ *
+ * @param path - The file path.
+ * @returns The parsed contents.
+ */
 const readJson = <T>(path: string): T => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8")) as T;
+
+/** The project's color recipe. */
 const recipe = readJson<ThemeRecipe>("../theme-recipe.json");
+
+/** The project's contrast contract. */
 const contract = readJson<ContrastContract>("../contrast-requirements.json");
+
+/**
+ * Deep-copy a value, so tests can break it.
+ *
+ * @param value - The value.
+ * @returns The copy.
+ */
 const clone = <T>(value: T): T => structuredClone(value);
 
 /** Direct calculation uses the gray formula, so saturated colors land a few percent off a minimum. */
 const TOLERANCE = 0.88;
 
-/** Ratio of every contract pair in a generated theme, against the recipe background. */
+/**
+ * Generate a theme and measure every contract pair in it.
+ *
+ * @param algorithm - The contrast algorithm.
+ * @param mode - The theme mode.
+ * @param target - The target Pi.
+ * @returns Each pair with its actual contrast.
+ */
 function measure(algorithm: Algorithm, mode: Mode, target: Target) {
   const { theme } = generateTheme(recipe, contract, algorithm, mode, target);
   const colors: Record<string, string> = { ...theme.colors, background: recipe.terminalBackground[mode] };

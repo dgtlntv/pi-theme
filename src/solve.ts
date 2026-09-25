@@ -1,10 +1,19 @@
+/**
+ * Compute theme colors from contrast minimums.
+ *
+ * @module
+ */
 import { colorAt, grayLightness, normalizeHex, targetLuminance } from "./color.ts";
 import { contractPairs, emittedTokens, validateContract, validateRecipe } from "./contract.ts";
 import { TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, type GenerationResult, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
 
 /**
- * Solve order: every token after the backgrounds it is measured on (surfaces
- * before text on them, the scrollbar track before its thumb).
+ * Order tokens so each comes after the backgrounds it is measured on: surfaces
+ * before the text on them, the scrollbar track before its thumb.
+ *
+ * @param pairs - The contract pairs.
+ * @returns Every token, in solve order.
+ * @throws If rules depend on each other in a circle.
  */
 function solveOrder(pairs: Pair[]): string[] {
   const dependencies = new Map<string, Set<string>>();
@@ -26,10 +35,17 @@ function solveOrder(pairs: Pair[]): string[] {
 }
 
 /**
- * Compute every color from its contrast minimums: the inverse contrast formulas give
+ * Compute every color from its contrast minimums. The inverse contrast formulas give
  * the luminance each requirement needs, the strictest wins, and that luminance
  * becomes OKHSL lightness via the gray formula (exact for grays, a few percent off
- * for saturated colors). Returns undefined if a minimum is unreachable.
+ * for saturated colors).
+ *
+ * @param recipe - The color recipe.
+ * @param families - The family name of every token.
+ * @param pairs - The contract pairs.
+ * @param mode - The theme mode: dark solves lighter colors, light darker ones.
+ * @param background - The terminal background, `#rrggbb`.
+ * @returns The color of every token, or undefined if a minimum is unreachable.
  */
 function solveColors(recipe: ThemeRecipe, families: Record<string, string>, pairs: Pair[], mode: Mode, background: string): Record<string, string> | undefined {
   const colors: Record<string, string> = { [TERMINAL_BACKGROUND]: background };
@@ -45,18 +61,24 @@ function solveColors(recipe: ThemeRecipe, families: Record<string, string>, pair
   return colors;
 }
 
-/**
- * Relaxation for backgrounds that cannot meet the contract (e.g. mid-range grays).
- * `t` from 0 (as written) to 2 scales minimums in two stages:
- * 0-1 compresses the hierarchy: minimums above the readable floor move toward it,
- * so levels keep their order; 1-2 gives up readability: all move toward the lowest value.
- */
+/** Full relaxation: every minimum at its algorithm's lowest value. */
 const MAX_RELAXATION = 2;
+
+/** Per algorithm: the readable floor relaxation compresses toward first, and the lowest possible value. */
 const FLOOR: Record<Algorithm, { readable: number; lowest: number }> = {
   WCAG2: { readable: 4.5, lowest: 1 },
   APCA: { readable: 45, lowest: 0 }, // Lc 45: roughly APCA's minimum for readable non-body text
 };
 
+/**
+ * Relax minimums for backgrounds that cannot meet the contract, such as mid-range
+ * grays. From `t` 0 to 1, minimums above the readable floor move toward it, so
+ * levels keep their order; from 1 to 2, all minimums move toward the lowest value.
+ *
+ * @param pairs - The contract pairs.
+ * @param t - How far to relax, from 0 (as written) to 2 (lowest).
+ * @returns The pairs with relaxed minimums.
+ */
 function relaxPairs(pairs: Pair[], t: number): Pair[] {
   return pairs.map((pair) => {
     const { readable, lowest } = FLOOR[pair.algorithm];
@@ -65,14 +87,32 @@ function relaxPairs(pairs: Pair[], t: number): Pair[] {
   });
 }
 
-/** WCAG current keeps the plain name; APCA and extended get suffixes, so all variants install side by side. */
+/**
+ * Name a theme. WCAG current keeps the plain name; APCA and extended get suffixes,
+ * so all variants install side by side.
+ *
+ * @param recipe - The color recipe, whose name is the prefix.
+ * @param algorithm - The contrast algorithm.
+ * @param target - The target Pi.
+ * @param mode - The theme mode.
+ * @returns A name like `generated-pi-apca-extended-dark`.
+ */
 export function themeName(recipe: ThemeRecipe, algorithm: Algorithm, target: Target, mode: Mode): string {
   return [recipe.name, algorithm === "APCA" && "apca", target === "extended" && "extended", mode].filter(Boolean).join("-");
 }
 
 /**
- * Generate one Pi theme. If the background cannot meet the contract, it is relaxed
- * as little as possible and `relaxation` reports how far.
+ * Generate one Pi theme. If the background cannot meet the contract, minimums are
+ * relaxed as little as possible.
+ *
+ * @param recipe - The color recipe.
+ * @param contract - The contrast contract.
+ * @param algorithm - The contrast algorithm.
+ * @param mode - The theme mode.
+ * @param target - The target Pi.
+ * @param terminalBackground - The terminal background; defaults to the recipe's for `mode`.
+ * @returns The theme, and how far minimums were relaxed if they had to be.
+ * @throws If the contract or recipe is invalid, or no theme exists even fully relaxed.
  */
 export function generateTheme(
   recipe: ThemeRecipe,

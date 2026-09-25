@@ -1,3 +1,8 @@
+/**
+ * Entry point: mounts the review app.
+ *
+ * @module
+ */
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./App.tsx";
