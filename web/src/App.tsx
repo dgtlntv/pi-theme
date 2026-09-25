@@ -118,7 +118,8 @@ export function App() {
   // Defer so dragging the background color picker stays responsive.
   const deferredBackground = useDeferredValue(background);
   const engine = useMemo(
-    () => runEngine({ ...terminalTheme, background: deferredBackground }, BASE_RECIPE, hues),
+    // With palette hues the terminal theme is used as is; a custom background only applies to recipe hues.
+    () => runEngine({ ...terminalTheme, background: hues === "palette" ? terminalTheme.background : deferredBackground }, BASE_RECIPE, hues),
     [terminalTheme, deferredBackground, hues],
   );
 
@@ -169,6 +170,7 @@ export function App() {
             {terminalTheme.palette.map((color, index) => <span key={index} style={{ background: color }} title={`${index}: ${color}`} />)}
           </span>
         </fieldset>
+        {hues === "recipe" && (
         <fieldset>
           <legend>Terminal background</legend>
           <input type="color" value={background} onChange={(e) => applyBackground(e.target.value)} />
@@ -176,6 +178,7 @@ export function App() {
           <button type="button" onClick={() => applyBackground(terminalTheme.background)}>Reset</button>
           <button type="button" onClick={() => applyBackground(DEFAULT_BACKGROUND.light)}>Light</button>
         </fieldset>
+        )}
         <fieldset>
           <legend>Hues</legend>
           <label title="Pi's system theme: hue and saturation from the terminal's ANSI palette"><input type="radio" checked={hues === "palette"} onChange={() => setHues("palette")} /> Terminal palette</label>
