@@ -143,7 +143,7 @@ export function App() {
   }, [view, session]);
 
   const content = view === "catalog" ? <CatalogView /> : <SessionView state={session} />;
-  const relaxation = "themes" in engine ? engine.themes.proposed.result?.report.relaxation : undefined;
+  const relaxation = "themes" in engine ? engine.themes.proposed.result?.relaxation : undefined;
 
   return (
     <div className="app">
@@ -193,7 +193,7 @@ export function App() {
 
       {relaxation && (
         <div className="warning">
-          This background cannot meet the contract: relaxed by {relaxation.value}, {relaxation.unmet} minimums unmet.
+          This background cannot meet the contract: minimums relaxed by {relaxation} (0 = as written, 2 = lowest).
         </div>
       )}
       {"error" in engine && engine.error ? (

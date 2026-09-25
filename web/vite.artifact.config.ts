@@ -8,6 +8,6 @@ export default defineConfig({
   build: {
     outDir: "dist-artifact",
     emptyOutDir: true,
-    rollupOptions: { output: { manualChunks: (id) => id.includes("node_modules/react") ? "react" : id.includes("node_modules/colorjs") ? "colorjs" : id.includes("/src/") && !id.includes("/web/") ? "generator" : undefined } },
+    rollupOptions: { output: { manualChunks: (id) => id.includes("node_modules/react") ? "react" : id.includes("/src/") && !id.includes("/web/") ? "generator" : undefined } },
   },
 });

@@ -6,17 +6,15 @@
     "node": ">=24"
   },
   "scripts": {
-    "derive-apca": "node src/derive-apca-cli.ts",
-    "generate": "node src/derive-apca-cli.ts && node src/generate.ts",
+    "generate": "node src/generate.ts",
     "typecheck": "tsc --noEmit && tsc --noEmit -p web",
-    "test": "npm run typecheck && node --test test/*.test.ts && node validate-contrast-requirements.ts",
+    "test": "npm run typecheck && node --test test/*.test.ts",
     "web": "vite --config web/vite.config.ts",
     "web:build": "vite build --config web/vite.config.ts",
     "web:pi-themes": "cp ../pi/packages/coding-agent/src/modes/interactive/theme/dark.json ../pi/packages/coding-agent/src/modes/interactive/theme/light.json web/src/pi-themes/",
     "web:artifact": "vite build --config web/vite.artifact.config.ts"
   },
   "dependencies": {
-    "colorjs.io": "^0.7.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },

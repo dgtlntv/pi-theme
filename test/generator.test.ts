@@ -1,260 +1,147 @@
-import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
-import { bellWeight, colorAt, contrast, luminance, normalizeHex } from "../src/color.ts";
-import Color from "colorjs.io";
+import test from "node:test";
+import { deriveApcaContract } from "../src/apca.ts";
+import { apcaContrast, contrast, grayLightness, luminance, normalizeHex, okhslToHex } from "../src/color.ts";
+import { contractPairs, emittedTokens, validateContract } from "../src/contract.ts";
+import { generateTheme } from "../src/solve.ts";
+import type { ContrastContract, Mode, Target, ThemeRecipe } from "../src/types.ts";
 
-const deltaE = (a: string, b: string): number => new Color(a).deltaE(new Color(b), "OK");
-import { expandRelationships, pairsForTarget, validateContract, validatePiInventory } from "../src/contract.ts";
-import { deriveApcaContract } from "../src/apca-derivation.ts";
-import { generateTheme, validateRecipe } from "../src/solve.ts";
-import type { ContrastContract, ThemeRecipe } from "../src/types.ts";
+const readJson = <T>(path: string): T => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8")) as T;
+const recipe = readJson<ThemeRecipe>("../theme-recipe.json");
+const wcag = readJson<ContrastContract>("../contrast-requirements.json");
+const apca = deriveApcaContract(recipe, wcag);
+const clone = <T>(value: T): T => structuredClone(value);
 
-// Without correction, saturated colors land a few percent short of a minimum (gray formula).
-const CLOSE = 0.88;
-const nearMinimums = (checks: { contrast: number | null; ratio: number }[]) =>
-  checks.every((pair) => pair.contrast === null || pair.ratio >= pair.contrast * CLOSE);
+/** Direct calculation uses the gray formula, so saturated colors land a few percent off a minimum. */
+const TOLERANCE = 0.88;
 
-const recipe = JSON.parse(readFileSync(resolve("theme-recipe.json"), "utf8")) as ThemeRecipe;
-const contract = JSON.parse(readFileSync(resolve("contrast-requirements.json"), "utf8")) as ContrastContract;
+/** Ratio of every contract pair in a generated theme, against the recipe background. */
+function measure(contract: ContrastContract, mode: Mode, target: Target) {
+  const { theme } = generateTheme(recipe, contract, mode, target);
+  const colors: Record<string, string> = { ...theme.colors, background: recipe.terminalBackground[mode] };
+  return contractPairs(contract, target, mode).map((pair) => ({
+    ...pair,
+    actual: contrast(colors[pair.token], colors[pair.background], pair.algorithm, pair.apcaLowClip),
+  }));
+}
 
-test("OKHSL bell curve, Color.js WCAG contrast, and terminal color parsing", () => {
-  assert.equal(bellWeight(0), 0);
-  assert.equal(bellWeight(1000), 0);
-  assert.ok(Math.abs(bellWeight(500) - 1) < 1e-12);
-  assert.equal(colorAt(recipe.families.blue, 0).hex, "#ffffff");
-  assert.equal(colorAt(recipe.families.blue, 1000).hex, "#000000");
-  assert.ok(Math.abs(contrast("#000000", "#ffffff") - 21) < 0.001);
-  assert.equal(normalizeHex("rgb(255 0 0)"), "#ff0000");
-  assert.throws(() => normalizeHex("transparent"), /opaque/);
+test("color math matches reference values", () => {
+  assert.equal(okhslToHex(0, 0, 0), "#000000");
+  assert.equal(okhslToHex(0, 0, 1), "#ffffff");
+  // Reference values from Color.js.
+  assert.equal(okhslToHex(250, 0.05, 0.9), "#e1e3e5");
+  assert.equal(okhslToHex(20, 1, 0.6), "#ff3752");
+  assert.equal(okhslToHex(295, 0.4, 0.5), "#7b6da5");
+
+  assert.equal(contrast("#000000", "#ffffff"), 21);
+  assert.equal(luminance("#ffffff"), 1);
+  // APCA is directional: dark text on white is positive, light text on black negative.
+  assert.ok(Math.abs(apcaContrast("#000000", "#ffffff") - 106.04067321268862) < 1e-9);
+  assert.ok(Math.abs(apcaContrast("#ffffff", "#000000") + 107.88473318309848) < 1e-9);
+  assert.equal(apcaContrast("#777777", "#777777"), 0);
+
+  assert.equal(normalizeHex("#ABC"), "#aabbcc");
+  assert.throws(() => normalizeHex("red"));
 });
 
-test("recipe defines a terminal background anchor and a family for every other token", () => {
-  const roles = validateRecipe(recipe, contract);
-  assert.equal(roles.background, undefined);
-  assert.deepEqual(Object.keys(roles).sort(), Object.keys(contract.tokens).filter((token) => token !== "background").sort());
-  assert.ok(recipe.roles.every((role) => !("steps" in role)));
-  for (const token of ["accent", "mdCode", "mdListBullet", "syntaxType"]) {
-    assert.equal(roles[token].family, "violet");
-  }
-  assert.equal(roles.thinkingMedium.family, "thinkingPeriwinkle");
-  assert.equal(roles.userMessageBg.family, "blue");
-  // Custom-message labels share their panel's hue family.
-  assert.equal(roles.customMessageLabel.family, roles.customMessageBg.family);
-  assert.equal(validateContract(contract).required, 188);
-  // Primary reading text: Pi's `text` and the proposed assistant reply body.
-  // Primary reading text on the canvas; in current Pi assistant replies use the terminal default.
-  assert.deepEqual(contract.relationships.filter((rule) => rule.contrast === 11).map((rule) => rule.token), ["text"]);
-  assert.equal(contract.relationships.find((rule) => rule.token === "border" && rule.kind === "nonText")?.contrast, 4.5);
-  const muted = contract.relationships.find((rule) => rule.token === "muted" && rule.kind === "text");
-  const dim = contract.relationships.filter((rule) => rule.token === "dim" && rule.kind === "text");
-  assert.equal(muted?.contrast, 5);
-  // One tertiary level everywhere, including the footer; no panel exception.
-  assert.equal(dim.length, 1);
-  assert.deepEqual(dim[0].backgrounds, ["background", "selectedBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"]);
-  assert.equal(dim[0].contrast, 3);
-
-  const legacy = structuredClone(recipe);
-  Object.assign(legacy.roles[0], { steps: { dark: 800, light: 200 } });
-  assert.throws(() => validateRecipe(legacy, contract), /Unknown recipe role field: steps/);
-});
-
-test("dark and light themes derive lightness from contrast, satisfying every required pair", () => {
+for (const [name, contract] of [["WCAG", wcag], ["APCA", apca]] as const) {
   for (const mode of ["dark", "light"] as const) {
-    const { theme, report } = generateTheme(recipe, contract, mode);
-    assert.equal(Object.keys(theme.colors).length, 56);
-    assert.equal(theme.colors.background, undefined);
-    assert.equal(report.terminal.background.hex, recipe.terminalBackground[mode]);
-    assert.equal(report.summary.required, 183);
-    assert.equal(report.summary.noRequirement, 0);
-    assert.ok(nearMinimums(report.checks));
-    // Pi's footer renders the cwd and usage/model lines with `dim` on the terminal canvas.
-    // Light mode pushes secondary text further (lightContrast).
-    const levels = mode === "dark" ? [["dim", 3], ["muted", 5]] as const : [["dim", 3.75], ["muted", 5.5]] as const;
-    for (const [token, minimum] of levels) {
-      const canvasPair = report.checks.find((pair) => pair.token === token && pair.background === "background" && pair.kind === "text");
-      assert.equal(canvasPair?.contrast, minimum);
-      assert.ok(canvasPair && canvasPair.ratio >= minimum * CLOSE);
-    }
-    for (const surface of ["selectedBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"]) {
-      const panelPair = report.checks.find((pair) => pair.token === "dim" && pair.background === surface && pair.kind === "text");
-      assert.equal(panelPair?.contrast, mode === "dark" ? 3 : 3.75);
-    }
-    const border = report.checks.find((pair) => pair.token === "border" && pair.background === "background");
-    assert.equal(border?.contrast, 4.5);
-    assert.ok(border && border.ratio >= 4.5 * CLOSE);
-
-    for (const token of ["userMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"]) {
-      const pair = report.checks.find((check) => check.token === token && check.background === "background");
-      assert.equal(pair?.contrast, 1.2);
-      assert.ok(pair && pair.ratio >= 1.2 * CLOSE);
-    }
-    // Tool titles and user text are very prominent through a 10:1 minimum, not a fixed color.
-    for (const [token, surface] of [["toolTitle", "toolPendingBg"], ["userMessageText", "userMessageBg"]]) {
-      assert.equal(report.selected[token].source, "contrast-derived");
-      assert.ok(contrast(theme.colors[token], theme.colors[surface]) >= 10 * CLOSE);
-    }
-    assert.equal(report.relaxation, undefined);
-    if (mode === "dark") {
-      assert.notEqual(theme.colors.accent, "#ffffff");
-      assert.notEqual(theme.colors.mdCode, "#ffffff");
-    }
+    test(`${name} ${mode}: every pair lands at or near its minimum`, () => {
+      for (const target of ["current", "extended"] as const) {
+        for (const pair of measure(contract, mode, target)) {
+          assert.ok(pair.actual >= pair.contrast * TOLERANCE,
+            `${target} ${pair.token} on ${pair.background}: ${pair.actual.toFixed(2)} < ${pair.contrast}`);
+        }
+      }
+    });
   }
+}
+
+test("higher minimums produce more prominent colors", () => {
+  const onCanvas = (token: string) => measure(wcag, "dark", "current")
+    .find((pair) => pair.token === token && pair.background === "background")!.actual;
+  const hierarchy = ["text", "muted", "dim"].map(onCanvas);
+  assert.deepEqual(hierarchy, [...hierarchy].sort((a, b) => b - a));
+  const thinking = ["thinkingOff", "thinkingMinimal", "thinkingLow", "thinkingMedium", "thinkingHigh", "thinkingXhigh", "thinkingMax"].map(onCanvas);
+  assert.deepEqual(thinking, [...thinking].sort((a, b) => a - b));
 });
 
-test("every token has a real minimum, and the contract validator rejects omitted relationships", () => {
-  assert.equal(validateContract(contract).noRequirement, 0);
-  const relaxed = structuredClone(contract);
-  relaxed.relationships.push({ kind: "nonText", token: "toolPendingBg", backgrounds: ["toolSuccessBg"], contrast: null, reason: "example" });
-  assert.equal(expandRelationships(relaxed).find((item) => item.token === "toolPendingBg" && item.background === "toolSuccessBg")?.contrast, null);
-
-  const incomplete = structuredClone(contract);
-  incomplete.relationships = incomplete.relationships.filter((rule) => rule.token !== "selectedBg");
-  assert.throws(() => validateContract(incomplete), /Token selectedBg has no relationships/);
-});
-
-const PROPOSED = ["toolArgument", "mdTableBorder"];
-
-test("current target omits proposed tokens and checks their rules on the fallback Pi renders", () => {
-  const pairs = pairsForTarget(contract, "current");
-  assert.ok(pairs.every((pair) => !PROPOSED.includes(pair.token)));
-  const tableBorder = pairs.find((pair) => pair.via === "mdTableBorder");
-  assert.equal(tableBorder?.token, "text");
-  assert.equal(tableBorder?.contrast, 3);
-
+test("dark themes are lighter than the background, light themes darker", () => {
   for (const mode of ["dark", "light"] as const) {
-    const { theme } = generateTheme(recipe, contract, mode);
-    assert.equal(Object.keys(theme.colors).length, 56);
-    assert.ok(PROPOSED.every((token) => !(token in theme.colors)));
-  }
-});
-
-test("extended target adds the optional tokens", () => {
-  for (const mode of ["dark", "light"] as const) {
-    const { theme, report } = generateTheme(recipe, contract, mode, {}, "extended");
-    assert.equal(theme.name, `generated-pi-extended-${mode}`);
-    assert.equal(Object.keys(theme.colors).length, 58);
-    assert.ok(nearMinimums(report.checks));
-    for (const surface of ["selectedBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"]) {
-      const dim = report.checks.find((pair) => pair.token === "dim" && pair.background === surface && pair.kind === "text");
-      assert.equal(dim?.contrast, mode === "dark" ? 3 : 3.75);
+    const background = luminance(recipe.terminalBackground[mode]);
+    for (const [token, hex] of Object.entries(generateTheme(recipe, wcag, mode, "extended").theme.colors)) {
+      assert.ok(mode === "dark" ? luminance(hex) > background : luminance(hex) < background, `${mode} ${token}`);
     }
-    assert.notEqual(theme.colors.toolArgument, theme.colors.accent);
-
-    // Minimums define a hierarchy, so each level must be distinct and ordered.
-    const bg = recipe.terminalBackground[mode];
-    const ratio = (token: string) => contrast(theme.colors[token], bg);
-    const ordered = (tokens: string[]) => tokens.every((token, i) => i === 0 || ratio(tokens[i - 1]) > ratio(token));
-    assert.ok(ordered(["text", "muted", "dim"]), "text > muted > dim");
-    assert.ok(ordered(["thinkingMax", "thinkingXhigh", "thinkingHigh", "thinkingMedium", "thinkingLow", "thinkingMinimal", "thinkingOff"]));
-    assert.ok(ratio("border") > ratio("borderMuted") && Math.abs(ratio("borderAccent") - ratio("border")) < 0.2);
-    assert.ok(ratio("scrollbarTrack") < 2 && ratio("scrollbarTrack") >= 1.7 * CLOSE);
-    assert.equal(theme.colors.mdHr, theme.colors.muted);
-  }
-  // Only the current-target Pi inventory is compared with a Pi checkout.
-  const piColors = Object.fromEntries(Object.keys(generateTheme(recipe, contract, "dark").theme.colors).map((key) => [key, 0]));
-  assert.doesNotThrow(() => validatePiInventory(contract, piColors));
-  assert.throws(() => validatePiInventory(contract, { ...piColors, toolArgument: 0 }), /already exist in Pi/);
-});
-
-test("proposed tokens and targets are validated", () => {
-  const missingFallback = structuredClone(contract);
-  missingFallback.tokens.toolArgument.proposed = { fallback: "nope" };
-  assert.throws(() => validateContract(missingFallback), /needs an existing foreground fallback/);
-
-  const badTarget = structuredClone(contract);
-  badTarget.relationships[0].targets = ["future" as never];
-  assert.throws(() => validateContract(badTarget), /Invalid targets/);
-
-  const duplicate = structuredClone(contract);
-  duplicate.relationships.push({ ...duplicate.relationships.find((rule) => rule.token === "toolArgument")! });
-  assert.throws(() => validateContract(duplicate), /Duplicate relationship/);
-});
-
-test("changing one contrast ratio derives a different lightness, without preferred steps", () => {
-  const relaxed = structuredClone(contract);
-  const rule = relaxed.relationships.find((item) => item.token === "userMessageBg" && item.backgrounds.includes("background"));
-  assert.ok(rule);
-  rule.contrast = null;
-
-  const original = generateTheme(recipe, contract, "dark").report.selected.userMessageBg;
-  const changed = generateTheme(recipe, relaxed, "dark").report.selected.userMessageBg;
-  assert.notEqual(changed.step, original.step);
-  assert.ok(contrast(changed.hex, recipe.terminalBackground.dark) < contrast(original.hex, recipe.terminalBackground.dark));
-});
-
-test("increasing a text ratio makes its derived foreground brighter in dark mode", () => {
-  const stronger = structuredClone(contract);
-  const textRule = stronger.relationships.find((rule) => rule.token === "text");
-  assert.ok(textRule);
-  textRule.contrast = 13;
-
-  const original = generateTheme(recipe, contract, "dark").report.selected.text;
-  const changed = generateTheme(recipe, stronger, "dark").report.selected.text;
-  assert.ok(changed.step !== null && original.step !== null && changed.step < original.step);
-});
-
-test("changing the anchor or hue affects colors", () => {
-  const changedRecipe = structuredClone(recipe);
-  changedRecipe.terminalBackground.dark = "#151515";
-  assert.notEqual(generateTheme(changedRecipe, contract, "dark").report.selected.toolSuccessBg.step,
-    generateTheme(recipe, contract, "dark").report.selected.toolSuccessBg.step);
-
-  const accentFamily = changedRecipe.roles.find((role) => role.tokens.includes("accent"))?.family;
-  assert.ok(accentFamily);
-  changedRecipe.families[accentFamily].hue = 180;
-  assert.notEqual(generateTheme(changedRecipe, contract, "dark").theme.colors.accent,
-    generateTheme(recipe, contract, "dark").theme.colors.accent);
-
-});
-
-test("mid-range backgrounds relax the contract as little as needed instead of failing", () => {
-  // Stage 1: #555555 allows at most 7.5:1, so text (9) cannot be met; the hierarchy compresses.
-  const compressed = generateTheme(recipe, contract, "dark", { background: "#555555" }, "extended");
-  const relaxation = compressed.report.relaxation;
-  assert.ok(relaxation && relaxation.value > 0 && relaxation.value <= 1, `stage 1: ${relaxation?.value}`);
-  assert.ok(relaxation.unmet > 0);
-  const onBg = (token: string) => contrast(compressed.theme.colors[token], "#555555");
-  assert.ok(onBg("text") >= onBg("muted") && onBg("muted") >= onBg("dim"), "hierarchy order survives");
-  assert.ok(compressed.report.checks.every((pair) => pair.contrast === null || pair.contrast >= 1),
-    "checks report against the original contract");
-
-  // Stage 2: #777777 cannot even reach 4.5:1, so readability gives way too.
-  const extreme = generateTheme(recipe, contract, "dark", { background: "#777777" }, "extended");
-  assert.ok(extreme.report.relaxation && extreme.report.relaxation.value > 1);
-});
-
-test("APCA contract is derived from the WCAG dark theme and reproduces it", () => {
-  const apca = deriveApcaContract(recipe, contract);
-  assert.equal(apca.algorithm, "APCA");
-  assert.equal(validateContract(apca).required, validateContract(contract).required);
-  // Whole-number Lc minimums; faint surfaces use the unclipped formula instead of WCAG.
-  for (const rule of apca.relationships) {
-    if (rule.contrast === null) continue;
-    if (rule.apcaLowClip === false) assert.ok(rule.contrast > 0 && rule.contrast < 15, `${rule.token} unclipped Lc ${rule.contrast}`);
-    else assert.ok(Number.isInteger(rule.contrast) && rule.contrast >= 15, `${rule.token} Lc ${rule.contrast}`);
-  }
-  // The committed file matches the derivation.
-  const committed = JSON.parse(readFileSync(resolve("contrast-requirements.apca.json"), "utf8")) as ContrastContract;
-  assert.deepEqual(committed.relationships, apca.relationships);
-
-  for (const target of ["current", "extended"] as const) {
-    const wcagDark = generateTheme(recipe, contract, "dark", {}, target);
-    const apcaDark = generateTheme(recipe, apca, "dark", {}, target);
-    assert.equal(apcaDark.theme.name, target === "current" ? "generated-pi-apca-dark" : "generated-pi-apca-extended-dark");
-    assert.ok(nearMinimums(apcaDark.report.checks));
-    // Rounding and the uncorrected gray formula may shift colors, but never much (OKLab distance < 0.04).
-    for (const [token, hex] of Object.entries(wcagDark.theme.colors)) {
-      assert.ok(deltaE(hex, apcaDark.theme.colors[token]) < 0.04, `${target} ${token}: ${hex} vs ${apcaDark.theme.colors[token]}`);
-    }
-    assert.ok(nearMinimums(generateTheme(recipe, apca, "light", {}, target).report.checks));
   }
 });
 
-test("APCA contrast is directional and reported as absolute Lc", () => {
-  const text = contrast("#ffffff", "#282c34", "APCA");
-  assert.ok(text > 90 && text < 110);
-  assert.notEqual(contrast("#282c34", "#ffffff", "APCA"), text);
-  assert.equal(contrast("#223d4a", "#282c34", "APCA"), 0, "APCA clips near-background pairs to 0");
+test("current omits proposed tokens and applies their rules to the fallback", () => {
+  const current = generateTheme(recipe, wcag, "dark", "current").theme;
+  const extended = generateTheme(recipe, wcag, "dark", "extended").theme;
+  for (const [token, fallback] of Object.entries(wcag.proposed)) {
+    assert.equal(current.colors[token], undefined);
+    assert.ok(extended.colors[token]);
+    assert.ok(contractPairs(wcag, "current", "dark").some((pair) => pair.token === fallback));
+  }
+  assert.equal(Object.keys(extended.colors).length, Object.keys(current.colors).length + Object.keys(wcag.proposed).length);
+  assert.ok(!emittedTokens(wcag, "extended").includes("background"));
+});
+
+test("theme names distinguish every variant", () => {
+  const names = [wcag, apca].flatMap((contract) => (["current", "extended"] as const).flatMap((target) =>
+    (["dark", "light"] as const).map((mode) => generateTheme(recipe, contract, mode, target).theme.name)));
+  assert.equal(new Set(names).size, 8);
+  assert.ok(names.includes("generated-pi-dark"));
+  assert.ok(names.includes("generated-pi-apca-extended-light"));
+});
+
+test("a custom terminal background moves the theme with it", () => {
+  const custom = generateTheme(recipe, wcag, "dark", "current", "#000000");
+  assert.equal(custom.relaxation, undefined);
+  assert.notEqual(custom.theme.colors.text, generateTheme(recipe, wcag, "dark", "current").theme.colors.text);
+  assert.ok(contrast(custom.theme.colors.text, "#000000") >= 11 * TOLERANCE);
+});
+
+test("a mid-gray background relaxes the contract instead of failing", () => {
+  const { theme, relaxation } = generateTheme(recipe, wcag, "dark", "current", "#777777");
+  assert.ok(relaxation !== undefined && relaxation > 0 && relaxation <= 2);
+  assert.ok(contrast(theme.colors.text, "#777777") > contrast(theme.colors.dim, "#777777"));
+});
+
+test("APCA dark minimums reproduce the WCAG dark theme", () => {
+  const wcagColors = generateTheme(recipe, wcag, "dark", "extended").theme.colors;
+  const apcaColors = generateTheme(recipe, apca, "dark", "extended").theme.colors;
+  // Same families, so only lightness differs: by rounding, and by the gray formula on saturated colors.
+  const lightness = (hex: string) => grayLightness(luminance(hex));
+  for (const token of Object.keys(wcagColors)) {
+    assert.ok(Math.abs(lightness(wcagColors[token]) - lightness(apcaColors[token])) < 0.04, `${token}: ${wcagColors[token]} vs ${apcaColors[token]}`);
+  }
+  // Faint surfaces measure below APCA's low clip, so they use the unclipped formula.
+  assert.equal(apca.relationships.find((rule) => rule.token === "userMessageBg")?.apcaLowClip, false);
+  assert.equal(apca.relationships.find((rule) => rule.token === "text")?.apcaLowClip, undefined);
+});
+
+test("contract validation rejects broken rules", () => {
+  assert.doesNotThrow(() => validateContract(wcag));
+  const broken = (edit: (contract: ContrastContract) => void) => {
+    const contract = clone(wcag);
+    edit(contract);
+    return () => validateContract(contract);
+  };
+  assert.throws(broken((c) => { c.relationships[0].contrast = 30; }), /Invalid contrast/);
+  assert.throws(broken((c) => { c.relationships[0].backgrounds = []; }), /Invalid backgrounds/);
+  assert.throws(broken((c) => { (c.relationships[0] as unknown as Record<string, unknown>).kind = "text"; }), /Unknown field/);
+  assert.throws(broken((c) => { c.relationships[0].apcaLowClip = false; }), /apcaLowClip/);
+  assert.throws(broken((c) => { c.relationships = c.relationships.filter((rule) => rule.token !== "selectedBg"); }), /without a contrast rule/);
+  assert.throws(broken((c) => { c.proposed.toolArgument = "missing"; }), /Proposed token/);
+});
+
+test("recipe validation requires a family for every token", () => {
+  const withoutRole = clone(recipe);
+  withoutRole.roles = withoutRole.roles.filter((role) => !role.tokens.includes("text"));
+  assert.throws(() => generateTheme(withoutRole, wcag, "dark", "current"), /without a family/);
+  const badFamily = clone(recipe);
+  badFamily.families.neutral.saturation.max = 2;
+  assert.throws(() => generateTheme(badFamily, wcag, "dark", "current"), /Invalid family/);
 });

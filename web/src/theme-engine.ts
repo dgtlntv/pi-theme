@@ -1,7 +1,7 @@
 // Runs the real generator (../../src) in the browser, and resolves Pi's built-in
 // themes for comparison.
-import { apcaContrast, contrast } from "../../src/color.ts";
-import { deriveApcaContract } from "../../src/apca-derivation.ts";
+import { apcaContrast } from "../../src/color.ts";
+import { deriveApcaContract } from "../../src/apca.ts";
 import { generateTheme } from "../../src/solve.ts";
 import type { Algorithm, ContrastContract, GenerationResult, Mode, ThemeRecipe } from "../../src/types.ts";
 import wcagContract from "../../contrast-requirements.json";
@@ -10,7 +10,7 @@ import piDark from "./pi-themes/dark.json";
 import piLight from "./pi-themes/light.json";
 
 export const BASE_RECIPE = baseRecipe as ThemeRecipe;
-export const WCAG_CONTRACT = wcagContract as unknown as ContrastContract;
+const WCAG_CONTRACT = wcagContract as ContrastContract;
 export const DEFAULT_BACKGROUND: Record<Mode, string> = BASE_RECIPE.terminalBackground;
 
 /** Colors a view renders with: Pi tokens plus the virtual terminal colors. */
@@ -94,7 +94,7 @@ function contractFor(algorithm: Algorithm, recipe: ThemeRecipe): ContrastContrac
 export function runEngine(background: string, algorithm: Algorithm, recipe: ThemeRecipe): EngineOutput | { error: string } {
   try {
     const mode = modeForBackground(background);
-    const result = generateTheme(recipe, contractFor(algorithm, recipe), mode, { background }, "extended");
+    const result = generateTheme(recipe, contractFor(algorithm, recipe), mode, "extended", background);
     const proposed: ThemeOutput = {
       label: "Proposed",
       // The proposal colors everything with tokens; uncolored text would use `text`.
@@ -111,4 +111,3 @@ export function runEngine(background: string, algorithm: Algorithm, recipe: Them
   }
 }
 
-export { contrast };
