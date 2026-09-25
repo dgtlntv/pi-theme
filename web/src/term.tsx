@@ -1,23 +1,20 @@
 /**
  * Terminal-like rendering primitives. Views name tokens, not colors, so the same tree
- * renders against any palette (Pi's theme or the proposal, for the wiper).
+ * renders against any generated theme.
  *
  * @module
  */
 import { createContext, useContext, type CSSProperties, type ReactNode } from "react";
-import type { Target } from "../../src/types.ts";
 import type { Palette } from "./theme-engine.ts";
 
 /** What terminal primitives render against. */
 export interface TermContextValue {
   /** Hex colors by token. */
   palette: Palette;
-  /** Whose token usage to render: today's Pi or the proposal. */
-  target: Target;
 }
 
-/** Provides the palette and target to every primitive below it. */
-export const TermContext = createContext<TermContextValue>({ palette: {}, target: "current" });
+/** Provides the palette to every primitive below it. */
+export const TermContext = createContext<TermContextValue>({ palette: {} });
 
 /**
  * Read the current palette.
@@ -25,30 +22,6 @@ export const TermContext = createContext<TermContextValue>({ palette: {}, target
  * @returns Hex colors by token.
  */
 export const usePalette = (): Palette => useContext(TermContext).palette;
-
-/**
- * Read the current target.
- *
- * @returns Whether views use today's or the proposed token usage.
- */
-export const useTarget = (): Target => useContext(TermContext).target;
-
-/**
- * The token Pi uses at a spot, per target. Most spots use one token; remapped and
- * proposed spots differ between current Pi and the extended branch.
- */
-export type TokenRef = string | { current: string; extended: string };
-
-/**
- * Resolve a token reference for the current target.
- *
- * @param ref - A token, or one token per target.
- * @returns The token name.
- */
-export function useToken(ref: TokenRef): string {
-  const target = useTarget();
-  return typeof ref === "string" ? ref : ref[target];
-}
 
 /** Text styling, like Pi's theme helpers. */
 interface StyleProps {
@@ -63,7 +36,7 @@ interface StyleProps {
   /** Swap foreground and background, like ANSI reverse video. */
   inverse?: boolean;
   /** Background token; defaults to the surface below. */
-  bg?: TokenRef;
+  bg?: string;
   /** The text. */
   children?: ReactNode;
   /** Tooltip; defaults to the foreground token. */
@@ -76,10 +49,10 @@ interface StyleProps {
  * @param props - The foreground token `t` (`terminalForeground` is Pi's "" terminal default), an optional background token, and text styles.
  * @returns The styled text.
  */
-export function C({ t = "terminalForeground", bold, italic, underline, strike, inverse, bg, children, title }: StyleProps & { t?: TokenRef }) {
+export function C({ t = "terminalForeground", bold, italic, underline, strike, inverse, bg, children, title }: StyleProps & { t?: string }) {
   const palette = usePalette();
-  const fgToken = useToken(t);
-  const bgToken = useToken(bg ?? "background");
+  const fgToken = t;
+  const bgToken = bg ?? "background";
   let color = palette[fgToken];
   let background = bg ? palette[bgToken] : undefined;
   if (inverse) {
@@ -104,9 +77,9 @@ export function C({ t = "terminalForeground", bold, italic, underline, strike, i
  * @param props - The background token, padding in cells, top margin in rows, and content.
  * @returns The panel.
  */
-export function Panel({ bg, padX = 1, padY = 1, children, marginTop = 1 }: { bg: TokenRef; padX?: number; padY?: number; children: ReactNode; marginTop?: number }) {
+export function Panel({ bg, padX = 1, padY = 1, children, marginTop = 1 }: { bg: string; padX?: number; padY?: number; children: ReactNode; marginTop?: number }) {
   const palette = usePalette();
-  const token = useToken(bg);
+  const token = bg;
   const style = {
     background: palette[token],
     padding: `calc(var(--lh) * ${padY}) ${padX}ch`,
@@ -122,7 +95,7 @@ export function Panel({ bg, padX = 1, padY = 1, children, marginTop = 1 }: { bg:
  * @param props - The line token and an optional label.
  * @returns The rule.
  */
-export function Rule({ t = "border", label }: { t?: TokenRef; label?: string }) {
+export function Rule({ t = "border", label }: { t?: string; label?: string }) {
   return (
     <div className="rule">
       <C t={t}>{label ? `── ${label} ` : ""}{"─".repeat(400)}</C>
@@ -138,7 +111,7 @@ export function Rule({ t = "border", label }: { t?: TokenRef; label?: string }) 
 export const Gap = () => <div className="gap" />;
 
 /**
- * A key hint, like Pi's `keyHint()`. Current Pi: dim key, muted description; the proposal swaps them.
+ * A key hint, like Pi's `keyHint()`: muted key, dim description.
  *
  * @param props - The key `k` and description `d`.
  * @returns The hint.
@@ -146,8 +119,8 @@ export const Gap = () => <div className="gap" />;
 export function KeyHint({ k, d }: { k: string; d: string }) {
   return (
     <>
-      <C t={{ current: "dim", extended: "muted" }}>{k}</C>
-      <C t={{ current: "muted", extended: "dim" }}> {d}</C>
+      <C t="muted">{k}</C>
+      <C t="dim"> {d}</C>
     </>
   );
 }

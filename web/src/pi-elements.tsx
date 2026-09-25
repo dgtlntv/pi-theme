@@ -4,7 +4,7 @@
  * @module
  */
 import type { ReactNode } from "react";
-import { C, Gap, KeyHint, Line, Panel, Rule, type TokenRef, useTarget } from "./term.tsx";
+import { C, Gap, KeyHint, Line, Panel, Rule } from "./term.tsx";
 
 /** Pi's thinking levels, in order. */
 export const THINKING_LEVELS = ["off", "minimal", "low", "medium", "high", "xhigh", "max"] as const;
@@ -19,21 +19,6 @@ export type ThinkingLevel = (typeof THINKING_LEVELS)[number];
  * @returns The token, like `thinkingHigh`.
  */
 export const thinkingToken = (level: ThinkingLevel) => `thinking${level[0].toUpperCase()}${level.slice(1)}`;
-
-/** Footer text. */
-const FOOTER: TokenRef = "dim";
-
-/** Tool arguments: `toolArgument` in the proposal, `accent` today. */
-const TOOL_ARG: TokenRef = { current: "accent", extended: "toolArgument" };
-
-/** Assistant text: `text` in the proposal, the terminal default today. */
-const ASSISTANT: TokenRef = { current: "terminalForeground", extended: "text" };
-
-/** Markdown table borders: `mdTableBorder` in the proposal, the terminal default today. */
-const TABLE_BORDER: TokenRef = { current: "terminalForeground", extended: "mdTableBorder" };
-
-/** List and row text: `text` in the proposal, the terminal default today. */
-const LIST_TEXT: TokenRef = { current: "terminalForeground", extended: "text" };
 
 // ---------------------------------------------------------------- header, status
 
@@ -76,39 +61,19 @@ const COMPACT_HINTS = (
 );
 
 /**
- * The startup header. Current Pi: "pi" in accent; the proposal: the logo with the version.
+ * The startup header: the logo with the version.
  *
  * @param props - Whether to show the full key-hint list.
  * @returns The header.
  */
 export function Header({ expanded }: { expanded?: boolean }) {
-  const proposal = useTarget() === "extended";
-  const version = proposal
-    ? <C t="dim">v0.87.1</C>
-    : <><C t="accent" bold>pi</C><C t="dim"> v0.87.1</C></>;
   return (
     <>
-      {proposal ? (
-        <>
-          <Line><PiLogoRow row={0} /> {version}</Line>
-          <Line><PiLogoRow row={1} />{expanded ? null : <> {COMPACT_HINTS}</>}</Line>
-        </>
-      ) : (
-        <>
-          <Line>{version}</Line>
-          {/* The logo takes a second row; pad here so later content lines up in the wiper. */}
-          {expanded && <Line />}
-        </>
-      )}
-      {expanded ? (
-        <>
-          {[["escape", "to interrupt"], ["ctrl+c", "to clear"], ["ctrl+c twice", "to exit"], ["ctrl+d", "to exit (empty)"], ["shift+tab", "to cycle thinking level"], ["ctrl+l", "to select model"], ["ctrl+o", "to expand tools"], ["/", "for commands"], ["!", "to run bash"]].map(([k, d]) => (
-            <Line key={k}><KeyHint k={k} d={d} /></Line>
-          ))}
-        </>
-      ) : proposal ? null : (
-        <Line>{COMPACT_HINTS}</Line>
-      )}
+      <Line><PiLogoRow row={0} /> <C t="dim">v0.87.1</C></Line>
+      <Line><PiLogoRow row={1} />{expanded ? null : <> {COMPACT_HINTS}</>}</Line>
+      {expanded && [["escape", "to interrupt"], ["ctrl+c", "to clear"], ["ctrl+c twice", "to exit"], ["ctrl+d", "to exit (empty)"], ["shift+tab", "to cycle thinking level"], ["ctrl+l", "to select model"], ["ctrl+o", "to expand tools"], ["/", "for commands"], ["!", "to run bash"]].map(([k, d]) => (
+        <Line key={k}><KeyHint k={k} d={d} /></Line>
+      ))}
       <Line><C t="dim">Press ctrl+o to show full startup help and loaded resources.</C></Line>
       <Line />
       <Line><C t="dim">Pi can explain its own features and look up its docs. Ask it how to use or extend Pi.</C></Line>
@@ -189,7 +154,7 @@ export function UserMessage({ children }: { children: ReactNode }) {
  * @returns The text.
  */
 export function AssistantText({ children }: { children: ReactNode }) {
-  return <div className="assistant"><C t={ASSISTANT}>{children}</C></div>;
+  return <div className="assistant"><C t="text">{children}</C></div>;
 }
 
 /**
@@ -256,7 +221,7 @@ export function Md() {
       <Line />
       <Line><C t="mdHeading" bold>## Resolution order</C></Line>
       <Line />
-      <Line>Pi reads a theme with <C t="mdCode">loadTheme()</C>, see the <C t="mdLink" underline>theme docs</C> <C t="mdLinkUrl">(docs/themes.md)</C>. Some text is <C t={ASSISTANT} bold>bold</C>, <C t={ASSISTANT} italic>italic</C>, or <C t={ASSISTANT} strike>struck</C>.</Line>
+      <Line>Pi reads a theme with <C t="mdCode">loadTheme()</C>, see the <C t="mdLink" underline>theme docs</C> <C t="mdLinkUrl">(docs/themes.md)</C>. Some text is <C t="text" bold>bold</C>, <C t="text" italic>italic</C>, or <C t="text" strike>struck</C>.</Line>
       <Line />
       <Line><C t="mdListBullet">- </C>Built-in themes load first</Line>
       <Line><C t="mdListBullet">- </C>Custom themes can override them</Line>
@@ -315,11 +280,11 @@ export function Code({ indent = 2 }: { indent?: number }) {
  * @returns The table.
  */
 export function MdTable() {
-  const b = (s: string) => <C t={TABLE_BORDER}>{s}</C>;
+  const b = (s: string) => <C t="mdTableBorder">{s}</C>;
   return (
     <>
       <Line>{b("┌────────────┬────────┐")}</Line>
-      <Line>{b("│ ")}<C t={ASSISTANT} bold>Token     </C>{b(" │ ")}<C t={ASSISTANT} bold>Ratio </C>{b(" │")}</Line>
+      <Line>{b("│ ")}<C t="text" bold>Token     </C>{b(" │ ")}<C t="text" bold>Ratio </C>{b(" │")}</Line>
       <Line>{b("├────────────┼────────┤")}</Line>
       <Line>{b("│ ")}text      {b(" │ ")}9.1   {b(" │")}</Line>
       <Line>{b("├────────────┼────────┤")}</Line>
@@ -367,7 +332,7 @@ const toolBg = (state: ToolState) => (state === "pending" ? "toolPendingBg" : st
 export function ReadTool({ state = "success", expanded }: { state?: ToolState; expanded?: boolean }) {
   return (
     <Panel bg={toolBg(state)}>
-      <Line><C t="toolTitle" bold>read</C> <C t={TOOL_ARG} underline>src/theme/theme.ts</C><C t="warning">:1-40</C></Line>
+      <Line><C t="toolTitle" bold>read</C> <C t="toolArgument" underline>src/theme/theme.ts</C><C t="warning">:1-40</C></Line>
       {expanded && (<><Line /><Code indent={0} /></>)}
       {!expanded && state === "error" && (<><Line /><Line><C t="error">ENOENT: no such file or directory</C></Line></>)}
     </Panel>
@@ -382,7 +347,7 @@ export function ReadTool({ state = "success", expanded }: { state?: ToolState; e
 export function CompactReadTool() {
   return (
     <Panel bg="toolSuccessBg">
-      <Line><C t="toolTitle" bold>read docs</C> <C t={TOOL_ARG}>docs/themes.md</C><C t={{ current: "dim", extended: "muted" }}> (ctrl+o to expand)</C></Line>
+      <Line><C t="toolTitle" bold>read docs</C> <C t="toolArgument">docs/themes.md</C><C t="muted"> (ctrl+o to expand)</C></Line>
     </Panel>
   );
 }
@@ -395,7 +360,7 @@ export function CompactReadTool() {
 export function SkillReadTool() {
   return (
     <Panel bg="toolSuccessBg">
-      <Line><C t="customMessageLabel" bold>[skill] </C><C t="customMessageText">figma-plugin</C><C t={{ current: "dim", extended: "muted" }}> (ctrl+o to expand)</C></Line>
+      <Line><C t="customMessageLabel" bold>[skill] </C><C t="customMessageText">figma-plugin</C><C t="muted"> (ctrl+o to expand)</C></Line>
     </Panel>
   );
 }
@@ -431,7 +396,7 @@ export function BashTool({ state = "success", expanded }: { state?: ToolState; e
 export function GrepTool({ state = "success" }: { state?: ToolState }) {
   return (
     <Panel bg={toolBg(state)}>
-      <Line><C t="toolTitle" bold>grep</C> <C t={TOOL_ARG}>/loadTheme/</C><C t="toolOutput"> in src (*.ts)</C></Line>
+      <Line><C t="toolTitle" bold>grep</C> <C t="toolArgument">/loadTheme/</C><C t="toolOutput"> in src (*.ts)</C></Line>
       <Line />
       {state === "error" ? (
         <Line><C t="error">Error: path not found: src</C></Line>
@@ -454,7 +419,7 @@ export function GrepTool({ state = "success" }: { state?: ToolState }) {
 export function FindTool() {
   return (
     <Panel bg="toolSuccessBg">
-      <Line><C t="toolTitle" bold>find</C> <C t={TOOL_ARG}>*.json</C><C t="toolOutput"> in themes (limit 20)</C></Line>
+      <Line><C t="toolTitle" bold>find</C> <C t="toolArgument">*.json</C><C t="toolOutput"> in themes (limit 20)</C></Line>
       <Line />
       <Line><C t="toolOutput">themes/dark.json</C></Line>
       <Line><C t="toolOutput">themes/light.json</C></Line>
@@ -470,7 +435,7 @@ export function FindTool() {
 export function WriteTool() {
   return (
     <Panel bg="toolSuccessBg">
-      <Line><C t="toolTitle" bold>write</C> <C t={TOOL_ARG} underline>docs/theme-tokens.md</C></Line>
+      <Line><C t="toolTitle" bold>write</C> <C t="toolArgument" underline>docs/theme-tokens.md</C></Line>
       <Line />
       <Line><C t="toolOutput"># Theme tokens</C></Line>
       <Line><C t="toolOutput">Proposed optional tokens and their fallbacks.</C></Line>
@@ -488,7 +453,7 @@ export function WriteTool() {
 export function EditTool({ state = "success" }: { state?: ToolState }) {
   return (
     <Panel bg={toolBg(state)}>
-      <Line><C t="toolTitle" bold>edit</C> <C t={TOOL_ARG} underline>src/theme/theme.ts</C></Line>
+      <Line><C t="toolTitle" bold>edit</C> <C t="toolArgument" underline>src/theme/theme.ts</C></Line>
       <Line />
       {state === "error" ? (
         <Line><C t="error">Could not find the exact text to replace in src/theme/theme.ts</C></Line>
@@ -513,7 +478,7 @@ export function EditTool({ state = "success" }: { state?: ToolState }) {
 export function LsTool() {
   return (
     <Panel bg="toolSuccessBg">
-      <Line><C t="toolTitle" bold>ls</C> <C t={TOOL_ARG} underline>src/theme</C></Line>
+      <Line><C t="toolTitle" bold>ls</C> <C t="toolArgument" underline>src/theme</C></Line>
       <Line />
       <Line><C t="toolOutput">dark.json  light.json  theme.ts  theme-json.ts  theme-schema.json</C></Line>
     </Panel>
@@ -549,8 +514,8 @@ export function DirectBash({ excluded, error }: { excluded?: boolean; error?: bo
       <Rule t={color} />
       <Line indent={1}><C t={color} bold>$ {excluded ? "git status" : "ls themes"}</C></Line>
       <Line />
-      <Line indent={1}><C t={{ current: "muted", extended: "toolOutput" }}>dark.json</C></Line>
-      <Line indent={1}><C t={{ current: "muted", extended: "toolOutput" }}>light.json</C></Line>
+      <Line indent={1}><C t="toolOutput">dark.json</C></Line>
+      <Line indent={1}><C t="toolOutput">light.json</C></Line>
       {error && (<><Line /><Line indent={1}><C t="error">(exit 1)</C></Line></>)}
       <Rule t={color} />
     </>
@@ -590,13 +555,13 @@ export function Footer({ context = 18.4, model = "claude-opus-4-8", thinking = "
   const contextText = `${context.toFixed(1)}%/272k (auto)`;
   return (
     <div className="footer">
-      <Line><C t={FOOTER}>~/Documents/GitHub/pi-theme (main)</C></Line>
+      <Line><C t="dim">~/Documents/GitHub/pi-theme (main)</C></Line>
       <div className="line footer-stats">
         <span>
-          <C t={FOOTER}>↑636k ↓100k R27M CH99.4% $7.690 (sub) </C>
-          {contextColor ? <C t={contextColor}>{contextText}</C> : <C t={FOOTER}>{contextText}</C>}
+          <C t="dim">↑636k ↓100k R27M CH99.4% $7.690 (sub) </C>
+          {contextColor ? <C t={contextColor}>{contextText}</C> : <C t="dim">{contextText}</C>}
         </span>
-        <C t={FOOTER}>{`${model} • ${thinking}`}</C>
+        <C t="dim">{`${model} • ${thinking}`}</C>
       </div>
     </div>
   );
@@ -629,7 +594,7 @@ export function SelectList({ items, selected, max = 8 }: { items: SelectItem[]; 
         return (
           <Line key={item.label}>
             {isSelected ? <C t="accent">→ </C> : "  "}
-            {isSelected ? <C t="accent">{item.label.padEnd(width)}</C> : <C t={LIST_TEXT}>{item.label.padEnd(width)}</C>}
+            {isSelected ? <C t="accent">{item.label.padEnd(width)}</C> : <C t="text">{item.label.padEnd(width)}</C>}
             {item.description && <C t="muted">{item.description}</C>}
           </Line>
         );
@@ -665,7 +630,7 @@ export function SettingsList({ items, selected }: { items: SettingItem[]; select
         return (
           <Line key={item.label}>
             {isSelected ? <C t="accent">→ </C> : "  "}
-            {isSelected ? <C t="accent">{item.label.padEnd(width)}</C> : <C t={LIST_TEXT}>{item.label.padEnd(width)}</C>}
+            {isSelected ? <C t="accent">{item.label.padEnd(width)}</C> : <C t="text">{item.label.padEnd(width)}</C>}
             {"  "}
             <C t={isSelected ? "accent" : "muted"}>{item.value}</C>
           </Line>
@@ -728,7 +693,7 @@ export const TREE_ROWS: TreeRow[] = [
 ];
 
 /**
- * One session tree row (tree-selector.ts). Compaction uses customMessageLabel in the proposal.
+ * One session tree row (tree-selector.ts).
  *
  * @param props - The row, and whether it is selected.
  * @returns The row.
@@ -736,12 +701,12 @@ export const TREE_ROWS: TreeRow[] = [
 export function TreeRowView({ row, selected }: { row: TreeRow; selected: boolean }) {
   const content = (() => {
     switch (row.kind) {
-      case "user": return <><C t="accent">user: </C><C t={LIST_TEXT}>{row.text}</C></>;
-      case "assistant": return <><C t="success">assistant: </C><C t={LIST_TEXT}>{row.text}</C></>;
+      case "user": return <><C t="accent">user: </C><C t="text">{row.text}</C></>;
+      case "assistant": return <><C t="success">assistant: </C><C t="text">{row.text}</C></>;
       case "tool": return <C t="muted">[{row.text}]</C>;
       case "bash": return <C t="dim">[bash]: {row.text}</C>;
-      case "compaction": return <C t={{ current: "borderAccent", extended: "customMessageLabel" }}>[compaction: {row.text}k tokens]</C>;
-      case "custom": return <><C t="customMessageLabel">[branch]: </C><C t={LIST_TEXT}>{row.text}</C></>;
+      case "compaction": return <C t="customMessageLabel">[compaction: {row.text}k tokens]</C>;
+      case "custom": return <><C t="customMessageLabel">[branch]: </C><C t="text">{row.text}</C></>;
       case "model": return <C t="dim">[model: {row.text}]</C>;
       case "thinking": return <C t="dim">[thinking: {row.text}]</C>;
       case "label": return <C t="dim">[label: {row.text}]</C>;
@@ -807,7 +772,7 @@ export function SessionSelector({ selected }: { selected: number }) {
       <Line />
       {SESSIONS.map((session, i) => {
         const isSelected = i === selected;
-        const color: TokenRef = session.current ? "accent" : session.named ? "warning" : LIST_TEXT;
+        const color: string = session.current ? "accent" : session.named ? "warning" : "text";
         const row = (
           <div className="line footer-stats">
             <span>{isSelected ? <C t="accent">› </C> : "  "}<C t={color} bold={isSelected}>{session.name}</C></span>
@@ -849,7 +814,7 @@ export function ModelSelector({ selected }: { selected: number }) {
           <Line key={model.id}>
             {isSelected ? <C t="accent">→ </C> : "  "}
             {model.current ? <C t="accent">✓ </C> : "  "}
-            {isSelected ? <C t="accent">{model.id}</C> : <C t={LIST_TEXT}>{model.id}</C>}
+            {isSelected ? <C t="accent">{model.id}</C> : <C t="text">{model.id}</C>}
             {" "}<C t="muted">[{model.provider}]</C>
             {model.isDefault && <C t="muted"> · default</C>}
           </Line>
@@ -872,14 +837,13 @@ export function ModelSelector({ selected }: { selected: number }) {
  * @returns The search box.
  */
 export function SearchBox({ query, index, count }: { query: string; index: number; count: number }) {
-  const secondary: TokenRef = { current: "terminalForeground", extended: "muted" };
   const result = !query ? "" : count === 0 ? "No matches" : `${index + 1}/${count}`;
   return (
     <div className="search">
       <Line>┌{"─".repeat(46)}┐</Line>
       <div className="line footer-stats">
-        <span>│ {query ? <C t="terminalForeground">{query}</C> : <C t={secondary} title="Current Pi: raw faint text; extended: muted"><span className="faint-current">Find in transcript</span></C>}</span>
-        <span>{result && <C t={secondary}><span className="faint-current"> {result} </span></C>}│</span>
+        <span>│ {query ? <C t="terminalForeground">{query}</C> : <C t="muted">Find in transcript</C>}</span>
+        <span>{result && <C t="muted"> {result} </C>}│</span>
       </div>
       <Line>└{"─".repeat(22)} ↑ Shift+Enter · ↓ Enter ─┘</Line>
     </div>

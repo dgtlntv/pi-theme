@@ -1,6 +1,5 @@
 /**
- * State and keyboard handling for the interactive session, kept outside the view so
- * both halves of the wiper render the same state.
+ * State and keyboard handling for the interactive session, kept outside the view.
  *
  * @module
  */

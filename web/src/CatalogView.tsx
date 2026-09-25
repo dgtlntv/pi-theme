@@ -47,7 +47,7 @@ export function CatalogView() {
   return (
     <TermScroll>
     <div className="catalog">
-      <Section title="Startup header and loaded resources" note="The proposal shows the logo with the version.">
+      <Section title="Startup header and loaded resources">
         <Header />
         <Line />
         <Header expanded />
@@ -74,7 +74,7 @@ export function CatalogView() {
         <Mermaid />
       </Section>
 
-      <Section title="Tools" note="Pending, success, and error panels. Paths and patterns use toolArgument in the proposal.">
+      <Section title="Tools" note="Pending, success, and error panels. Paths and patterns use toolArgument.">
         <ReadTool state="pending" />
         <ReadTool state="success" expanded />
         <ReadTool state="error" />
@@ -138,7 +138,7 @@ export function CatalogView() {
         <SettingsList items={SETTINGS} selected={0} />
       </Section>
 
-      <Section title="Session tree" note="Selected row uses selectedBg; the proposal remaps the compaction label.">
+      <Section title="Session tree" note="Selected row uses selectedBg; the compaction label uses customMessageLabel.">
         <SessionTree selected={6} />
       </Section>
 

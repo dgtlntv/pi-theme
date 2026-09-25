@@ -1,26 +1,23 @@
 /**
- * Runs the real generator (../../src) in the browser, and resolves Pi's built-in
- * themes for comparison.
+ * Runs the real generator (../../src) in the browser.
  *
  * @module
  */
 import { perceptualContrast } from "../../src/color.ts";
 import { generateTheme } from "../../src/solve.ts";
-import type { ContrastContract, GenerationResult, Mode, ThemeRecipe } from "../../src/types.ts";
+import type { ContrastContract, Mode, ThemeRecipe } from "../../src/types.ts";
 import contract from "../../contrast-requirements.json";
-import baseRecipe from "../../theme-recipe.json";
+import recipe from "../../theme-recipe.json";
 import ghosttyThemes from "./ghostty-themes.json";
-import piDark from "./pi-themes/dark.json";
-import piLight from "./pi-themes/light.json";
 
 /** The recipe from `theme-recipe.json`. */
-export const BASE_RECIPE = baseRecipe as ThemeRecipe;
+const RECIPE = recipe as ThemeRecipe;
 
 /** The contract from `contrast-requirements.json`. */
 const CONTRACT = contract as ContrastContract;
 
 /** The recipe's terminal background for each mode. */
-export const DEFAULT_BACKGROUND: Record<Mode, string> = BASE_RECIPE.terminalBackground;
+export const DEFAULT_BACKGROUND: Record<Mode, string> = RECIPE.terminalBackground;
 
 /** A terminal color theme. */
 export interface TerminalTheme {
@@ -38,33 +35,20 @@ export interface TerminalTheme {
 export const TERMINAL_THEMES = ghosttyThemes as TerminalTheme[];
 
 /**
- * Where the proposal takes hue and saturation from: the recipe's color families (Pi's
- * `dark`/`light`), or the terminal's ANSI palette (Pi's `system`).
+ * Which of Pi's generated themes to preview: `system` takes hue, saturation, and text color
+ * from a terminal theme; `lightDark` is Pi's `dark`/`light`, from the recipe.
  */
-export type HueSource = "recipe" | "palette";
+export type PiTheme = "system" | "lightDark";
 
 /** Colors a view renders with: Pi tokens plus the terminal colors. */
 export type Palette = Record<string, string>;
 
-/** One theme, ready to render. */
-export interface ThemeOutput {
-  /** Shown in the wiper and legends. */
-  label: string;
-  /** Hex colors by token. */
+/** A generated theme, ready to render. */
+export interface Preview {
+  /** Hex colors by token, plus `background` and `terminalForeground`. */
   palette: Palette;
-  /** Present for generated themes only. */
-  result?: GenerationResult;
-}
-
-/** `pi`: Pi's built-in theme with today's token usage. `proposed`: our theme with the new tokens. */
-export type Variant = "pi" | "proposed";
-
-/** Both themes for a background. */
-export interface EngineOutput {
-  /** The mode picked for the background. */
-  mode: Mode;
-  /** Pi's built-in theme and the proposal. */
-  themes: Record<Variant, ThemeOutput>;
+  /** How far minimums were relaxed, when the background cannot meet them. */
+  relaxation?: number;
 }
 
 /**
@@ -74,90 +58,38 @@ export interface EngineOutput {
  * @param background - The terminal background, `#rrggbb`.
  * @returns The theme mode.
  */
-export function modeForBackground(background: string): Mode {
+function modeForBackground(background: string): Mode {
   const white = Math.abs(perceptualContrast("#ffffff", background));
   const black = Math.abs(perceptualContrast("#000000", background));
   return white >= black ? "dark" : "light";
 }
 
-/** A Pi theme file: colors, optionally referencing variables. */
-interface PiThemeJson {
-  /** Named colors that `colors` can reference. */
-  vars?: Record<string, string | number>;
-  /** Token colors: hex, a variable name, "" (terminal default), or a 256-color index. */
-  colors: Record<string, string | number>;
-}
-
 /**
- * Resolve a Pi theme like Pi's theme.ts: variable references, then optional-token
- * fallbacks. "" (terminal default) becomes the terminal foreground or background.
+ * Generate one of Pi's themes.
  *
- * @param json - The Pi theme file.
- * @param background - The terminal background, `#rrggbb`.
- * @param terminalForeground - The terminal foreground, `#rrggbb`.
- * @returns The palette.
- * @throws If a variable is unresolvable or a color is a 256-color index.
+ * @param theme - Which theme.
+ * @param terminal - The terminal theme, for `system`.
+ * @param background - The terminal background, for `lightDark`.
+ * @returns The preview, or the error message if generation fails.
  */
-function resolvePiTheme(json: PiThemeJson, background: string, terminalForeground: string): Palette {
-  const resolve = (value: string | number, seen = new Set<string>()): string => {
-    if (typeof value === "number") throw new Error("256-color indices are not supported in the preview");
-    if (value === "" || value.startsWith("#")) return value;
-    if (seen.has(value) || json.vars?.[value] === undefined) throw new Error(`Unresolvable theme var ${value}`);
-    seen.add(value);
-    return resolve(json.vars[value], seen);
-  };
-  const colors: Palette = Object.fromEntries(Object.entries(json.colors).map(([key, value]) => [key, resolve(value)]));
-  colors.scrollbarTrack ||= colors.muted;
-  colors.scrollbarThumb ||= colors.text;
-  colors.thinkingMax ||= colors.thinkingXhigh;
-  colors.searchMatchBg ||= colors.selectedBg;
-  colors.searchMatchText ||= colors.text;
-  for (const [key, value] of Object.entries(colors)) {
-    if (value === "") colors[key] = key.endsWith("Bg") ? background : terminalForeground;
-  }
-  return { ...colors, background, terminalForeground };
-}
-
-/**
- * Generate the proposal for a terminal and resolve Pi's matching built-in theme.
- *
- * @param terminal - The terminal's background, foreground, and ANSI palette.
- * @param recipe - The color recipe, possibly edited in the app.
- * @param hues - Where the proposal takes hue and saturation from.
- * @returns Both themes, or the error message if generation fails.
- */
-export function runEngine(
-  terminal: TerminalTheme,
-  recipe: ThemeRecipe,
-  hues: HueSource,
-): EngineOutput | { error: string } {
+export function generatePreview(theme: PiTheme, terminal: TerminalTheme, background: string): Preview | { error: string } {
   try {
-    const { background } = terminal;
-    const mode = modeForBackground(background);
-    const system = hues === "palette";
+    const system = theme === "system";
+    const canvas = system ? terminal.background : background;
     const result = generateTheme(
-      recipe,
+      RECIPE,
       CONTRACT,
       "perceptual",
-      mode,
+      modeForBackground(canvas),
       "extended",
-      background,
+      canvas,
       system ? terminal.palette : undefined,
       system ? terminal.foreground : undefined,
     );
-    const proposed: ThemeOutput = {
-      label: hues === "palette" ? "Proposed system" : `Proposed ${mode}`,
-      // The proposal colors everything with tokens; uncolored text would use `text`.
-      palette: { ...result.theme.colors, background, terminalForeground: result.theme.colors.text },
-      result,
-    };
-    const pi: ThemeOutput = {
-      label: `Pi ${mode}`,
-      palette: resolvePiTheme((mode === "dark" ? piDark : piLight) as PiThemeJson, background, terminal.foreground),
-    };
-    return { mode, themes: { pi, proposed } };
+    const { colors } = result.theme;
+    // Text Pi leaves in the terminal default would use `text`.
+    return { palette: { ...colors, background: canvas, terminalForeground: colors.text }, relaxation: result.relaxation };
   } catch (error) {
     return { error: error instanceof Error ? error.message : String(error) };
   }
 }
-
