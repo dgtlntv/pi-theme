@@ -53,11 +53,11 @@
     "scrollbarTrack": "#494f53",
     "scrollbarThumb": "#969fa4",
     "thinkingOff": "#6c767b",
-    "thinkingMinimal": "#6b8390",
-    "thinkingLow": "#5c91ad",
-    "thinkingMedium": "#7293d4",
-    "thinkingHigh": "#a38be7",
-    "thinkingXhigh": "#e47cca",
-    "thinkingMax": "#fe8789"
+    "thinkingMinimal": "#677f8c",
+    "thinkingLow": "#5489a4",
+    "thinkingMedium": "#6286cd",
+    "thinkingHigh": "#9675e4",
+    "thinkingXhigh": "#df53c0",
+    "thinkingMax": "#fe5562"
   }
 }
