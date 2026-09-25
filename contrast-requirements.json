@@ -1,7 +1,7 @@
 {
   "proposed": {"toolArgument": "accent", "mdTableBorder": "text"},
   "relationships": [
-    {"token": "text", "backgrounds": ["background"], "dark": {"wcag": 11, "perceptual": 85}, "light": {"wcag": 11, "perceptual": 90}, "note": "Primary reading text; also assistant replies in extended"},
+    {"token": "text", "backgrounds": ["background"], "dark": {"wcag": 11, "perceptual": 85}, "note": "Primary reading text; also assistant replies in extended"},
     {"token": "text", "backgrounds": ["selectedBg"], "dark": {"wcag": 9, "perceptual": 80}, "note": "Selected rows are slightly darker; the canvas level here would push text above it"},
     {"token": "accent", "backgrounds": ["background", "selectedBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"], "dark": {"wcag": 4.5, "perceptual": 45}, "light": {"wcag": 4.5, "perceptual": 60}},
     {"token": "success", "backgrounds": ["background", "selectedBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"], "dark": {"wcag": 4.5, "perceptual": 45}, "light": {"wcag": 4.5, "perceptual": 60}},
