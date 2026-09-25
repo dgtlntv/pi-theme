@@ -302,17 +302,17 @@ export function okhslToHex(hue: number, saturation: number, lightness: number): 
 }
 
 /**
- * Read a hex color's OKHSL hue and saturation.
+ * Read a hex color's OKHSL hue, saturation, and lightness.
  *
  * @param hex - A `#rrggbb` color.
- * @returns Hue in degrees (0 for grays) and saturation, 0-1.
+ * @returns Hue in degrees (0 for grays), saturation and lightness, 0-1.
  */
-export function hexToOkhsl(hex: string): { hue: number; saturation: number } {
+export function hexToOkhsl(hex: string): { hue: number; saturation: number; lightness: number } {
   const lms = multiply(LINEAR_SRGB_TO_LMS, channels(hex).map(decode) as Vector).map(Math.cbrt) as Vector;
   const [L, labA, labB] = multiply(LMS_TO_LAB, lms);
   const chroma = Math.hypot(labA, labB);
   const lightness = toe(L);
-  if (chroma < 1e-9 || lightness <= 0 || lightness >= 1) return { hue: 0, saturation: 0 };
+  if (chroma < 1e-9 || lightness <= 0 || lightness >= 1) return { hue: 0, saturation: 0, lightness };
 
   const hue = ((Math.atan2(labB, labA) * 180) / Math.PI + 360) % 360;
   const [c0, cMid, cMax] = chromaStops(L, labA / chroma, labB / chroma);
@@ -325,7 +325,7 @@ export function hexToOkhsl(hex: string): { hue: number; saturation: number } {
     const offset = chroma - cMid;
     saturation = 0.8 + 0.2 * (offset / (k1 + (1 - k1 / (cMax - cMid)) * offset));
   }
-  return { hue, saturation: Math.min(1, Math.max(0, saturation)) };
+  return { hue, saturation: Math.min(1, Math.max(0, saturation)), lightness };
 }
 
 // ---------------------------------------------------------------- color families
@@ -340,6 +340,20 @@ export function hexToOkhsl(hex: string): { hue: number; saturation: number } {
 export function bellWeight(lightness: number): number {
   const gaussian = (x: number): number => Math.exp(-((x - 0.5) ** 2) / (2 * 0.25 ** 2));
   return (gaussian(lightness) - gaussian(0)) / (1 - gaussian(0));
+}
+
+/**
+ * A family's saturation curve relative to its maximum: 1 at mid lightness, falling to
+ * `min / max` at black and white.
+ *
+ * @param family - The family's saturation range.
+ * @param lightness - OKHSL lightness, 0-1.
+ * @returns The relative saturation, 0-1.
+ */
+export function saturationCurve(family: ColorFamily, lightness: number): number {
+  const { min, max } = family.saturation;
+  const floor = max > 0 ? min / max : 1;
+  return floor + (1 - floor) * bellWeight(lightness);
 }
 
 /**

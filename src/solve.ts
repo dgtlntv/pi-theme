@@ -3,9 +3,9 @@
  *
  * @module
  */
-import { colorAt, grayLightness, hexToOkhsl, normalizeHex, targetLuminance } from "./color.ts";
+import { colorAt, grayLightness, hexToOkhsl, normalizeHex, okhslToHex, saturationCurve, targetLuminance } from "./color.ts";
 import { contractPairs, emittedTokens, validateContract, validateRecipe } from "./contract.ts";
-import { TERMINAL_BACKGROUND, type Algorithm, type ColorFamily, type ContrastContract, type GenerationResult, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
+import { TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, type PaletteSaturation, type GenerationResult, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
 
 /**
  * Order tokens so each comes after the backgrounds it is measured on: surfaces
@@ -40,13 +40,13 @@ function solveOrder(pairs: Pair[]): string[] {
  * becomes OKHSL lightness via the gray formula (exact for grays, a few percent off
  * for saturated colors).
  *
- * @param familyOf - The color family of a token.
+ * @param colorOf - A token's color at an OKHSL lightness.
  * @param pairs - The contract pairs.
  * @param mode - The theme mode: dark solves lighter colors, light darker ones.
  * @param background - The terminal background, `#rrggbb`.
  * @returns The color of every token, or undefined if a minimum is unreachable.
  */
-function solveColors(familyOf: (token: string) => ColorFamily, pairs: Pair[], mode: Mode, background: string): Record<string, string> | undefined {
+function solveColors(colorOf: (token: string, lightness: number) => string, pairs: Pair[], mode: Mode, background: string): Record<string, string> | undefined {
   const colors: Record<string, string> = { [TERMINAL_BACKGROUND]: background };
   const lighter = mode === "dark";
   for (const token of solveOrder(pairs)) {
@@ -55,7 +55,7 @@ function solveColors(familyOf: (token: string) => ColorFamily, pairs: Pair[], mo
       .map((pair) => targetLuminance(pair.contrast, colors[pair.background], lighter, pair.algorithm, pair.lowClip));
     const target = lighter ? Math.max(...targets) : Math.min(...targets);
     if (targets.some(Number.isNaN) || target < 0 || target > 1) return undefined;
-    colors[token] = colorAt(familyOf(token), grayLightness(target));
+    colors[token] = colorOf(token, grayLightness(target));
   }
   return colors;
 }
@@ -111,7 +111,8 @@ export function themeName(recipe: ThemeRecipe, algorithm: Algorithm, target: Tar
  * @param target - The target Pi.
  * @param terminalBackground - The terminal background; defaults to the recipe's for `mode`.
  * @param palette - The terminal's 16 ANSI colors. When given, every token takes its hue and
- *   (constant) saturation from its slot in `recipe.ansiSlots` instead of the recipe's families.
+ *   saturation from its slot in `recipe.ansiSlots` instead of the recipe's families.
+ * @param paletteSaturation - With a palette: how its saturation carries over to other lightnesses.
  * @returns The theme, and how far minimums were relaxed if they had to be.
  * @throws If the contract or recipe is invalid, or no theme exists even fully relaxed.
  */
@@ -123,20 +124,25 @@ export function generateTheme(
   target: Target,
   terminalBackground: string = recipe.terminalBackground[mode],
   palette?: string[],
+  paletteSaturation: PaletteSaturation = "constant",
 ): GenerationResult {
   validateContract(contract);
   const families = validateRecipe(recipe, contract);
   const background = normalizeHex(terminalBackground);
   const pairs = contractPairs(contract, algorithm, target, mode);
   if (palette && palette.length !== 16) throw new Error(`A palette needs 16 colors, got ${palette.length}`);
-  const slotFamilies = palette?.map((hex): ColorFamily => {
-    const { hue, saturation } = hexToOkhsl(normalizeHex(hex));
-    return { hue, saturation: { min: saturation, max: saturation } };
-  });
-  const familyOf = (token: string): ColorFamily => slotFamilies
-    ? slotFamilies[recipe.ansiSlots.tokens[token] ?? recipe.ansiSlots.families[families[token]]]
-    : recipe.families[families[token]];
-  const solve = (t: number) => solveColors(familyOf, t === 0 ? pairs : relaxPairs(pairs, t), mode, background);
+  const sources = palette?.map((hex) => hexToOkhsl(normalizeHex(hex)));
+  const colorOf = (token: string, lightness: number): string => {
+    const family = recipe.families[families[token]];
+    if (!sources) return colorAt(family, lightness);
+    const source = sources[recipe.ansiSlots.tokens[token] ?? recipe.ansiSlots.families[families[token]]];
+    if (paletteSaturation === "constant") return okhslToHex(source.hue, source.saturation, lightness);
+    // Anchored: the palette's saturation at its own lightness, falling off along the family's curve.
+    const anchor = saturationCurve(family, source.lightness);
+    const falloff = anchor > 0 ? Math.min(1, saturationCurve(family, lightness) / anchor) : 1;
+    return okhslToHex(source.hue, source.saturation * falloff, lightness);
+  };
+  const solve = (t: number) => solveColors(colorOf, t === 0 ? pairs : relaxPairs(pairs, t), mode, background);
 
   let colors = solve(0);
   let relaxation: number | undefined;

@@ -4,7 +4,7 @@
  * @module
  */
 import { useDeferredValue, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import type { Algorithm, ColorFamily, Target, ThemeRecipe } from "../../src/types.ts";
+import type { Algorithm, ColorFamily, PaletteSaturation, Target, ThemeRecipe } from "../../src/types.ts";
 import { CatalogView } from "./CatalogView.tsx";
 import { handleKey, initialSession, type SessionState } from "./session-state.ts";
 import { SessionView } from "./SessionView.tsx";
@@ -155,6 +155,7 @@ export function App() {
   const [background, setBackground] = useState(terminalTheme.background);
   const [backgroundText, setBackgroundText] = useState(terminalTheme.background);
   const [hues, setHues] = useState<HueSource>("palette");
+  const [paletteSaturation, setPaletteSaturation] = useState<PaletteSaturation>("anchored");
   const [recipe, setRecipe] = useState<ThemeRecipe>(BASE_RECIPE);
   const [advanced, setAdvanced] = useState(false);
   const [session, setSession] = useState<SessionState>(initialSession);
@@ -163,8 +164,8 @@ export function App() {
   const deferredBackground = useDeferredValue(background);
   const deferredRecipe = useDeferredValue(recipe);
   const engine = useMemo(
-    () => runEngine({ ...terminalTheme, background: deferredBackground }, algorithm, deferredRecipe, hues),
-    [terminalTheme, deferredBackground, algorithm, deferredRecipe, hues],
+    () => runEngine({ ...terminalTheme, background: deferredBackground }, algorithm, deferredRecipe, hues, paletteSaturation),
+    [terminalTheme, deferredBackground, algorithm, deferredRecipe, hues, paletteSaturation],
   );
 
   const applyBackground = (value: string) => {
@@ -227,6 +228,13 @@ export function App() {
           <label title="Pi's system theme: hue and saturation from the terminal's ANSI palette"><input type="radio" checked={hues === "palette"} onChange={() => setHues("palette")} /> Terminal palette</label>
           <label title="Pi's dark/light themes: hue and saturation from the recipe's color families"><input type="radio" checked={hues === "recipe"} onChange={() => setHues("recipe")} /> Recipe</label>
         </fieldset>
+        {hues === "palette" && (
+          <fieldset>
+            <legend>Palette saturation</legend>
+            <label title="The palette color's saturation at every lightness"><input type="radio" checked={paletteSaturation === "constant"} onChange={() => setPaletteSaturation("constant")} /> Constant</label>
+            <label title="The palette color's saturation at its own lightness, falling off toward black and white along the recipe's bell curve"><input type="radio" checked={paletteSaturation === "anchored"} onChange={() => setPaletteSaturation("anchored")} /> Anchored bell</label>
+          </fieldset>
+        )}
         <fieldset>
           <legend>Contrast</legend>
           <label><input type="radio" checked={algorithm === "wcag"} onChange={() => setAlgorithm("wcag")} /> WCAG 2</label>

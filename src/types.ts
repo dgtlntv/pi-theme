@@ -59,6 +59,14 @@ export interface ContrastContract {
   relationships: ContrastRule[];
 }
 
+/**
+ * How a palette color's saturation carries over to tokens at other lightnesses:
+ * `constant` keeps it everywhere; `anchored` keeps it at the palette color's own lightness and
+ * lets it fall off toward black and white along the recipe family's saturation curve, never
+ * rising above the palette's.
+ */
+export type PaletteSaturation = "constant" | "anchored";
+
 /** A color family: one OKHSL hue, with saturation varying by lightness. */
 export interface ColorFamily {
   /** OKHSL hue in degrees, 0-360. */
