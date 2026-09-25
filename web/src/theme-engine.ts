@@ -1,16 +1,15 @@
 // Runs the real generator (../../src) in the browser, and resolves Pi's built-in
 // themes for comparison.
 import { apcaContrast } from "../../src/color.ts";
-import { deriveApcaContract } from "../../src/apca.ts";
 import { generateTheme } from "../../src/solve.ts";
 import type { Algorithm, ContrastContract, GenerationResult, Mode, ThemeRecipe } from "../../src/types.ts";
-import wcagContract from "../../contrast-requirements.json";
+import contract from "../../contrast-requirements.json";
 import baseRecipe from "../../theme-recipe.json";
 import piDark from "./pi-themes/dark.json";
 import piLight from "./pi-themes/light.json";
 
 export const BASE_RECIPE = baseRecipe as ThemeRecipe;
-const WCAG_CONTRACT = wcagContract as ContrastContract;
+const CONTRACT = contract as ContrastContract;
 export const DEFAULT_BACKGROUND: Record<Mode, string> = BASE_RECIPE.terminalBackground;
 
 /** Colors a view renders with: Pi tokens plus the virtual terminal colors. */
@@ -74,27 +73,10 @@ function resolvePiTheme(json: PiThemeJson, mode: Mode, background: string): Pale
   return { ...colors, background, terminalForeground };
 }
 
-/**
- * The APCA contract is derived from the WCAG dark theme of the *given* recipe, so
- * hue/saturation edits in the app flow into APCA exactly like `npm run generate`.
- */
-const apcaCache = new Map<string, ContrastContract>();
-function contractFor(algorithm: Algorithm, recipe: ThemeRecipe): ContrastContract {
-  if (algorithm === "WCAG2") return WCAG_CONTRACT;
-  const key = JSON.stringify(recipe);
-  let contract = apcaCache.get(key);
-  if (!contract) {
-    contract = deriveApcaContract(recipe, WCAG_CONTRACT);
-    apcaCache.clear();
-    apcaCache.set(key, contract);
-  }
-  return contract;
-}
-
 export function runEngine(background: string, algorithm: Algorithm, recipe: ThemeRecipe): EngineOutput | { error: string } {
   try {
     const mode = modeForBackground(background);
-    const result = generateTheme(recipe, contractFor(algorithm, recipe), mode, "extended", background);
+    const result = generateTheme(recipe, CONTRACT, algorithm, mode, "extended", background);
     const proposed: ThemeOutput = {
       label: "Proposed",
       // The proposal colors everything with tokens; uncolored text would use `text`.

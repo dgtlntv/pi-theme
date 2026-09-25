@@ -1,11 +1,17 @@
 import { normalizeHex } from "./color.ts";
-import { TARGETS, TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
+import { TARGETS, TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, type Minimums, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
 
-const RULE_FIELDS = new Set(["token", "backgrounds", "contrast", "lightContrast", "apcaLightContrast", "apcaLowClip", "targets", "note"]);
-const RANGE: Record<Algorithm, [number, number]> = { WCAG2: [1, 21], APCA: [0, 108] };
+const RULE_FIELDS = new Set(["token", "backgrounds", "dark", "light", "targets", "note"]);
+/**
+ * APCA's low clip reports contrast below about Lc 10 as 0. Minimums below this use
+ * the unclipped formula, so faint surfaces (panels, the scrollbar track) stay measurable.
+ */
+const APCA_LOW_CLIP_BELOW = 15;
 
-const validContrast = (value: unknown, algorithm: Algorithm): boolean =>
-  typeof value === "number" && value >= RANGE[algorithm][0] && value <= RANGE[algorithm][1];
+const validMinimums = (value: Minimums | undefined): boolean =>
+  typeof value === "object" && value !== null && Object.keys(value).length === 2
+  && typeof value.wcag === "number" && value.wcag >= 1 && value.wcag <= 21
+  && typeof value.apca === "number" && value.apca >= 0 && value.apca <= 108;
 
 /** Every themed token: each rule's token and backgrounds, except the terminal background. */
 export function contractTokens(contract: ContrastContract): string[] {
@@ -20,8 +26,7 @@ export function emittedTokens(contract: ContrastContract, target: Target): strin
 }
 
 export function validateContract(contract: ContrastContract): void {
-  const { algorithm, proposed, relationships } = contract;
-  if (algorithm !== "WCAG2" && algorithm !== "APCA") throw new Error(`Unknown algorithm ${algorithm}`);
+  const { proposed, relationships } = contract;
   if (!Array.isArray(relationships) || typeof proposed !== "object") throw new Error("Contract needs proposed and relationships");
 
   relationships.forEach((rule, index) => {
@@ -32,13 +37,11 @@ export function validateContract(contract: ContrastContract): void {
     if (!Array.isArray(rule.backgrounds) || rule.backgrounds.length === 0 || rule.backgrounds.includes(rule.token)) {
       throw new Error(`Invalid backgrounds in ${label}`);
     }
-    if (!validContrast(rule.contrast, algorithm)) throw new Error(`Invalid contrast in ${label}`);
-    if (rule.lightContrast !== undefined && !validContrast(rule.lightContrast, algorithm)) throw new Error(`Invalid lightContrast in ${label}`);
-    if (rule.apcaLightContrast !== undefined && (algorithm !== "WCAG2" || !validContrast(rule.apcaLightContrast, "APCA"))) {
-      throw new Error(`apcaLightContrast must be an APCA Lc in a WCAG contract (${label})`);
-    }
-    if (rule.apcaLowClip !== undefined && (algorithm !== "APCA" || typeof rule.apcaLowClip !== "boolean")) {
-      throw new Error(`apcaLowClip must be a boolean in an APCA contract (${label})`);
+    if (!rule.dark && !rule.light) throw new Error(`Missing dark or light minimums in ${label}`);
+    for (const mode of ["dark", "light"] as const) {
+      if (rule[mode] !== undefined && !validMinimums(rule[mode])) {
+        throw new Error(`Invalid ${mode} minimums in ${label}: expected { wcag: 1-21, apca: 0-108 }`);
+      }
     }
     if (rule.targets !== undefined && !(Array.isArray(rule.targets) && rule.targets.length && rule.targets.every((t) => TARGETS.includes(t)))) {
       throw new Error(`Invalid targets in ${label}`);
@@ -57,18 +60,22 @@ export function validateContract(contract: ContrastContract): void {
   }
 }
 
-/** Expand rules into pairs as Pi renders them for one target and mode. */
-export function contractPairs(contract: ContrastContract, target: Target, mode: Mode): Pair[] {
+/** Expand rules into pairs as Pi renders them for one algorithm, target, and mode. */
+export function contractPairs(contract: ContrastContract, algorithm: Algorithm, target: Target, mode: Mode): Pair[] {
   return contract.relationships
     .filter((rule) => !rule.targets || rule.targets.includes(target))
-    .flatMap((rule) => rule.backgrounds.map((background) => ({
-      // In `current`, a proposed token does not exist: its rules land on its fallback.
-      token: target === "current" ? contract.proposed[rule.token] ?? rule.token : rule.token,
-      background,
-      contrast: mode === "light" ? rule.lightContrast ?? rule.contrast : rule.contrast,
-      algorithm: contract.algorithm,
-      apcaLowClip: rule.apcaLowClip ?? true,
-    })));
+    .flatMap((rule) => {
+      const minimums = (mode === "dark" ? rule.dark ?? rule.light : rule.light ?? rule.dark)!;
+      const minimum = algorithm === "APCA" ? minimums.apca : minimums.wcag;
+      return rule.backgrounds.map((background) => ({
+        // In `current`, a proposed token does not exist: its rules land on its fallback.
+        token: target === "current" ? contract.proposed[rule.token] ?? rule.token : rule.token,
+        background,
+        contrast: minimum,
+        algorithm,
+        apcaLowClip: minimum >= APCA_LOW_CLIP_BELOW,
+      }));
+    });
 }
 
 /** Map every contract token to its color family, validating anchors and families. */

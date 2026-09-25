@@ -77,6 +77,7 @@ export function themeName(recipe: ThemeRecipe, algorithm: Algorithm, target: Tar
 export function generateTheme(
   recipe: ThemeRecipe,
   contract: ContrastContract,
+  algorithm: Algorithm,
   mode: Mode,
   target: Target,
   terminalBackground: string = recipe.terminalBackground[mode],
@@ -84,7 +85,7 @@ export function generateTheme(
   validateContract(contract);
   const families = validateRecipe(recipe, contract);
   const background = normalizeHex(terminalBackground);
-  const pairs = contractPairs(contract, target, mode);
+  const pairs = contractPairs(contract, algorithm, target, mode);
   const solve = (t: number) => solveColors(recipe, families, t === 0 ? pairs : relaxPairs(pairs, t), mode, background);
 
   let colors = solve(0);
@@ -104,5 +105,5 @@ export function generateTheme(
   }
 
   const themeColors = Object.fromEntries(emittedTokens(contract, target).map((token) => [token, colors[token]]));
-  return { theme: { name: themeName(recipe, contract.algorithm, target, mode), colors: themeColors }, relaxation };
+  return { theme: { name: themeName(recipe, algorithm, target, mode), colors: themeColors }, relaxation };
 }

@@ -14,24 +14,27 @@ export const TARGETS: readonly Target[] = ["current", "extended"];
 /** The terminal background: anchored by the recipe, never emitted into a theme. */
 export const TERMINAL_BACKGROUND = "background";
 
-/** `token` must reach at least `contrast` on each of `backgrounds`. */
+/** Minimum contrast in each algorithm: a WCAG 2 ratio and an absolute APCA Lc. */
+export interface Minimums {
+  wcag: number;
+  apca: number;
+}
+
+/**
+ * `token` must reach at least the minimum on each of `backgrounds`. A rule gives
+ * `dark`, `light`, or both; a missing mode uses the other's minimums.
+ */
 export interface ContrastRule {
   token: string;
   backgrounds: string[];
-  contrast: number;
-  /** Light-mode minimum instead of `contrast`. */
-  lightContrast?: number;
-  /** WCAG contract only: APCA light-mode Lc for the derived APCA contract. */
-  apcaLightContrast?: number;
-  /** APCA only: false measures without the spec's low clip, for faint surfaces below ~Lc 10. */
-  apcaLowClip?: boolean;
+  dark?: Minimums;
+  light?: Minimums;
   /** Targets where the rule applies; defaults to both. */
   targets?: Target[];
   note?: string;
 }
 
 export interface ContrastContract {
-  algorithm: Algorithm;
   /** Tokens Pi does not support yet, mapped to the token Pi renders instead. */
   proposed: Record<string, string>;
   relationships: ContrastRule[];
