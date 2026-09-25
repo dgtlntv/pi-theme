@@ -56,12 +56,12 @@
     {"token": "thinkingHigh", "backgrounds": ["background"], "dark": {"wcag": 4.25, "perceptual": 37}, "light": {"wcag": 4.25, "perceptual": 66}, "note": "Editor boundary; prominence increases with thinking level"},
     {"token": "thinkingXhigh", "backgrounds": ["background"], "dark": {"wcag": 4.75, "perceptual": 40}, "light": {"wcag": 4.75, "perceptual": 69}, "note": "Editor boundary; prominence increases with thinking level"},
     {"token": "thinkingMax", "backgrounds": ["background"], "dark": {"wcag": 5, "perceptual": 43}, "light": {"wcag": 5, "perceptual": 72}, "note": "Editor boundary; prominence increases with thinking level"},
-    {"token": "userMessageBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "light": {"wcag": 1.2, "perceptual": 15}, "note": "Provisional very subtle distinction for the unlabeled user-message bubble"},
-    {"token": "toolPendingBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "light": {"wcag": 1.2, "perceptual": 15}, "note": "Provisional very subtle tool state fill"},
-    {"token": "toolSuccessBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "light": {"wcag": 1.2, "perceptual": 15}, "note": "Provisional very subtle tool state fill, including success"},
-    {"token": "toolErrorBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "light": {"wcag": 1.2, "perceptual": 15}, "note": "Provisional very subtle tool state fill"},
-    {"token": "selectedBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "light": {"wcag": 1.2, "perceptual": 15}, "note": "Subtle selection fill, like other panels; cursor/bold also mark selection"},
-    {"token": "searchMatchBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "light": {"wcag": 1.2, "perceptual": 15}, "note": "Same level as other panels; its orange hue sets it apart"},
-    {"token": "customMessageBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "light": {"wcag": 1.2, "perceptual": 15}, "note": "Subtle panel, like other message panels"}
+    {"token": "userMessageBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "note": "Provisional very subtle distinction for the unlabeled user-message bubble"},
+    {"token": "toolPendingBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "note": "Provisional very subtle tool state fill"},
+    {"token": "toolSuccessBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "note": "Provisional very subtle tool state fill, including success"},
+    {"token": "toolErrorBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "note": "Provisional very subtle tool state fill"},
+    {"token": "selectedBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "note": "Subtle selection fill, like other panels; cursor/bold also mark selection"},
+    {"token": "searchMatchBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "note": "Same level as other panels; its orange hue sets it apart"},
+    {"token": "customMessageBg", "backgrounds": ["background"], "dark": {"wcag": 1.2, "perceptual": 4.5}, "note": "Subtle panel, like other message panels"}
   ]
 }
