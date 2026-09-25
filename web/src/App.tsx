@@ -4,7 +4,7 @@
  * @module
  */
 import { useDeferredValue, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import type { Algorithm, ColorFamily, Target, ThemeRecipe } from "../../src/types.ts";
+import type { ColorFamily, Target, ThemeRecipe } from "../../src/types.ts";
 import { CatalogView } from "./CatalogView.tsx";
 import { handleKey, initialSession, type SessionState } from "./session-state.ts";
 import { SessionView } from "./SessionView.tsx";
@@ -149,7 +149,6 @@ function FamilyEditor({ recipe, onChange }: { recipe: ThemeRecipe; onChange: (re
 export function App() {
   const [view, setView] = useState<View>("catalog");
   const [compare, setCompare] = useState<Compare>("proposed");
-  const [algorithm, setAlgorithm] = useState<Algorithm>("wcag");
   const [terminalIndex, setTerminalIndex] = useState(0);
   const terminalTheme = TERMINAL_THEMES[terminalIndex];
   const [background, setBackground] = useState(terminalTheme.background);
@@ -163,8 +162,8 @@ export function App() {
   const deferredBackground = useDeferredValue(background);
   const deferredRecipe = useDeferredValue(recipe);
   const engine = useMemo(
-    () => runEngine({ ...terminalTheme, background: deferredBackground }, algorithm, deferredRecipe, hues),
-    [terminalTheme, deferredBackground, algorithm, deferredRecipe, hues],
+    () => runEngine({ ...terminalTheme, background: deferredBackground }, deferredRecipe, hues),
+    [terminalTheme, deferredBackground, deferredRecipe, hues],
   );
 
   const applyBackground = (value: string) => {
@@ -226,11 +225,6 @@ export function App() {
           <legend>Hues</legend>
           <label title="Pi's system theme: hue and saturation from the terminal's ANSI palette"><input type="radio" checked={hues === "palette"} onChange={() => setHues("palette")} /> Terminal palette</label>
           <label title="Pi's dark/light themes: hue and saturation from the recipe's color families"><input type="radio" checked={hues === "recipe"} onChange={() => setHues("recipe")} /> Recipe</label>
-        </fieldset>
-        <fieldset>
-          <legend>Contrast</legend>
-          <label><input type="radio" checked={algorithm === "wcag"} onChange={() => setAlgorithm("wcag")} /> WCAG 2</label>
-          <label><input type="radio" checked={algorithm === "perceptual"} onChange={() => setAlgorithm("perceptual")} /> Perceptual</label>
         </fieldset>
         <fieldset>
           <legend>Theme</legend>

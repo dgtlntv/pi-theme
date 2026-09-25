@@ -6,7 +6,7 @@
  */
 import { perceptualContrast } from "../../src/color.ts";
 import { generateTheme } from "../../src/solve.ts";
-import type { Algorithm, ContrastContract, GenerationResult, Mode, ThemeRecipe } from "../../src/types.ts";
+import type { ContrastContract, GenerationResult, Mode, ThemeRecipe } from "../../src/types.ts";
 import contract from "../../contrast-requirements.json";
 import baseRecipe from "../../theme-recipe.json";
 import ghosttyThemes from "./ghostty-themes.json";
@@ -122,14 +122,12 @@ function resolvePiTheme(json: PiThemeJson, background: string, terminalForegroun
  * Generate the proposal for a terminal and resolve Pi's matching built-in theme.
  *
  * @param terminal - The terminal's background, foreground, and ANSI palette.
- * @param algorithm - The contrast algorithm.
  * @param recipe - The color recipe, possibly edited in the app.
  * @param hues - Where the proposal takes hue and saturation from.
  * @returns Both themes, or the error message if generation fails.
  */
 export function runEngine(
   terminal: TerminalTheme,
-  algorithm: Algorithm,
   recipe: ThemeRecipe,
   hues: HueSource,
 ): EngineOutput | { error: string } {
@@ -137,7 +135,7 @@ export function runEngine(
     const { background } = terminal;
     const mode = modeForBackground(background);
     const palette = hues === "palette" ? terminal.palette : undefined;
-    const result = generateTheme(recipe, CONTRACT, algorithm, mode, "extended", background, palette);
+    const result = generateTheme(recipe, CONTRACT, "perceptual", mode, "extended", background, palette);
     const proposed: ThemeOutput = {
       label: hues === "palette" ? "Proposed system" : `Proposed ${mode}`,
       // The proposal colors everything with tokens; uncolored text would use `text`.

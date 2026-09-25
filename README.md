@@ -41,7 +41,7 @@ npm run web:artifact # multi-file build for the Radius artifact
 npm run web:ghostty-themes # refresh web/src/ghostty-themes.json from the installed Ghostty
 ```
 
-A Vite + React app that runs the generator in the browser: a catalog of Pi's UI elements and an interactive session, with a terminal theme picker (Ghostty's 463 bundled themes, its default first), a background picker (dark or light chosen by perceptual contrast), hues from the terminal palette (Pi's `system` theme) or the recipe (Pi's `dark`/`light`), WCAG or perceptual contrast, Pi's built-in theme (`npm run web:pi-themes` copies it from `../pi`) versus the proposed theme, and a family editor. Published (organization only): https://radius.earendil.com/artifact/01m39x8k02f4t9mzehw18y4zt6
+A Vite + React app that runs the generator in the browser: a catalog of Pi's UI elements and an interactive session, with a terminal theme picker (Ghostty's 463 bundled themes, its default first), a background picker (dark or light chosen by perceptual contrast), hues from the terminal palette (Pi's `system` theme) or the recipe (Pi's `dark`/`light`), Pi's built-in theme (`npm run web:pi-themes` copies it from `../pi`) versus the proposed theme, and a family editor. Published (organization only): https://radius.earendil.com/artifact/01m39x8k02f4t9mzehw18y4zt6
 
 ## Code
 
