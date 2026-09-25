@@ -39,7 +39,10 @@ npm run web          # dev server
 npm run web:build    # single file: web/dist/index.html
 npm run web:artifact # multi-file build for the Radius artifact
 npm run web:ghostty-themes # refresh web/src/ghostty-themes.json from the installed Ghostty
+node web/scripts/record-replay.ts <session.jsonl> <pi-replay dir> [turns] # record web/public/replay.cast
 ```
+
+The **Replay** view plays a recorded Pi session in the selected theme. The recording (made with [pi-replay](https://github.com/earendil-works/pi-replay) and asciinema, through the fork in `../pi`) uses a marker theme where every token has its own color (`web/src/replay-markers.json`); the app replaces each marker with the current theme's color, so one recording shows any theme. The current recording is the first 25 turns of this project's session. `record-replay.ts` needs a pi-replay checkout that exits when `PI_REPLAY_EXIT_ON_COMPLETE` is set (a local change to its `queueNextOrdinaryUser`).
 
 A Vite + React app that runs the generator in the browser: a catalog of Pi's UI elements and an interactive session, showing Pi's generated themes: `system`, with a terminal theme picker (Ghostty's 463 bundled themes, its default first), or `dark`/`light`, with a background picker (dark or light chosen by perceptual contrast). Published (organization only): https://radius.earendil.com/artifact/01m39x8k02f4t9mzehw18y4zt6
 

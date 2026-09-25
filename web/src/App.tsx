@@ -5,13 +5,14 @@
  */
 import { useDeferredValue, useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { CatalogView } from "./CatalogView.tsx";
+import { ReplayView } from "./ReplayView.tsx";
 import { handleKey, initialSession, type SessionState } from "./session-state.ts";
 import { SessionView } from "./SessionView.tsx";
 import { TermContext } from "./term.tsx";
 import { DEFAULT_BACKGROUND, generatePreview, TERMINAL_THEMES, type Palette, type PiTheme } from "./theme-engine.ts";
 
 /** Which content the terminal shows. */
-type View = "catalog" | "session";
+type View = "catalog" | "session" | "replay";
 
 /** A complete `#rrggbb` color, for the background text field. */
 const HEX = /^#[0-9a-f]{6}$/i;
@@ -77,6 +78,8 @@ export function App() {
   }, [view, session]);
 
   const content = view === "catalog" ? <CatalogView /> : <SessionView state={session} />;
+  // The replay uses the terminal's ANSI colors only for anything outside theme tokens.
+  const ansi = theme === "system" ? terminalTheme.palette : TERMINAL_THEMES[0].palette;
 
   return (
     <div className="app">
@@ -85,6 +88,7 @@ export function App() {
           <legend>View</legend>
           <label><input type="radio" checked={view === "catalog"} onChange={() => setView("catalog")} /> Catalog</label>
           <label><input type="radio" checked={view === "session"} onChange={() => setView("session")} /> Session</label>
+          <label><input type="radio" checked={view === "replay"} onChange={() => setView("replay")} /> Replay</label>
         </fieldset>
         <fieldset>
           <legend>Theme</legend>
@@ -128,7 +132,9 @@ export function App() {
         <div className="warning">Generation failed: {preview.error}</div>
       ) : (
         <main className="stage">
-          <Terminal palette={preview.palette}>{content}</Terminal>
+          {view === "replay"
+            ? <ReplayView palette={preview.palette} ansi={ansi} />
+            : <Terminal palette={preview.palette}>{content}</Terminal>}
         </main>
       )}
     </div>

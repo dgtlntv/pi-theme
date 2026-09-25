@@ -15,6 +15,7 @@
     "web:ghostty-themes": "node web/scripts/ghostty-themes.ts"
   },
   "dependencies": {
+    "asciinema-player": "3.17.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
