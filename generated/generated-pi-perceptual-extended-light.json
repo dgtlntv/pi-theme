@@ -52,12 +52,12 @@
     "mdHr": "#667075",
     "scrollbarTrack": "#e1e2e3",
     "scrollbarThumb": "#97a0a4",
-    "thinkingOff": "#889297",
-    "thinkingMinimal": "#768e9b",
-    "thinkingLow": "#568ba6",
-    "thinkingMedium": "#577bc4",
-    "thinkingHigh": "#8258d6",
-    "thinkingXhigh": "#b8229c",
-    "thinkingMax": "#c60132"
+    "thinkingOff": "#c3c8ca",
+    "thinkingMinimal": "#b6c4cb",
+    "thinkingLow": "#9fc2d5",
+    "thinkingMedium": "#a2b7e0",
+    "thinkingHigh": "#b5a5e8",
+    "thinkingXhigh": "#e585cc",
+    "thinkingMax": "#fe7378"
   }
 }
