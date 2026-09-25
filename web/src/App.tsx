@@ -4,7 +4,7 @@
  * @module
  */
 import { useDeferredValue, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import type { ColorFamily, Target, ThemeRecipe } from "../../src/types.ts";
+import type { Target } from "../../src/types.ts";
 import { CatalogView } from "./CatalogView.tsx";
 import { handleKey, initialSession, type SessionState } from "./session-state.ts";
 import { SessionView } from "./SessionView.tsx";
@@ -101,47 +101,6 @@ function Wiper({ themes, children }: { themes: Record<Variant, ThemeOutput>; chi
 }
 
 /**
- * Edit each color family's hue and saturation range.
- *
- * @param props - The recipe and a change handler.
- * @returns The editor table.
- */
-function FamilyEditor({ recipe, onChange }: { recipe: ThemeRecipe; onChange: (recipe: ThemeRecipe) => void }) {
-  const used = new Map<string, string[]>();
-  for (const role of recipe.roles) used.set(role.family, [...(used.get(role.family) ?? []), ...role.tokens]);
-  const update = (name: string, family: ColorFamily) => onChange({ ...recipe, families: { ...recipe.families, [name]: family } });
-  return (
-    <table className="families">
-      <thead><tr><th>Family</th><th>Hue</th><th>Sat min</th><th>Sat max</th><th>Tokens</th></tr></thead>
-      <tbody>
-        {Object.entries(recipe.families).map(([name, family]) => (
-          <tr key={name}>
-            <td>{name}</td>
-            <td>
-              <input type="range" min={0} max={359.99} step={0.5} value={family.hue} onChange={(e) => update(name, { ...family, hue: Number(e.target.value) })} />
-              <input type="number" min={0} max={359.99} step={0.5} value={family.hue} onChange={(e) => update(name, { ...family, hue: Number(e.target.value) })} />
-            </td>
-            {(["min", "max"] as const).map((bound) => (
-              <td key={bound}>
-                <input type="range" min={0} max={1} step={0.01} value={family.saturation[bound]}
-                  onChange={(e) => {
-                    const value = Number(e.target.value);
-                    const saturation = { ...family.saturation, [bound]: value };
-                    if (saturation.min > saturation.max) saturation[bound === "min" ? "max" : "min"] = value;
-                    update(name, { ...family, saturation });
-                  }} />
-                <span className="num">{family.saturation[bound].toFixed(2)}</span>
-              </td>
-            ))}
-            <td className="tokens">{(used.get(name) ?? []).join(", ")}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-}
-
-/**
  * The review app.
  *
  * @returns The app.
@@ -154,16 +113,13 @@ export function App() {
   const [background, setBackground] = useState(terminalTheme.background);
   const [backgroundText, setBackgroundText] = useState(terminalTheme.background);
   const [hues, setHues] = useState<HueSource>("palette");
-  const [recipe, setRecipe] = useState<ThemeRecipe>(BASE_RECIPE);
-  const [advanced, setAdvanced] = useState(false);
   const [session, setSession] = useState<SessionState>(initialSession);
 
-  // Generating runs the solver twice; defer so dragging sliders stays responsive.
+  // Defer so dragging the background color picker stays responsive.
   const deferredBackground = useDeferredValue(background);
-  const deferredRecipe = useDeferredValue(recipe);
   const engine = useMemo(
-    () => runEngine({ ...terminalTheme, background: deferredBackground }, deferredRecipe, hues),
-    [terminalTheme, deferredBackground, deferredRecipe, hues],
+    () => runEngine({ ...terminalTheme, background: deferredBackground }, BASE_RECIPE, hues),
+    [terminalTheme, deferredBackground, hues],
   );
 
   const applyBackground = (value: string) => {
@@ -219,7 +175,6 @@ export function App() {
           <input type="text" size={8} value={backgroundText} onChange={(e) => applyBackground(e.target.value)} />
           <button type="button" onClick={() => applyBackground(terminalTheme.background)}>Reset</button>
           <button type="button" onClick={() => applyBackground(DEFAULT_BACKGROUND.light)}>Light</button>
-          {"mode" in engine && engine.mode && <span className="mode">→ {engine.mode} theme (auto: higher perceptual contrast)</span>}
         </fieldset>
         <fieldset>
           <legend>Hues</legend>
@@ -232,7 +187,6 @@ export function App() {
           <label title="Our generated theme with the proposed tokens and remappings"><input type="radio" checked={compare === "proposed"} onChange={() => setCompare("proposed")} /> Proposed</label>
           <label><input type="radio" checked={compare === "wipe"} onChange={() => setCompare("wipe")} /> Wipe</label>
         </fieldset>
-        <button type="button" onClick={() => setAdvanced(!advanced)}>{advanced ? "Hide advanced" : "Advanced"}</button>
         {view === "session" && (
           <span className="keys">
             Keys: shift+tab thinking · ctrl+o expand · ctrl+t thinking text · / commands · ctrl+l model · ctrl+f search · esc close · enter does nothing
@@ -240,16 +194,6 @@ export function App() {
         )}
       </header>
 
-      {advanced && (
-        <div className="advanced">
-          <p>
-            Edit color families; themes regenerate live with the same solver as <code>npm run generate</code>.
-            {" "}<button type="button" onClick={() => setRecipe(BASE_RECIPE)}>Reset families</button>
-            {" "}<button type="button" onClick={() => navigator.clipboard.writeText(JSON.stringify(recipe.families, null, 2))}>Copy families JSON</button>
-          </p>
-          <FamilyEditor recipe={recipe} onChange={setRecipe} />
-        </div>
-      )}
 
       {relaxation && (
         <div className="warning">
