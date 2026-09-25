@@ -134,8 +134,17 @@ export function runEngine(
   try {
     const { background } = terminal;
     const mode = modeForBackground(background);
-    const palette = hues === "palette" ? terminal.palette : undefined;
-    const result = generateTheme(recipe, CONTRACT, "perceptual", mode, "extended", background, palette);
+    const system = hues === "palette";
+    const result = generateTheme(
+      recipe,
+      CONTRACT,
+      "perceptual",
+      mode,
+      "extended",
+      background,
+      system ? terminal.palette : undefined,
+      system ? terminal.foreground : undefined,
+    );
     const proposed: ThemeOutput = {
       label: hues === "palette" ? "Proposed system" : `Proposed ${mode}`,
       // The proposal colors everything with tokens; uncolored text would use `text`.

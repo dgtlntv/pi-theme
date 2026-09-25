@@ -3,9 +3,9 @@
  *
  * @module
  */
-import { colorAt, grayLightness, hexToOkhsl, normalizeHex, okhslToHex, saturationCurve, targetLuminance } from "./color.ts";
+import { colorAt, contrast, grayLightness, hexToOkhsl, normalizeHex, okhslToHex, saturationCurve, targetLuminance } from "./color.ts";
 import { contractPairs, emittedTokens, validateContract, validateRecipe } from "./contract.ts";
-import { TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, type GenerationResult, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
+import { TERMINAL_BACKGROUND, type Algorithm, type ColorFamily, type ContrastContract, type GenerationResult, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
 
 /**
  * Order tokens so each comes after the backgrounds it is measured on: surfaces
@@ -100,6 +100,27 @@ export function themeName(recipe: ThemeRecipe, algorithm: Algorithm, target: Tar
   return [recipe.name, algorithm === "perceptual" && "perceptual", target === "extended" && "extended", mode].filter(Boolean).join("-");
 }
 
+/** Text-level tokens that take the terminal's foreground, when it is given. */
+const FOREGROUND_TOKENS = ["text", "userMessageText", "toolTitle"];
+
+/** How much more perceptual contrast than `muted` the terminal foreground keeps, at least. */
+const FOREGROUND_MARGIN = 10;
+
+/**
+ * A palette color's hue at another lightness. Its saturation applies at its own lightness and
+ * falls off toward black and white along the family's saturation curve, never rising above it.
+ *
+ * @param source - The palette color's OKHSL hue, saturation, and lightness.
+ * @param family - The recipe family whose saturation curve shapes the falloff.
+ * @param lightness - OKHSL lightness, 0-1.
+ * @returns A `#rrggbb` color.
+ */
+function anchoredColor(source: { hue: number; saturation: number; lightness: number }, family: ColorFamily, lightness: number): string {
+  const anchor = saturationCurve(family, source.lightness);
+  const falloff = anchor > 0 ? Math.min(1, saturationCurve(family, lightness) / anchor) : 1;
+  return okhslToHex(source.hue, source.saturation * falloff, lightness);
+}
+
 /**
  * Generate one Pi theme. If the background cannot meet the contract, minimums are
  * relaxed as little as possible.
@@ -114,6 +135,9 @@ export function themeName(recipe: ThemeRecipe, algorithm: Algorithm, target: Tar
  *   slot in `recipe.ansiSlots`. Its saturation is the palette color's at the palette color's own
  *   lightness, and falls off toward black and white along the recipe family's saturation curve,
  *   never rising above the palette's.
+ * @param foreground - The terminal's foreground (perceptual contrast only). Text-level tokens
+ *   (`text`, `userMessageText`, `toolTitle`) use it wherever it keeps at least `muted`'s contrast
+ *   plus a margin on their backgrounds; otherwise it gets just enough lightness to do so.
  * @returns The theme, and how far minimums were relaxed if they had to be.
  * @throws If the contract or recipe is invalid, or no theme exists even fully relaxed.
  */
@@ -125,21 +149,20 @@ export function generateTheme(
   target: Target,
   terminalBackground: string = recipe.terminalBackground[mode],
   palette?: string[],
+  foreground?: string,
 ): GenerationResult {
   validateContract(contract);
   const families = validateRecipe(recipe, contract);
   const background = normalizeHex(terminalBackground);
   const pairs = contractPairs(contract, algorithm, target, mode);
   if (palette && palette.length !== 16) throw new Error(`A palette needs 16 colors, got ${palette.length}`);
+  if (foreground && algorithm !== "perceptual") throw new Error("A terminal foreground needs perceptual contrast");
   const sources = palette?.map((hex) => hexToOkhsl(normalizeHex(hex)));
   const colorOf = (token: string, lightness: number): string => {
     const family = recipe.families[families[token]];
     if (!sources) return colorAt(family, lightness);
     const source = sources[recipe.ansiSlots.tokens[token] ?? recipe.ansiSlots.families[families[token]]];
-    // The palette's saturation at its own lightness, falling off along the family's curve.
-    const anchor = saturationCurve(family, source.lightness);
-    const falloff = anchor > 0 ? Math.min(1, saturationCurve(family, lightness) / anchor) : 1;
-    return okhslToHex(source.hue, source.saturation * falloff, lightness);
+    return anchoredColor(source, family, lightness);
   };
   const solve = (t: number) => solveColors(colorOf, t === 0 ? pairs : relaxPairs(pairs, t), mode, background);
 
@@ -157,6 +180,28 @@ export function generateTheme(
       else low = middle;
     }
     relaxation = Number(high.toFixed(3));
+  }
+
+  if (foreground) {
+    const hex = normalizeHex(foreground);
+    const source = hexToOkhsl(hex);
+    const lighter = mode === "dark";
+    for (const token of FOREGROUND_TOKENS) {
+      // At least `muted`'s contrast plus the margin, on every background the token is measured on.
+      const floors = pairs.filter((pair) => pair.token === token).map(({ background: name }) => ({
+        background: colors[name],
+        minimum: contrast(colors.muted, colors[name], "perceptual") + FOREGROUND_MARGIN,
+      }));
+      if (floors.every(({ background: bg, minimum }) => contrast(hex, bg, "perceptual") >= minimum)) {
+        colors[token] = hex;
+        continue;
+      }
+      // Too faint: keep the foreground's hue and saturation, with just enough lightness.
+      const targets = floors.map(({ background: bg, minimum }) => targetLuminance(minimum, bg, lighter, "perceptual", true));
+      const target = lighter ? Math.max(...targets) : Math.min(...targets);
+      if (targets.some(Number.isNaN) || target < 0 || target > 1) continue;
+      colors[token] = anchoredColor(source, recipe.families[families[token]], grayLightness(target));
+    }
   }
 
   const themeColors = Object.fromEntries(emittedTokens(contract, target).map((token) => [token, colors[token]]));

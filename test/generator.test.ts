@@ -195,3 +195,17 @@ test("a terminal palette supplies hue and saturation through the recipe's ANSI s
   assert.match(theme.colors.text, /^#([0-9a-f]{2})\1\1$/);
   assert.throws(() => generateTheme(recipe, contract, "perceptual", "dark", "extended", undefined, palette.slice(0, 8)), /16 colors/);
 });
+
+test("a terminal foreground becomes text, but never fainter than muted plus a margin", () => {
+  const palette = ["#1d1f21", "#cc6666", "#b5bd68", "#f0c674", "#81a2be", "#b294bb", "#8abeb7", "#c5c8c6", "#666666", "#d54e53", "#b9ca4a", "#e7c547", "#7aa6da", "#c397d8", "#70c0b1", "#eaeaea"];
+  const theme = (foreground: string) => generateTheme(recipe, contract, "perceptual", "dark", "extended", "#282c34", palette, foreground).theme.colors;
+  // A clear foreground is used as is, for every text-level token.
+  const clear = theme("#eeeeee");
+  assert.deepEqual([clear.text, clear.userMessageText, clear.toolTitle], ["#eeeeee", "#eeeeee", "#eeeeee"]);
+  // A faint foreground keeps its hue but is lifted to muted's contrast plus the margin.
+  const faint = theme("#5f7f7f");
+  const onCanvas = (hex: string) => Math.abs(perceptualContrast(hex, "#282c34"));
+  assert.ok(onCanvas(faint.text) >= onCanvas(faint.muted) + 10 - 0.5);
+  assert.ok(Math.abs(hexToOkhsl(faint.text).hue - hexToOkhsl("#5f7f7f").hue) < 8);
+  assert.throws(() => generateTheme(recipe, contract, "wcag", "dark", "extended", "#282c34", palette, "#eeeeee"), /perceptual/);
+});
