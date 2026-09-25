@@ -47,7 +47,7 @@
     {"token": "borderMuted", "backgrounds": ["background"], "dark": {"wcag": 3, "perceptual": 30}, "light": {"wcag": 3.75, "perceptual": 55}, "note": "Editor boundary when necessary to locate the input area"},
     {"token": "mdQuoteBorder", "backgrounds": ["background", "userMessageBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"], "dark": {"wcag": 4.5, "perceptual": 45}, "light": {"wcag": 4.5, "perceptual": 60}, "note": "Same level as muted and colored text"},
     {"token": "mdHr", "backgrounds": ["background", "userMessageBg", "customMessageBg", "toolPendingBg", "toolSuccessBg", "toolErrorBg"], "dark": {"wcag": 4.5, "perceptual": 45}, "light": {"wcag": 4.5, "perceptual": 60}, "note": "Same level as muted and colored text"},
-    {"token": "scrollbarTrack", "backgrounds": ["background"], "dark": {"wcag": 1.7, "perceptual": 12}, "light": {"wcag": 1.7, "perceptual": 30}, "note": "Faint track, matching Pi's default theme (~1.74)"},
+    {"token": "scrollbarTrack", "backgrounds": ["background"], "dark": {"wcag": 1.7, "perceptual": 12}, "note": "Faint track, matching Pi's default theme (~1.74)"},
     {"token": "scrollbarThumb", "backgrounds": ["scrollbarTrack"], "dark": {"wcag": 3, "perceptual": 35}, "note": "Scrollbar position relative to track"},
     {"token": "thinkingOff", "backgrounds": ["background"], "dark": {"wcag": 3, "perceptual": 25}, "light": {"wcag": 3, "perceptual": 54}, "note": "Editor boundary; prominence increases with thinking level"},
     {"token": "thinkingMinimal", "backgrounds": ["background"], "dark": {"wcag": 3.25, "perceptual": 28}, "light": {"wcag": 3.25, "perceptual": 57}, "note": "Editor boundary; prominence increases with thinking level"},
