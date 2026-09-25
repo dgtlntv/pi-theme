@@ -85,6 +85,11 @@ export interface ThemeRecipe {
   families: Record<string, ColorFamily>;
   /** The family of every token. */
   roles: RecipeRole[];
+  /**
+   * ANSI palette slot (0-15) each family, or a single token, takes its hue and saturation
+   * from when a theme is generated from a terminal palette. Token slots override family slots.
+   */
+  ansiSlots: { families: Record<string, number>; tokens: Record<string, number> };
 }
 
 /** One rule against one background, resolved for an algorithm, target, and mode. */

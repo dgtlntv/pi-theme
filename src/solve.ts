@@ -3,9 +3,9 @@
  *
  * @module
  */
-import { colorAt, grayLightness, normalizeHex, targetLuminance } from "./color.ts";
+import { colorAt, grayLightness, hexToOkhsl, normalizeHex, targetLuminance } from "./color.ts";
 import { contractPairs, emittedTokens, validateContract, validateRecipe } from "./contract.ts";
-import { TERMINAL_BACKGROUND, type Algorithm, type ContrastContract, type GenerationResult, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
+import { TERMINAL_BACKGROUND, type Algorithm, type ColorFamily, type ContrastContract, type GenerationResult, type Mode, type Pair, type Target, type ThemeRecipe } from "./types.ts";
 
 /**
  * Order tokens so each comes after the backgrounds it is measured on: surfaces
@@ -40,14 +40,13 @@ function solveOrder(pairs: Pair[]): string[] {
  * becomes OKHSL lightness via the gray formula (exact for grays, a few percent off
  * for saturated colors).
  *
- * @param recipe - The color recipe.
- * @param families - The family name of every token.
+ * @param familyOf - The color family of a token.
  * @param pairs - The contract pairs.
  * @param mode - The theme mode: dark solves lighter colors, light darker ones.
  * @param background - The terminal background, `#rrggbb`.
  * @returns The color of every token, or undefined if a minimum is unreachable.
  */
-function solveColors(recipe: ThemeRecipe, families: Record<string, string>, pairs: Pair[], mode: Mode, background: string): Record<string, string> | undefined {
+function solveColors(familyOf: (token: string) => ColorFamily, pairs: Pair[], mode: Mode, background: string): Record<string, string> | undefined {
   const colors: Record<string, string> = { [TERMINAL_BACKGROUND]: background };
   const lighter = mode === "dark";
   for (const token of solveOrder(pairs)) {
@@ -56,7 +55,7 @@ function solveColors(recipe: ThemeRecipe, families: Record<string, string>, pair
       .map((pair) => targetLuminance(pair.contrast, colors[pair.background], lighter, pair.algorithm, pair.lowClip));
     const target = lighter ? Math.max(...targets) : Math.min(...targets);
     if (targets.some(Number.isNaN) || target < 0 || target > 1) return undefined;
-    colors[token] = colorAt(recipe.families[families[token]], grayLightness(target));
+    colors[token] = colorAt(familyOf(token), grayLightness(target));
   }
   return colors;
 }
@@ -111,6 +110,8 @@ export function themeName(recipe: ThemeRecipe, algorithm: Algorithm, target: Tar
  * @param mode - The theme mode.
  * @param target - The target Pi.
  * @param terminalBackground - The terminal background; defaults to the recipe's for `mode`.
+ * @param palette - The terminal's 16 ANSI colors. When given, every token takes its hue and
+ *   (constant) saturation from its slot in `recipe.ansiSlots` instead of the recipe's families.
  * @returns The theme, and how far minimums were relaxed if they had to be.
  * @throws If the contract or recipe is invalid, or no theme exists even fully relaxed.
  */
@@ -121,12 +122,21 @@ export function generateTheme(
   mode: Mode,
   target: Target,
   terminalBackground: string = recipe.terminalBackground[mode],
+  palette?: string[],
 ): GenerationResult {
   validateContract(contract);
   const families = validateRecipe(recipe, contract);
   const background = normalizeHex(terminalBackground);
   const pairs = contractPairs(contract, algorithm, target, mode);
-  const solve = (t: number) => solveColors(recipe, families, t === 0 ? pairs : relaxPairs(pairs, t), mode, background);
+  if (palette && palette.length !== 16) throw new Error(`A palette needs 16 colors, got ${palette.length}`);
+  const slotFamilies = palette?.map((hex): ColorFamily => {
+    const { hue, saturation } = hexToOkhsl(normalizeHex(hex));
+    return { hue, saturation: { min: saturation, max: saturation } };
+  });
+  const familyOf = (token: string): ColorFamily => slotFamilies
+    ? slotFamilies[recipe.ansiSlots.tokens[token] ?? recipe.ansiSlots.families[families[token]]]
+    : recipe.families[families[token]];
+  const solve = (t: number) => solveColors(familyOf, t === 0 ? pairs : relaxPairs(pairs, t), mode, background);
 
   let colors = solve(0);
   let relaxation: number | undefined;

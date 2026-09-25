@@ -12,7 +12,7 @@ node src/generate.ts --mode dark --terminal-bg '#1e1e2e'   # against another ter
 ## Inputs
 
 - **`contrast-requirements.json`**: each rule says `token` must reach at least a minimum on each of its `backgrounds` (`background` is the terminal background). Minimums are given per mode as `{"wcag": ratio, "perceptual": contrast}` under `dark` and/or `light`; a missing mode uses the other's. Perceptual contrast needs different light-mode values for the same perceived weight, so most rules set both. Optional: `targets` (limit to `current` or `extended`), `note`. `proposed` lists tokens Pi does not support yet, with the token Pi renders instead.
-- **`theme-recipe.json`**: the terminal background for each mode (dark: Ghostty's default `#282c34`; light: a hypothetical `#f7f6f6`), OKHSL color families (hue and saturation range; saturation peaks at mid lightness, as in `../design-tokens`), and which family each token uses.
+- **`theme-recipe.json`**: the terminal background for each mode (dark: Ghostty's default `#282c34`; light: a hypothetical `#f7f6f6`), OKHSL color families (hue and saturation range; saturation peaks at mid lightness, as in `../design-tokens`), which family each token uses, and `ansiSlots`: the ANSI palette slot each family (or single token) takes its hue and saturation from when generating from a terminal palette, like Pi's `system` theme.
 
 ## How colors are computed
 
@@ -38,9 +38,10 @@ The generated files are symlinked into `~/.pi/agent/themes/`; select them in `/s
 npm run web          # dev server
 npm run web:build    # single file: web/dist/index.html
 npm run web:artifact # multi-file build for the Radius artifact
+npm run web:ghostty-themes # refresh web/src/ghostty-themes.json from the installed Ghostty
 ```
 
-A Vite + React app that runs the generator in the browser: a catalog of Pi's UI elements and an interactive session, with a background picker (dark or light chosen by perceptual contrast), WCAG or perceptual contrast, Pi's built-in theme (`npm run web:pi-themes` copies it from `../pi`) versus the proposed theme, and a family editor. Published (organization only): https://radius.earendil.com/artifact/01m39x8k02f4t9mzehw18y4zt6
+A Vite + React app that runs the generator in the browser: a catalog of Pi's UI elements and an interactive session, with a terminal theme picker (Ghostty's 463 bundled themes, its default first), a background picker (dark or light chosen by perceptual contrast), hues from the terminal palette (Pi's `system` theme) or the recipe (Pi's `dark`/`light`), WCAG or perceptual contrast, Pi's built-in theme (`npm run web:pi-themes` copies it from `../pi`) versus the proposed theme, and a family editor. Published (organization only): https://radius.earendil.com/artifact/01m39x8k02f4t9mzehw18y4zt6
 
 ## Code
 

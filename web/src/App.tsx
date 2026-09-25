@@ -9,7 +9,15 @@ import { CatalogView } from "./CatalogView.tsx";
 import { handleKey, initialSession, type SessionState } from "./session-state.ts";
 import { SessionView } from "./SessionView.tsx";
 import { TermContext } from "./term.tsx";
-import { BASE_RECIPE, DEFAULT_BACKGROUND, runEngine, type ThemeOutput, type Variant } from "./theme-engine.ts";
+import {
+  BASE_RECIPE,
+  DEFAULT_BACKGROUND,
+  runEngine,
+  TERMINAL_THEMES,
+  type HueSource,
+  type ThemeOutput,
+  type Variant,
+} from "./theme-engine.ts";
 
 /** Which content the terminal shows. */
 type View = "catalog" | "session";
@@ -142,8 +150,11 @@ export function App() {
   const [view, setView] = useState<View>("catalog");
   const [compare, setCompare] = useState<Compare>("proposed");
   const [algorithm, setAlgorithm] = useState<Algorithm>("wcag");
-  const [background, setBackground] = useState(DEFAULT_BACKGROUND.dark);
-  const [backgroundText, setBackgroundText] = useState(DEFAULT_BACKGROUND.dark);
+  const [terminalIndex, setTerminalIndex] = useState(0);
+  const terminalTheme = TERMINAL_THEMES[terminalIndex];
+  const [background, setBackground] = useState(terminalTheme.background);
+  const [backgroundText, setBackgroundText] = useState(terminalTheme.background);
+  const [hues, setHues] = useState<HueSource>("palette");
   const [recipe, setRecipe] = useState<ThemeRecipe>(BASE_RECIPE);
   const [advanced, setAdvanced] = useState(false);
   const [session, setSession] = useState<SessionState>(initialSession);
@@ -151,11 +162,20 @@ export function App() {
   // Generating runs the solver twice; defer so dragging sliders stays responsive.
   const deferredBackground = useDeferredValue(background);
   const deferredRecipe = useDeferredValue(recipe);
-  const engine = useMemo(() => runEngine(deferredBackground, algorithm, deferredRecipe), [deferredBackground, algorithm, deferredRecipe]);
+  const engine = useMemo(
+    () => runEngine({ ...terminalTheme, background: deferredBackground }, algorithm, deferredRecipe, hues),
+    [terminalTheme, deferredBackground, algorithm, deferredRecipe, hues],
+  );
 
   const applyBackground = (value: string) => {
     setBackgroundText(value);
     if (HEX.test(value)) setBackground(value.toLowerCase());
+  };
+  /** Select a terminal theme: its background and palette. */
+  const selectTerminal = (index: number) => {
+    const next = (index + TERMINAL_THEMES.length) % TERMINAL_THEMES.length;
+    setTerminalIndex(next);
+    applyBackground(TERMINAL_THEMES[next].background);
   };
 
   useEffect(() => {
@@ -184,12 +204,28 @@ export function App() {
           <label><input type="radio" checked={view === "session"} onChange={() => setView("session")} /> Session</label>
         </fieldset>
         <fieldset>
+          <legend>Terminal theme</legend>
+          <button type="button" title="Previous theme" onClick={() => selectTerminal(terminalIndex - 1)}>◀</button>
+          <select value={terminalIndex} onChange={(e) => selectTerminal(Number(e.target.value))}>
+            {TERMINAL_THEMES.map((theme, index) => <option key={theme.name} value={index}>{theme.name}</option>)}
+          </select>
+          <button type="button" title="Next theme" onClick={() => selectTerminal(terminalIndex + 1)}>▶</button>
+          <span className="swatches" title="ANSI colors 0-15">
+            {terminalTheme.palette.map((color, index) => <span key={index} style={{ background: color }} title={`${index}: ${color}`} />)}
+          </span>
+        </fieldset>
+        <fieldset>
           <legend>Terminal background</legend>
           <input type="color" value={background} onChange={(e) => applyBackground(e.target.value)} />
           <input type="text" size={8} value={backgroundText} onChange={(e) => applyBackground(e.target.value)} />
-          <button type="button" onClick={() => applyBackground(DEFAULT_BACKGROUND.dark)}>Reset dark</button>
-          <button type="button" onClick={() => applyBackground(DEFAULT_BACKGROUND.light)}>Reset light</button>
+          <button type="button" onClick={() => applyBackground(terminalTheme.background)}>Reset</button>
+          <button type="button" onClick={() => applyBackground(DEFAULT_BACKGROUND.light)}>Light</button>
           {"mode" in engine && engine.mode && <span className="mode">→ {engine.mode} theme (auto: higher perceptual contrast)</span>}
+        </fieldset>
+        <fieldset>
+          <legend>Hues</legend>
+          <label title="Pi's system theme: hue and saturation from the terminal's ANSI palette"><input type="radio" checked={hues === "palette"} onChange={() => setHues("palette")} /> Terminal palette</label>
+          <label title="Pi's dark/light themes: hue and saturation from the recipe's color families"><input type="radio" checked={hues === "recipe"} onChange={() => setHues("recipe")} /> Recipe</label>
         </fieldset>
         <fieldset>
           <legend>Contrast</legend>

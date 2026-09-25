@@ -62,6 +62,20 @@ const LAB_TO_LMS: Matrix = [
   [1, -0.0894841775298119, -1.2914855480194092],
 ];
 
+/** Linear sRGB to LMS. */
+const LINEAR_SRGB_TO_LMS: Matrix = [
+  [0.4122214694707629, 0.5363325372617349, 0.0514459932675022],
+  [0.2119034958178251, 0.6806995506452344, 0.1073969535369405],
+  [0.0883024591900564, 0.2817188391361215, 0.6299787016738222],
+];
+
+/** Cube-root LMS to Oklab. */
+const LMS_TO_LAB: Matrix = [
+  [0.210454268309314, 0.793617774702305, -0.0040720430116193],
+  [1.9779985324311684, -2.42859224204858, 0.450593709617411],
+  [0.0259040424655478, 0.7827717124575296, -0.8086757549230774],
+];
+
 /** LMS to linear sRGB. */
 const LMS_TO_LINEAR_SRGB: Matrix = [
   [4.0767416360759583, -3.3077115392580629, 0.2309699031821043],
@@ -208,6 +222,26 @@ function midSt(a: number, b: number): [number, number] {
 }
 
 /**
+ * OKHSL's chroma reference points at a lightness and hue: the chroma at low saturation
+ * (`c0`), at saturation 0.8 (`cMid`), and at the gamut edge (`cMax`).
+ *
+ * @param L - Oklab lightness.
+ * @param a - Normalized hue direction, a component.
+ * @param b - Normalized hue direction, b component.
+ * @returns `[c0, cMid, cMax]`.
+ */
+function chromaStops(L: number, a: number, b: number): [number, number, number] {
+  const peak = cusp(a, b);
+  const cMax = maxChroma(a, b, L, peak);
+  const [cuspS, cuspT] = [peak[1] / peak[0], peak[1] / (1 - peak[0])];
+  const k = cMax / Math.min(L * cuspS, (1 - L) * cuspT);
+  const [midS, midT] = midSt(a, b);
+  const cMid = 0.9 * k * Math.sqrt(Math.sqrt(1 / (1 / (L * midS) ** 4 + 1 / ((1 - L) * midT) ** 4)));
+  const c0 = Math.sqrt(1 / (1 / (L * 0.4) ** 2 + 1 / ((1 - L) * 0.8) ** 2));
+  return [c0, cMid, cMax];
+}
+
+/**
  * Convert OKHSL to Oklab.
  *
  * @param hue - Hue in degrees.
@@ -222,13 +256,7 @@ function okhslToOklab(hue: number, saturation: number, lightness: number): Vecto
   const angle = (2 * Math.PI * (((hue % 360) + 360) % 360)) / 360;
   const a = Math.cos(angle);
   const b = Math.sin(angle);
-  const peak = cusp(a, b);
-  const cMax = maxChroma(a, b, L, peak);
-  const [cuspS, cuspT] = [peak[1] / peak[0], peak[1] / (1 - peak[0])];
-  const k = cMax / Math.min(L * cuspS, (1 - L) * cuspT);
-  const [midS, midT] = midSt(a, b);
-  const cMid = 0.9 * k * Math.sqrt(Math.sqrt(1 / (1 / (L * midS) ** 4 + 1 / ((1 - L) * midT) ** 4)));
-  const c0 = Math.sqrt(1 / (1 / (L * 0.4) ** 2 + 1 / ((1 - L) * 0.8) ** 2));
+  const [c0, cMid, cMax] = chromaStops(L, a, b);
 
   // Chroma rises from 0 through cMid at s = 0.8 to cMax at s = 1.
   let chroma: number;
@@ -271,6 +299,33 @@ const decode = (value: number): number => (value <= 0.04045 ? value / 12.92 : ((
 export function okhslToHex(hue: number, saturation: number, lightness: number): string {
   const rgb = oklabToLinearSrgb(okhslToOklab(hue, saturation, lightness));
   return `#${rgb.map((value) => Math.round(Math.min(1, Math.max(0, encode(value))) * 255).toString(16).padStart(2, "0")).join("")}`;
+}
+
+/**
+ * Read a hex color's OKHSL hue and saturation.
+ *
+ * @param hex - A `#rrggbb` color.
+ * @returns Hue in degrees (0 for grays) and saturation, 0-1.
+ */
+export function hexToOkhsl(hex: string): { hue: number; saturation: number } {
+  const lms = multiply(LINEAR_SRGB_TO_LMS, channels(hex).map(decode) as Vector).map(Math.cbrt) as Vector;
+  const [L, labA, labB] = multiply(LMS_TO_LAB, lms);
+  const chroma = Math.hypot(labA, labB);
+  const lightness = toe(L);
+  if (chroma < 1e-9 || lightness <= 0 || lightness >= 1) return { hue: 0, saturation: 0 };
+
+  const hue = ((Math.atan2(labB, labA) * 180) / Math.PI + 360) % 360;
+  const [c0, cMid, cMax] = chromaStops(L, labA / chroma, labB / chroma);
+  let saturation: number;
+  if (chroma < cMid) {
+    const k1 = 0.8 * c0;
+    saturation = 0.8 * (chroma / (k1 + (1 - k1 / cMid) * chroma));
+  } else {
+    const k1 = (0.2 * cMid ** 2 * 1.25 ** 2) / c0;
+    const offset = chroma - cMid;
+    saturation = 0.8 + 0.2 * (offset / (k1 + (1 - k1 / (cMax - cMid)) * offset));
+  }
+  return { hue, saturation: Math.min(1, Math.max(0, saturation)) };
 }
 
 // ---------------------------------------------------------------- color families

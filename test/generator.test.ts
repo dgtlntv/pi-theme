@@ -6,7 +6,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { perceptualContrast, contrast, luminance, normalizeHex, okhslToHex } from "../src/color.ts";
+import { contrast, hexToOkhsl, luminance, normalizeHex, okhslToHex, perceptualContrast } from "../src/color.ts";
 import { contractPairs, emittedTokens, validateContract } from "../src/contract.ts";
 import { generateTheme } from "../src/solve.ts";
 import type { Algorithm, ContrastContract, Mode, Target, ThemeRecipe } from "../src/types.ts";
@@ -180,4 +180,16 @@ test("recipe validation requires a family for every token", () => {
   const badFamily = clone(recipe);
   badFamily.families.neutral.saturation.max = 2;
   assert.throws(() => generateTheme(badFamily, contract, "wcag", "dark", "current"), /Invalid family/);
+});
+
+test("a terminal palette supplies hue and saturation through the recipe's ANSI slots", () => {
+  const palette = ["#1d1f21", "#cc6666", "#b5bd68", "#f0c674", "#81a2be", "#b294bb", "#8abeb7", "#c5c8c6", "#666666", "#d54e53", "#b9ca4a", "#e7c547", "#7aa6da", "#c397d8", "#70c0b1", "#eaeaea"];
+  const { theme } = generateTheme(recipe, contract, "perceptual", "dark", "extended", undefined, palette);
+  const hueDistance = (a: number, b: number) => Math.min(Math.abs(a - b), 360 - Math.abs(a - b));
+  for (const [token, slot] of [["error", 1], ["success", 2], ["syntaxString", 2], ["syntaxNumber", 5], ["searchMatchBg", 3], ["thinkingMax", 1]] as const) {
+    assert.ok(hueDistance(hexToOkhsl(theme.colors[token]).hue, hexToOkhsl(palette[slot]).hue) < 8, token);
+  }
+  // Bright black (slot 8) is gray, so neutral text is gray.
+  assert.match(theme.colors.text, /^#([0-9a-f]{2})\1\1$/);
+  assert.throws(() => generateTheme(recipe, contract, "perceptual", "dark", "extended", undefined, palette.slice(0, 8)), /16 colors/);
 });

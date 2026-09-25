@@ -145,5 +145,12 @@ export function validateRecipe(recipe: ThemeRecipe, contract: ContrastContract):
   }
   const missing = tokens.filter((token) => !families[token]);
   if (missing.length) throw new Error(`Tokens without a family: ${missing}`);
+
+  const { families: familySlots = {}, tokens: tokenSlots = {} } = recipe.ansiSlots ?? {};
+  for (const slot of [...Object.values(familySlots), ...Object.values(tokenSlots)]) {
+    if (!Number.isInteger(slot) || slot < 0 || slot > 15) throw new Error(`Invalid ANSI slot ${slot}: expected 0-15`);
+  }
+  const unslotted = tokens.filter((token) => tokenSlots[token] === undefined && familySlots[families[token]] === undefined);
+  if (unslotted.length) throw new Error(`Tokens without an ANSI slot: ${unslotted}`);
   return families;
 }
