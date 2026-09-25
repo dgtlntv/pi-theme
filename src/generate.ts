@@ -12,15 +12,24 @@ import { TARGETS, type ContrastContract, type Mode, type ThemeRecipe } from "./t
 const root = resolve(import.meta.dirname, "..");
 const readJson = <T>(name: string): T => JSON.parse(readFileSync(resolve(root, name), "utf8")) as T;
 
+const fail = (message: string): never => {
+  console.error(message);
+  process.exit(1);
+};
 const { values } = parseArgs({ options: { mode: { type: "string" }, "terminal-bg": { type: "string" } } });
-if (values.mode !== undefined && values.mode !== "dark" && values.mode !== "light") throw new Error("--mode must be dark or light");
-if (values["terminal-bg"] && !values.mode) throw new Error("--terminal-bg needs --mode dark or light");
-const modes: Mode[] = values.mode ? [values.mode] : ["dark", "light"];
+if (values.mode !== undefined && values.mode !== "dark" && values.mode !== "light") fail("--mode must be dark or light");
+if (values["terminal-bg"] && !values.mode) fail("--terminal-bg needs --mode dark or light");
+const modes: Mode[] = values.mode ? [values.mode as Mode] : ["dark", "light"];
 
 const recipe = readJson<ThemeRecipe>("theme-recipe.json");
 const wcag = readJson<ContrastContract>("contrast-requirements.json");
-const results = [wcag, deriveApcaContract(recipe, wcag)].flatMap((contract) => TARGETS.flatMap((target) =>
-  modes.map((mode) => generateTheme(recipe, contract, mode, target, values["terminal-bg"]))));
+let results;
+try {
+  results = [wcag, deriveApcaContract(recipe, wcag)].flatMap((contract) => TARGETS.flatMap((target) =>
+    modes.map((mode) => generateTheme(recipe, contract, mode, target, values["terminal-bg"]))));
+} catch (error) {
+  results = fail(error instanceof Error ? error.message : String(error));
+}
 
 const out = resolve(root, "generated");
 mkdirSync(out, { recursive: true });
