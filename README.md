@@ -44,7 +44,7 @@ A Vite + React app that runs the generator in the browser: a catalog of Pi's UI 
 
 ## Code
 
-- `src/color.ts`: OKHSL to sRGB, WCAG 2 and perceptual contrast, and their inverses. The perceptual formula is adapted from perceptual-contrast-palette, with changes (an optional low clip), so it makes no conformance claim.
+- `src/color.ts`: OKHSL to sRGB, WCAG 2 and perceptual contrast, and their inverses.
 - `src/contract.ts`: validate the contract and recipe; expand rules into pairs per algorithm, target, and mode.
 - `src/solve.ts`: compute colors, relax impossible backgrounds, build themes.
 - `src/generate.ts`: CLI.

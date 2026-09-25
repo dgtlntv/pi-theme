@@ -1,9 +1,8 @@
 /**
  * Color math: OKHSL to sRGB, WCAG 2 and perceptual contrast, and their inverses.
  *
- * Formulas: OKHSL and Oklab by Björn Ottosson (constants as in Color.js), WCAG 2.1,
- * and a perceptual contrast formula adapted from perceptual-contrast-palette (with an
- * optional low clip). Inverse contrast follows wcag-contrast-palette and
+ * Formulas: OKHSL and Oklab by Björn Ottosson (constants as in Color.js), WCAG 2.1, and
+ * perceptual contrast. Inverse contrast follows wcag-contrast-palette and
  * perceptual-contrast-palette.
  *
  * @module
@@ -374,7 +373,7 @@ export function screenLuminance(hex: string): number {
 const clampBlack = (y: number): number => (y >= PERCEPTUAL.blkThrs ? y : y + (PERCEPTUAL.blkThrs - y) ** PERCEPTUAL.blkClmp);
 
 /**
- * Undo the black soft clamp (from perceptual-contrast-palette).
+ * Undo the black soft clamp.
  *
  * @param y - Clamped luminance.
  * @returns The screen luminance; NaN stays NaN.
